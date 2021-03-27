@@ -7,10 +7,7 @@ As the Milestone 4 Project for Code Institute's Full Stack Software Development 
 
 ## UX
 
-The main goal of this software is to provide an online marketplace for artwork sellers and buyers. The main goal of Hue, the business, is to boost revenue by selling subscriptions to artists.
-
-
-The target market for Hue is artists that want to display & sell their artwork digitally. The 
+The main goal of Hue is to boost revenue by selling subscriptions to their target market of artists that want to display & sell their work online.              
 
 Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
 
