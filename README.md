@@ -1,18 +1,24 @@
 # Hue
 
-This full-stack application was developed for Hue, a fictional marketplace where artists can showcase and sell their artwork.
+This full-stack application was developed for Hue, a fictional online art gallery where artists can showcase and sell their artwork.
 
 As the Milestone 4 Project for Code Institute's Full Stack Software Development Program, Hue was built with HTML, CSS, JavaScript, Python and Django.
 
-
 ## UX
 
-The main goal of Hue is to boost revenue by selling subscriptions to their target market of artists that want to display & sell their work online.              
+The main goal of Hue is to boost revenue by selling subscriptions. Hue's target market is comprised of male & female artists (ages 25-34) that want to display & sell their work online. 
 
-Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
+User stories were created by the [developer](https://www.github.com/alissatroiano) during the planning phase of this project and were used to help guide the wireframing process:
 
-In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
-- As a user type, I want to perform an action, so that I can achieve a goal.
+- As a user, I want to be able to view subscription details & prices, so I can decide whether or not I should subscribe.
+
+- As a user, I want to be able to register, so that I can have an account.
+
+- As a subscriber, I want to be able to create new gallery posts, so that I can display my artwork.
+
+- As a subscriber, I want to be able to reset my password, so I can regain access to my account.
+
+- As a subscriber, I want to be able to add, edit or remove payment methods, so that I can manage my subscription.
 
 This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included as a pdf file in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
 
