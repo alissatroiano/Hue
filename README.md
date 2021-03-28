@@ -10,19 +10,25 @@ The main goal of Hue is to boost revenue by selling subscriptions. Hue's target 
 
 User stories were created by the [developer](https://www.github.com/alissatroiano) during the planning phase of this project and were used to help guide the wireframing process:
 
-- As a user, I want to be able to view subscription details, so I can learn more about the service.
-
-- As a user, I want to be able to view subscription plans & prices, so I can decide whether or not I can afford the service.
-
-- As a user, I want to be able to register, so that I can have an account.
-
-- As a subscriber, I want to be able to add, edit and delete gallery posts, so I can display my best work to viewers.
-
-- As a subscriber, I want to be able to reset my password, so I can regain access to my account.
-
-- As a subscriber, I want to be able to manage payment methods, so that I can pay for my subscription.
-
-This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included as a pdf file in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
+> As a potential subscriber, I want to easily access Hue's 'About' section, so I can learn more about the service.
+>>
+> As a potential subscriber, I want to be able to view plan details, so that I can choose the most feasible plan.
+>>
+> As a potential subscriber, I want to be able to view subscription pricing, so that I can decide whether or not I can afford the service.
+>>
+> As a new user, I want to be able to register, so that I can have an account.
+>>
+> As a registered user, I want to log in with ease, so I can acces & use the service.
+>>
+> As a registered user, I want to be able to reset my password, so I can recover my password.
+>>
+> As a registered user, I want to be able to view my plan details in my profile, so that I can manage my subscription.
+>>
+> As a subscriber, I want to be able to add, edit and delete gallery posts, so I can display my best work to viewers.
+>>
+> As a subscriber, I want to be able to reset my password, so I can regain access to my account.
+>>
+> As a subscriber, I want to be able to manage payment methods, so that I can pay for my subscription.
 
 ## Features
 
