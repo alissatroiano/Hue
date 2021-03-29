@@ -6,7 +6,18 @@ As the Milestone 4 Project for Code Institute's Full Stack Software Development 
 
 ## UX
 
-The main goal of Hue is to boost revenue by selling subscriptions. Hue's target market is comprised of male & female artists (ages 25-34) that want to display & sell their work online. 
+The main goal of Hue is to boost revenue by selling subscriptions. Hue's target market is comprised of male & female artists (ages 25-34) that4 want to display & sell their work online.
+
+During the, "strategy plane" portion of this project the developer came to the following conclusions:
+
+- Hue should be built for two different types of users:
+    1) Primary User (aka "The Subscriber")
+        - Hue's target market of artists
+
+    2) Secondary User
+        - Fans of art that want to visit the gallery and view artist submissions
+
+planning out this application, I 
 
 User stories were created by the [developer](https://www.github.com/alissatroiano) during the planning phase of this project. As practiced in agile development, each user story coincides with a feature of the Hue application and will be accomplished in one sprint.
 
@@ -32,7 +43,9 @@ User stories were created by the [developer](https://www.github.com/alissatroian
 >>
 > As a user, I want to be able to edit my submissions, so that I can update my showcased work. 
 >>
-> As a user, I want to be able to delete my submissions, so that I can remove them from the gallery.
+> As a user, I want to be able to delete, so that I can remove submissions from the gallery.
+>>
+> As a shopper, I want to be able to search artwork, so that I can find the item I want to purchase.
 >>
 
 ## Features
