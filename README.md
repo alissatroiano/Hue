@@ -1,8 +1,8 @@
 # Hue
 
-This full-stack application was developed for Hue, a fictional online art gallery where artists can showcase and sell their artwork.
+This full-stack application was developed for Hue, a fictional online art gallery where artists can showcase and sell their artwork online.
 
-As the Milestone 4 Project for Code Institute's Full Stack Software Development Program, Hue was built with HTML, CSS, JavaScript, Python and Django.
+As the Milestone 4 Project for [Code Institute's](https://codeinstitute.net) [Full Stack Software Development Diploma Program](https://codeinstitute.net/full-stack-software-development-diploma/), Hue was built with HTML, CSS, JavaScript, Python, and Django.
 
 ## UX
 
@@ -11,13 +11,15 @@ The main goal of Hue is to boost revenue by selling subscriptions. Hue's target 
 During the research & planning phase of this milestone project the developer came to the following conclusions:
 
 - Hue should be built for **two** different types of users:
-    1) Primary User (aka "The Subscriber")
-        - Hue's target market of artists
+ 1) Primary User (aka "The Subscriber")
+ - Hue's target market of artists that wish to:
+    - Display artwork in the gallery
+    - Sell artwork
 
-    2) Secondary User
-        - Fans of art that want to visit the gallery and view artist submissions
-
-planning out this application, I 
+ 2) Secondary User
+ - Fans of art that want to:
+    - Visit the gallery and view artist submissions
+    - Purchase artwork
 
 User stories were created by the [developer](https://www.github.com/alissatroiano) during the planning phase of this project. As practiced in agile development, each user story coincides with a feature of the Hue application and will be accomplished in one sprint.
 
@@ -66,10 +68,10 @@ In addition, you may also use this section to discuss plans for additional featu
 ## Technologies Used
 
 - [Django](https://www.djangoproject.com/)
-    - The project uses **Django** to simplify development and scalability.
+ - The project uses **Django** to simplify development and scalability.
 
 - [JQuery](https://jquery.com)
-    - The project uses **JQuery** to simplify DOM manipulation.
+ - The project uses **JQuery** to simplify DOM manipulation.
 
 
 ## Testing
@@ -81,10 +83,10 @@ Whenever it is feasible, prefer to automate your tests, and if you've done so, p
 For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
 
 1. Contact form:
-    1. Go to the "Contact Us" page
-    2. Try to submit the empty form and verify that an error message about the required fields appears
-    3. Try to submit the form with an invalid email address and verify that a relevant error message appears
-    4. Try to submit the form with all inputs valid and verify that a success message appears.
+ 1. Go to the "Contact Us" page
+ 2. Try to submit the empty form and verify that an error message about the required fields appears
+ 3. Try to submit the form with an invalid email address and verify that a relevant error message appears
+ 4. Try to submit the form with all inputs valid and verify that a success message appears.
 
 In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
 
@@ -124,16 +126,16 @@ In addition, if it is not obvious, you should also describe how to run your code
 
 - I learned about writing user stories for multiple end users by reading the following articles:
 
-    - "User Stories with Examples and Template" from [Atlassian](https://www.atlassian.com/agile/project-management/user-stories)
+ - "User Stories with Examples and Template" from [Atlassian](https://www.atlassian.com/agile/project-management/user-stories)
 
-    - "User Stories and User Stories Examples", [Knowledge Hut](https://www.knowledgehut.com/blog/agile/user-stories-examples)
+ - "User Stories and User Stories Examples", [Knowledge Hut](https://www.knowledgehut.com/blog/agile/user-stories-examples)
 
 - I learned how to make user stories that capture feature requirements from:
 
-    - [Code Insitute]()
+ - [Code Insitute]()
 
-    - [Knowledge Hut](https://www.knowledgehut.com/blog/agile/user-stories-examples)
+ - [Knowledge Hut](https://www.knowledgehut.com/blog/agile/user-stories-examples)
 
 - I learned about different target markets by reading:
 
-    - [Marketing Artfully][https://marketingartfully.com/customer-demographics-age-demographics-for-advertising/]
+ - [Marketing Artfully][https://marketingartfully.com/customer-demographics-age-demographics-for-advertising/]
