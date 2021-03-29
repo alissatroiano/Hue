@@ -120,3 +120,7 @@ In addition, if it is not obvious, you should also describe how to run your code
     - [Code Insitute]()
 
     - [Knowledge Hut](https://www.knowledgehut.com/blog/agile/user-stories-examples)
+
+- I learned about different target markets by reading:
+
+    - [Marketing Artfully][https://marketingartfully.com/customer-demographics-age-demographics-for-advertising/]
