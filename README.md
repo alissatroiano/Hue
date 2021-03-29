@@ -10,13 +10,13 @@ The main goal of Hue is to boost revenue by selling subscriptions. Hue's target 
 
 User stories were created by the [developer](https://www.github.com/alissatroiano) during the planning phase of this project. As practiced in agile development, each user story coincides with a feature of the Hue application and will be accomplished in one sprint.
 
-> As a potential subscriber, I want to be able to visit the 'About' page, so that I can learn more about the service.
+> As a potential user, I want to be able to visit the 'About' page, so that I can learn more about the service.
 >>
-> As a potential subscriber, I want to be able to find information about different gallery memberships, so that I can determine the best option for me.
+> As a potential user, I want to be able to find information about different gallery memberships, so that I can determine the best option for me.
 >>
-> As a potential subscriber, I want to be able to view subscription pricing, so that I can decide whether or not I can afford the service.
+> As a potential user, I want to be able to view subscription pricing, so that I can decide whether or not I can afford the service.
 >>
-> As a new user, I want to be able to select a plan, so I can checkout.
+> As a new user, I want to be able to select a plan, so I can purchase the plan I want.
 >>
 > As a new user, I want to be able to register & checkout in less than 3 clicks, so that I can activate my subscription.
 >>
@@ -24,13 +24,16 @@ User stories were created by the [developer](https://www.github.com/alissatroian
 >>
 > As a registered user, I want to be able to reset my password, so that I can regain access to my account.
 >>
+> As a registered user, I want to be able to logout, so that I can leave the application.
+>>
 > As a registered user, I want to be able to view my plan details in my profile, so that I can manage my subscription.
 >>
-> As a subscriber, I want to be able to easily create new submissions, so I can display my work in the gallery.
+> As a user, I want to be able to easily create new submissions, so I can display my work in the gallery.
 >>
-> As a subscriber, I want to be able to edit my submissions, so that I can update my showcased work. 
+> As a user, I want to be able to edit my submissions, so that I can update my showcased work. 
 >>
-> As a subscriber, I want to be able to delete my submissions, so that I can remove them from the gallery.
+> As a user, I want to be able to delete my submissions, so that I can remove them from the gallery.
+>>
 
 ## Features
 
