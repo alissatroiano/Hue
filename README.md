@@ -6,11 +6,11 @@ As the Milestone 4 Project for Code Institute's Full Stack Software Development 
 
 ## UX
 
-The main goal of Hue is to boost revenue by selling subscriptions. Hue's target market is comprised of male & female artists (ages 25-34) that4 want to display & sell their work online.
+The main goal of Hue is to boost revenue by selling subscriptions. Hue's target market is comprised of male & female artists (ages 25-34) that want to display & sell their work online.
 
-During the, "strategy plane" portion of this project the developer came to the following conclusions:
+During the research & planning phase of this milestone project the developer came to the following conclusions:
 
-- Hue should be built for two different types of users:
+- Hue should be built for **two** different types of users:
     1) Primary User (aka "The Subscriber")
         - Hue's target market of artists
 
