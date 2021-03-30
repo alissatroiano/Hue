@@ -6,7 +6,11 @@ As the Milestone 4 Project for [Code Institute's](https://codeinstitute.net) [Fu
 
 ## UX
 
+### Summary
+
 The main goal of Hue is to boost revenue by selling subscriptions. Hue's target market is comprised of male & female artists (ages 25-34) that want to display & sell their work online.
+
+### Research & Planning
 
 During the research & planning phase of this milestone project the developer came to the following conclusions:
 
@@ -21,34 +25,44 @@ During the research & planning phase of this milestone project the developer cam
     - Visit the gallery and view artist submissions
     - Purchase artwork
 
+### User Stories
+
 User stories were created by the [developer](https://www.github.com/alissatroiano) during the planning phase of this project. As practiced in agile development, each user story coincides with a feature of the Hue application and will be accomplished in one sprint.
 
-> As a potential user, I want to be able to visit the 'About' page, so that I can learn more about the service.
+#### The following user stories were created for the **primary user**:
+
+> As a new user, I want to be able to visit the 'About' page, so that I can learn more about the service.
 >>
-> As a potential user, I want to be able to find information about different gallery memberships, so that I can determine the best option for me.
+> As a new user, I want to be able to find membership information quickly, so that I can learn about Hue's plans.
 >>
-> As a potential user, I want to be able to view subscription pricing, so that I can decide whether or not I can afford the service.
+> As a new user, I want to be able to see membership prices & details, so that I can learn how much it costs.
 >>
-> As a new user, I want to be able to select a plan, so I can purchase the plan I want.
+> As a new user, I want to be able to quickly find the 'Sign Up' button, so that I can register for the service.
 >>
-> As a new user, I want to be able to register & checkout in less than 3 clicks, so that I can activate my subscription.
+> As a new user, I want to be able to select a plan, so that I can purchase a membership.
 >>
-> As a registered user, I want to login with ease, so that I can acces & use the service.
+> As a new user, I want to be able to checkout, so that I can activate my subscription.
 >>
-> As a registered user, I want to be able to reset my password, so that I can regain access to my account.
+>>
+> As a registered user, I want to login to the application, so I can use my membership.
+>>
+> As a registered user, I want to be able to reset my password, so that I can recover my account.
 >>
 > As a registered user, I want to be able to logout, so that I can leave the application.
 >>
 > As a registered user, I want to be able to view my plan details in my profile, so that I can manage my subscription.
 >>
-> As a user, I want to be able to easily create new submissions, so I can display my work in the gallery.
+> As a user, I want to be able to easily create new submissions, so that I can display my work in the gallery.
 >>
 > As a user, I want to be able to edit my submissions, so that I can update my showcased work. 
 >>
 > As a user, I want to be able to delete, so that I can remove submissions from the gallery.
 >>
-> As a shopper, I want to be able to search artwork, so that I can find the item I want to purchase.
+> As a viewer, I want to be able to search, so that I can find artwork.
 >>
+> As a viewer, I want to be able to sort & filter, so that I can narrow down my search results.
+>>
+> As a viewer, I want to be able to 
 
 ## Features
 
@@ -109,13 +123,13 @@ In addition, if it is not obvious, you should also describe how to run your code
 ## Credits
 
 ### Content
-- The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
+- The artwork categories in the database and application were copied from [Architecure Lab article "15 Types of Digital Art to Consider"](https://www.architecturelab.net/types-of-digital-art/)
 
 ### Media
 - The photos used in this site were obtained from ...
 
 ### Backend Functionality
-- The code used to manage user permissions was copied from [Real Python](https://realpython.com/manage-users-in-django-admin/#implement-custom-business-roles-in-django-admin).
+- The code used to manage user permissions was copied from [Real Python article "What You Need to Know to Manage Users in Django Admin"](https://realpython.com/manage-users-in-django-admin/#implement-custom-business-roles-in-django-admin).
 
 - 
 
@@ -126,16 +140,16 @@ In addition, if it is not obvious, you should also describe how to run your code
 
 - I learned about writing user stories for multiple end users by reading the following articles:
 
- - "User Stories with Examples and Template" from [Atlassian](https://www.atlassian.com/agile/project-management/user-stories)
+ - "User Stories with Examples and Template" from [Atlassian article "User Stories with Examples and Template"](https://www.atlassian.com/agile/project-management/user-stories)
 
- - "User Stories and User Stories Examples", [Knowledge Hut](https://www.knowledgehut.com/blog/agile/user-stories-examples)
+ - "User Stories and User Stories Examples", [Knowledge Hut article "User Stories and User Stories Examples](https://www.knowledgehut.com/blog/agile/user-stories-examples)
 
 - I learned how to make user stories that capture feature requirements from:
 
  - [Code Insitute]()
 
- - [Knowledge Hut](https://www.knowledgehut.com/blog/agile/user-stories-examples)
+ - [Knowledge Hut article "User Stories and User Stories Examples"](https://www.knowledgehut.com/blog/agile/user-stories-examples)
 
 - I learned about different target markets by reading:
 
- - [Marketing Artfully][https://marketingartfully.com/customer-demographics-age-demographics-for-advertising/]
+    - [Marketing Artfully article "Customer Demographics - Age Demographics for Advertising"][https://marketingartfully.com/customer-demographics-age-demographics-for-advertising/]
