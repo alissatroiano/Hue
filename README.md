@@ -52,8 +52,8 @@ In addition, you may also use this section to discuss plans for additional featu
 - [Django](https://www.djangoproject.com/)
  - The project uses **Django** to simplify development and scalability.
 
-- [JQuery](https://jquery.com)
- - The project uses **JQuery** to simplify DOM manipulation.
+- [Django Allauth](https://django-allauth.readthedocs.io/en/latest/installation.html)
+ - The project uses **Allauth** to simplify user authentication.
 
 
 ## Testing

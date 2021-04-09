@@ -1,8 +1,8 @@
 {
-   "python.linting.pylintEnabled": true,
+   "python.linting.pylintEnabled": false,
    "python.linting.enabled": true,
-   "python.linting.pep8Enabled": false,
-   "python.linting.flake8Enabled": true,
+   "python.linting.pep8Enabled": true,
+   "python.linting.flake8Enabled": false,
    "python.terminal.activateEnvironment": false,
    "python.formatting.autopep8Path": "/home/gitpod/.pyenv/shims/autopep8",
    "python.linting.flake8Path": "/home/gitpod/.pyenv/shims/flake8",
@@ -19,5 +19,6 @@
       "**/core.mongo*": true,
       "**/core.python*": true
    },
-   "emmet.extensionsPath": ".theia"
+"emmet.extensionsPath": ".theia",
+"python.pythonPath": "/home/gitpod/.pyenv/versions/3.8.8/bin/python"
 }
