@@ -8,7 +8,7 @@ As the Milestone 4 Project for [Code Institute's](https://codeinstitute.net) [Fu
 
 ### Summary
 
-The main goal of Hue is to boost revenue by selling artwork online. Hue's target market is comprised of male & female shoppers (ages 25-39) that want to view & buy Hues artwork online.
+The main goal of Hue is to boost revenue by selling artwork online. Hue's target market is comprised of male & female shoppers (ages 25-39) that want to view & buy Hue's artwork online.
 
 ### Research & Planning
 
