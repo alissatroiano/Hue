@@ -15,53 +15,22 @@ The main goal of Hue is to boost revenue by selling subscriptions. Hue's target 
 During the research & planning phase of this milestone project the developer came to the following conclusions:
 
 - Hue should be built for **two** different types of users:
- 1) Primary User (aka "The Subscriber")
- - Hue's target market of artists that wish to:
-    - Display artwork in the gallery
+ 1) The Site Owner
+ - Hue, the company, that wants to:
     - Sell artwork
 
- 2) Secondary User
+ 2) The Shopper
  - Fans of art that want to:
-    - Visit the gallery and view artist submissions
     - Purchase artwork
 
 ### User Stories
 
 User stories were created by the [developer](https://www.github.com/alissatroiano) during the planning phase of this project. As practiced in agile development, each user story coincides with a feature of the Hue application and will be accomplished in one sprint.
 
-#### The following user stories were created for the **primary user**:
+#### The following user stories were created for the **shopper**:
 
-> As a new shopper, I want to be able to visit the 'About' page, so that I can learn more about the service.
->>
-> As a new shopper, I want to be able to find membership information quickly, so that I can learn about Hue's plans.
->>
-> As a new shopper, I want to be able to see membership prices & details, so that I can learn how much it costs.
->>
-> As a new shopper, I want to be able to quickly find the 'Sign Up' button, so that I can register for the service.
->>
-> As a new shopper, I want to be able to select a plan, so that I can purchase a membership.
->>
-> As a new shopper, I want to be able to checkout, so that I can activate my subscription.
->>
->>
-> As a registered user, I want to login to the application, so I can access my account.
->>
-> As a registered user, I want to be able to reset my password, so that I can recover my account.
->>
-> As a registered shopper, I want to be able to logout, so that I can leave the application.
->>
-> As a registered user, I want to have a personalized profile, so that I can view my orders & update my account.
->>
-> As a site owner, I want to be able to easily create new products, so that I can display my work in the gallery.
->>
-> As a site owner, I want to be able to edit products, so that I can update my storefront. 
->>
-> As a site owner, I want to be able to delete, so that I can remove products from the gallery.
->>
-> As a shopper, I want to be able to search, so that I can find artwork.
->>
-> As a shopper, I want to be able to sort & filter, so that I can narrow down my search results.
->>
+![Shopper](wireframes/userstories-shopper.png)
+
 
 ## Features
 
