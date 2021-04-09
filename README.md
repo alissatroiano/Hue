@@ -31,38 +31,37 @@ User stories were created by the [developer](https://www.github.com/alissatroian
 
 #### The following user stories were created for the **primary user**:
 
-> As a new user, I want to be able to visit the 'About' page, so that I can learn more about the service.
+> As a new shopper, I want to be able to visit the 'About' page, so that I can learn more about the service.
 >>
-> As a new user, I want to be able to find membership information quickly, so that I can learn about Hue's plans.
+> As a new shopper, I want to be able to find membership information quickly, so that I can learn about Hue's plans.
 >>
-> As a new user, I want to be able to see membership prices & details, so that I can learn how much it costs.
+> As a new shopper, I want to be able to see membership prices & details, so that I can learn how much it costs.
 >>
-> As a new user, I want to be able to quickly find the 'Sign Up' button, so that I can register for the service.
+> As a new shopper, I want to be able to quickly find the 'Sign Up' button, so that I can register for the service.
 >>
-> As a new user, I want to be able to select a plan, so that I can purchase a membership.
+> As a new shopper, I want to be able to select a plan, so that I can purchase a membership.
 >>
-> As a new user, I want to be able to checkout, so that I can activate my subscription.
+> As a new shopper, I want to be able to checkout, so that I can activate my subscription.
 >>
 >>
-> As a registered user, I want to login to the application, so I can use my membership.
+> As a registered user, I want to login to the application, so I can access my account.
 >>
 > As a registered user, I want to be able to reset my password, so that I can recover my account.
 >>
-> As a registered user, I want to be able to logout, so that I can leave the application.
+> As a registered shopper, I want to be able to logout, so that I can leave the application.
 >>
-> As a registered user, I want to be able to view my plan details in my profile, so that I can manage my subscription.
+> As a registered user, I want to have a personalized profile, so that I can view my orders & update my account.
 >>
-> As a user, I want to be able to easily create new submissions, so that I can display my work in the gallery.
+> As a site owner, I want to be able to easily create new products, so that I can display my work in the gallery.
 >>
-> As a user, I want to be able to edit my submissions, so that I can update my showcased work. 
+> As a site owner, I want to be able to edit products, so that I can update my storefront. 
 >>
-> As a user, I want to be able to delete, so that I can remove submissions from the gallery.
+> As a site owner, I want to be able to delete, so that I can remove products from the gallery.
 >>
-> As a viewer, I want to be able to search, so that I can find artwork.
+> As a shopper, I want to be able to search, so that I can find artwork.
 >>
-> As a viewer, I want to be able to sort & filter, so that I can narrow down my search results.
+> As a shopper, I want to be able to sort & filter, so that I can narrow down my search results.
 >>
-> As a viewer, I want to be able to 
 
 ## Features
 
