@@ -1,6 +1,6 @@
 # Hue
 
-This full-stack application was developed for Hue, a fictional online art gallery where artists can showcase and sell their artwork online.
+This full-stack application was developed for Hue, a fictional online art store where shoppers can purchase digital artwork online.
 
 As the Milestone 4 Project for [Code Institute's](https://codeinstitute.net) [Full Stack Software Development Diploma Program](https://codeinstitute.net/full-stack-software-development-diploma/), Hue was built with HTML, CSS, JavaScript, Python, and Django.
 
@@ -8,7 +8,7 @@ As the Milestone 4 Project for [Code Institute's](https://codeinstitute.net) [Fu
 
 ### Summary
 
-The main goal of Hue is to boost revenue by selling subscriptions. Hue's target market is comprised of male & female artists (ages 25-34) that want to display & sell their work online.
+The main goal of Hue is to boost revenue by selling artwork online. Hue's target market is comprised of male & female shoppers (ages 25-39) that want to view & buy Hues artwork online.
 
 ### Research & Planning
 
