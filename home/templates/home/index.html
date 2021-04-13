@@ -1,16 +1,30 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block content %}
-
-<section id="Home">
-    <div class="container-fluid col-sm-12 px-3">
-        <h1>HUE</h1>
-        <p class="lead">Digital Art & Design</p>
-        <p class="lead">
-            <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white" id="cta1">SHOP</a>
-        </p>
+{% block page_header %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col"></div>
     </div>
-</section>
+</div>
+{% endblock %}
 
+{% block content %}
+<!--left aligned hero syntax copied from https://getbootstrap.com/docs/5.0/examples/heroes/-->
+<div class="container col-xxl-8 px-2 py-3">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+        <div class="col-10 col-sm-8 col-lg-6">
+            <img src="https://images.pexels.com/photos/3978855/pexels-photo-3978855.png?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+        </div>
+        <div class="col-lg-6">
+            <h1 class="display-5 fw-bold lh-1 mb-3">HUE</h1>
+            <p class="lead">Digital Art Store</p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">GALLERY</button>
+                <button type="button" class="btn btn-outline-secondary btn-lg px-4">SIGN UP</button>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
