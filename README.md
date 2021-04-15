@@ -2,13 +2,13 @@
 
 This full-stack application was developed for Hue, a digital design agency. The main purpose of Hue's website is to display and sell digital art & services to shoppers. Hue is a fictional company that was created for the purpose of this project.
 
-As the Milestone 4 Project for [Code Institute's](https://codeinstitute.net) [Full Stack Software Development Diploma Program](https://codeinstitute.net/full-stack-software-development-diploma/), Hue was built with HTML, CSS, JavaScript, Python, and Django.
+As the Milestone 4 Project for [Code Institute's](https://codeinstitute.net) [Full Stack Software Development Diploma Program](https://codeinstitute.net/full-stack-software-development-diploma/), Hue was built with HTML, CSS, Bootstrap 5, JavaScript, Python 3, and Django.
 
 ## UX
 
 ### Summary
 
-The main goal of Hue is to boost revenue by selling products & services to customers online. Hue's target market is comprised of male & female shoppers (ages 25-39) that want to view & buy Hue's artwork online.
+The main goal of Hue is to boost revenue by selling products online. Hue also wishes to provide their target market, comprised of male & female shoppers (ages 25-39), with an intuitive, responsive platform where they can preview & purchase digital design products.
 
 ### Research & Planning
 
@@ -16,12 +16,12 @@ During the research & planning phase of this milestone project the developer cam
 
 - Hue should be built for **two** different types of users:
  1) The Site Owner
- - Hue, the company, that wants to:
-    - Sell artwork
+    * Display & sell digital designs to customers.
+    Sell artwork
 
  2) The Shopper
- - Fans of art that want to:
-    - Purchase artwork
+ - New and exisiting customers that want to:
+    * View and purchase digital designs & services.
 
 ### User Stories
 
