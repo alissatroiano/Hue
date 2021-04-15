@@ -12,16 +12,26 @@ The main goal of Hue is to boost revenue by selling products & services to custo
 
 ### Research & Planning
 
-During the research & planning phase of this milestone project the developer came to the following conclusions:
+#### Users
+
+##### Database Design
+During the research & planning phase of this milestone project the developer completed the below flowchart activity, titled "Django Multiple User Types". This activity was conducted to determine how to properly build and implement the django user model.
+
+![Django Multiple User Types](wireframes/djangomultipleusertypes.png)
+[djangomultipleusertypes](wireframes/djangomultipleusertypes.pdf)
+
+As can be seen in the image above, the activty led the developer to make the following conclusions:
+
+- Hue's user authentication model should define a one-to-one relationship, using the [``OneToOneField``](https://docs.djangoproject.com/en/3.1/topics/db/examples/one_to_one/).
 
 - Hue should be built for **two** different types of users:
- 1) The Site Owner
- - Hue, the company, that wants to:
-    - Sell artwork
+     1) The Site Owner
+    - Hue, the company, that wants to:
+        - Sell digital artwork.
 
- 2) The Shopper
- - Fans of art that want to:
-    - Purchase artwork
+    2) The Shopper
+    - Digital art buyers that want to:
+        - Purchase digital artwork from Hue online.
 
 ### User Stories
 
@@ -47,14 +57,23 @@ In addition, you may also use this section to discuss plans for additional featu
 ### Features Left to Implement
 - Another feature idea
 
+## Database
+
+
+
 ## Technologies Used
 
 - [Django](https://www.djangoproject.com/)
  - The project uses **Django** to simplify development and scalability.
 
-- [Django Allauth](https://django-allauth.readthedocs.io/en/latest/installation.html)
- - The project uses **Allauth** to simplify user authentication.
+- [django-allauth](https://django-allauth.readthedocs.io/en/latest/installation.html)
+ - This project will use  uses **Allauth** to simplify authentication, registration, account management and 3rd party (social media) login.
 
+ - [Pillow]() 
+    - This project will use **the Python Imaging Library, Pillow** to add image processing capabilities to the Python interpreter.
+
+- []()
+    - This application will implement 
 
 ## Testing
 
