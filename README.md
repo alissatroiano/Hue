@@ -2,13 +2,13 @@
 
 This full-stack application was developed for Hue, a digital design agency. The main purpose of Hue's website is to display and sell digital art & services to shoppers. Hue is a fictional company that was created for the purpose of this project.
 
-As the Milestone 4 Project for [Code Institute's](https://codeinstitute.net) [Full Stack Software Development Diploma Program](https://codeinstitute.net/full-stack-software-development-diploma/), Hue was built with HTML, CSS, JavaScript, Python, and Django.
+As the Milestone 4 Project for [Code Institute's](https://codeinstitute.net) [Full Stack Software Development Diploma Program](https://codeinstitute.net/full-stack-software-development-diploma/), Hue was built with HTML, CSS, Bootstrap 5, JavaScript, Python 3, and Django.
 
 ## UX
 
 ### Summary
 
-The main goal of Hue is to boost revenue by selling products & services to customers online. Hue's target market is comprised of male & female shoppers (ages 25-39) that want to view & buy Hue's artwork online.
+The main goal of Hue is to boost revenue by selling products online. Hue also wishes to provide their target market, comprised of male & female shoppers (ages 25-39), with an intuitive, responsive platform where they can preview & purchase digital design products.
 
 ### Research & Planning
 
@@ -25,13 +25,14 @@ As can be seen in the image above, the activty led the developer to make the fol
 - Hue's user authentication model should define a one-to-one relationship, using the [``OneToOneField``](https://docs.djangoproject.com/en/3.1/topics/db/examples/one_to_one/).
 
 - Hue should be built for **two** different types of users:
-     1) The Site Owner
+
+  1) The Site Owner
     - Hue, the company, that wants to:
         - Sell digital artwork.
 
     2) The Shopper
     - Digital art buyers that want to:
-        - Purchase digital artwork from Hue online.
+        - Purchase digital artwork from Hue online.   
 
 ### User Stories
 
@@ -57,10 +58,6 @@ In addition, you may also use this section to discuss plans for additional featu
 ### Features Left to Implement
 - Another feature idea
 
-## Database
-
-
-
 ## Technologies Used
 
 - [Django](https://www.djangoproject.com/)
@@ -71,9 +68,6 @@ In addition, you may also use this section to discuss plans for additional featu
 
  - [Pillow]() 
     - This project will use **the Python Imaging Library, Pillow** to add image processing capabilities to the Python interpreter.
-
-- []()
-    - This application will implement 
 
 ## Testing
 
