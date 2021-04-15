@@ -29,7 +29,6 @@
     <title>Hue {% block extra_title %}{% endblock %}</title>
 </head>
 <!--body starts here-->
-
 <body>
 <!--navbar copied from <https://getbootstrap.com/docs/5.0/examples/heroes/>-->
 <header class="container-fluid fixed-top shadow-sm p-3 mb-5 bg-white rounded">
@@ -46,25 +45,24 @@
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="#">About</a>
                 </li>
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
+                        Profile
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">Link</a>
+                    <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">Sign Up</a>
+                    <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">Login</a>
                 </li>
             </ul>
         </div>
     </nav>
-
 </header>
-
     {% if messages %}
     <div class="message-container"></div>
     {% endif %}
