@@ -42,18 +42,21 @@ User stories were created by the [developer](https://www.github.com/alissatroian
 
 ![Shopper](wireframes/userstories-shopper.png)
 
+![Site Owner](wireframes/siteownerstories.png)
 
 ## Features
 
-In this section, you should go over the different parts of your project, and describe each in a sentence or so.
+To meets all of Hue's goals and needs, this application will be built with the following features:
 
 ### Existing Features
-- Feature 1 - allows users X to achieve Y, by having them fill out Z
-- ...
+- Gallery - Allows *shoppers* to view, search, sort and filter products, by having them visit the gallery and utilized the built-in tools.
 
-For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
+- Sign Up - Allows **all users** to create an account, by having them fill out a form that sends ``POST`` requests and add "Users" table in the database.
 
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
+- Login: Allows **all users** to access the software, by having them fill out a form built with the HTTP ``POST`` request method to send data and ``{% csrf_token %}`` tags for security reasons.
+
+- About: Alllows **all users** to view information and images related to the business, by having them visit the about page.
+
 
 ### Features Left to Implement
 - Another feature idea
@@ -115,8 +118,6 @@ In addition, if it is not obvious, you should also describe how to run your code
 
 ### Backend Functionality
 - The code used to manage user permissions was copied from [Real Python article "What You Need to Know to Manage Users in Django Admin"](https://realpython.com/manage-users-in-django-admin/#implement-custom-business-roles-in-django-admin).
-
-- 
 
 ### Acknowledgements
 
