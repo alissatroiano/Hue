@@ -107,11 +107,17 @@ In addition, if it is not obvious, you should also describe how to run your code
 ## Credits
 
 ### Content
+
 - The artwork categories in the database and application were copied from [Architecure Lab article "15 Types of Digital Art to Consider"](https://www.architecturelab.net/types-of-digital-art/)
 
 - I copied Font Awesome's CDN from [cdnjs.com](https://cdnjs.com/libraries/font-awesome).
 
+## UX Design
+
+- 
+
 - I copied components from [Bootstrap's documentation](https://getbootstrap.com/docs/5.0/components/navs-tabs/) to make Hue's navigation intuitive and responsive.
+
 
 ### Media
 - I used this article from [CSS Tricks](https://css-tricks.com/perfect-full-page-background-image/) to style the background image on Hue's homepage.
