@@ -23,7 +23,6 @@
     {% endblock %}
 
     {% block corejs %}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     {% endblock %}
 
     {% block extra_js%}
@@ -34,38 +33,50 @@
 <!--body starts here-->
 <body>
 <!--navbar copied from <https://getbootstrap.com/docs/5.0/examples/heroes/>-->
-<header class="container-fluid fixed-top shadow-sm p-3 mb-5 bg-white rounded">
-    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-        <a class="navbar-brand" href="#"><i class="fas fa-brush"></i>
-            Hue</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
-            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Profile
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">Sign Up</a>
-                    <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">Login</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+<header class="container-fluid fixed-top shadow-sm p-3 mb-5 bg-transparent shadow-lg">
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent" id="mainnavigation">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" id="logo"><i class="fas fa-brush"></i> Hue</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Account
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Login</a></li>
+            <li><a class="dropdown-item" href="#">Sign Up</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" tabindex="-1" aria-disabled="true" id="navbarDropdown2" role="button" aria-expanded="false">Gallery</a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+              <li><a class="dropdown-item"></a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link">Contact</a>
+        </li>
+      </ul>
+      <ul class="navbar navbar-nav salign-items-right">        
+          <li class="nav-item">
+            <a href="#" class="nav-link text-right"><i class="fas fa-shopping-cart"></i></a>
+        </li></ul>
+    </div>
+  </div>
+</nav>
+
 </header>
+
     {% if messages %}
     <div class="message-container"></div>
     {% endif %}
@@ -77,6 +88,8 @@
     {% endblock %}
 
     {% block postloadjs %}
+    <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     {% endblock %}
     
 </body>

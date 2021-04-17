@@ -1,5 +1,101 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/* *************************** Header & Navigation */
+
+a#logo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-shadow: 4px 4px 8px #666;
+    outline-width: 10px;
+    outline-offset: 5px;
+    outline-style: double; 
+}
+
+a#logo:hover {
+    color: rebeccapurple;
+}
+
+#mainnavigation {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+/*.end-header-&-navigations */
+
+/* ************************ Sticky Slider Navigation */
+.hero-tabs,
+.slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    background: #eee;
+		text-align: center;
+        padding: 0 2em;
+}
+    h1 {
+        font-size: 2rem;
+        margin: 0;
+        letter-spacing: 1rem;
+    }
+    h3 {
+        font-size: 1rem;
+        letter-spacing: 0.3rem;
+        opacity: 0.6;
+}
+
+a.hero-tab {
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+    font-size: 1rem;
+}
+
+.hero-tabs-container {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    z-index: 10;
+}
+    --top {
+        position: fixed;
+        top: 0;
+    }
+
+a.hero-tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    color: #000;
+    letter-spacing: 0.1rem;
+		transition: all 0.5s ease;
+        font-size: 0.8rem;
+}
+	  :hover {
+        color:rgb(99, 26, 182);
+        background: rgba(255, 255, 255, 0.8);
+			transition: all 0.5s ease;
+    }
+ 
+.hero-tab-slider {
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 6px;
+    background: #66B1F1;
+    transition: left 0.3s ease;
+}
+
+/***************************** Homepage */
 #welcome {
     background: linear-gradient(rgb(0 0 0 / 50%), rgb(0 0 0 / 50%)),url(../../media/hue6.jpg) no-repeat center center fixed;
     max-width: 100%;
@@ -8,8 +104,6 @@
     margin: 0px auto;
     background-size: cover;
 }
-
-h1#hero {}
 
 h1#hero {
     font-family: 'Oswald', sans-serif;
@@ -21,7 +115,12 @@ h1#hero {
     text-shadow: 3px 3px 6px #000;
 }
 
-p.lead {
+h1#hero:hover {
+    color: orchid;
+    background-color: transparent;
+}
+
+h3.lead {
     font-size: 2rem;
     font-family: 'Work Sans', sans-serif;
     font-weight: 400;
@@ -32,7 +131,62 @@ p.lead {
     margin-top: 30px;
     margin-bottom: 30px;
 }
+/*.end-homepage */
 
-div#border-row {
-    /* padding: 30px 10px; */
+/* *************************** Media Queries */
+@media (max-width: 768px) {
+    /* Reversing the behavior of the sidebar: 
+       it'll be rotated vertically and off canvas by default, 
+       collapsing in on toggle button click with removal of 
+       the vertical rotation.   */
+    #sidebar {
+        margin-left: -250px;
+        transform: rotateY(100deg);
+    }
+    #sidebar.active {
+        margin-left: 0;
+        transform: none;
+    }
+
+    /* Reversing the behavior of the bars: 
+       Removing the rotation from the first,
+       last bars and reappear the second bar on default state, 
+       and giving them a vertical margin */
+    #sidebarCollapse span:first-of-type,
+    #sidebarCollapse span:nth-of-type(2),
+    #sidebarCollapse span:last-of-type {
+        transform: none;
+        opacity: 1;
+        margin: 5px auto;
+    }
+
+    /* Removing the vertical margin and make the first and last bars rotate again when the sidebar is open, hiding the second bar */
+    #sidebarCollapse.active span {
+        margin: 0 auto;
+    }
+    #sidebarCollapse.active span:first-of-type {
+        transform: rotate(45deg) translate(2px, 2px);
+    }
+    #sidebarCollapse.active span:nth-of-type(2) {
+        opacity: 0;
+    }
+    #sidebarCollapse.active span:last-of-type {
+        transform: rotate(-45deg) translate(1px, -1px);
+    }
 }
+
+@media (min-width: 800px) {
+	.hero-tabs,
+	.slide
+    h1 {
+        font-size: 3rem;
+    }
+    h3 {
+        font-size: 1rem;
+    }
+
+	.hero-tab {
+		font-size: 1rem;
+	}
+}
+/*.end-media-queries */
