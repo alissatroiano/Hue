@@ -2,11 +2,24 @@
 
 /* *************************** Header & Navigation */
 
+header,
+nav,
+#header {
+    background-color: transparent;
+}
+
+header:hover,
+nav:hover,
+#header:hover {
+    background-color: transparent;
+}
+
 a#logo {
     font-family: 'Oswald', sans-serif;
     font-size: 2rem;
     text-transform: uppercase;
-    text-shadow: 4px 4px 8px #666;
+    color: #fafafa;
+    text-shadow: 4px 4px 8px #000;
     outline-width: 10px;
     outline-offset: 5px;
     outline-style: double; 
@@ -20,6 +33,12 @@ a#logo:hover {
     font-family: 'Oswald', sans-serif;
     font-size: 1rem;
     text-transform: uppercase;
+    background-color: transparent;
+    background: transparent;
+}
+
+#mainnavigation:hover {
+    background: transparent;
 }
 
 /*.end-header-&-navigations */
@@ -48,12 +67,6 @@ a#logo:hover {
         opacity: 0.6;
 }
 
-a.hero-tab {
-    font-family: 'Oswald', sans-serif;
-    letter-spacing: 1px;
-    font-size: 1rem;
-}
-
 .hero-tabs-container {
     display: flex;
     flex-direction: row;
@@ -62,7 +75,7 @@ a.hero-tab {
     width: 100%;
     height: 70px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    background: #fff;
+    background: rgba(255, 255, 255, 0.65); ;
     z-index: 10;
 }
     --top {
@@ -77,14 +90,19 @@ a.hero-tab {
     flex: 1;
     color: #000;
     letter-spacing: 0.1rem;
-		transition: all 0.5s ease;
-        font-size: 0.8rem;
+	transition: all 0.5s ease;
+    font-size: 1rem;
 }
-	  :hover {
-        color:rgb(99, 26, 182);
-        background: rgba(255, 255, 255, 0.8);
-			transition: all 0.5s ease;
-    }
+
+a.hero-tab:hover {
+    color: rgb(97, 15, 177);
+    background: rgba(255, 255, 255, 0.8);
+    font-size: 1.5rem;
+    transition: all 0.5s ease;
+    outline-width: 2px;
+    outline-offset: 1px;
+    outline-style: double; 
+}
  
 .hero-tab-slider {
     position: absolute;
@@ -97,7 +115,7 @@ a.hero-tab {
 
 /***************************** Homepage */
 #welcome {
-    background: linear-gradient(rgb(0 0 0 / 50%), rgb(0 0 0 / 50%)),url(../../media/hue6.jpg) no-repeat center center fixed;
+    background: linear-gradient(rgb(0 0 0 / 80%), rgb(0 0 0 / 60%)),url(../../media/hue6.jpg) no-repeat center center fixed;
     max-width: 100%;
     max-height: 100vh;
     overflow: auto;
