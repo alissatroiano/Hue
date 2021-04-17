@@ -16,16 +16,29 @@ nav:hover,
 
 a#logo {
     font-family: 'Oswald', sans-serif;
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-transform: uppercase;
     color: #fafafa;
     text-shadow: 4px 4px 8px #000;
-    outline-width: 10px;
-    outline-offset: 5px;
+    outline-width: 10spx;
+    outline-offset: 3px;
     outline-style: double; 
 }
 
 a#logo:hover {
+    color: rebeccapurple;
+}
+
+.navbar-light .navbar-nav .nav-link.active, 
+.navbar-light .navbar-nav .show>.nav-
+link,
+.navbar-light .navbar-nav .nav-link, .nav-link.active {
+    color: #fafafa;
+}
+
+.navbar-light .navbar-nav .nav-link.active:hover,
+.navbar-light .navbar-nav .show>.nav-link:hover,
+.navbar-light .navbar-nav .nav-link .nav-link.active:hover {
     color: rebeccapurple;
 }
 
@@ -35,6 +48,7 @@ a#logo:hover {
     text-transform: uppercase;
     background-color: transparent;
     background: transparent;
+    color: #fafafa;
 }
 
 #mainnavigation:hover {
@@ -92,6 +106,15 @@ a.hero-tab {
     letter-spacing: 0.1rem;
 	transition: all 0.5s ease;
     font-size: 1rem;
+    text-decoration: none;
+}
+
+i.fas.fa-paint-brush, 
+i.fas.fa-i-cursor,
+i.fas.fa-spray-can,
+i.fas.fa-gamepad,
+i.fas.fa-camera {
+    text-shadow: 1px 2px 2px #ccc;
 }
 
 a.hero-tab:hover {
@@ -115,7 +138,7 @@ a.hero-tab:hover {
 
 /***************************** Homepage */
 #welcome {
-    background: linear-gradient(rgb(0 0 0 / 80%), rgb(0 0 0 / 60%)),url(../../media/hue6.jpg) no-repeat center center fixed;
+    background: linear-gradient(rgb(0 0 0 / 80%), rgb(0 0 0 / 60%)),url(../../media/hue1.jpg) no-repeat center center fixed;
     max-width: 100%;
     max-height: 100vh;
     overflow: auto;
@@ -125,9 +148,7 @@ a.hero-tab:hover {
 
 h1#hero {
     font-family: 'Oswald', sans-serif;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    font-size: 8rem;
+    font-size: 5rem;
     color: #fafafa;
     letter-spacing: 2px;
     text-shadow: 3px 3px 6px #000;
@@ -139,7 +160,7 @@ h1#hero:hover {
 }
 
 h3.lead {
-    font-size: 2rem;
+    font-size: 1.3rem;
     font-family: 'Work Sans', sans-serif;
     font-weight: 400;
     text-transform: uppercase;
