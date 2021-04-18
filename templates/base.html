@@ -55,10 +55,10 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         {% if request.user.is_authenticated %}
-                        {% if request.user.is_superuser %}
-                        <li><a href="" class="dropdown-item"></a>Admin Dashboard</li>
-                        {% endif %}
-                        <li><a class="dropdown-item" href="#">Login</a></li>
+                            {% if request.user.is_superuser %}
+                        <a href="" class="dropdown-item">Gallery Mgt.</a>
+                            {% endif %}
+                        <li><a class="dropdown-item" href="{% url 'account_logout' %}">Login</a></li>
                         <li><a class="dropdown-item" href="#">Sign Up</a></li>
                         {% else %}
                         <li><a class="dropdown-item" href="#">Login</a></li>

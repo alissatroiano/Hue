@@ -19,14 +19,14 @@ a#logo {
     font-size: 1.5rem;
     text-transform: uppercase;
     color: #fafafa;
-    text-shadow: 4px 4px 8px #000;
+    text-shadow: 4px 4px 8px #055BC;
     outline-width: 10spx;
     outline-offset: 3px;
     outline-style: double; 
 }
 
 a#logo:hover {
-    color: rebeccapurple;
+    color: rgb(132, 116, 161);
 }
 
 .navbar-light .navbar-nav .nav-link.active, 
@@ -38,8 +38,12 @@ link,
 
 .navbar-light .navbar-nav .nav-link.active:hover,
 .navbar-light .navbar-nav .show>.nav-link:hover,
-.navbar-light .navbar-nav .nav-link .nav-link.active:hover {
-    color: rebeccapurple;
+.navbar-light .navbar-nav .nav-link:focus, 
+.navbar-light .navbar-nav .nav-link:hover
+.navbar-light .navbar-nav .nav-link .nav-link.active:hover,
+.navbar-light .navbar-nav .nav-link:focus, 
+.navbar-light .navbar-nav .nav-link:hover  {
+    color: rgb(132, 116, 161);
 }
 
 #mainnavigation {
@@ -102,7 +106,7 @@ a.hero-tab {
     justify-content: center;
     align-items: center;
     flex: 1;
-    color: #000;
+    color: #033030;
     letter-spacing: 0.1rem;
 	transition: all 0.5s ease;
     font-size: 1rem;
@@ -118,7 +122,7 @@ i.fas.fa-camera {
 }
 
 a.hero-tab:hover {
-    color: rgb(97, 15, 177);
+    color: rgb(172, 125, 219);
     background: rgba(255, 255, 255, 0.8);
     font-size: 1.5rem;
     transition: all 0.5s ease;
@@ -155,7 +159,7 @@ h1#hero {
 }
 
 h1#hero:hover {
-    color: orchid;
+    color: rgb(132, 116, 161);
     background-color: transparent;
 }
 
@@ -169,6 +173,24 @@ h3.lead {
     text-shadow: 3px 3px 6px #000;
     margin-top: 30px;
     margin-bottom: 30px;
+}
+
+h3.lead:hover {
+    color: rgb(172, 125, 219);
+}
+
+button#hero-button-1,
+button#hero-button-2 {
+    background-color: #6EC6CA;
+    border-color: #6EC6CA;
+    color: #033030;
+}
+
+button#hero-button-1:hover,
+button#hero-button-2:hover {
+     background-color: #033030;
+     border-color: #033030;
+     color: #fafafa;
 }
 /*.end-homepage */
 
