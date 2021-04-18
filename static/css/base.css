@@ -1,28 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 /* *************************** Header & Navigation */
-
-header,
-nav,
-#header {
-    background-color: transparent;
-}
-
-header:hover,
-nav:hover,
-#header:hover {
-    background-color: transparent;
-}
-
 a#logo {
     font-family: 'Oswald', sans-serif;
     font-size: 1.5rem;
     text-transform: uppercase;
     color: #fafafa;
-    text-shadow: 4px 4px 8px #055BC;
-    outline-width: 10spx;
+    text-shadow: 4px 4px 8px #033030;
+    outline-width: 10px;
     outline-offset: 3px;
     outline-style: double; 
+}
+
+.navbar-collapse {
+    margin-top: 20px;
+}
+
+.navbar-nav {
+    display: inherit;
 }
 
 a#logo:hover {
@@ -195,47 +190,6 @@ button#hero-button-2:hover {
 /*.end-homepage */
 
 /* *************************** Media Queries */
-@media (max-width: 768px) {
-    /* Reversing the behavior of the sidebar: 
-       it'll be rotated vertically and off canvas by default, 
-       collapsing in on toggle button click with removal of 
-       the vertical rotation.   */
-    #sidebar {
-        margin-left: -250px;
-        transform: rotateY(100deg);
-    }
-    #sidebar.active {
-        margin-left: 0;
-        transform: none;
-    }
-
-    /* Reversing the behavior of the bars: 
-       Removing the rotation from the first,
-       last bars and reappear the second bar on default state, 
-       and giving them a vertical margin */
-    #sidebarCollapse span:first-of-type,
-    #sidebarCollapse span:nth-of-type(2),
-    #sidebarCollapse span:last-of-type {
-        transform: none;
-        opacity: 1;
-        margin: 5px auto;
-    }
-
-    /* Removing the vertical margin and make the first and last bars rotate again when the sidebar is open, hiding the second bar */
-    #sidebarCollapse.active span {
-        margin: 0 auto;
-    }
-    #sidebarCollapse.active span:first-of-type {
-        transform: rotate(45deg) translate(2px, 2px);
-    }
-    #sidebarCollapse.active span:nth-of-type(2) {
-        opacity: 0;
-    }
-    #sidebarCollapse.active span:last-of-type {
-        transform: rotate(-45deg) translate(1px, -1px);
-    }
-}
-
 @media (min-width: 800px) {
 	.hero-tabs,
 	.slide
