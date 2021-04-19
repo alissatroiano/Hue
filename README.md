@@ -103,7 +103,6 @@ In particular, you should provide all details of the differences between the dep
 
 In addition, if it is not obvious, you should also describe how to run your code locally.
 
-
 ## Credits
 
 ### Content
@@ -114,13 +113,17 @@ In addition, if it is not obvious, you should also describe how to run your code
 
 ## UX Design
 
-- 
-
 - I copied components from [Bootstrap's documentation](https://getbootstrap.com/docs/5.0/components/navs-tabs/) to make Hue's navigation intuitive and responsive.
+
+- I copied the sticky bottom navigation (with tabs) from [this Codepen pen](https://codepen.io/alissatroiano/pen/JjEBLvK).
 
 
 ### Media
 - I used this article from [CSS Tricks](https://css-tricks.com/perfect-full-page-background-image/) to style the background image on Hue's homepage.
+
+- Hue's images were copied from the following sources:
+
+    - **Hero** background image: Pexels](https://www.pexels.com/photo/abstract-painting-2156881/)
 
 ### Backend Functionality
 - The code used to manage user permissions was copied from [Real Python article "What You Need to Know to Manage Users in Django Admin"](https://realpython.com/manage-users-in-django-admin/#implement-custom-business-roles-in-django-admin).
