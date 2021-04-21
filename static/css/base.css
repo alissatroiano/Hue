@@ -12,6 +12,10 @@ a#logo {
     outline-style: double; 
 }
 
+a.navbar-brand {
+    float: right;
+}
+
 .navbar-collapse {
     margin-top: 20px;
 }
