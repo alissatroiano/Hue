@@ -1,4 +1,5 @@
 {% load static %}
+{% load socialaccount %}
 
 <!doctype html>
 <html lang="en">
@@ -29,13 +30,15 @@
 
     {% block extra_js%}
     {% endblock %}
-
     <title>Hue {% block extra_title %}{% endblock %}</title>
 </head>
 <!--body starts here-->
 <body>
 <!--navbar copied from <https://getbootstrap.com/docs/5.0/examples/heroes/>-->
 <header class="container-fluid fixed-top shadow-sm p-3 mb-5 bg-transparent shadow-lg" id="header">
+    <div class="nav-alert">
+        <li><a href="#" class="navbar-link" id="promotion"><span class="label label-danger"></span></a></li>
+    </div>
     <nav class="navbar navbar-expand-lg navbar-dark" id="mainnavigation">
         <a class="navbar-brand" href="#" id="logo"><i class="fas fa-brush"></i> Hue</a>
         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
@@ -57,23 +60,24 @@
                         Account
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    {% if request.user.is_authenticated %}
+                        {% if request.user.is_authenticated %}
                         {% if request.user.is_superuser %}
                         <a href="" class="dropdown-item">Product Management</a>
                         {% endif %}
-                    <li class="nav-item"><a class="dropdown-item" href="#">Profile</a></li>
-                    <li class="nav-item"><a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                        <li class="nav-item"><a class="dropdown-item" href="#">Profile</a></li>
+                        <li class="nav-item"><a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a></li>
                         {% else %}
-                    <li class="nav-item"><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
-                    <li class="nav-item"><a class="dropdown-item" href="{% url 'account_login' %}">Sign Up</a></li>
-                    {% endif %}
-                </ul>
+                        <li class="nav-item"><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
+                        <li class="nav-item"><a class="dropdown-item" href="{% url 'account_login' %}">Sign Up</a></li>
+                        <a href="/accounts/google/login/?process=login">Login With Google</a>
+                        {% endif %}
+                    </ul>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" tabindex="-1" aria-disabled="true" id="navbarDropdown2"
-                        role="button" aria-expanded="false">Gallery</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                        <li><a class="dropdown-item"></a></li>
-                    </ul>
+                        role="button" aria-expanded="false">Gallery</a></li>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                    <li><a class="dropdown-item"></a></li>
+                </ul>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">Contact</a>
