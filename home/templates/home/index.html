@@ -20,6 +20,7 @@
         <button type="button" class="btn btn-info btn-lg px-4 me-md-2 fw-bold" id="hero-button-1">SHOP</button>
         <button type="button" class="btn btn-outline-info btn-lg px-4" id="hero-button-2">SIGN UP</button>
     </div>
+    {% if request.user.is_authenticated %}
     <div class="hero-tabs-container">
         <a class="hero-tab" href="#"><i class="fas fa-paint-brush"></i></a>
         <a class="hero-tab" href="#"><i class="fas fa-i-cursor"></i></a>
@@ -28,6 +29,7 @@
         <a class="hero-tab" href="#"><i class="fas fa-camera"></i></a>
         <span class="hero-tab-slider"></span>
     </div>
+    {% endif %}
 </section>
 
 
