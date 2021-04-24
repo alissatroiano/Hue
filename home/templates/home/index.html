@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block page_header %}
-<div class="container-fluid">
+<div class="container">
     <div class="row">
         <div class="col"></div>
     </div>
@@ -10,8 +10,6 @@
 {% endblock %}
 
 {% block content %}
-<!-- Hero copied from https://getbootstrap.com/docs/5.0/examples/heroes/-->
-
 <!-- Sticky Slider Nav copied from Codepen.io (https://codepen.io/alissatroiano/pen/JjEBLvK)-->
 <section class="hero-tabs" id="welcome">
     <h1 class="display-4 fw-bold text-center lh-1" id="hero">HUE</h1>
@@ -20,7 +18,6 @@
         <button type="button" class="btn btn-info btn-lg px-4 me-md-2 fw-bold" id="hero-button-1">SHOP</button>
         <button type="button" class="btn btn-outline-info btn-lg px-4" id="hero-button-2">SIGN UP</button>
     </div>
-    {% if request.user.is_authenticated %}
     <div class="hero-tabs-container">
         <a class="hero-tab" href="#"><i class="fas fa-paint-brush"></i></a>
         <a class="hero-tab" href="#"><i class="fas fa-i-cursor"></i></a>
@@ -29,10 +26,6 @@
         <a class="hero-tab" href="#"><i class="fas fa-camera"></i></a>
         <span class="hero-tab-slider"></span>
     </div>
-    {% endif %}
 </section>
-
-
 <!--./end-sticky-slider-nav-->
-
 {% endblock %}
