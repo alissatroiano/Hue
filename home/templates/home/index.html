@@ -10,22 +10,22 @@
 {% endblock %}
 
 {% block content %}
-<section class="hero" id="welcome">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
-                <h1 class="display-4 fw-bold text-center lh-1" id="hero">HUE</h1>
-                <h3 class="lead">Digital Art Store</h3>
-            </div>
-        </div>
-        <div class="row text-center">
-            <div class="col-xs-6">
-                <button type="button" class="btn btn-info btn-lg px-4 me-md-2 fw-bold"
-                    id="hero-button-1">GALLERY</button>
-            </div>
-        </div>
+<!-- Sticky Slider Nav copied from Codepen.io (https://codepen.io/alissatroiano/pen/JjEBLvK)-->
+<section class="hero-tabs" id="welcome">
+    <h1 class="display-4 fw-bold text-center lh-1" id="hero">HUE</h1>
+    <h3 class="lead">Digital Design Shop</h3>
+    <div class="d-grid gap-2 d-md-flex mb-4 mb-lg-3">
+        <button type="button" class="btn btn-info btn-lg px-4 me-md-2 fw-bold" id="hero-button-1">SHOP</button>
+        <button type="button" class="btn btn-outline-info btn-lg px-4" id="hero-button-2">SIGN UP</button>
+    </div>
+    <div class="hero-tabs-container">
+        <a class="hero-tab" href="#"><i class="fas fa-paint-brush"></i></a>
+        <a class="hero-tab" href="#"><i class="fas fa-i-cursor"></i></a>
+        <a class="hero-tab" href="#"><i class="fas fa-spray-can"></i></a>
+        <a class="hero-tab" href="#"><i class="fas fa-gamepad"></i></a>
+        <a class="hero-tab" href="#"><i class="fas fa-camera"></i></a>
+        <span class="hero-tab-slider"></span>
     </div>
 </section>
 <!--./end-sticky-slider-nav-->
-
 {% endblock %}
