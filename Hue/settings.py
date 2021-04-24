@@ -44,7 +44,9 @@ INSTALLED_APPS = [
     # social media login
     # "allauth.socialaccount.providers.facebook",
     "allauth.socialaccount.providers.google",
+    # "allauth.socialaccount.providers.pinterest",
     'home',
+    'gallery',
 ]
 
 MIDDLEWARE = [
@@ -113,6 +115,12 @@ SOCIALACCOUNT_PROVIDERS = {
             'access_type': 'online',
         }
     },
+    'pinterest': {
+        'SCOPE': [
+            'read_public',
+            'read_relationships',
+        ]
+    }
 }
 
 # Database
