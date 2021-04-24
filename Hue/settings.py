@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-pdc2+39ujhp-jii!ry^cp+6(9u9cm$(2y!=nx)&%0q#@h7zs*x'
+SECRET_KEY = '[!,W5sBgki4tCB#$g"u9NXh*~##!5;'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -43,8 +43,10 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     # social media login
     # "allauth.socialaccount.providers.facebook",
-    # "allauth.socialaccount.providers.google",
+    "allauth.socialaccount.providers.google",
+    # "allauth.socialaccount.providers.pinterest",
     'home',
+    'gallery',
 ]
 
 MIDDLEWARE = [
@@ -93,16 +95,33 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 3
+ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
-# SOCIALACCOUNT_AUTO_SIGNUP = True
-# SOCIALACCOUNT_AVATAR_SUPPORT = True
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 
 WSGI_APPLICATION = 'Hue.wsgi.application'
 
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    },
+    'pinterest': {
+        'SCOPE': [
+            'read_public',
+            'read_relationships',
+        ]
+    }
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
