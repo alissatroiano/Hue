@@ -21,6 +21,10 @@ a.navbar-brand {
     margin-left: 30px;
 }
 
+a#logo:hover {
+    color: rgb(132, 116, 161);
+}
+
 .navbar-collapse {
     margin-top: 20px;
     margin-left: 30px;
@@ -30,12 +34,8 @@ a.navbar-brand {
     display: inherit;
 }
 
-a#logo:hover {
-    color: rgb(132, 116, 161);
-}
-
-.navbar-light .navbar-nav .nav-link.active, 
-.navbar-light .navbar-nav .show>.nav-
+.navbar-dark .navbar-nav .nav-link.active, 
+.navbar-dark .navbar-nav .show>.nav-
 link,
 .navbar-light .navbar-nav .nav-link, .nav-link.active {
     color: #033030;
@@ -63,12 +63,21 @@ link,
 #mainnavigation:hover {
     background: transparent;
 }
-
-/*.end-header-&-navigations */
+/* *************************** end-header-&-navigations */
 
 /* ************************ Sticky Slider Navigation */
-
-
+.hero-tabs,
+.slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    background: #eee;
+	text-align: center;
+    padding: 0 2em;
+}
 
 .hero-tabs-container {
     display: flex;
@@ -81,10 +90,6 @@ link,
     background: rgba(70, 47, 47, 0.65); ;
     z-index: 10;
 }
-    --top {
-        position: fixed;
-        top: 0;
-    }
 
 a.hero-tab {
     display: flex;
@@ -105,6 +110,26 @@ i.fas.fa-gamepad,
 i.fas.fa-camera {
     text-shadow: 1px 2px 2px #ccc;
 }
+
+a.hero-tab:hover {
+    color: rgb(172, 125, 219);
+    background: rgba(255, 255, 255, 0.8);
+    font-size: 1.5rem;
+    transition: all 0.5s ease;
+    outline-width: 2px;
+    outline-offset: 1px;
+    outline-style: double; 
+}
+ 
+.hero-tab-slider {
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 6px;
+    background: #66B1F1;
+    transition: left 0.3s ease;
+}
+/* *************************** end sticky-slider-nav */
 
 /***************************** Homepage */
 #welcome {
@@ -146,11 +171,12 @@ h3.lead {
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
     text-transform: uppercase;
+    letter-spacing: 0.3rem;
     text-align: center;
     color: #fafafa;
     text-shadow: 3px 3px 6px #000;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 h3.lead:hover {
@@ -170,11 +196,7 @@ button#hero-button-2:hover {
      border-color: #033030;
      color: #fafafa;
 }
-
-#display-products {
-    min-height: 50vh;
-}
-/*.end-homepage */
+/* *************************** .end-homepage */
 
 /* *************************** Media Queries */
 @media (min-width: 800px) {
@@ -191,4 +213,4 @@ button#hero-button-2:hover {
 		font-size: 1rem;
 	}
 }
-/*.end-media-queries */
+/* *************************** .end-media-queries */
