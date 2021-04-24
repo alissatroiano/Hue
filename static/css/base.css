@@ -12,16 +12,16 @@ a#logo {
     outline-style: double; 
 }
 
+a#logo:hover {
+    color: rgb(132, 116, 161);
+}
+
 .navbar-collapse {
     margin-top: 20px;
 }
 
 .navbar-nav {
     display: inherit;
-}
-
-a#logo:hover {
-    color: rgb(132, 116, 161);
 }
 
 .navbar-dark .navbar-nav .nav-link.active, 
@@ -53,8 +53,7 @@ link,
 #mainnavigation:hover {
     background: transparent;
 }
-
-/*.end-header-&-navigations */
+/* *************************** end-header-&-navigations */
 
 /* ************************ Sticky Slider Navigation */
 .hero-tabs,
@@ -66,18 +65,8 @@ link,
     height: 100vh;
     position: relative;
     background: #eee;
-		text-align: center;
-        padding: 0 2em;
-}
-    h1 {
-        font-size: 2rem;
-        margin: 0;
-        letter-spacing: 1rem;
-    }
-    h3 {
-        font-size: 1rem;
-        letter-spacing: 0.3rem;
-        opacity: 0.6;
+	text-align: center;
+    padding: 0 2em;
 }
 
 .hero-tabs-container {
@@ -91,10 +80,6 @@ link,
     background: rgba(255, 255, 255, 0.65); ;
     z-index: 10;
 }
-    --top {
-        position: fixed;
-        top: 0;
-    }
 
 a.hero-tab {
     display: flex;
@@ -134,6 +119,7 @@ a.hero-tab:hover {
     background: #66B1F1;
     transition: left 0.3s ease;
 }
+/* *************************** end sticky-slider-nav */
 
 /***************************** Homepage */
 #welcome {
@@ -163,11 +149,12 @@ h3.lead {
     font-family: 'Work Sans', sans-serif;
     font-weight: 400;
     text-transform: uppercase;
+    letter-spacing: 0.3rem;
     text-align: center;
     color: #fafafa;
     text-shadow: 3px 3px 6px #000;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 h3.lead:hover {
@@ -187,7 +174,7 @@ button#hero-button-2:hover {
      border-color: #033030;
      color: #fafafa;
 }
-/*.end-homepage */
+/* *************************** .end-homepage */
 
 /* *************************** Media Queries */
 @media (min-width: 800px) {
@@ -204,4 +191,4 @@ button#hero-button-2:hover {
 		font-size: 1rem;
 	}
 }
-/*.end-media-queries */
+/* *************************** .end-media-queries */
