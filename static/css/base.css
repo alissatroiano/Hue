@@ -12,33 +12,23 @@ body > section {
 }
 
 /* *************************** Header & Navigation */
-a.navbar-brand {
-    font-family: 'Antonio', sans-serif;
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    color: #033030;
-    text-shadow: 4px 4px 8px #033030;
-    margin-left: 30px;
-}
-
-.navbar-collapse {
-    margin-top: 20px;
-    margin-left: 30px;
-}
-
-.navbar-nav {
-    display: inherit;
-}
-
-a#logo:hover {
-    color: rgb(132, 116, 161);
+nav.navbar.navbar-expand-lg.navbar-light.bg-transparent.fixed-top.shadow-lg, 
+.bg-transparent {
+   background-color: #fafafa94;;
+   border: none;
+   border-color: transparent;
+   padding: 10px 0px;
 }
 
 .navbar-light .navbar-nav .nav-link.active, 
 .navbar-light .navbar-nav .show>.nav-
 link,
 .navbar-light .navbar-nav .nav-link, .nav-link.active {
-    color: #033030;
+    font-family: 'Antonio', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    color: #fafafa;
 }
 
 .navbar-light .navbar-nav .nav-link.active:hover,
@@ -51,25 +41,48 @@ link,
     color: rgb(132, 116, 161);
 }
 
-#mainnavigation {
+a#logo {
+    font-family: 'Antonio', sans-serif;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: #fafafa;
+    text-shadow: 4px 4px 8px #033030;
+    margin-left: 30px;
+}
+
+a#logo:hover {
+    color: rgb(132, 116, 161);
+}
+
+.navbar-collapse {
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+.navbar-nav {
+    display: inherit;
+}
+
+.navbar-nav .dropdown-menu {
+    position: static;
+    background-color: transparent;
+}
+
+a.dropdown-item {
+    color: #fafafa;
     font-family: 'Antonio', sans-serif;
     font-size: 1rem;
     text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+a.dropdown-item:hover {
+    color: rgb(132, 116, 161);
     background-color: transparent;
-    background: transparent;
-    color: #fafafa;
 }
-
-#mainnavigation:hover {
-    background: transparent;
-}
-
 /*.end-header-&-navigations */
 
 /* ************************ Sticky Slider Navigation */
-
-
-
 .hero-tabs-container {
     display: flex;
     flex-direction: row;
@@ -111,8 +124,8 @@ i.fas.fa-camera {
     background: linear-gradient(rgb(0 0 0 / 80%), rgb(0 0 0 / 60%)),url(../../media/hue1.jpg) no-repeat center center fixed;
     background-size: cover;
     max-width: 100%;
-    min-height: 50vh;
-    min-height: 100%;
+    /* min-height: 50vh; */
+    min-height: 100vh;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;

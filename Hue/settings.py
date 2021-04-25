@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     "allauth.socialaccount.providers.google",
     # "allauth.socialaccount.providers.pinterest",
     'home',
-    'gallery',
 ]
 
 MIDDLEWARE = [
@@ -104,24 +103,6 @@ LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 
 WSGI_APPLICATION = 'Hue.wsgi.application'
-
-SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-        'SCOPE': [
-            'profile',
-            'email',
-        ],
-        'AUTH_PARAMS': {
-            'access_type': 'online',
-        }
-    },
-    'pinterest': {
-        'SCOPE': [
-            'read_public',
-            'read_relationships',
-        ]
-    }
-}
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
