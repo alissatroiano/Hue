@@ -12,8 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {% endblock %}
 
-    {% block extra_meta %}
-    {% endblock %}
+    {% block extra_meta %}{% endblock %}
 
     {% block corecss %}
     <!--Font Awesome CDN-->
@@ -25,56 +24,71 @@
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
-    {% block corejs %}
-    {% endblock %}
+    {% block corejs %}{% endblock %}
 
-    {% block extra_js%}
-    {% endblock %}
-    <title>Hue {% block extra_title %}{% endblock %}</title>
+    {% block extra_js%}{% endblock %}
+    <title>Hue
+        {% block extra_title %}{% endblock %}
+    </title>
 </head>
 <!--body starts here-->
 
 <body>
-<!--navbar copied from <https://getbootstrap.com/docs/5.0/examples/heroes/>-->
-<header class="container-fluid fixed-top shadow-sm p-3 mb-5 bg-transparent shadow-lg" id="header">
-    <nav class="navbar navbar-expand-lg navbar-dark" id="mainnavigation">
-        <a class="navbar-brand" href="#" id="logo"><i class="fas fa-brush"></i> Hue</a>
-        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="navbar-collapse collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Account
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        {% if request.user.is_authenticated %}
-                            {% if request.user.is_superuser %}
-                        <a href="" class="dropdown-item">Product Management</a>
-                            {% endif %}
-                        <li class="nav-item"><a class="dropdown-item" href="#">Profile</a></li>
-                        <li class="nav-item"><a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                        {% else %}
-                        <li class="nav-item"><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
-                        <li class="nav-item"><a class="dropdown-item" href="{% url 'account_login' %}">Sign Up</a></li>
-                        {% endif %}
-                    </ul>
+    <!--header starts here <https://getbootstrap.com/docs>-->
+    <header class="container-fluid fixed-top shadow-sm p-3 mb-5 shadow-lg" id="header">
+        <!--nav starts here <https://getbootstrap.com/docs>-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-transparent fixed-top shadow-lg">
+            <a class="navbar-brand" href="#" id="logo">
+                <i class="fas fa-brush"></i>
+                Hue</a>
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Account
+                        </a>
+                    </li>
+                </ul>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {% if request.user.is_authenticated %}
+                    {% if request.user.is_superuser %}
+                    <a href="" class="dropdown-item">Product Management</a>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="dropdown-item" href="#">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="dropdown-item" href="{% url 'account_login' %}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="dropdown-item" href="{% url 'account_login' %}">Sign Up</a>
+                    </li>
+                    {% endif %}
+                </ul>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" tabindex="-1" aria-disabled="true" id="navbarDropdown2"
-                        role="button" aria-expanded="false">Gallery</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                        <li><a class="dropdown-item"></a></li>
-                    </ul>
+                        role="button" aria-expanded="false">
+                        Gallery</a>
+                </li>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                    <li>
+                        <a class="dropdown-item"></a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">Contact</a>
@@ -83,8 +97,7 @@
                 <ul class="navbar navbar-nav align-items-right">
                     <li class="nav-item">
                         <a href="#" class="nav-link text-right">
-                            <i class="fas fa-shopping-cart">
-                            </i>
+                            <i class="fas fa-shopping-cart"></i>
                         </a>
                     </li>
                 </ul>
@@ -98,11 +111,9 @@
     <div class="message-container"></div>
     {% endif %}
 
-    {% block page_header %}
-    {% endblock %}
+    {% block page_header %}{% endblock %}
 
-    {% block content %}
-    {% endblock %}
+    {% block content %}{% endblock %}
 
     {% block postloadjs %}
     <!-- JavaScript Bundle with Popper -->

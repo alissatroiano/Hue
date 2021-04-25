@@ -12,11 +12,39 @@ body > section {
 }
 
 /* *************************** Header & Navigation */
-a.navbar-brand {
+nav.navbar.navbar-expand-lg.navbar-light.bg-transparent.fixed-top.shadow-lg, 
+.bg-transparent {
+   background-color: #fafafa94;;
+   border: none;
+   border-color: transparent;
+   padding: 10px 0px;
+}
+
+.navbar-light .navbar-nav .nav-link.active, 
+.navbar-light .navbar-nav .show>.nav-link,
+.navbar-light .navbar-nav .nav-link, .nav-link.active {
+    font-family: 'Antonio', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    color: #fafafa;
+}
+
+.navbar-light .navbar-nav .nav-link.active:hover,
+.navbar-light .navbar-nav .show>.nav-link:hover,
+.navbar-light .navbar-nav .nav-link:focus, 
+.navbar-light .navbar-nav .nav-link:hover
+.navbar-light .navbar-nav .nav-link .nav-link.active:hover,
+.navbar-light .navbar-nav .nav-link:focus, 
+.navbar-light .navbar-nav .nav-link:hover  {
+    color: rgb(132, 116, 161);
+}
+
+a#logo {
     font-family: 'Antonio', sans-serif;
     font-size: 1.5rem;
     text-transform: uppercase;
-    color: #033030;
+    color: #fafafa;
     text-shadow: 4px 4px 8px #033030;
     margin-left: 30px;
 }
@@ -34,51 +62,26 @@ a#logo:hover {
     display: inherit;
 }
 
-.navbar-dark .navbar-nav .nav-link.active, 
-.navbar-dark .navbar-nav .show>.nav-
-link,
-.navbar-light .navbar-nav .nav-link, .nav-link.active {
-    color: #033030;
+.navbar-nav .dropdown-menu {
+    position: static;
+    background-color: transparent;
 }
 
-.navbar-light .navbar-nav .nav-link.active:hover,
-.navbar-light .navbar-nav .show>.nav-link:hover,
-.navbar-light .navbar-nav .nav-link:focus, 
-.navbar-light .navbar-nav .nav-link:hover
-.navbar-light .navbar-nav .nav-link .nav-link.active:hover,
-.navbar-light .navbar-nav .nav-link:focus, 
-.navbar-light .navbar-nav .nav-link:hover  {
-    color: rgb(132, 116, 161);
-}
-
-#mainnavigation {
+a.dropdown-item {
+    color: #fafafa;
     font-family: 'Antonio', sans-serif;
     font-size: 1rem;
     text-transform: uppercase;
-    background-color: transparent;
-    background: transparent;
-    color: #fafafa;
+    letter-spacing: 1px;
 }
 
-#mainnavigation:hover {
-    background: transparent;
+a.dropdown-item:hover {
+    color: rgb(132, 116, 161);
+    background-color: transparent;
 }
-/* *************************** end-header-&-navigations */
+/*.end-header-&-navigations */
 
 /* ************************ Sticky Slider Navigation */
-.hero-tabs,
-.slide {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    position: relative;
-    background: #eee;
-	text-align: center;
-    padding: 0 2em;
-}
-
 .hero-tabs-container {
     display: flex;
     flex-direction: row;
@@ -136,8 +139,7 @@ a.hero-tab:hover {
     background: linear-gradient(rgb(0 0 0 / 80%), rgb(0 0 0 / 60%)),url(../../media/hue1.jpg) no-repeat center center fixed;
     background-size: cover;
     max-width: 100%;
-    min-height: 50vh;
-    min-height: 100%;
+    min-height: 100vh;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
