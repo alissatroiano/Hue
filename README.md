@@ -16,7 +16,7 @@ Hue, a fictional art gallery & store, needs to move their business online and se
 
 - Sell and send products to customers
 
-Hue's niche target market is comprised of male & female luxury art enthusiasts, ages 24 - 39, that want to preview and purchase art online. In order to meet the needs of these shoppers, Hue's website should allow them to:
+Hue's niche target market is comprised of male & female luxury art enthusiasts, ages 24 - 39, that want to preview and purchase art online. To meet the needs of these shoppers, Hue's website should allow them to:
 
 - View art products
 
@@ -33,13 +33,12 @@ Hue's niche target market is comprised of male & female luxury art enthusiasts, 
 
 #### Users
 
-##### Database Design
-During the research & planning phase of this milestone project the developer completed the below flowchart activity, titled "Django Multiple User Types". This activity was conducted to determine how to properly build and implement the django user model.
+During the research & planning phase of this milestone project, the developer completed the below flowchart activity, titled "Django Multiple User Types". This activity was conducted to determine how to properly build and implement the Django user model.
 
 ![Django Multiple User Types](wireframes/djangomultipleusertypes.png)
 [djangomultipleusertypes](wireframes/djangomultipleusertypes.pdf)
 
-As can be seen in the image above, the activty led the developer to make the following conclusions:
+As can be seen in the image above, the activity led the developer to make the following conclusions:
 
 - Hue's user authentication model should define a one-to-one relationship, using the [``OneToOneField``](https://docs.djangoproject.com/en/3.1/topics/db/examples/one_to_one/).
 
@@ -53,7 +52,7 @@ As can be seen in the image above, the activty led the developer to make the fol
     - Digital art buyers that want to:
         - Purchase digital artwork from Hue online.   
 
-### User Stories
+#### User Stories
 
 User stories were created by the [developer](https://www.github.com/alissatroiano) during the planning phase of this project. As practiced in agile development, each user story coincides with a feature of the Hue application and will be accomplished in one sprint.
 
@@ -63,9 +62,17 @@ User stories were created by the [developer](https://www.github.com/alissatroian
 
 ![Site Owner](wireframes/siteownerstories.png)
 
+### Database
+
+#### Local Development
+
+- ***Sqlite3*** will be used to store data locally before deployment.
+
+- Once the application is deployed, the developer will port the data to the robust database management system, ***PostgreSQL**.
+
 ## Features
 
-To meets all of Hue's goals and needs, this application will be built with the following features:
+To meet all of Hue's goals and needs, this application will be built with the following features:
 
 ### Existing Features
 - Home - A
@@ -74,12 +81,12 @@ To meets all of Hue's goals and needs, this application will be built with the f
 
 **Shopper**
 
-- Allows *shoppers* to view, search, sort and filter products, by having them visit the gallery and utilized the built-in tools.
+- Allows *shoppers* to view, search, sort, and filter products, by having them visit the gallery and utilized the built-in tools.
 
 **Site Owner**
 - Gives *site owner* the opportunity to view the gallery page as a regular shopper/user would.
 
-- Sign Up - Allows **all users** to create an account, by having them fill out a form that sends ``POST`` requests and add "Users" table in the database.
+- Sign Up - Allows **all users** to create an account, by having them fill out a form that uses ``POST`` to send data.
 
 - Login: 
 
@@ -88,13 +95,13 @@ To meets all of Hue's goals and needs, this application will be built with the f
 - Provides an opportunity for **shoppers** to persist their cart between visits, by logging in.
 
 **Site Owner**
-- Allows the *site owner* to access special product management tools hidden from other users, by filling out secure form that sends data and logging in.
+- Allows the *site owner* to access special product management tools hidden from other users, by filling out a secure form that sends data and logging in.
 
 - About: Allows **all users** to view information and images related to the business, by having them visit the about page.
 
 
 ### Features Left to Implement
-- Another feature idea
+
 
 ## Technologies Used
 
@@ -102,24 +109,17 @@ To meets all of Hue's goals and needs, this application will be built with the f
  - The project uses **Django** to simplify development and scalability.
 
 - [django-allauth](https://django-allauth.readthedocs.io/en/latest/installation.html)
- - This project will use  uses **Allauth** to simplify authentication, registration, account management and 3rd party (social media) login.
+ - This project will uses **Allauth** to simplify user authentication, registration, account management and 3rd party (social media) login.
+
+ - [sqlite3](https://docs.python.org/3/library/sqlite3.html)
+ - This application is using ***sqlite3*** for internal data storage during local development.
 
  - [Pillow]() 
     - This project will use **the Python Imaging Library, Pillow** to add image processing capabilities to the Python interpreter.
 
 ## Testing
 
-
 ## Deployment
-
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
-
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
-- Different values for environment variables (Heroku Config Vars)?
-- Different configuration files?
-- Separate git branch?
-
-In addition, if it is not obvious, you should also describe how to run your code locally.
 
 ## Credits
 
@@ -151,7 +151,7 @@ In addition, if it is not obvious, you should also describe how to run your code
 
 ### Research & Planning
 
-- I learned about writing user stories for multiple end users by reading the following articles:
+- I learned about writing user stories for multiple end-users by reading the following articles:
 
  - "User Stories with Examples and Template" from [Atlassian article "User Stories with Examples and Template"](https://www.atlassian.com/agile/project-management/user-stories)
 
@@ -159,7 +159,7 @@ In addition, if it is not obvious, you should also describe how to run your code
 
 - I learned how to make user stories that capture feature requirements from:
 
- - [Code Insitute]()
+ - [Code Insitute](https://codeinstitute.net/)
 
  - [Knowledge Hut article "User Stories and User Stories Examples"](https://www.knowledgehut.com/blog/agile/user-stories-examples)
 
