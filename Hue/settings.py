@@ -41,9 +41,9 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    # social media login
+    # social media login - (advanced feature - time sensitive)
     # "allauth.socialaccount.providers.facebook",
-    "allauth.socialaccount.providers.google",
+    # "allauth.socialaccount.providers.google",
     # "allauth.socialaccount.providers.pinterest",
     'home',
 ]
