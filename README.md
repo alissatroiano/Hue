@@ -144,7 +144,8 @@ To meet all of Hue's goals and needs, this application will be built with the fo
     - **Hero** background image: Pexels](https://www.pexels.com/photo/abstract-painting-2156881/)
 
 ### Backend Functionality
-- The code used to manage user permissions was copied from [Real Python article "What You Need to Know to Manage Users in Django Admin"](https://realpython.com/manage-users-in-django-admin/#implement-custom-business-roles-in-django-admin).
+
+- Django timezones were learned by reading [Django's documentation](https://docs.djangoproject.com/en/3.2/topics/i18n/timezones/).
 
 ### Acknowledgements
 
@@ -166,3 +167,13 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 - I learned about different target markets by reading:
 
     - [Marketing Artfully article "Customer Demographics - Age Demographics for Advertising"][https://marketingartfully.com/customer-demographics-age-demographics-for-advertising/]
+
+- I referenced (Django's Documentation)[https://docs.djangoproject.com/en/3.2/] for the following topics:
+
+    - [Timezones](https://docs.djangoproject.com/en/3.2/)
+
+    - [Models](https://docs.djangoproject.com/en/3.2/topics/db/models/)
+
+    - [Writing Custom Model Fields](https://docs.djangoproject.com/en/3.2/howto/custom-model-fields/)
+
+    - [Creating Forms from Models](https://docs.djangoproject.com/en/3.2/topics/forms/modelforms/)
