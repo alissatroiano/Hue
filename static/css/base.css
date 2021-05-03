@@ -4,15 +4,8 @@ html {
     font-size: 16px;
 }
 
-body > section {
-    position: relative;
-    margin: 0 auto;
-    padding: 6.25rem 0;
-    overflow: hidden;
-}
-
 /* *************************** Header & Navigation */
-nav.navbar.navbar-expand-lg.navbar-light.bg-transparent.fixed-top.shadow-lg, 
+nav.navbar.navbar-expand-lg.navbar-dark.bg-transparent, 
 .bg-transparent {
    background-color: #fafafa94;;
    border: none;
@@ -20,9 +13,9 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-transparent.fixed-top.shadow-lg,
    padding: 10px 0px;
 }
 
-.navbar-light .navbar-nav .nav-link.active, 
-.navbar-light .navbar-nav .show>.nav-link,
-.navbar-light .navbar-nav .nav-link, .nav-link.active {
+.navbar-dark .navbar-nav .nav-link.active, 
+.navbar-dark .navbar-nav .show>.nav-link,
+.navbar-dark .navbar-nav .nav-link, .nav-link.active {
     font-family: 'Antonio', sans-serif;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -30,13 +23,13 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-transparent.fixed-top.shadow-lg,
     color: #fafafa;
 }
 
-.navbar-light .navbar-nav .nav-link.active:hover,
-.navbar-light .navbar-nav .show>.nav-link:hover,
-.navbar-light .navbar-nav .nav-link:focus, 
-.navbar-light .navbar-nav .nav-link:hover
-.navbar-light .navbar-nav .nav-link .nav-link.active:hover,
-.navbar-light .navbar-nav .nav-link:focus, 
-.navbar-light .navbar-nav .nav-link:hover  {
+.navbar-dark .navbar-nav .nav-link.active:hover,
+.navbar-dark .navbar-nav .show>.nav-link:hover,
+.navbar-dark .navbar-nav .nav-link:focus, 
+.navbar-dark .navbar-nav .nav-link:hover
+.navbar-dark .navbar-nav .nav-link .nav-link.active:hover,
+.navbar-dark .navbar-nav .nav-link:focus, 
+.navbar-dark .navbar-nav .nav-link:hover  {
     color: rgb(132, 116, 161);
 }
 
@@ -63,8 +56,10 @@ a#logo:hover {
 }
 
 .navbar-nav .dropdown-menu {
+    font-family: 'Antonio', sans-serif;
     position: static;
     background-color: transparent;
+    text-decoration: none;
 }
 
 a.dropdown-item {
@@ -79,6 +74,34 @@ a.dropdown-item:hover {
     color: rgb(132, 116, 161);
     background-color: transparent;
 }
+
+.alert-info, #nav-alert {
+	color: #070412;
+	background-color: #edcdff85;
+	border: none;
+	font-family: 'Raleway', sans-serif;
+	/* font-weight: 300; */
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	text-align: center;
+	box-shadow: 1px 1px 3px 1px #4f475b;
+}
+
+strong#nav-sale {
+    font-family: 'Antonio', serif;
+}
+
+a#nav-alert-link {
+    color: rgb(165, 221, 224);
+    text-transform: uppercase;
+    text-decoration: none;
+
+}
+
+a#nav-alert-link:hover {
+    color: #033030;
+}
+
 /*.end-header-&-navigations */
 
 /* ************************ Sticky Slider Navigation */
@@ -135,11 +158,11 @@ a.hero-tab:hover {
 /* *************************** end sticky-slider-nav */
 
 /***************************** Homepage */
-#welcome {
+#hero {
     background: linear-gradient(rgb(0 0 0 / 80%), rgb(0 0 0 / 60%)),url(../../media/hue1.jpg) no-repeat center center fixed;
+    min-height: 100vh;
     background-size: cover;
     max-width: 100%;
-    min-height: 100vh;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
@@ -152,7 +175,7 @@ a.hero-tab:hover {
     position: relative;
 }
 
-h1#hero {
+h1#title {
     font-family: 'Antonio', sans-serif;
     font-size: 5rem;
     letter-spacing: 3px;

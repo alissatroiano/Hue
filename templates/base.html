@@ -36,8 +36,15 @@
 <body>
     <!--header starts here <https://getbootstrap.com/docs>-->
     <header class="container-fluid fixed-top shadow-sm p-3 mb-5 shadow-lg" id="header">
+        <!--nav alert with promotion starts here-->
+        <div class="alert alert-info alert-dismissible fade show" id="nav-alert" role="alert">
+            <strong id="nav-sale">SALE! 25% off ALL ITEMS!! </strong>
+            <br>
+            <a href="#" id="nav-alert-link">Sign up</a>  to enjoy sale!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
         <!--nav starts here <https://getbootstrap.com/docs>-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-transparent fixed-top shadow-lg">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
             <a class="navbar-brand" href="#" id="logo">
                 <i class="fas fa-brush"></i>
                 Hue</a>
@@ -96,6 +103,22 @@
         <!--end nav-->
     </header>
     <!--end header-->
+
+    <!--footer-->
+    <section class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <footer class="footer bg-light fixed-bottom">
+                        <div class="container">
+                            <span class="text-muted">2021 HUE ONLINE ART SHOP - ALL RIGHTS RESERVED</span>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--end footer-->
 
     {% if messages %}
     <div class="message-container"></div>
