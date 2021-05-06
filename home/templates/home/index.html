@@ -4,27 +4,68 @@
 {% block page_header %}
 <div class="container">
     <div class="row">
-        <div class="col"></div>
+        <div class="col">
+        </div>
     </div>
 </div>
 {% endblock %}
 
 {% block content %}
-<!-- Sticky Slider Nav copied from Codepen.io (https://codepen.io/alissatroiano/pen/JjEBLvK)-->
-<section class="hero" id="welcome">
+
+<!--welcome wrapper-->
+<div class="welcome-wrapper">
+<!--hero starts here-->
+<section class="p-3 hero-container" id="welcome">
     <div class="container-fluid">
-        <div class="row">
+        <div class="row d-flex align-items-center text-center">
+            <!--call to action-->
             <div class="col-12">
-                <h1 class="display-4 fw-bold text-center lh-1" id="hero">HUE</h1>
+                <h1 class="display-4 fw-bold text-center lh-1" id="title">SALE!!</h1>
                 <h3 class="lead">Digital Art Store</h3>
             </div>
+            <!--./call-to-action-->
         </div>
-        <div class="row text-center">
-            <div class="col-xs-6">
-                <button type="button" class="btn btn-info btn-lg px-4 me-md-2 fw-bold" id="hero-button-1">GALLERY</button>
+        <div class="row d-flex align-items-center text-center">
+            <div class="col-sm-6 col-md-12">
+                <button type="button" class="btn btn-info btn-lg px-4 me-md-2 fw-bold" id="hero-button-1">SHOP</button>
             </div>
         </div>
     </div>
 </section>
-<!--./end-sticky-slider-nav-->
+<!--./end-hero-->
+
+<!-- product display-->
+<section class="product-display">
+    <div class="container-fluid mt-3 bg-light">
+        <div class="row h-100 align-items-center text-center">
+            <div class="col-12">
+                <div class="card-group">
+                    <div class="card bg-dark text-white">
+                        <img class="card-img" src="{../../../media/hue5.jpg" alt="Card image">
+                        <div class="card-img-overlay">
+                            <h3 class="card-title">ABSTRACT</h3>
+                        </div>
+                    </div>
+                    <div class="card">
+                         <img class="card-img" src="{../../../media/hue3.jpg" alt="Card image">
+                        <div class="card-img-overlay">
+                            <h3 class="card-title">ABSTRACT</h3>
+                        </div>
+                    </div>
+                    <div class="card">
+                         <img class="card-img" src="{../../../media/hue4.jpg" alt="Card image">
+                        <div class="card-img-overlay">
+                            <h3 class="card-title">ABSTRACT</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!--  -->
+</div>
+
+
 {% endblock %}

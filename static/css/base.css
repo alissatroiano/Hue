@@ -105,21 +105,24 @@ a#nav-alert-link:hover {
 /*.end-header-&-navigations */
 
 /***************************** Homepage */
-#welcome {
+.hero-wrapper {
+    max-height: 100vh;
+}
+
+.hero-container, #welcome {
     background: linear-gradient(rgb(0 0 0 / 80%), rgb(0 0 0 / 60%)),url(../../media/hue1.jpg) no-repeat center center fixed;
-    min-height: 100vh;
     background-size: cover;
     max-width: 100%;
+    min-height: 75vh;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
     position: relative;
+    overflow: hidden;
 }
 
 h1#title {
