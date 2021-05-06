@@ -104,61 +104,8 @@ a#nav-alert-link:hover {
 
 /*.end-header-&-navigations */
 
-/* ************************ Sticky Slider Navigation */
-.hero-tabs-container {
-    display: flex;
-    flex-direction: row;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 70px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    background: rgba(70, 47, 47, 0.65); ;
-    z-index: 10;
-}
-
-a.hero-tab {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    color: #033030;
-    letter-spacing: 0.1rem;
-	transition: all 0.5s ease;
-    font-size: 1rem;
-    text-decoration: none;
-}
-
-i.fas.fa-paint-brush, 
-i.fas.fa-i-cursor,
-i.fas.fa-spray-can,
-i.fas.fa-gamepad,
-i.fas.fa-camera {
-    text-shadow: 1px 2px 2px #ccc;
-}
-
-a.hero-tab:hover {
-    color: rgb(172, 125, 219);
-    background: rgba(255, 255, 255, 0.8);
-    font-size: 1.5rem;
-    transition: all 0.5s ease;
-    outline-width: 2px;
-    outline-offset: 1px;
-    outline-style: double; 
-}
- 
-.hero-tab-slider {
-    position: absolute;
-    bottom: 0;
-    width: 0;
-    height: 6px;
-    background: #66B1F1;
-    transition: left 0.3s ease;
-}
-/* *************************** end sticky-slider-nav */
-
 /***************************** Homepage */
-#hero {
+#welcome {
     background: linear-gradient(rgb(0 0 0 / 80%), rgb(0 0 0 / 60%)),url(../../media/hue1.jpg) no-repeat center center fixed;
     min-height: 100vh;
     background-size: cover;
@@ -186,7 +133,7 @@ h1#title {
     padding-top: 50px;
 }
 
-h1#hero:hover {
+h1#title:hover {
     color: rgb(132, 116, 161);
     background-color: transparent;
 }
@@ -210,15 +157,20 @@ h3.lead:hover {
 
 button#hero-button-1,
 button#hero-button-2 {
-    background-color: #6EC6CA;
-    border-color: #6EC6CA;
+    font-size: 1.3rem;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+    background-color: rgba(176, 186, 187);
+    border: none;
+    text-shadow: 1px 1px 3px #000;
     color: #033030;
 }
 
 button#hero-button-1:hover,
 button#hero-button-2:hover {
      background-color: #033030;
-     border-color: #033030;
      color: #fafafa;
 }
 /* *************************** .end-homepage */
