@@ -2,17 +2,10 @@
 {% load static %}
 
 {% block page_header %}
-<div class="container">
-    <div class="row">
-        <div class="col">
-        </div>
-    </div>
-</div>
+
 {% endblock %}
 
 {% block content %}
-<!--welcome wrapper-->
-<div id="welcome-wrapper">
 <!--hero starts here-->
 <section class="p-3 hero-container" id="welcome">
     <div class="container-fluid">
@@ -36,29 +29,30 @@
 <!--category display https://codepen.io/mhhasan320/pen/BwqvLL -->
 <section class="shop-cta">
     <div class="container px-4 py-3">
-        <div class="row row-cols-1 row-cols-lg-3 g-4 py-3">
-            <div class="col xs-8 col-sm-4">
-                <div class="card h-100 card-cover overflow-hidden text-white rounded-5 shadow-lg" id="shop-card1">
-                    <div class="card-body">
+        <div class="row row-cols-1 row-cols-lg-3 text-black g-4 py-2">
+            <div class="col-xs-8 col-sm-4">
+                <div class="card h-100 overflow-hidden rounded-5" id="shop-card1">
+                    <div class="card-image-overlay">
                         <h2 class="pt-5 mt-5 mb-4 lh-1 fw-bold">Short title, long jacket</h2>
                         <a href="#" class="stretched-link"></a>
                     </div>
                 </div>
             </div>
-            <div class="col xs-8 col-sm-4">
-                <div class="card h-100 card-cover overflow-hidden text-white bg-dark rounded-5 shadow-lg"
+            <div class="col-xs-8 col-sm-4">
+                <div class="card h-100 overflow-hidden rounded-5 img-fluid"
                     id="shop-card2">
-                    <div class="card-body">
+                    <div class="card-image-overlay">
                         <h2 class="pt-5 mt-5 mb-4 lh-1 fw-bold">Short title, long jacket</h2>
                         <a href="#" class="stretched-link"></a>
                     </div>
                 </div>
             </div>
-            <div class="col xs-8 col-sm-4">
-                <div class="card h-100 card-cover overflow-hidden text-white bg-dark rounded-5 shadow-lg img-fluid"
+            <div class="col-xs-8 col-sm-4">
+                <div class="card h-100 overflow-hidden rounded-5 img-fluid"
                     id="shop-card3">
-                    <div class="card-body">
-                        <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Short title, long jacket</h2>
+                    <div class="card-image-overlay">
+                        <h2 class="pt-5 mt-5 mb-4 fw-bold">Short title, long jacket</h2>
+                        <a href="#" class="stretched-link"></a>
                     </div>
                 </div>
             </div>
@@ -66,8 +60,11 @@
     </div>
 </section>
 <!--./end-category-display-->
-</div>
+
 <!--./end-welcome-wrapper-->
 
+{% block page_footer %}
+
+{% endblock %}
 
 {% endblock %}
