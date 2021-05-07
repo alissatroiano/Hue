@@ -11,9 +11,8 @@
 {% endblock %}
 
 {% block content %}
-
 <!--welcome wrapper-->
-<div class="welcome-wrapper">
+<div id="welcome-wrapper">
 <!--hero starts here-->
 <section class="p-3 hero-container" id="welcome">
     <div class="container-fluid">
@@ -26,7 +25,7 @@
             <!--./call-to-action-->
         </div>
         <div class="row d-flex align-items-center text-center">
-            <div class="col-sm-6 col-md-12">
+            <div class="col-12">
                 <button type="button" class="btn btn-info btn-lg px-4 me-md-2 fw-bold" id="hero-button-1">SHOP</button>
             </div>
         </div>
@@ -34,38 +33,41 @@
 </section>
 <!--./end-hero-->
 
-<!-- product display-->
-<section class="product-display">
-    <div class="container-fluid mt-3 bg-light">
-        <div class="row h-100 align-items-center text-center">
-            <div class="col-12">
-                <div class="card-group">
-                    <div class="card bg-dark text-white">
-                        <img class="card-img" src="{../../../media/hue5.jpg" alt="Card image">
-                        <div class="card-img-overlay">
-                            <h3 class="card-title">ABSTRACT</h3>
-                        </div>
-                    </div>
-                    <div class="card">
-                         <img class="card-img" src="{../../../media/hue3.jpg" alt="Card image">
-                        <div class="card-img-overlay">
-                            <h3 class="card-title">ABSTRACT</h3>
-                        </div>
-                    </div>
-                    <div class="card">
-                         <img class="card-img" src="{../../../media/hue4.jpg" alt="Card image">
-                        <div class="card-img-overlay">
-                            <h3 class="card-title">ABSTRACT</h3>
-                        </div>
+<!--category display https://codepen.io/mhhasan320/pen/BwqvLL -->
+<section class="shop-cta">
+    <div class="container px-4 py-3">
+        <div class="row row-cols-1 row-cols-lg-3 g-4 py-3">
+            <div class="col xs-8 col-sm-4">
+                <div class="card h-100 card-cover overflow-hidden text-white rounded-5 shadow-lg" id="shop-card1">
+                    <div class="card-body">
+                        <h2 class="pt-5 mt-5 mb-4 lh-1 fw-bold">Short title, long jacket</h2>
+                        <a href="#" class="stretched-link"></a>
                     </div>
                 </div>
             </div>
-
+            <div class="col xs-8 col-sm-4">
+                <div class="card h-100 card-cover overflow-hidden text-white bg-dark rounded-5 shadow-lg"
+                    id="shop-card2">
+                    <div class="card-body">
+                        <h2 class="pt-5 mt-5 mb-4 lh-1 fw-bold">Short title, long jacket</h2>
+                        <a href="#" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col xs-8 col-sm-4">
+                <div class="card h-100 card-cover overflow-hidden text-white bg-dark rounded-5 shadow-lg img-fluid"
+                    id="shop-card3">
+                    <div class="card-body">
+                        <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Short title, long jacket</h2>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
-<!--  -->
+<!--./end-category-display-->
 </div>
+<!--./end-welcome-wrapper-->
 
 
 {% endblock %}

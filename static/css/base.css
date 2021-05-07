@@ -105,15 +105,16 @@ a#nav-alert-link:hover {
 /*.end-header-&-navigations */
 
 /***************************** Homepage */
-.hero-wrapper {
-    max-height: 100vh;
+div#welcome-wrapper {
+    min-height: 100vh;
+    max-width: 100%;
 }
 
 .hero-container, #welcome {
     background: linear-gradient(rgb(0 0 0 / 80%), rgb(0 0 0 / 60%)),url(../../media/hue1.jpg) no-repeat center center fixed;
     background-size: cover;
     max-width: 100%;
-    min-height: 75vh;
+    min-height: 60vh;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
@@ -176,7 +177,61 @@ button#hero-button-2:hover {
      background-color: #033030;
      color: #fafafa;
 }
-/* *************************** .end-homepage */
+/* ***************************.end-hero */
+
+/* *************************** Homepage Shop Buttons */
+/* grayscale effect copied from https://codepen.io/mhhasan320/pen/BwqvLL */
+#shop-card1 {
+    background: url('/media/hue3.jpg')no-repeat center center fixed;
+    background-size: cover;
+    max-width: 100%;
+    height: auto;
+    min-height: 100%;
+    justify-content: center;
+    display: flex;
+    overflow: hidden;
+    margin: 0px auto;
+    filter: grayscale(100%);
+	-webkit-filter: grayscale(100%);
+}
+
+#shop-card1:hover {
+		filter: grayscale(0);
+		-webkit-filter: grayscale(0);
+}
+
+#shop-card2 {
+    background: url('https://image.shutterstock.com/image-photo/blue-paint-splashing-isolated-on-260nw-1296915349.jpg') no-repeat center center fixed;
+    background-size: cover;
+    max-width: 100%;
+    height: auto;
+    justify-content: center;
+    margin: 0px auto;
+    filter: grayscale(100%);
+	-webkit-filter: grayscale(100%);
+}
+
+#shop-card2:hover {
+		filter: grayscale(0);
+		-webkit-filter: grayscale(0);
+}
+
+#shop-card3 {
+    background: url('https://image.shutterstock.com/image-photo/paint-splashes-circle-isolated-on-600w-140004208.jpg')no-repeat center center fixed;
+    background-size: cover;
+    max-width: 100%;
+    height: auto;
+    justify-content: center;
+    overflow: hidden;
+    margin: 0px auto;
+    filter: grayscale(100%);
+	-webkit-filter: grayscale(100%);
+}
+
+#shop-card3:hover {
+		filter: grayscale(0);
+		-webkit-filter: grayscale(0);
+}
 
 /* *************************** Media Queries */
 @media (min-width: 800px) {
