@@ -129,12 +129,13 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 
 - I copied Font Awesome's CDN from [cdnjs.com](https://cdnjs.com/libraries/font-awesome).
 
+- The grayscale hover effect on the homepage was copied from this [Codepen](https://codepen.io/mhhasan320/pen/BwqvLL) 
+
 ## UX Design
 
 - I copied components from [Bootstrap's documentation](https://getbootstrap.com/docs/5.0/components/navs-tabs/) to make Hue's navigation intuitive and responsive.
 
 - I copied the sticky bottom navigation (with tabs) from [this Codepen pen](https://codepen.io/alissatroiano/pen/JjEBLvK).
-
 
 ### Media
 - I used this article from [CSS Tricks](https://css-tricks.com/perfect-full-page-background-image/) to style the background image on Hue's homepage.
@@ -146,6 +147,11 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 ### Backend Functionality
 
 - Django timezones were learned by reading [Django's documentation](https://docs.djangoproject.com/en/3.2/topics/i18n/timezones/).
+
+## Utilities & tools
+- [Diffchecker](https://www.diffchecker.com/#)
+
+- [Random Key Gen](https://randomkeygen.com/)
 
 ### Acknowledgements
 
