@@ -129,7 +129,9 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 
 - I copied Font Awesome's CDN from [cdnjs.com](https://cdnjs.com/libraries/font-awesome).
 
-- The grayscale hover effect on the homepage was copied from this [Codepen](https://codepen.io/mhhasan320/pen/BwqvLL) 
+- The grayscale hover effect on the homepage was copied from this [Codepen](https://codepen.io/mhhasan320/pen/BwqvLL).
+
+- I used this [Stack Overflow](https://stackoverflow.com/questions/31456576/django-footer-and-header-on-each-page-with-extends) thread for header, footer and body content templating with Django.
 
 ## UX Design
 
