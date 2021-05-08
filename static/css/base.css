@@ -114,7 +114,7 @@ div#welcome-wrapper {
     background: linear-gradient(rgb(0 0 0 / 80%), rgb(0 0 0 / 60%)),url(../../media/hue1.jpg) no-repeat center center fixed;
     background-size: cover;
     max-width: 100%;
-    min-height: 60vh;
+    min-height: 50vh;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
@@ -128,7 +128,7 @@ div#welcome-wrapper {
 
 h1#title {
     font-family: 'Antonio', sans-serif;
-    font-size: 5rem;
+    font-size: 3rem;
     letter-spacing: 3px;
     font-weight: 300px;
     color: #fafafa;
@@ -181,8 +181,8 @@ button#hero-button-2:hover {
 
 /* *************************** Homepage Shop Buttons */
 /* grayscale effect copied from https://codepen.io/mhhasan320/pen/BwqvLL */
-div#shop-card1 {
-    background-image: url('../../media/categoryimage1.jpg');
+div#category-card1 {
+    background-image: url('../../media/glitchart.jpg');
     background-position: center;
     background-size: cover;
     max-width: 100%;
@@ -197,13 +197,13 @@ div#shop-card1 {
 	-webkit-filter: grayscale(100%);
 }
 
-div#shop-card1:hover {
+div#category-card1:hover {
 		filter: grayscale(0);
 		-webkit-filter: grayscale(0);
 }
 
-div#shop-card2 {
-    background-image:  url('../../media/categoryimage2.jpg');
+div#category-card2 {
+    background-image:  url('../../media/mixedmedia.jpg');
     background-position: center;
     background-size: cover;
     max-width: 100%;
@@ -216,13 +216,13 @@ div#shop-card2 {
 	-webkit-filter: grayscale(100%);
 }
 
-div#shop-card2:hover {
+div#category-card2:hover {
 		filter: grayscale(0);
 		-webkit-filter: grayscale(0);
 }
 
-div#shop-card3 {
-    background-image: url('../../media/categoryimage3.jpg');
+div#category-card3 {
+    background-image: url('../../media/conceptualart.jpg');
     min-height: 20rem;
     background-position: right;
     background-size: cover;
@@ -237,12 +237,12 @@ div#shop-card3 {
 }
 
 
-div#shop-card3 {
+div#category-card3 {
     background-image: url('../media/hue5.jpg') no-repeat center center fixed;
     background-position: center;
 }
 
-#shop-card3:hover {
+#category-card3:hover {
 		filter: grayscale(0);
 		-webkit-filter: grayscale(0);
 }

@@ -1,9 +1,7 @@
 {% extends "base.html" %} 
 {% load static %}
 
-{% block page_header %}
-
-{% endblock %}
+{% block page_header %}{% endblock %}
 
 {% block content %}
 <!--hero starts here-->
@@ -12,26 +10,56 @@
         <div class="row d-flex align-items-center text-center">
             <!--call to action-->
             <div class="col-12">
-                <h1 class="display-4 fw-bold text-center lh-1" id="title">SALE!!</h1>
-                <h3 class="lead">Digital Art Store</h3>
+                <h1 class="fw-bold text-center lh-1 mb-auto" id="title"><span style="color: #4b0082; letter-spacing: 1px;">HU</span><span style="color:rgb(132, 116, 161);">G</span><span style="color: #4b0082; letter-spacing: 1px;">E</span> SAVINGS</h1>
+                <h3 class="lead mt-4 py-2 mx-auto"></h3>
             </div>
             <!--./call-to-action-->
         </div>
-        <div class="row d-flex align-items-center text-center">
-            <div class="col-12">
-                <button type="button" class="btn btn-info btn-lg px-4 me-md-2 fw-bold" id="hero-button-1">SHOP</button>
-            </div>
         </div>
-    </div>
 </section>
 <!--./end-hero-->
 
 <!--category display https://codepen.io/mhhasan320/pen/BwqvLL -->
-<section class="shop-cta">
+<section class="category-cta">
     <div class="container px-4 py-3">
-        <div class="row row-cols-1 row-cols-lg-3 text-black g-4 py-2">
+        <div class="row row-cols-1 row-cols-lg-3 text-white g-4 py-2">
             <div class="col-xs-8 col-sm-4">
-                <div class="card h-100 overflow-hidden rounded-5" id="shop-card1">
+                <div class="card h-100 overflow-hidden rounded-5" id="category-card1">
+                    <div class="card-image-overlay text-center">
+                        <h2 class="mt-auto mb-auto lh-1 fw-bold">Glitch Art</h2>
+                        <a href="#" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-8 col-sm-4">
+                <div class="card h-100 overflow-hidden rounded-5 img-fluid"
+                    id="category-card2">
+                    <div class="card-image-overlay">
+                        <h2 class="pt-5 mt-5 mb-4 lh-1 fw-bold">Mixed Media</h2>
+                        <a href="#" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-8 col-sm-4">
+                <div class="card h-100 overflow-hidden rounded-5 img-fluid"
+                    id="category-card3">
+                    <div class="card-image-overlay">
+                        <h2 class="pt-5 mt-5 mb-4 fw-bold">Conceptual Art</h2>
+                        <a href="#" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+                        <div class="col-xs-8 col-sm-4">
+                <div class="card h-100 overflow-hidden rounded-5" id="category-card4">
+                    <div class="card-image-overlay text-center">
+                        <h2 class="mt-auto mb-auto lh-1 fw-bold">Glitch Art</h2>
+                        <a href="#" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-8 col-sm-4">
+                <div class="card h-100 overflow-hidden rounded-5 img-fluid"
+                    id="category-card5">
                     <div class="card-image-overlay">
                         <h2 class="pt-5 mt-5 mb-4 lh-1 fw-bold">Short title, long jacket</h2>
                         <a href="#" class="stretched-link"></a>
@@ -40,16 +68,7 @@
             </div>
             <div class="col-xs-8 col-sm-4">
                 <div class="card h-100 overflow-hidden rounded-5 img-fluid"
-                    id="shop-card2">
-                    <div class="card-image-overlay">
-                        <h2 class="pt-5 mt-5 mb-4 lh-1 fw-bold">Short title, long jacket</h2>
-                        <a href="#" class="stretched-link"></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-8 col-sm-4">
-                <div class="card h-100 overflow-hidden rounded-5 img-fluid"
-                    id="shop-card3">
+                    id="category-card6">
                     <div class="card-image-overlay">
                         <h2 class="pt-5 mt-5 mb-4 fw-bold">Short title, long jacket</h2>
                         <a href="#" class="stretched-link"></a>
@@ -61,10 +80,6 @@
 </section>
 <!--./end-category-display-->
 
-<!--./end-welcome-wrapper-->
-
-{% block page_footer %}
-
-{% endblock %}
+{% block page_footer %}{% endblock %}
 
 {% endblock %}
