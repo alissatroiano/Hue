@@ -66,10 +66,6 @@ User stories were created by the [developer](https://www.github.com/alissatroian
 
 #### Local Development
 
-- ***Sqlite3*** will be used to store data locally before deployment.
-
-- Once the application is deployed, the developer will port the data to the robust database management system, ***PostgreSQL**.
-
 ## Features
 
 To meet all of Hue's goals and needs, this application will be built with the following features:
@@ -117,6 +113,13 @@ To meet all of Hue's goals and needs, this application will be built with the fo
  - [Pillow]() 
     - This project will use **the Python Imaging Library, Pillow** to add image processing capabilities to the Python interpreter.
 
+- [Virtual Environment Wrapper](https://virtualenvwrapper.readthedocs.io/en/latest/index.html)
+    - This project makes use of virtualenvwrapper extensions for creating and deleting virtual environments and managing local development.
+
+- [Homebrew](https://brew.sh/)
+
+    - This project uses Homebrew to simplify software and package installations in MacOS.
+
 ## Testing
 
 ## Deployment
@@ -151,9 +154,34 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 - Django timezones were learned by reading [Django's documentation](https://docs.djangoproject.com/en/3.2/topics/i18n/timezones/).
 
 ## Utilities & tools
-- [Diffchecker](https://www.diffchecker.com/#)
+- [Diffchecker](https://www.diffchecker.com/#).
 
-- [Random Key Gen](https://randomkeygen.com/)
+- [Random Key Gen](https://randomkeygen.com/).
+
+- I learned how to set up Django project's in a virtual environemnt by reading these articles:
+
+    - ['Setting up a Django development environment'](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/development_environment) from [MDN Web Docs](https://developer.mozilla.org/en-US/)
+
+    - ['Installation'](https://virtualenv.pypa.io/en/latest/installation.html#via-pip), [Virtualenv](https://virtualenv.pypa.io/en/latest/) docs.
+
+    - [Virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/install.html)
+
+    - ["Install Python3, Virtualenv, Django and Start a new project on your MacOS"](https://shishirthedev.medium.com/install-python3-virtualenv-django-and-start-a-new-porject-on-you-macos-de429ad3fbc0) from [Medium](https://medium.com)
+
+    - ['Setup python, pip, virtualenv and virtualwrapper, with zsh on a new machine'](https://gist.github.com/dixneuf19/a398c08f00aac24609c3cc44c29af1f0)
+
+    - [Python Tips](https://book.pythontips.com/en/testing/virtual_environment.html)
+
+- Other resources I used during  **local development**
+
+    - ['How to install pip in MacOS'](https://www.geeksforgeeks.org/how-to-install-pip-in-macos/#:~:text=pip%20can%20be%20downloaded%20and,directory%20as%20python%20is%20installed.&text=and%20wait%20through%20the%20installation,now%20installed%20on%20your%20system), [Geeksforgeeks](https://www.geeksforgeeks.org/)
+
+    - [Homebrew](https://brew.sh/)
+
+    - [Stack Exchange](https://superuser.com/questions/717105/how-to-show-full-path-of-a-file-including-the-full-filename-in-mac-osx-terminal/1493463)
+
+    - [Sublime Text](https://packagecontrol.io/docs)
+
 
 ### Acknowledgements
 
