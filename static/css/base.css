@@ -237,12 +237,22 @@ div#category-card3 {
 }
 
 
-div#category-card3 {
-    background-image: url('../media/hue5.jpg') no-repeat center center fixed;
-    background-position: center;
+div#category-card4 {
+    background-image: url('https://image.shutterstock.com/image-illustration/multicolored-beautiful-fractal-flower-stainedglass-600w-1970394041.jpg');
+    min-height: 20rem;
+    background-position: right;
+    background-size: cover;
+    max-width: 100%;
+    height: auto;
+    justify-content: center;
+    overflow: hidden;
+    margin: 0px auto;
+    box-shadow: 1px 4px 14px 1px #2f1b31;
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
 }
 
-#category-card3:hover {
+div#category-card4:hover {
 		filter: grayscale(0);
 		-webkit-filter: grayscale(0);
 }
