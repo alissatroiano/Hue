@@ -7,3 +7,8 @@ __pycache__/
 *.sqlite3
 *.pyc
 __pycache__
+pyvenv.cfg
+.Python
+.gitpod.dockerfile
+.DS_store
+.gitpod.yml
