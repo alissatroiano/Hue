@@ -136,6 +136,10 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 
 - I used this [Stack Overflow](https://stackoverflow.com/questions/31456576/django-footer-and-header-on-each-page-with-extends) thread for header, footer and body content templating with Django.
 
+- The images used for this project were copied from:
+
+    - [Pixabay](https://pixabay.com/illustrations/fractal-art-psychedelic-fantasy-2077883/)
+
 ## UX Design
 
 - I copied components from [Bootstrap's documentation](https://getbootstrap.com/docs/5.0/components/navs-tabs/) to make Hue's navigation intuitive and responsive.
