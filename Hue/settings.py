@@ -46,7 +46,10 @@ INSTALLED_APPS = [
     # "allauth.socialaccount.providers.google",
     # "allauth.socialaccount.providers.pinterest",
     'home',
+    'shop',
 ]
+
+CURRENCY = '$'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
