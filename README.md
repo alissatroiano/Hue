@@ -153,9 +153,27 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 
     - **Hero** background image: Pexels](https://www.pexels.com/photo/abstract-painting-2156881/)
 
+    - The favicon image was downloaded from [The Noun Project](https://thenounproject.com/term/tint/120414/) and is licensed by [Creative Commons]()
+
+- I learned how to configure a sitewide favicon in a Django project by following:
+
+    - [W3](https://www.w3.org/2005/10/howto-favicon)
+
+    - [Automation Panda](https://automationpanda.com/2017/12/17/django-favicon-setup-including-admin/)
+
+    - [Tango with Django](https://www.tangowithdjango.com/book17/chapters/templates_static.html)
+
+    - [Stack Overflow](https://stackoverflow.com/questions/5517950/django-media-url-and-media-root)
+
 ### Backend Functionality
 
 - Django timezones were learned by reading [Django's documentation](https://docs.djangoproject.com/en/3.2/topics/i18n/timezones/).
+
+- I copied syntax and referenced these articles to build the **shop**, **order** and **order items** models.
+
+    - [Codegrepper](https://www.codegrepper.com/code-examples/python/product+manager+django)
+
+    - [Medium](https://christosstath10.medium.com/create-your-own-point-of-sale-c25f8b1ff93b)
 
 ## Utilities & tools
 - [Diffchecker](https://www.diffchecker.com/#).
