@@ -41,10 +41,9 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    # social media login - (advanced feature - time sensitive)
-    # "allauth.socialaccount.providers.facebook",
-    # "allauth.socialaccount.providers.google",
-    # "allauth.socialaccount.providers.pinterest",
+    "allauth.socialaccount.providers.facebook",
+    "allauth.socialaccount.providers.google",
+    "allauth.socialaccount.providers.pinterest",
     'home',
     'shop',
 ]
@@ -92,6 +91,27 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 SITE_ID = 1
+
+# Provider specific settings
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+    'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'offline',
+        },
+        'APP': {
+            'client_id': '303991007373-mr20m8gbbkbhtag3gvi49c8gtav00drv.apps.googleusercontent.com',
+            'secret': '5g8OUjB29N5tL6Sh-_RtdBuL',
+            'key': ''
+        }
+    },
+    'facebook': {
+        'LOCALE_FUNC': lambda request: 'en_US'
+    }
+}
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
