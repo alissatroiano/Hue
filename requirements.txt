@@ -5,7 +5,7 @@ chardet==4.0.0
 cryptography==3.4.7
 defusedxml==0.7.1
 Django==3.2.2
-django-allauth==0.44.0
+django-allauth==0.41.0
 django-tables2==2.3.4
 idna==2.10
 oauthlib==3.1.0
