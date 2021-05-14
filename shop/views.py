@@ -1,14 +1,27 @@
 from django.shortcuts import render
 from .models import Product
 
+
 # Create your views here.
+def shop_all(request):
+    """ A view to show all products, including sorting and search queries """
 
-def product_details(request, product_id):
+    products = Product.objects.all()
 
-    product = get_object_or_404(product, pk=product_id)
+    context = {
+        'products': products,
+    }
 
-    user = request.user
-    product.set_flag(user)
-    product.is_flagged(user)
-    product.remove_flag(user)
-  
+    return render(request, 'shop/shop.html', context)
+
+
+def product_detail(request, product_id):
+    """ A view to show individual product details """
+
+    product = get_object_or_404(Product, pk=product_id)
+
+    context = {
+        'product': product,
+    }
+
+    return render(request, 'products/product_detail.html', context)

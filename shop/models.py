@@ -19,16 +19,14 @@ class Category(models.Model):
     def __str__(self):
         return self.title
 
+
 # https://christosstath10.medium.com/create-your-own-point-of-sale-c25f8b1ff93b
-
-
 class Product(models.Model):
     sku = models.CharField(max_length=254, null=True, blank=True)
     active = models.BooleanField(default=True)
     title = models.CharField(max_length=254, unique=True)
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
-    product_details = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     discount_price = models.DecimalField(
         default=0.00, decimal_places=2, max_digits=10)
@@ -37,7 +35,6 @@ class Product(models.Model):
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     # https://stackoverflow.com/questions/1737017/django-auto-now-and-auto-now-add
-    qty = models.PositiveIntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     deleted_at = models.DateTimeField(auto_now=True)
