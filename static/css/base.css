@@ -379,7 +379,36 @@ filter: grayscale(0);
 -webkit-filter: grayscale(0);
 }
 
+/* Shop */
+#regular-price {
+  text-decoration: line-through;
+}
 /* *************************** Media Queries */
+/* fixed top navbar only on medium and up */
+@media (min-width: 992px) {
+    .fixed-top-desktop-only {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    .header-container {
+        padding-top: 164px;
+    }
+}
+
+/* pad the top a bit when navbar is collapsed on mobile */
+@media (max-width: 991px) {
+    .header-container {
+        padding-top: 116px;
+    }
+
+    body {
+        height: calc(100vh - 116px);
+    }
+    
 @media only screen and (max-width: 768px) {
 nav.navbar.navbar-expand-lg.navbar-dark.bg-transparent,
 .bg-transparent {

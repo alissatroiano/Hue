@@ -53,5 +53,5 @@ class Product(models.Model):
         return self.title
 
     def display_final_price(self):
-        return f'{self.final_price} {CURRENCY}'
+        return f'{CURRENCY} {self.final_price}'
     display_final_price.short_description = 'Price'

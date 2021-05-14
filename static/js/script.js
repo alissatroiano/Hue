@@ -41,3 +41,12 @@ document.addEventListener('DOMContentLoaded',function(event){
   // start the text animation
   StartTextAnimation(0);
 });
+
+
+/* document.querySelector("#add_button").addEventListener("click", function(event) {
+  event.preventDefault();
+}, false);
+
+document.addEventListener('DOMContentLoaded',function(event){
+  function addProduct()
+}*/
