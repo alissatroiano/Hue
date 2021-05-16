@@ -1,7 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block page_header %}{% endblock %}
+{% block page_header %}
+<div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+</div>
+{% endblock %}
 
 {% block content %}
 <!--hero starts here-->
@@ -21,10 +27,10 @@
 <!--./end-hero-->
 <!--Category Display https://codepen.io/mhhasan320/pen/BwqvLL -->
 <section class="category-cta mx-5 my-5">
-    <div class="container px-4 py-3">
-        <div class="row row-cols-1 row-cols-lg-3 text-white g-4 py-2">
+    <div class="container-fluid">
+        <div class="row d-flex text-white g-4 py-2">
             <div class="col-xs-8 col-sm-4">
-                <div class="card h-100 overflow-hidden rounded-5" id="category-card1">
+                <div class="card h-100 overflow-hidden rounded-5 img-fluid" id="category-card1">
                     <div class="card-image-overlay">
                         <h3 class="py-3 mt-5 mb-4 lh-1 fw-bold">
                             Shop Glitch Art
