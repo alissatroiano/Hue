@@ -1,3 +1,8 @@
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+
+
 // https://css-tricks.com/snippets/css/typewriter-effect/
 document.addEventListener('DOMContentLoaded',function(event){
   // array with texts to type in typewriter
@@ -41,3 +46,11 @@ document.addEventListener('DOMContentLoaded',function(event){
   // start the text animation
   StartTextAnimation(0);
 });
+  
+/* document.querySelector("#add_button").addEventListener("click", function(event) {
+  event.preventDefault();
+}, false);
+
+document.addEventListener('DOMContentLoaded',function(event){
+  function addProduct()
+}*/
