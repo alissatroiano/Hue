@@ -1,12 +1,7 @@
-  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl)
-})
-
-
 // https://css-tricks.com/snippets/css/typewriter-effect/
 document.addEventListener('DOMContentLoaded',function(event){
   // array with texts to type in typewriter
-  var dataText = [ "25% OFF ALL ARTWORK!!"];
+  var dataText = [ "25% OFF SELECT ITEMS! SHOP NOW!"];
   
   // type one text in the typwriter
   // keeps calling itself until the text is finished
