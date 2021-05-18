@@ -18,11 +18,19 @@
             <div class="col-12">
                 <h1 class="text-center my-lg-3 lh-1 mb-auto" id="title">HUE</h1>
                 <h2 class="lead mt-4 py-2 mx-auto">Digital art like never before </h2>
-                <button class="btn btn-md"></button>
+                <button role="button" class="btn btn-link rounded" id="hero-button">
+                    <a href="{% url 'shop' %}" class="text-light text-decoration-none">Shop</a></button>
+
             </div>
+        </div>
+                <div class="row d-flex justify-content-center text-center">
+                    <div class="col-12 flex-nowrap">
+                        <br>
+                        <button class="btn btn-md"><a id="sale" class="lead my-2 mx-auto text-nowrap" href="{% url 'shop' %}"></a></button>
+                    </div>
+                </div>
             <!--./call-to-action-->
         </div>
-    </div>
 </section>
 <!--./end-hero-->
 <!--Category Display https://codepen.io/mhhasan320/pen/BwqvLL -->
