@@ -35,17 +35,18 @@
     <!--body starts here-->
 
     <body>
-        <!--header starts here <https://getbootstrap.com/docs>-->
+        <!--header st
+            arts here <https://getbootstrap.com/docs>-->
         <header class="container-fluid px-0 fixed-top">
             <div class="px-3 py-2 bg-dark bg-dark text-white">
-                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                    <a href="#" class="d-flex align-items-center py-2 px-3 my-lg-0 me-lg-auto text-white text-decoration-none" id="logo">
+                <div class="d-flex flex-wrap align-items-center justify-content-center my-lg-2 justify-content-lg-start">
+                    <a href="{% url 'home' %}" class="d-flex align-items-center px-3 me-lg-auto text-white text-decoration-none" id="logo">
                         <i class="bi me-2 fas fa-tint">
                         </i> Hue
                     </a>
                     <ul class="nav col-12 col-lg-auto my-2 mx-3 justify-content-center my-md-0 text-small">
                         <li>
-                            <a href="#" class="nav-link text-white">
+                            <a href="{% url 'home' %}" class="nav-link text-white">
                                 <i class="bi d-block mx-auto mb-1 fas fa-home text-center" width="30" height="30">
                                 </i>
                                 Home
@@ -59,7 +60,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="" class="nav-link text-white">
+                            <a href="{% url 'shop' %}" class="nav-link text-white">
                                 <i class="bi d-block mx-auto mb-1 fas fa-shopping-bag text-center" width="30" height="30">
                                 </i>
                                 Shop
@@ -98,7 +99,7 @@
                             {% endif %}
                     </div>
                 </div>
-                </nav>
+                </div>
         </header>
         <!--end header-->
         {% block content %}{% endblock %}
