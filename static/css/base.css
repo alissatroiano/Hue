@@ -14,7 +14,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark,
     border-color: transparent;
 }
 
-nav.bg-dark {
+nav.bg-light {
     background-color: #0a0613d9 !important;
 }
 
@@ -79,13 +79,20 @@ a#logo:hover {
     border: none;
 }
 
+#acccountOptions,
 a.dropdown-item,
 a.nav-link.text-white,
-div#bottom-nav {
+div#bottom-nav, #shopping-cart {
     font-family: 'Oswald', sans-serif;
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    color: #fafafa;
+    text-decoration: none;
+}
+
+.dropdown-menu {
+        background-color: rgb(132, 116, 161);
 }
 
 a.dropdown-item:hover {
@@ -188,6 +195,31 @@ a#nav-alert-link:hover {
     color: #3596e0;
     left: initial;
     font-size: 14px;
+}
+
+a#login-button, a#signup-button {
+    font-size: 12px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    max-width: 100%;
+    height: auto;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background-color: rgba(132, 116, 161, 0.8);
+    border: none;
+    text-shadow: 1px 1px 3px #000;
+    text-decoration: none;
+}
+
+button#hero-button:hover,
+button#hero-button-2:hover {
+    background-color: rgb(54 45 70 / 80%);
+    color: #fafafa;
+}
+
+ul,
+li {
+    list-style: none;
 }
 
 /*.end-header-&-navigations */
