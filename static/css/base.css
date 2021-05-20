@@ -2,9 +2,56 @@
 */
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Oswald:wght@200;300;400;500;600;700&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-html {
+body {
     font-size: 16px;
+    min-height: 100vh;
+    overflow: auto;
+    margin: 0px auto;
 }
+
+/* *************************** Headers & Special Text */
+h1, h3, h4, h5, h6 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #07040e;
+}
+
+input {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: purple;
+}
+
+h2.display-font {
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+}
+
+.display-font {
+    font-family: 'Oswald', sans-serif;
+}
+
+.body-font {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.body-small {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 12px; 
+}
+/* ***************************./end-headers-&-special-text*/
 
 /* *************************** Header & Navigation */
 nav.navbar.navbar-expand-lg.navbar-dark.bg-dark,
@@ -31,6 +78,7 @@ li.nav-item {
 
 li.nav-item:hover {
     color: rgb(172, 125, 219);
+      background-color: rgba(176, 186, 187)
 }
 
 .navbar-dark .navbar-nav .nav-link.active:hover,
@@ -432,7 +480,7 @@ div#category-card5:hover {
 
 div#category-card6 {
     background-image: url('https://cdn.pixabay.com/photo/2018/03/14/18/20/girl-3225923_1280.png');
-    */ background-position: center;
+    sbackground-position: center;
     background-size: cover;
     min-width: 100%;
     min-height: 20rem;
@@ -450,21 +498,97 @@ div#category-card6:hover {
     filter: grayscale(0);
     -webkit-filter: grayscale(0);
 }
+/* ***************************./end-homepage */
+
+/* *************************** Login */
+.login {
+    min-height: 100vh;
+    height: 100%;
+    width: 100%;
+    background: #f5f6fe;
+    padding-top: 56px;
+    overflow-x: hidden;
+}
+
+.login-auth-body {
+    display: flex;
+
+}
+
+.login-main-col, .login-background-col {
+    position: relative;
+}
+
+.form-login {
+    width: 100%;
+    max-width: 420px;
+    padding: 15px;
+    margin: auto;
+}
+
+#login {
+    min-height: 100vh;
+    height: 100%;
+    width: 100%;
+    background: #f5f6fe;
+    padding-top: 56px;
+    overflow-x: hidden;
+}
+
+.login-auth-wrapper, .login-auth-body {
+    background: #fafafa;
+    height: 100vh;
+}
+
+div#login-page {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: #e5d9ec;
+}
+
+p#login-slug {
+    color: rgb(132, 116, 161);
+}
+
+.login-background-mask {
+position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    background: rgba(0,0,0,.1);
+}
+
+.login-background-holder {
+    background: url("https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1866&q=80");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.login-background-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 11;
+}
+/* ***************************./end-login */
+
 
 /* *************************** Shop */
 #regular-price {
     text-decoration: line-through;
 }
 
-div.overlay {
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    position: fixed;
-    background: white;
-    z-index: -1;
-}
+
+
+
 
 /* *************************** Media Queries */
 /* fixed top navbar only on medium and up */
@@ -492,8 +616,7 @@ div.overlay {
 
 @media only screen and (max-width: 768px) {
 
-    nav.navbar.navbar-expand-lg.navbar-dark.bg-transparent,
-    .bg-transparent {
+nav.navbar.navbar-expand-lg.navbar-dark.bg-transparent,.bg-transparent {
         background-color: rgba(176, 186, 187);
     }
 }
@@ -511,6 +634,12 @@ div.overlay {
 
     .hero-tab {
         font-size: 1rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+.login-auth-wrapper, .login-auth-body {
+    width: 100%;
     }
 }
 

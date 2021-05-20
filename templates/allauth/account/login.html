@@ -1,65 +1,71 @@
 {% extends "base.html" %}
 {% load static %}
-
-
 {% load i18n %}
 {% load static %}
 {% load account socialaccount %}
-
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
-
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
 {% block content %}
-
-<div class="container ">
-  <div class="row">
-    div.col
- <div class="text-center py-4 my-0 mx-auto px-4">
-    <img class="mb-4" src="{% static 'images/favicon.png' %}" alt="" width="72" height="72">
-    <h1 class="h3 mb-3 font-weight-normal">Login</h1>
-{% get_providers as socialaccount_providers %}
-
-{% if socialaccount_providers %}
-<p>{% blocktrans with site.name as site_name %}Please sign in with one
-of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
-for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
-
-<div class="socialaccount_ballot">
-
-  <ul class="socialaccount_providers">
-    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-  </ul>
-
-  <div class="login-or">{% trans 'or' %}</div>
-
+<div class="login container-fluid text-center p-0" id="login">
+    <div class="row g-0 login-auth-wrapper">
+        <div class="col-12 col-md-7 col-lg-6 login-main-col text-start p-3">
+            <div class="d-flex flex-column align-content-center">
+                <div class="app-auth-body mx-auto">
+                    <div class="my-0 mx-auto text-center ">
+                        <a class="app-logo" href="index.html">
+                            <img class="me-auto mb-4" src="{% static 'images/favicon.png' %}" alt="" width="72" height="72">
+                        </a>
+                        <h2 class="h3 mb-3 text-center display-font font-weight-normal">Login</h2>
+                        <div class="auth-form-container text-start">
+                            <form class="form-login" method="POST" action="{% url 'account_login' %}">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                {% if redirect_field_value %}
+                                <div class="form-label-group">
+                                    <input class="form-control" type="hidden" name="{{ redirect_field_name }}" id="loginForm" value="{{ redirect_field_value }}" placeholder="username" required="" />
+                                    {% endif %}
+                                    <a class="px-0 py-1 btn body-small mx-auto my-0" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+                                    <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
+                            </form>
+                            <!--./auth-form-container-->
+                        </div>
+                    </div>
+                </div>
+                <!--./d-flex-->
+                {% get_providers as socialaccount_providers %}
+                {% if socialaccount_providers %}
+                <p class="body-small px-5 py-0 btn body-small mx-auto my-0 text-wrap" id="login_slug">{% blocktrans with site.name as site_name %}Please sign in with one
+                    of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
+                    for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
+                <div class="list-group list-group-horizontal socialaccount_ballot">
+                    <ul class="socialaccount_providers">
+                        {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+                    </ul>
+                    <div class="login-or">{% trans 'or' %}</div>
+                </div>
+                {% include "socialaccount/snippets/login_extra.html" %}
+                {% else %}
+                <p>{% blocktrans %}If you have not created an account yet, then please
+                    <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+                {% endif %}
+                </form>
+            </div>
+        </div>
+        <div class="col-12 col-md-5 col-lg-6 h-100 login-background-col">
+            <div class="login-background-holder"> </div>
+            <div class="login-background-mask"></div>
+            <div class="login-background-overlay p-3 p-lg-5">
+                <div class="d-flex flex-column align-content-end h-100">
+                    <div class="h-100"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-{% include "socialaccount/snippets/login_extra.html" %}
-
-{% else %}
-<p>{% blocktrans %}If you have not created an account yet, then please
-<a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
-{% endif %}
-
-<form class="form-signin" method="POST" action="{% url 'account_login' %}">
- 
-    <p>Build form controls with floating labels via the <code>:placeholder-shown</code> pseudo-element. <a href="https://caniuse.com/#feat=css-placeholder-shown">Works in latest Chrome, Safari, Firefox, and IE 10/11 (prefixed).</a></p>
-  </div>
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% if redirect_field_value %}
-  <div class="form-label-group">
-  <input class="form-control" type="hidden" name="{{ redirect_field_name }}" id="loginForm" value="{{ redirect_field_value }}" required="" />
-  {% endif %}
-  <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-<a href="{% provider_login_url "facebook" method="oauth2" %}">Facebook OAuth2</a>
-
-  <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
-</form>
-
-</div>
-</form>
-</div>
-</div>
-</div>
-
 {% endblock %}
