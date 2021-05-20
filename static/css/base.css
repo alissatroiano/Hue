@@ -10,7 +10,11 @@ body {
 }
 
 /* *************************** Headers & Special Text */
-h1, h3, h4, h5, h6 {
+h1,
+h3,
+h4,
+h5,
+h6 {
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -49,8 +53,9 @@ h2.display-font {
 .body-small {
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
-    font-size: 12px; 
+    font-size: 12px;
 }
+
 /* ***************************./end-headers-&-special-text*/
 
 /* *************************** Header & Navigation */
@@ -78,7 +83,7 @@ li.nav-item {
 
 li.nav-item:hover {
     color: rgb(172, 125, 219);
-      background-color: rgba(176, 186, 187)
+    background-color: rgba(176, 186, 187)
 }
 
 .navbar-dark .navbar-nav .nav-link.active:hover,
@@ -126,7 +131,8 @@ a#logo:hover {
 #acccountOptions,
 a.dropdown-item,
 a.nav-link.text-white,
-div#bottom-nav, #shopping-cart {
+div#bottom-nav,
+#shopping-cart {
     font-family: 'Oswald', sans-serif;
     font-size: 12px;
     text-transform: uppercase;
@@ -136,7 +142,7 @@ div#bottom-nav, #shopping-cart {
 }
 
 .dropdown-menu {
-        background-color: rgb(132, 116, 161);
+    background-color: rgb(132, 116, 161);
 }
 
 a.dropdown-item:hover {
@@ -241,7 +247,8 @@ a#nav-alert-link:hover {
     font-size: 14px;
 }
 
-a#login-button, a#signup-button {
+a#login-button,
+a#signup-button {
     font-size: 12px;
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
@@ -498,10 +505,11 @@ div#category-card6:hover {
     filter: grayscale(0);
     -webkit-filter: grayscale(0);
 }
+
 /* ***************************./end-homepage */
 
-/* *************************** Login */
-.login {
+/* ***************************Login & Sign Up */
+.login, .signup {
     min-height: 100vh;
     height: 100%;
     width: 100%;
@@ -510,23 +518,37 @@ div#category-card6:hover {
     overflow-x: hidden;
 }
 
-.login-auth-body {
+i .login-auth-wrapper .login-auth-body {
+    width: 360px;
+}
+
+.login-auth-wrapper, .signup-auth-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.login-auth-body, .signup-auth-body {
     display: flex;
 
 }
 
-.login-main-col, .login-background-col {
+.login-main-col,
+.login-background-col, 
+.signup-main-col,
+.signup-background-col {
     position: relative;
+    min-height: 100vh;
+
 }
 
-.form-login {
+.form-login, .form-signup {
     width: 100%;
     max-width: 420px;
     padding: 15px;
     margin: auto;
 }
 
-#login {
+#login, #signup {
     min-height: 100vh;
     height: 100%;
     width: 100%;
@@ -535,12 +557,16 @@ div#category-card6:hover {
     overflow-x: hidden;
 }
 
-.login-auth-wrapper, .login-auth-body {
+.login-auth-wrapper,
+.login-auth-body,
+.signup-auth-wrapper,
+.signup-auth-body {
     background: #fafafa;
     height: 100vh;
+    display: flex;
 }
 
-div#login-page {
+#login-page {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-align: center;
@@ -553,17 +579,18 @@ p#login-slug {
 }
 
 .login-background-mask {
-position: absolute;
+    position: absolute;
     width: 100%;
     height: 100%;
     left: 0;
     top: 0;
     z-index: 10;
-    background: rgba(0,0,0,.1);
+    background: rgba(0, 0, 0, .1);
 }
 
-.login-background-holder {
-    background: url("https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1866&q=80");
+.login-background-holder,
+.hue-login {
+    background: url("../../media/categoryimage1.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -578,6 +605,10 @@ position: absolute;
     top: 0;
     z-index: 11;
 }
+
+img.me-auto.mb-4 {
+    margin-top: 100px;
+}
 /* ***************************./end-login */
 
 
@@ -585,61 +616,47 @@ position: absolute;
 #regular-price {
     text-decoration: line-through;
 }
-
-
-
+/* ***************************./end-shop */
 
 
 /* *************************** Media Queries */
 /* fixed top navbar only on medium and up */
-
-/* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
-    .fixed-top-desktop-only {
+   #topnav {
         position: fixed;
         top: 0;
         right: 0;
         left: 0;
         z-index: 1030;
     }
-
-    .header-container {
-        padding-top: 164px;
+    .login-auth-wrapper pt-0 my-0 mx-auto">
+        <div class="col-12 col-md-7 col-lg-6 login-m {
     }
 }
 
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
     .header-container {
-        padding-top: 116px;
+        padding-top: 80px;
     }
+}
 
 @media only screen and (max-width: 768px) {
 
-nav.navbar.navbar-expand-lg.navbar-dark.bg-transparent,.bg-transparent {
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-transparent,
+    .bg-transparent {
         background-color: rgba(176, 186, 187);
     }
 }
 
-@media (min-width: 800px) {
-
-    .hero-tabs,
-    .slide h1 {
-        font-size: 3rem;
-    }
-
-    h3 {
-        font-size: 1rem;
-    }
-
-    .hero-tab {
-        font-size: 1rem;
-    }
-}
-
 @media (max-width: 767.98px) {
-.login-auth-wrapper, .login-auth-body {
-    width: 100%;
+    .login-auth-wrapper,
+    .login-auth-body {
+        width: 100%;
+    }
+
+    .login-background-col, .signup-background-col {
+        display: none;
     }
 }
 

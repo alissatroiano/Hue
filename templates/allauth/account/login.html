@@ -12,10 +12,10 @@
 </div>
 {% endblock %}
 {% block content %}
-<div class="login container-fluid text-center p-0" id="login">
-    <div class="row g-0 login-auth-wrapper">
-        <div class="col-12 col-md-7 col-lg-6 login-main-col text-start p-3">
-            <div class="d-flex flex-column align-content-center">
+<div class="hue-login text-center mx-auto my-0">
+    <div class="row flex-wrap g-0 login-auth-wrapper pt-0 my-0 mx-auto">
+        <div class="col-12 col-md-7 col-lg-6 login-main-col text-start">
+            <div class="d-flex flex-column align-content-end pt-5">
                 <div class="app-auth-body mx-auto">
                     <div class="my-0 mx-auto text-center ">
                         <a class="app-logo" href="index.html">
@@ -55,16 +55,13 @@
                     <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
                 {% endif %}
                 </form>
+              </div>
             </div>
-        </div>
+
         <div class="col-12 col-md-5 col-lg-6 h-100 login-background-col">
             <div class="login-background-holder"> </div>
             <div class="login-background-mask"></div>
-            <div class="login-background-overlay p-3 p-lg-5">
-                <div class="d-flex flex-column align-content-end h-100">
-                    <div class="h-100"></div>
-                </div>
-            </div>
+            <div class="login-background-overlay p-3 p-lg-5 d-none d-lg-flex"></div>
         </div>
     </div>
 </div>
