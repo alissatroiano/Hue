@@ -14,10 +14,6 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark,
     border-color: transparent;
 }
 
-nav.bg-light {
-    background-color: #0a0613d9 !important;
-}
-
 ul.nav.col-12.col-lg-auto.my-2.justify-content-center.my-md-0.text-small {
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
@@ -142,8 +138,8 @@ a#nav-alert-link:hover {
 .search-form .form-group {
     float: right !important;
     transition: all 0.35s, border-radius 0s;
-    width: 32px;
-    height: 32px;
+    width: 100%;
+    height: auto;
     background-color: #fff;
     box-shadow: 0 1px 1px rgba (0, 0, 0, 0.075) inset;
     border-radius: 25px;
@@ -220,6 +216,7 @@ button#hero-button-2:hover {
 ul,
 li {
     list-style: none;
+    float: left;
 }
 
 /*.end-header-&-navigations */
