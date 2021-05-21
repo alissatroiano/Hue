@@ -22,15 +22,15 @@ h6 {
 label {
     font-family: 'Raleway', sans-serif;
     font-size: 1rem;
-    font-weight: 600;
-    color: #07040e;
+    font-weight: 500;
 }
 
 input {
     font-family: 'Raleway', sans-serif;
     font-size: 1rem;
     font-weight: 400;
-    color: purple;
+    color: #6a509a;
+    ;
 }
 
 h2.display-font {
@@ -56,7 +56,51 @@ h2.display-font {
     font-size: 12px;
 }
 
+.link-font {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    color: rgb(170,151, 204);
+}
+
+.link-font:hover {
+    color: #6a509a;
+}
+
+hr {
+    width: 20px;
+    margin: 0px auto;
+    border-top: 3px solid #6a509a;
+}
+
+button, .btn-primary {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background-color: rgb(170 151 204 / 88%);
+    border: none;
+    text-shadow: 1px 1px 3px #000;
+    text-decoration: none;
+    margin: 0px auto
+}
+
 /* ***************************./end-headers-&-special-text*/
+
+/* ***************************./Icons */
+
+.fab {
+    color: rgb(170 151 204 / 88%);
+    text-shadow: 0px 15px 5px rgba(0, 0, 0, 0.1);
+}
+
+.fab:hover {
+    color: #6a509a;
+    margin-top: 5px;
+
+}
+
+/****************************./end-icons */
+
 
 /* *************************** Header & Navigation */
 nav.navbar.navbar-expand-lg.navbar-dark.bg-dark,
@@ -245,21 +289,6 @@ a#nav-alert-link:hover {
     color: #3596e0;
     left: initial;
     font-size: 14px;
-}
-
-a#login-button,
-a#signup-button {
-    font-size: 12px;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 400;
-    max-width: 100%;
-    height: auto;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    background-color: rgba(132, 116, 161, 0.8);
-    border: none;
-    text-shadow: 1px 1px 3px #000;
-    text-decoration: none;
 }
 
 button#hero-button:hover,
@@ -509,7 +538,8 @@ div#category-card6:hover {
 /* ***************************./end-homepage */
 
 /* ***************************Login & Sign Up */
-.login, .signup {
+.login,
+.signup {
     min-height: 100vh;
     height: 100%;
     width: 100%;
@@ -522,18 +552,20 @@ i .login-auth-wrapper .login-auth-body {
     width: 360px;
 }
 
-.login-auth-wrapper, .signup-auth-wrapper {
+.login-auth-wrapper,
+.signup-auth-wrapper {
     display: flex;
     flex-wrap: wrap;
 }
 
-.login-auth-body, .signup-auth-body {
+.login-auth-body,
+.signup-auth-body {
     display: flex;
 
 }
 
 .login-main-col,
-.login-background-col, 
+.login-background-col,
 .signup-main-col,
 .signup-background-col {
     position: relative;
@@ -541,14 +573,16 @@ i .login-auth-wrapper .login-auth-body {
 
 }
 
-.form-login, .form-signup {
+.form-login,
+.form-signup {
     width: 100%;
     max-width: 420px;
     padding: 15px;
     margin: auto;
 }
 
-#login, #signup {
+#login,
+#signup {
     min-height: 100vh;
     height: 100%;
     width: 100%;
@@ -588,9 +622,18 @@ p#login-slug {
     background: rgba(0, 0, 0, .1);
 }
 
-.login-background-holder,
+.login-background-lg,
 .hue-login {
     background: url("../../media/categoryimage1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    padding: 0px;
+}
+
+.signup-background-lg {
+    background: url("../../media/categoryimage2.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -609,6 +652,13 @@ p#login-slug {
 img.me-auto.mb-4 {
     margin-top: 100px;
 }
+
+button.btn.btn-primary.loginButton {
+    max-width: fit-content;
+        padding: 25px 12px;
+
+}
+
 /* ***************************./end-login */
 
 
@@ -616,22 +666,25 @@ img.me-auto.mb-4 {
 #regular-price {
     text-decoration: line-through;
 }
+
 /* ***************************./end-shop */
 
 
 /* *************************** Media Queries */
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
-   #topnav {
+    #topnav {
         position: fixed;
         top: 0;
         right: 0;
         left: 0;
         z-index: 1030;
     }
+
     .login-auth-wrapper pt-0 my-0 mx-auto">
-        <div class="col-12 col-md-7 col-lg-6 login-m {
-    }
+<div class="col-12 col-md-7 col-lg-6 login-m {
+
+}
 }
 
 /* pad the top a bit when navbar is collapsed on mobile */
@@ -650,12 +703,14 @@ img.me-auto.mb-4 {
 }
 
 @media (max-width: 767.98px) {
+
     .login-auth-wrapper,
     .login-auth-body {
         width: 100%;
     }
 
-    .login-background-col, .signup-background-col {
+    .login-background-col,
+    .signup-background-col {
         display: none;
     }
 }

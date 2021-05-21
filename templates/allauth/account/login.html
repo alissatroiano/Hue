@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load static %}
 {% load i18n %}
 {% load static %}
 {% load account socialaccount %}
@@ -12,54 +11,63 @@
 </div>
 {% endblock %}
 {% block content %}
-<div class="hue-login text-center mx-auto my-0">
+<div class="hue-login container-fluid text-center mx-auto my-0">
     <div class="row flex-wrap g-0 login-auth-wrapper pt-0 my-0 mx-auto">
-        <div class="col-12 col-md-7 col-lg-6 login-main-col text-start">
+        <div class="col-12 col-md-7 col-lg-6 login-main-col text-center px-0 py-0">
             <div class="d-flex flex-column align-content-end pt-5">
                 <div class="app-auth-body mx-auto">
-                    <div class="my-0 mx-auto text-center ">
+                    <div class="my-0 mx-auto text-center">
                         <a class="app-logo" href="index.html">
                             <img class="me-auto mb-4" src="{% static 'images/favicon.png' %}" alt="" width="72" height="72">
                         </a>
                         <h2 class="h3 mb-3 text-center display-font font-weight-normal">Login</h2>
                         <div class="auth-form-container text-start">
-                            <form class="form-login" method="POST" action="{% url 'account_login' %}">
+                            <!--auth-form-->
+                            <form class="form-login" method="POST" action="{% url 'account_login' %}" id="loginForm">
                                 {% csrf_token %}
                                 {{ form.as_p }}
                                 {% if redirect_field_value %}
                                 <div class="form-label-group">
                                     <input class="form-control" type="hidden" name="{{ redirect_field_name }}" id="loginForm" value="{{ redirect_field_value }}" placeholder="username" required="" />
                                     {% endif %}
-                                    <a class="px-0 py-1 btn body-small mx-auto my-0" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-                                    <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
+                                    <div class="form-group row justify-content-center text-center">
+                                        <button class="btn btn-primary loginButton px-3 py-2 mt-3 mb-3" type="submit" aria-label="submit">{% trans "Log In" %}</button>
+                                    </div>
                             </form>
-                            <!--./auth-form-container-->
+                            <!--./auth-form-->
                         </div>
                     </div>
                 </div>
                 <!--./d-flex-->
+                <div class="login-utilities text-center">
+                    <hr class="mb-4 mt-2">
+                    <p class="body-font text-center py-1"> Can't access your account?
+                        <br>
+                        <strong><a class="px-0 py-1 btn mx-auto my-0 link-font" href="{% url 'account_reset_password' %}">{% trans "Reset your password here!" %}</a>
+                        </strong>
+                </div>
                 {% get_providers as socialaccount_providers %}
                 {% if socialaccount_providers %}
-                <p class="body-small px-5 py-0 btn body-small mx-auto my-0 text-wrap" id="login_slug">{% blocktrans with site.name as site_name %}Please sign in with one
-                    of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
-                    for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
-                <div class="list-group list-group-horizontal socialaccount_ballot">
-                    <ul class="socialaccount_providers">
-                        {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+                <div class="d-flex flex-column align-content-center my-0 mx-auto text-center pt-2 socialaccount_ballot">
+                    <p class="body-small px-5 py-1 btn body-small mx-auto my-0 text-wrap text-muted" id="login_slug">{% blocktrans with site.name as site_name %} Login with your favorite social account!{% endblocktrans %}</p>
+                    <ul class="nav justify-content-center socialaccount_providers py-3">
+                        <li>
+                            <a title="Facebook" class="px-2 socialaccount_provider facebook" href="/accounts/facebook/login/?process=login"><i class="fab fa-facebook fa-3x"></i></a>
+                        </li>
+                        <li>
+                            <a title="Google" class="socialaccount_provider google px-2" href="/accounts/google/login/?process=login"><i class="fab fa-google fa-3x"></i></a>
+                        </li>
+                        <li>
+                            <a title="Pinterest" class="socialaccount_provider pinterest px-2" href="/accounts/pinterest/login/?process=login"><i class="fab fa-pinterest fa-3x"></i></a>
+                        </li>
                     </ul>
-                    <div class="login-or">{% trans 'or' %}</div>
+                    {% endif %}
                 </div>
-                {% include "socialaccount/snippets/login_extra.html" %}
-                {% else %}
-                <p>{% blocktrans %}If you have not created an account yet, then please
-                    <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
-                {% endif %}
                 </form>
-              </div>
             </div>
-
+        </div>
         <div class="col-12 col-md-5 col-lg-6 h-100 login-background-col">
-            <div class="login-background-holder"> </div>
+            <div class="login-background-lg"> </div>
             <div class="login-background-mask"></div>
             <div class="login-background-overlay p-3 p-lg-5 d-none d-lg-flex"></div>
         </div>
