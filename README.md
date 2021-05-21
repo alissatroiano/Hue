@@ -140,11 +140,16 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 
     - [Pixabay](https://pixabay.com/illustrations/fractal-art-psychedelic-fantasy-2077883/)
 
+
 ## UX Design
 
 - I copied components from [Bootstrap's documentation](https://getbootstrap.com/docs/5.0/components/navs-tabs/) to make Hue's navigation intuitive and responsive.
 
-- I copied the sticky bottom navigation (with tabs) from [this Codepen pen](https://codepen.io/alissatroiano/pen/JjEBLvK).
+- The 'multiple light sources' text-shadow effect used for all social media font-awesome icons (`fab`) was copied from [CSS Tricks](https://designshack.net/articles/css/12-fun-css-text-shadows-you-can-copy-and-paste/).
+
+- The layout and structure for the login (`login.html`) and signup (`signup.html`) pages were copied from this Bootstrap 5 Portal theme's login page (https://themes.3rdwavemedia.com/bootstrap-templates/startup/portal-free-bootstrap-admin-dashboard-template-for-developers/).
+
+ by copying the contents of this Bootstrap 5 Portal theme's login page (https://themes.3rdwavemedia.com/bootstrap-templates/startup/portal-free-bootstrap-admin-dashboard-template-for-developers/)
 
 ### Media
 - I used this article from [CSS Tricks](https://css-tricks.com/perfect-full-page-background-image/) to style the background image on Hue's homepage.

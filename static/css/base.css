@@ -25,12 +25,13 @@ label {
     font-weight: 500;
 }
 
-input {
+input,
+input[type=text],
+input[type=hidden] {
     font-family: 'Raleway', sans-serif;
     font-size: 1rem;
     font-weight: 400;
     color: #6a509a;
-    ;
 }
 
 h2.display-font {
@@ -58,8 +59,9 @@ h2.display-font {
 
 .link-font {
     font-family: 'Raleway', sans-serif;
+    text-decoration: none;
     font-weight: 500;
-    color: rgb(170,151, 204);
+    color: rgb(124 109 150);
 }
 
 .link-font:hover {
@@ -72,7 +74,8 @@ hr {
     border-top: 3px solid #6a509a;
 }
 
-button, .btn-primary {
+button,
+.btn-primary {
     font-family: 'Raleway', sans-serif;
     font-weight: 500;
     text-transform: uppercase;
@@ -84,12 +87,18 @@ button, .btn-primary {
     margin: 0px auto
 }
 
+.btn:hover,
+button:hover {
+    background-color: #6a509a;
+}
+
 /* ***************************./end-headers-&-special-text*/
 
 /* ***************************./Icons */
 
 .fab {
     color: rgb(170 151 204 / 88%);
+    /* multiple light source shadow effect https://designshack.net/articles/css/12-fun-css-text-shadows-you-can-copy-and-paste/ */
     text-shadow: 0px 15px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -142,7 +151,7 @@ li.nav-item:hover {
 a#logo {
     font-family: 'Oswald', sans-serif;
     font-weight: 300;
-    font-size: 1rem;
+    font-size: 1.2rem;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     color: #fafafa;
@@ -655,7 +664,7 @@ img.me-auto.mb-4 {
 
 button.btn.btn-primary.loginButton {
     max-width: fit-content;
-        padding: 25px 12px;
+    padding: 25px 12px;
 
 }
 
@@ -680,18 +689,12 @@ button.btn.btn-primary.loginButton {
         left: 0;
         z-index: 1030;
     }
-
-    .login-auth-wrapper pt-0 my-0 mx-auto">
-<div class="col-12 col-md-7 col-lg-6 login-m {
-
 }
-}
+
 
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
-    .header-container {
-        padding-top: 80px;
-    }
+    .header-container {}
 }
 
 @media only screen and (max-width: 768px) {
@@ -704,8 +707,7 @@ button.btn.btn-primary.loginButton {
 
 @media (max-width: 767.98px) {
 
-    .login-auth-wrapper,
-    .login-auth-body {
+    .login-auth-wrapper {
         width: 100%;
     }
 
