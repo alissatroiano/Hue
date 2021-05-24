@@ -34,14 +34,14 @@
 <!--body starts here-->
 <body>
     <header class="container-fluid px-0 py-0 my-0 fixed-top">
-        <div class="row bg-dark py-lg-3 d-none d-lg-flex" id="topnav">
-            <div class="col-4 my-auto py-3 py-lg-0 text-center text-lg-start">
+        <div class="row bg-dark py-lg-3 d-none d-lg-flex">
+            <div class="col-4 col-lg-auto my-auto py-3 py-lg-0 text-center text-lg-start" id="navbarSupportedContent">
                 <a href="{% url 'home' %}" class="nav-link main-logo-link" id="logo">
                     <i class="bi me-2 fas fa-tint">
                     </i> Hue
                 </a>
             </div>
-            <div class="col-4 col-lg-auto my-0 mx-auto py-1 py-lg-0 float-end">
+            <div class="col-4 col-lg-auto col-lg-auto my-0 mx-auto py-1 py-lg-0 float-end">
                 <form method="GET" action="{% url 'home' %}">
                     <div class="input-group w-100">
                         <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site">
@@ -56,7 +56,7 @@
                 </form>
             </div>
             <div class="col-4 col-lg-auto my-0 mx-auto py-3 py-lg-0 text-lg-end">
-                <ul class="list-group pt-2 border-bottom-1 text-center text-lg-end my-0">
+                <ul class="list-group list-group-horizontal pt-2 border-bottom-1 text-center text-lg-end my-0 mx-auto">
                     <li class="list-item dropdown text-light bg-dark">
                         {% if request.user.is_authenticated %}
                         <a class="dropdown-toggle nav-link link-dark text-small" href="#" role="button" id="acccountOptions" data-bs-toggle="dropdown" aria-expanded="false">
@@ -66,7 +66,7 @@
                         </a>
                         <ul class="dropdown-menu text-dark" aria-labelledby="acccountOptions">
                             {% if request.user.is_superuser %}
-                            <li class="nav-item"> <a href="" class="dropdown-item">Product Management</a>
+                            <li class="list-item"> <a href="" class="dropdown-item">Product Management</a>
                             </li>
                             {% endif %}
                             <li class="text-dark"> <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a></li>
@@ -83,21 +83,21 @@
                             Home
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="list-item">
                         <a href="#" class="nav-link text-white">
                             <i class="bi d-block mx-auto mb-1 fas fa-info text-center" width="30" height="30">
                             </i>
                             About
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="list-item">
                         <a href="{% url 'home' %}" class="nav-link text-white">
                             <i class="bi d-block mx-auto mb-1 fas fa-shopping-bag text-center" width="30" height="30">
                             </i>
                             Shop
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="list-item">
                         <a class="{% if grand_total %}text-info font-weight-bold{% else %}{% endif %}nav-link text-white" href="#" id="shopping-cart">
                             <div class="text-center">
                                 <div><i class="bi d-block mx-auto my-0 mb-1 fas fa-shopping-cart text-center"></i></div>
@@ -114,14 +114,14 @@
                 </ul>
             </div>
         </div>
-        <!--
+
         <div class="row bg-white">
             <nav class="navbar navbar-expand-lg navbar-light py-1 w-100">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#shop-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <button class="navbar-toggler mx-4 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
                 </button>
-               <!-- {% include 'includes/mobilenavbar.html' %} 
-                {% include 'includes/shop-nav.html' %} -->
+             {% include 'includes/mobilenavbar.html' %} 
+                {% include 'includes/shop-nav.html' %}
             </nav>
         </div>
         </div>
