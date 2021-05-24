@@ -1,9 +1,7 @@
-{% extends "account/base.html" %}
-
+{% extends "base.html" %}
 {% load i18n %}
-
-{% block head_title %}{% trans "Signup" %}{% endblock %}
-
+{% load static %}
+{% load account socialaccount %}
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -11,19 +9,48 @@
     </div>
 </div>
 {% endblock %}
-
 {% block content %}
-<h1>{% trans "Sign Up" %}</h1>
+<div class="hue-signup container-fluid text-center mx-auto my-0">
+    <div class="row flex-wrap g-0 signup-auth-wrapper pt-5 mt-5 my-0 mx-auto">
+        <div class="col-12 col-md-7 col-lg-6 signup-main-col text-center px-0 py-0">
+            <div class="d-flex flex-column align-content-end pt-5">
+                <div class="app-auth-body my-0 mx-auto text-center">
+                	<div class="my-0 mx-auto text-center">
+                    <a class="app-logo" href="index.html">
+                            <img class="me-auto mb-4" src="{% static 'images/favicon.png' %}" alt="" width="72" height="72">
+                        </a>
+                    <h2 class="mb-4 text-center display-font font-weight-normal">Signup</h2>
+                    <hr class="my-3">
+                    <div class="auth-form-container text-start">
+                        <!--auth-form-->
+                        <!--signup form starts here -->
+                        <form class="signup" id="signupForm" method="post" action="{% url 'account_signup' %}">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            {% if redirect_field_value %}
+                            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                            {% endif %}
+                            <button type="submit">{% trans "Sign Up" %} &raquo;</button>
+                            <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+                        </form>
+                        <!--./end-form-->
+                    </div>
+                    <!--./end-form-container-->
+                </div>
+                <!--./end-app-auth-body-->
+            </div>
+            <!--./end-flex-col-->
+        </div>
+        <!--./end-col-->
+        </div>
 
-<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
-
-<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <button type="submit">{% trans "Sign Up" %} &raquo;</button>
-</form>
-
+         <div class="col-12 col-md-5 col-lg-6 h-100 signup-background-col">
+            <div class="signup-background-lg"> </div>
+            <div class="signup-background-mask"></div>
+            <div class="signup-background-overlay p-3 p-lg-5 d-none d-lg-flex"></div>
+        </div>
+    </div>
+    <!--./end-row-->
+</div>
+<!--./end-container-->
 {% endblock %}

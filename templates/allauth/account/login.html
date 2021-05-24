@@ -12,6 +12,7 @@
     </div>
 </div>
 {% endblock %}
+
 {% block content %}
 <div class="hue-login container-fluid text-center mx-auto my-0">
     <div class="row flex-wrap g-0 login-auth-wrapper pt-0 my-0 mx-auto">
@@ -22,7 +23,7 @@
                         <a class="app-logo" href="index.html">
                             <img class="me-auto mb-4" src="{% static 'images/favicon.png' %}" alt="" width="72" height="72">
                         </a>
-                        <h2 class="h3 mb-4 text-center display-font font-weight-normal">Login</h2>
+                        <h2 class="mb-4 text-center display-font font-weight-normal">Login</h2>
                         <hr class="my-3">
                         <div class="auth-form-container text-start">
                             <!--auth-form-->
@@ -31,8 +32,9 @@
                                 {{ form.as_p }}
                                 {% if redirect_field_value %}
                                 <div class="form-label-group">
-                                    <input class="form-control" type="hidden" name="{{ redirect_field_name }}" id="loginForm" value="{{ redirect_field_value }}" placeholder="username" required="" />
-                                    {% endif %}
+                                        <label for="validationDefault03" class="form-label">City</label>
+                                            <input type="text" class="form-control" name="{{ redirect_field_name }}" id="userName" value="{{ redirect_field_value }}" required>
+                                {% endif %}
                                     <div class="form-group row justify-content-center text-center">
                                         <button class="btn btn-primary loginButton px-3 py-2 my-3" type="submit" aria-label="submit">{% trans "Log In" %}</button>
                                     </div>

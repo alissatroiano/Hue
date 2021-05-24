@@ -19,21 +19,6 @@ h6 {
     letter-spacing: 1px;
 }
 
-label {
-    font-family: 'Raleway', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-}
-
-input,
-input[type=text],
-input[type=hidden] {
-    font-family: 'Raleway', sans-serif;
-    font-size: 1rem;
-    font-weight: 400;
-    color: #6a509a;
-}
-
 h2.display-font {
     font-size: 3rem;
     text-transform: uppercase;
@@ -90,6 +75,12 @@ button,
 .btn:hover,
 button:hover {
     background-color: #6a509a;
+}
+
+input {
+    font-family: 'Raleway', sans-serif;
+     font-weight: 500;
+      color: #6a509a;
 }
 
 /* ***************************./end-headers-&-special-text*/
@@ -240,64 +231,6 @@ a#nav-alert-link {
 
 a#nav-alert-link:hover {
     color: #033030;
-}
-
-.search-form .form-group {
-    float: right !important;
-    transition: all 0.35s, border-radius 0s;
-    width: 100%;
-    height: auto;
-    background-color: #fff;
-    box-shadow: 0 1px 1px rgba (0, 0, 0, 0.075) inset;
-    border-radius: 25px;
-    border: 1px solid #ccc;
-}
-
-.search-form .form-group input.form-control {
-    padding-right: 20px;
-    border: 0 none;
-    background: transparent;
-    box-shadow: none;
-    display: block;
-}
-
-.search-form .form-group input.form-control::-webkit-input-placeholder {
-    display: none;
-}
-
-.search-form .form-group input.form-control:-moz-placeholder {
-    /* Firefox 18- */
-    display: none;
-}
-
-.search-form .form-group input.form-control::-moz-placeholder {
-    /* Firefox 19+ */
-    display: none;
-}
-
-.search-form .form-group input.form-control:-ms-input-placeholder {
-    display: none;
-}
-
-.search-form .form-group:hover,
-.search-form .form-group.hover {
-    width: 100%;
-    border-radius: 4px 25px 25px 4px;
-}
-
-.search-form .form-group span.form-control-feedback {
-    position: absolute;
-    top: -1px;
-    right: -2px;
-    z-index: 2;
-    display: block;
-    width: 34px;
-    height: 34px;
-    line-height: 34px;
-    text-align: center;
-    color: #3596e0;
-    left: initial;
-    font-size: 14px;
 }
 
 button#hero-button:hover,
@@ -549,14 +482,13 @@ div#category-card6:hover {
 /* ***************************Login & Sign Up */
 .login,
 .signup {
-    min-height: 100vh;
     height: 100%;
     width: 100%;
-    background: #f5f6fe;
     padding-top: 56px;
     overflow-x: hidden;
 }
 
+i .signup-auth-wrapper .signup-auth-body,
 i .login-auth-wrapper .login-auth-body {
     width: 360px;
 }
@@ -570,7 +502,6 @@ i .login-auth-wrapper .login-auth-body {
 .login-auth-body,
 .signup-auth-body {
     display: flex;
-
 }
 
 .login-main-col,
@@ -578,8 +509,6 @@ i .login-auth-wrapper .login-auth-body {
 .signup-main-col,
 .signup-background-col {
     position: relative;
-    min-height: 100vh;
-
 }
 
 .form-login,
@@ -609,6 +538,7 @@ i .login-auth-wrapper .login-auth-body {
     display: flex;
 }
 
+#signup-page,
 #login-page {
     display: -ms-flexbox;
     display: flex;
@@ -617,10 +547,12 @@ i .login-auth-wrapper .login-auth-body {
     background-color: #e5d9ec;
 }
 
+p#signup-slug,
 p#login-slug {
     color: rgb(132, 116, 161);
 }
 
+.signup-background-mask,
 .login-background-mask {
     position: absolute;
     width: 100%;
@@ -642,16 +574,20 @@ p#login-slug {
 }
 
 .signup-background-lg {
-    background: url("../../media/categoryimage2.jpg");
+    background: url("../../media/categoryimage3.jpg") no-repeat center center;
+    overflow: hidden;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 100vh;
+    max-width: 100%;
+    height: 100%;
 }
 
+.signup-background-overlay,
 .login-background-overlay {
     position: absolute;
     width: 100%;
+    max-height: 100vh;
     height: 100%;
     left: 0;
     top: 0;
