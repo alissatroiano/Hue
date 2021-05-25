@@ -163,17 +163,7 @@ a#logo:hover {
     display: inherit;
 }
 
-.navbar-nav .dropdown-menu {
-    font-family: 'Oswald', sans-serif;
-    font-weight: 200;
-    position: static;
-    background-color: transparent;
-    text-decoration: none;
-    border: none;
-}
-
 #acccountOptions,
-a.dropdown-item,
 a.nav-link.text-white,
 div#bottom-nav,
 #shopping-cart {
@@ -183,15 +173,6 @@ div#bottom-nav,
     letter-spacing: 1px;
     color: #fafafa;
     text-decoration: none;
-}
-
-.dropdown-menu {
-    background-color: rgb(132, 116, 161);
-}
-
-a.dropdown-item:hover {
-    color: rgb(132, 116, 161);
-    background-color: transparent;
 }
 
 a.mb-auto.text-small.btn.btn-light.text-dark.me-2 {
