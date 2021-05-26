@@ -180,6 +180,8 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 
     - [Medium](https://christosstath10.medium.com/create-your-own-point-of-sale-c25f8b1ff93b)
 
+- The line of code for creating subcategories in Django (specifically the declaration of `parent` in `models.py`) was copied from ['Sub categories - How to build an Ecommerce website using Django 3 and Vue.js - Part 23'](https://www.youtube.com/watch?v=QIoUJ1PutV0)
+
 ## Utilities & tools
 - [Diffchecker](https://www.diffchecker.com/#).
 
