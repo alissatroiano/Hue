@@ -27,21 +27,22 @@
     {% endblock %}
     {% block extra_js%}{% endblock %}
     {% block head_title %}{% endblock %}
-        <title>Hue</title>
+    <title>Hue</title>
     <!--Favicon -->
     <link rel="shortcut icon" type="image/ico" href="{% static 'images/favicon1.png' %}" />
 </head>
 <!--body starts here-->
+
 <body>
     <header class="container-fluid px-0 py-0 my-0 fixed-top">
         <div class="row bg-dark py-lg-3 d-none d-lg-flex">
-            <div class="col-4 col-lg-auto my-auto py-3 py-lg-0 text-center text-lg-start" id="navbarSupportedContent">
-                <a href="{% url 'home' %}" class="nav-link main-logo-link" id="logo">
+            <div class="col-4 col-lg-auto navbar-brand me-auto my-auto py-3 py-lg-0 text-center text-lg-start">
+                <a href="{% url 'home' %}" class="nav-link navbar-brand" id="logo">
                     <i class="bi me-2 fas fa-tint">
                     </i> Hue
                 </a>
             </div>
-            <div class="col-4 col-lg-auto col-lg-auto my-0 mx-auto py-1 py-lg-0 float-end">
+            <div class="col-12 col-lg-auto my-0 mx-auto py-1 py-lg-0 float-end">
                 <form method="GET" action="{% url 'shop' %}">
                     <div class="input-group w-100">
                         <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site">
@@ -77,28 +78,28 @@
                         </ul>
                     </li>
                     <li class="list-item">
-                        <a href="{% url 'home' %}" class="nav-link text-white">
+                        <a href="{% url 'home' %}" class="nav-link">
                             <i class="bi d-block mx-auto mb-1 fas fa-home text-center" width="30" height="30">
                             </i>
                             Home
                         </a>
                     </li>
                     <li class="list-item">
-                        <a href="#" class="nav-link text-white">
+                        <a href="#" class="nav-link">
                             <i class="bi d-block mx-auto mb-1 fas fa-info text-center" width="30" height="30">
                             </i>
                             About
                         </a>
                     </li>
                     <li class="list-item">
-                        <a href="{% url 'shop' %}" class="nav-link text-white">
+                        <a href="{% url 'shop' %}" class="nav-link">
                             <i class="bi d-block mx-auto mb-1 fas fa-shopping-bag text-center" width="30" height="30">
                             </i>
                             Shop
                         </a>
                     </li>
                     <li class="list-item">
-                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}{% endif %}nav-link text-white" href="#" id="shopping-cart">
+                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}{% endif %}nav-link" href="#" id="shopping-cart">
                             <div class="text-center">
                                 <div><i class="bi d-block mx-auto my-0 mb-1 fas fa-shopping-cart text-center"></i></div>
                                 <p class="my-0">
@@ -114,21 +115,22 @@
                 </ul>
             </div>
         </div>
-
-        <div class="row bg-white">
-            <nav class="navbar navbar-expand-lg navbar-light py-1 w-100">
-                <button class="navbar-toggler mx-4 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-             {% include 'includes/mobilenavbar.html' %} 
+        </div>
+         <div class="row bg-dark">
+            <nav class="navbar navbar-expand-lg navbar-dark py-1 w-auto me-auto my-0 mx-auto">
+                <div class="col-4 col-lg-auto w-100 navbar-brand me-auto my-auto d-lg-none py-3 py-lg-0 text-center">
+                 <a href="{% url 'home' %}" class="nav-link navbar-brand my-0 me-auto d-lg-none justify-content-center" id="logo">
+                    <i class="bi me-2 fas fa-tint">
+                    </i> Hue
+                </a>
+            </div>
+                {% include 'includes/mobilenavbar.html' %}
                 {% include 'includes/shop-nav.html' %}
             </nav>
-        </div>
         </div>
     </header>
     <!--end header-->
     {% block page_header %}{% endblock %}
-    
     {% block content %}{% endblock %}
     {% if messages %}
     <div class="message-container"></div>

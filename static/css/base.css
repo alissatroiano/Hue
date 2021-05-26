@@ -42,11 +42,20 @@ h2.display-font {
     font-size: 12px;
 }
 
+.nav-xs {
+    font-size: 12px;
+}
+
+.text-primary {
+color:  rgb(170 151 204 / 88%);    
+}
+
 .link-font {
     font-family: 'Raleway', sans-serif;
     text-decoration: none;
     font-weight: 500;
     color: rgb(124 109 150);
+    text-shadow: 0px 15px 5px rgba(0, 0, 0, 0.1);
 }
 
 .link-font:hover {
@@ -81,8 +90,16 @@ input {
     font-family: 'Raleway', sans-serif;
     font-weight: 500;
     color: #6a509a;
+    min-width: 100%;
 }
 
+#navbarSupportedContent {
+   color: rgb(132, 116, 161);
+}
+
+.list-inline-item:hover {
+
+}
 /* ***************************./end-headers-&-special-text*/
 
 /* ***************************./Icons */
@@ -127,7 +144,6 @@ li.nav-item {
 
 li.nav-item:hover {
     color: rgb(172, 125, 219);
-    background-color: rgba(176, 186, 187)
 }
 
 .navbar-dark .navbar-nav .nav-link.active:hover,
@@ -151,7 +167,7 @@ a#logo {
 
 
 a#logo:hover {
-    color: rgb(172, 125, 219);
+    color: rgb(132, 116, 161);
 }
 
 .navbar-collapse {
@@ -164,7 +180,7 @@ a#logo:hover {
 }
 
 #acccountOptions,
-a.nav-link.text-white,
+a.nav-link,
 div#bottom-nav,
 #shopping-cart {
     font-family: 'Oswald', sans-serif;
@@ -173,6 +189,10 @@ div#bottom-nav,
     letter-spacing: 1px;
     color: #fafafa;
     text-decoration: none;
+}
+
+a.nav-link:hover {
+    color: rgb(132, 116, 161);
 }
 
 a.mb-auto.text-small.btn.btn-light.text-dark.me-2 {
@@ -232,6 +252,18 @@ li {
   background-color: transparent;
   border-color: non;
   border: none;
+}
+
+button#shopDropdown1 {
+    background-color: transparent;
+}
+
+
+.dropdown-toggle {
+    background: none;
+}
+a.nav-link.d-block.d-lg-none.dropdown-toggle {
+
 }
 /* ***************************.end-mobile-nav-&-shop-nav */
 
