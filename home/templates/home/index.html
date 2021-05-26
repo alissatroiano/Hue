@@ -1,14 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block page_header %}
 <div class="container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+    <div class="row">
+        <div class="col"></div>
+    </div>
 </div>
 {% endblock %}
-
 {% block content %}
 <!--hero starts here-->
 <section class="hero-container py-5" id="welcome">
@@ -20,17 +18,16 @@
                 <h2 class="lead mt-4 py-2 mx-auto">Digital art like never before </h2>
                 <button role="button" class="btn btn-link rounded" id="hero-button">
                     <a href="{% url 'shop' %}" class="text-light text-decoration-none">Shop</a></button>
-
             </div>
         </div>
-                <div class="row d-flex justify-content-center text-center">
-                    <div class="col-12 flex-nowrap">
-                        <br>
-                        <button class="btn btn-md"><a id="sale" class="lead my-2 mx-auto text-nowrap" href="{% url 'shop' %}"></a></button>
-                    </div>
-                </div>
-            <!--./call-to-action-->
+        <div class="row d-flex justify-content-center text-center">
+            <div class="col-12 flex-nowrap">
+                <br>
+                <button class="btn btn-md"><a id="sale" class="lead my-2 mx-auto text-nowrap" href="{% url 'shop' %}"></a></button>
+            </div>
         </div>
+        <!--./call-to-action-->
+    </div>
 </section>
 <!--./end-hero-->
 <!--Category Display https://codepen.io/mhhasan320/pen/BwqvLL -->
@@ -85,7 +82,7 @@
             <div class="col-xs-8 col-sm-4">
                 <div class="card h-100 overflow-hidden rounded-5 img-fluid" id="category-card6">
                     <div class="card-image-overlay">
-                        <h3 class="py-3 mt-5 mb-4 lh-1 fw-bold"> Shop Illustrations</h3>
+                        <h3 class="py-3 mt-5 mb-4 lh-1 fw-bold"> Shop Graphics</h3>
                         <a href="#" class="stretched-link"></a>
                     </div>
                 </div>
@@ -93,8 +90,6 @@
         </div>
     </div>
 </section>
-
 {% block page_footer %}
 {% endblock %}
-
 {% endblock %}

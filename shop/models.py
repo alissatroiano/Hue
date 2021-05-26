@@ -10,6 +10,7 @@ CURRENCY = settings.CURRENCY
 
 class Category(models.Model):
     """ https://github.com/Code-Institute-Solutions/Boutique-Ado/blob/master/06-Products-Setup/Adding-The-Products/products/models.py """
+    parent = models.ForeignKey('self', related_name='children', on_delete=models.CASCADE, blank=True, null=True)
     title = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
 
