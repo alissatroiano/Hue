@@ -225,8 +225,16 @@ li {
     list-style: none;
     float: left;
 }
-
 /*.end-header-&-navigations */
+
+/* ************************** Mobile Nav & Shop Nav */
+.input-group-text {
+  background-color: transparent;
+  border-color: non;
+  border: none;
+}
+/* ***************************.end-mobile-nav-&-shop-nav */
+
 
 /***************************** Homepage */
 .hero-container,
