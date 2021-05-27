@@ -170,6 +170,8 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 
     - [Stack Overflow](https://stackoverflow.com/questions/5517950/django-media-url-and-media-root)
 
+- The code used to create a custom cursor was copied from [W3 Schools](https://www.w3schools.com/cssref/pr_class_cursor.asp)
+
 ### Backend Functionality
 
 - Django timezones were learned by reading [Django's documentation](https://docs.djangoproject.com/en/3.2/topics/i18n/timezones/).
