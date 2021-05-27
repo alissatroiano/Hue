@@ -1,4 +1,4 @@
-<div class="display-font text-dark collapse navbar-collapse py-2" id="navbarSupportedContent">
+<div class="display-font text-dark collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="list-group list-group-horizontal-lg">
         <li class="nav-item">
             <div class="dropdown">
@@ -8,15 +8,30 @@
                 <div class="dropdown-menu border-0 body-font" aria-labelledby="shopDropdown1" id="shopDropdown1">
                     <a href="{% url 'shop' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
                     <a href="{% url 'shop' %}?sort=category&direction=asc" class="dropdown-item">By Category</a>
+                    <a href="{% url 'shop' %}?sort=created_at&direction=desc" class="dropdown-item ">By Latest</a>
+                    <a href="{% url 'shop' %}" class="dropdown-item">All Products</a>
+                </div>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <div class="dropdown">
+                <button class="btn btn-sm dropdown-toggle" type="button" id="shopDropdown1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="font-weight-bold nav-link text-black" href="#" id="shop-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Photography</a></button>
+                <div class="dropdown-menu border-0 body-font" aria-labelledby="shopDropdown1" id="shopDropdown1">
+                    <a href="{% url 'shop' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
+                    <a href="{% url 'shop' %}?sort=category&direction=asc" class="dropdown-item">By Category</a>
                     <a href="{% url 'shop' %}?sort=created_at&direction=asc" class="dropdown-item ">By Latest</a>
                     <a href="{% url 'shop' %}" class="dropdown-item">All Products</a>
                 </div>
             </div>
         </li>
  
+ 
     <li class="nav-item">
     <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Photography
+        Paintings
     </a>
     <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
         <a href="" class="dropdown-item">Landscape</a>
