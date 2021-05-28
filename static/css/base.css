@@ -360,13 +360,13 @@ h3.py-3.mt-5.mb-4.lh-1.fw-bold {
 }
 
 .card-body {
-    min-height: 5rem;
 }
 
-.card-img-top {
+img.card-img-overlay {
     background-position: center;
     background-size: cover;
     max-width: 100%;
+    min-height: 100vh;
     justify-content: center;
     display: flex;
     overflow: hidden;

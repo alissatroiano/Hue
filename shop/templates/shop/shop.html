@@ -1,74 +1,69 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block page_header %}{% endblock %}
-
 <div class="container header-container">
     <div class="row">
         <div class="col-12">
         </div>
     </div>
 </div>
-
 {% block content %}
-{% include 'includes/shop-nav.html' %}
-
 <div class="overlay"></div>
 <div class="container-fluid mt-5 pt-5">
-    <div class="row text-center justify-content-center pt-5 mt-5">
+    <div class="row pt-5 d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
         <div class="col-12 col-md-lg-4 text-center">
-                    </div>
-                </div>
-            </div>
-        <div class="container shop-container">
-            <div class="row rows-col-1 rows-col-3-lg my-2 mx-0 d-flex align-items-center">
-                {% for product in products %}
-                <div class="col-sm-6 col-md-lg-4 col-xl-3">
-                    <div class="card my-2 shadow-lg border-0" id="produc">
-                        {% if product.image %}
-                        <a href="">
-                            <img src="{{ product.image.url }}" alt="{{ product.title }}" class="card-img-top img-fluid">
-                        </a>
-                        {% endif %}
-                        <div class="card-body bg-dark text-white mb-auto pb-0">
-                            <p class="mb-0">{{ product.title }}</p>
-                        </div>
-                        <div class="card-footer text-white bg-dark pt-0 border-0 text-left">
-                            <div class="row">
-                                <div class="col">
-                                    {% if product.discount_price %}
-                                    <p class="lead mb-0 text-left text-muted" id="regular-price">$ {{ product.price }}</p>
-                                    <span class="lead mb-0 text-left fw-bold"> {{ product.display_final_price }}</span>
-                                    {% else %}
-                                    <p class="lead mb-0 text-left text-muted"> {{ product.display_final_price }}</p>
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {% if forloop.counter|divisibleby:1 %}
-                <div class="col-12 d-sm-none mb-5">
-                </div>
-                {% endif %}
-                {% if forloop.counter|divisibleby:2 %}
-                <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-                </div>
-                {% endif %}
-                {% if forloop.counter|divisibleby:3 %}
-                <div class="col-12 d-none d-lg-block d-xl-none mb-5">
-                    <hr>
-                </div>
-                {% endif %}
-                {% if forloop.counter|divisibleby:4 %}
-                <div class="col-12 d-none d-xl-block mb-5">
-                    <hr>
-                </div>
-                {% endif %}
-                {% endfor %}
-            </div>
+            <h2>Shop</h2>
+            <hr>
         </div>
     </div>
+</div>
+<div class="container-fluid my-0 mx-auto py-5 px-5 py-5">
+    <div class="row g-4">
+        {% for product in products %}
+        <div class="col-sm-4 col-md-lg-4 col-xl-3">
+            <div class="card h-100 my-2 shadow-lg border-0" id="produc">
+                {% if product.image %}
+                <a href="">
+                    <img src="{{ product.image.url }}" alt="{{ product.title }}" class="card-img-top img-fluid">
+                </a>
+                {% endif %}
+                <div class="card-body bg-dark text-white mb-auto pb-0">
+                    <p class="mb-0">{{ product.title }}</p>
+                </div>
+                <div class="card-footer text-white bg-dark pt-0 border-0 text-left">
+                    <div class="row">
+                        <div class="col">
+                            {% if product.discount_price %}
+                            <p class="lead mb-0 text-left text-muted" id="regular-price">$ {{ product.price }}</p>
+                            <span class="lead mb-0 text-left fw-bold"> {{ product.display_final_price }}</span>
+                            {% else %}
+                            <p class="lead mb-0 text-left text-muted"> {{ product.display_final_price }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% if forloop.counter|divisibleby:1 %}
+        <div class="col-12 d-sm-none mb-5">
+        </div>
+        {% endif %}
+        {% if forloop.counter|divisibleby:2 %}
+        <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
+        </div>
+        {% endif %}
+        {% if forloop.counter|divisibleby:3 %}
+        <div class="col-12 d-none d-lg-block d-xl-none mb-5">
+            <hr>
+        </div>
+        {% endif %}
+        {% if forloop.counter|divisibleby:4 %}
+        <div class="col-12 d-none d-xl-block mb-5">
+            <hr>
+        </div>
+        {% endif %}
+        {% endfor %}
+   </div>
 </div>
 </div>
 {% endblock %}
