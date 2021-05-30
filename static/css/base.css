@@ -46,8 +46,8 @@ h2.display-font {
     font-size: 12px;
 }
 
-.text-primary {
-color:  rgb(170 151 204 / 88%);    
+.text-main {
+    color:  rgb(170 151 204);    
 }
 
 .link-font {
@@ -644,6 +644,10 @@ button.btn.btn-primary.loginButton {
 #regular-price {
     text-decoration: line-through;
 }
+
+#shop-card {
+}
+
 
 /* ***************************./end-shop */
 
