@@ -28,6 +28,20 @@ h2.display-font {
 
 .display-font {
     font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+}
+
+.heading-md {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.heading-lg {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-size: 5rem;
+    letter-spacing: 1px;
 }
 
 .body-font {
@@ -42,12 +56,34 @@ h2.display-font {
     font-size: 12px;
 }
 
+.body-main {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 1.3rem;
+}
+
+.body-md {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 2rem;
+}
+
+.body-lg {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 3rem;
+}
+
 .nav-xs {
     font-size: 12px;
 }
 
 .text-main {
     color:  rgb(170 151 204);    
+}
+
+.border-main {
+    color: 3px solid rgb(170 151 204); 
 }
 
 .link-font {
@@ -645,9 +681,17 @@ button.btn.btn-primary.loginButton {
     text-decoration: line-through;
 }
 
-#shop-card {
+#discount-price {
+    text-decoration: none;
 }
 
+.card-img-top {
+}
+
+/* Shadow effect copied from https://codepen.io/team/sparkbox/pen/dRpZXj */
+#shop-card {
+ box-shadow: 0 1.5em 2em -1em #999;
+}
 
 /* ***************************./end-shop */
 
