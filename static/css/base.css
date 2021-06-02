@@ -56,6 +56,12 @@ h2.display-font {
     font-size: 12px;
 }
 
+.body-sm {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
 .body-main {
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
@@ -694,6 +700,17 @@ button.btn.btn-primary.loginButton {
 }
 
 /* ***************************./end-shop */
+
+
+/* *************************** Product Details */
+.product-details-wrapper {
+}
+
+.product-details-overlap {
+}
+
+/* ***************************./end-product-details*/
+
 
 
 /* *************************** Media Queries */
