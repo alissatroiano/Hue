@@ -63,22 +63,23 @@
                         {% endif %}
                         <div class="card-body pb-0">
                             <h4 class="mb-2 display-font heading-md">{{ product.title }}</h4>
+                             <p class="body-small my-2 text-muted">{{ product.medium }}</p>
                             <p class="body-small my-2">{{ product.product_details }}</p>
                         </div>
                         <div class="card-footer bg-white pt-0 border-0 text-left">
                             <div class="row">
                                 <div class="col">
-                                    {% if product.label == 'SL' %}
-                                    {% elif product.label == 'CL' %}
-                                    <span class="body-font body-main mb-0 text-left text-muted" id="regular-price">
-                                        {{ product.price }} </span>
-                                        <span class="p-price text-main body-main mb-0 text-left fw-bold ms-2" style="text-decoration: none;">
-                                             {{ product.display_final_price }}
-                                        </span>
+                                    {% if product.label == 'NP' %}
+                                     <span class="p-price text-main body-sm mb-0 text-left fw-bold ms-2" style="text-decoration: none;">
+                                        {{ product.display_final_price }}                                        
+                                    </span>
                                     {% else %}
-                         <span class="p-price text-main body-main mb-0 text-left fw-bold ms-2" style="text-decoration: none;">
-                         {{ product.display_final_price }}                                        
-                     </span>
+                                    <span class="body-font body-sm mb-0 text-left text-muted" id="regular-price">
+                                    {{ product.price }} 
+                                </span>
+                                    <span class="p-price text-main body-sm mb-0 text-left fw-bold ms-2 my-2" style="text-decoration: none;">
+                                        {{ product.display_final_price }}
+                                    </span>
                                     {% endif %}
                                     {% if product.category %}
                                     <p class="body-small body-font mt-1 mb-0">
@@ -90,6 +91,16 @@
                                 </div>
                             </div>
                         </div>
+                         {% if product.label == 'SL' %}
+                          <div class="ribbon-wrapper">
+                                   <div class="ribbon-S body-sm fw-bold">SALE!</div>
+                          </div>
+                          {% endif %}     
+                        {% if product.label == 'CL' %}
+                        <div class="ribbon-wrapper">
+                            <div class="ribbon-C body-sm fw-bold bg-primary">75% OFF!</div>
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
                 {% if forloop.counter|divisibleby:1 %}

@@ -19,13 +19,6 @@ h6 {
     letter-spacing: 1px;
 }
 
-h2.display-font {
-    font-size: 2rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-
-}
-
 .display-font {
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
@@ -145,13 +138,11 @@ input {
     min-width: 100%;
 }
 
-#navbarSupportedContent {
-   color: rgb(132, 116, 161);
-}
-
 .bg-primary {         
     background-color: #6a509aa6!important;
 }
+
+
 /* ***************************./end-headers-&-special-text*/
 
 /* ***************************./Icons */
@@ -175,6 +166,10 @@ ul.nav.col-12.col-lg-auto.my-2.justify-content-center.my-md-0.text-small {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 300;
+}
+
+#navbarSupportedContent {
+   color: rgb(132, 116, 161);
 }
 
 #account-dropdown {
@@ -534,7 +529,7 @@ div#category-card5:hover {
 
 div#category-card6 {
     background-image: url('https://cdn.pixabay.com/photo/2018/03/14/18/20/girl-3225923_1280.png');
-    sbackground-position: center;
+    background-position: center;
     background-size: cover;
     min-width: 100%;
     min-height: 20rem;
@@ -701,12 +696,74 @@ button.btn.btn-primary.loginButton {
     text-decoration: none;
 }
 
-.card-img-top {
-}
-
 /* Shadow effect copied from https://codepen.io/team/sparkbox/pen/dRpZXj */
 #shop-card {
- box-shadow: 0 1.5em 2em -1em #999;
+    box-shadow: 0 1.5em 2em -1em #999;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.ribbon-wrapper {
+    width: 108px;
+    height: 108px;
+    overflow: hidden;
+    position: absolute;
+    top: -6px;
+    right: -6px;
+}
+
+.ribbon-S {
+    font: bold 15px Sans-Serif;
+        line-height: normal;
+    line-height: 18px;
+    color: #333;
+    text-align: center;
+    text-transform: uppercase;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    position: relative;
+    padding: 7px 0;
+    left: -4px;
+    top: 26px;
+    width: 150px;
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.5px;
+    background: linear-gradient(#7c6d9b -50%, #AA97CC 50%, #AA97CC 0%, #7c6d9b 150%);
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+    box-shadow: -3px 5px 6px -5px rgba(0, 0, 0, 0.5);
+}
+
+.ribbon-C {
+    line-height: normal;
+    line-height: 18px;
+    color: #333;
+    text-align: center;
+    text-transform: uppercase;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    position: relative;
+    padding: 7px 0;
+    left: -4px;
+    top: 26px;
+    width: 150px;
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.5px;
+    background: linear-gradient(#7c6d9b -50%, #AA97CC 50%, #AA97CC 0%, #7c6d9b 150%);
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+    box-shadow: -3px 5px 6px -5px rgba(0, 0, 0, 0.5);
+}
+.promo-ribbon {
+    border-top-left-radius: 0%;
+    border-bottom-left-radius: 0%;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0%;
 }
 
 /* ***************************./end-shop */
