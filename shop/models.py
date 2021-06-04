@@ -45,11 +45,12 @@ class Product(models.Model):
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
     product_details = models.TextField()
-    price = models.DecimalField(max_digits=6, decimal_places=2)
+    price = models.DecimalField(
+        default=0.00, decimal_places=2, max_digits=8)
     discount_price = models.DecimalField(
-        default=0.00, decimal_places=2, max_digits=10)
+        default=0.00, decimal_places=2, max_digits=8)
     final_price = models.DecimalField(
-        default=0.00, decimal_places=2, max_digits=10)
+        default=0.00, decimal_places=2, max_digits=8)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True, )
     qty = models.PositiveIntegerField(default=0)
@@ -74,10 +75,12 @@ class Product(models.Model):
     def display_final_price(self):
         if self.label == "SL":
             self.final_price = float(self.price) * 0.75
+            return '${:,.2f}'.format(self.final_price)
         elif self.label == 'CL':
             self.final_price = float(self.price) * 0.25
+            return '${:,.2f}'.format(self.final_price)
         else:
             self.final_price = self.price
         return f'{CURRENCY} {self.final_price}'
-    display_final_price.short_description = 'Final Price'
+    display_final_price.short_description = 'Price'
 
