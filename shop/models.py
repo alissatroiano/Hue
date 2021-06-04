@@ -25,10 +25,10 @@ class Category(models.Model):
 
 # https://christosstath10.medium.com/create-your-own-point-of-sale-c25f8b1ff93b
 class Product(models.Model):
-    ORIENTATION = (
-            ('P', 'Portrait'),
-            ('L', 'Landscape'),
-            ('S', 'Square'),
+    ORIENTATIONS = (
+            ('Portrait','Portrait'),
+            ('Landscape', 'Landscape'),
+            ('Square', 'Square'),
     )
     LABEL = (
             ('SL', 'Sale'),
@@ -39,7 +39,7 @@ class Product(models.Model):
     sku = models.CharField(unique=True, max_length=254, null=True, blank=True)
     active = models.BooleanField(default=True)
     title = models.CharField(max_length=254, unique=True)
-    orientation = models.CharField(choices=ORIENTATION, max_length=2, default='P')
+    orientation = models.CharField(choices=ORIENTATIONS, max_length=254, default='Portrait')
     label = models.CharField(choices=LABEL, max_length=2, default='NP')
     medium = models.CharField(max_length=254, blank=True)
     category = models.ForeignKey(

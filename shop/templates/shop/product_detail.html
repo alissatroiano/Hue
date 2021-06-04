@@ -38,7 +38,7 @@
                             <div class="product-gallery-preview order-sm-2">
                                 <figure class="figure">
                                     <img src="{{ product.image.url }}" class="figure-img img-fluid rounded" alt="...">
-                                    <figcaption class="figure-caption">{{ product.product_details }}</figcaption>
+                                    <figcaption class="figure-caption body-small text-muted">{{ product.title }}</figcaption>
                                 </figure>
                             </div>
                         </div>
@@ -46,16 +46,14 @@
                     <!-- Product details-->
                     <div class="col-lg-5 pt-4 pt-lg-0">
                         <div class="product-details ms-auto pb-3">
-                            <div class="d-flex justify-content-between align-items-center mb-2"><a href="#reviews" data-scroll="">
-                                    <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star"></i>
-                                    </div><span class="d-inline-block fs-sm text-body align-middle mt-1 ms-1">74 Reviews</span>
-                                </a>
-                                <button class="btn-wishlist me-0 me-lg-n3" type="button" data-bs-toggle="tooltip" title="" data-bs-original-title="Add to wishlist" aria-label="Add to wishlist"><i class="ci-heart"></i></button>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <h3 class="d-inline-block fs-sm display-font text-main align-middle mt-1 ms-1">
+                                    {{ product.title }}</h3>
+                                <button class="btn-none me-0 me-lg-n3" type="button" data-bs-toggle="tooltip" title="" data-bs-original-title="Add to wishlist" aria-label="Add to wishlist"><i class="fas fa-heart text-main"></i></button>
                             </div>
                             <div class="mb-3">
                                 <span class="h3 fw-normal text-accent me-1">
-                                    {% if product.label == 'SL' %}
-                                    {% elif product.label == 'CL' %}
+                                    {% if product.label != 'NP' %}
                                     <span class="body-font body-main mb-0 text-left text-muted" id="regular-price">
                                         {{ product.price }} </span>
                                     <span class="p-price text-main body-main mb-0 text-left fw-bold ms-2" style="text-decoration: none;">
@@ -68,20 +66,6 @@
                                 </p>
                             </div>
                             <form class="mb-grid-gutter" method="post">
-                                <div class="mb-3">
-                                    <div class="d-flex justify-content-between align-items-center pb-1">
-                                        <label class="form-label" for="product-size">Size:</label><a class="nav-link-style fs-sm" href="#size-chart" data-bs-toggle="modal"><i class="ci-ruler lead align-middle me-1 mt-n1"></i>Size guide</a>
-                                    </div>
-
-                                    <select class="form-select" required="" id="product-size">
-                                        <option value="">Select size</option>
-                                        <option value="xs">XS</option>
-                                        <option value="s">S</option>
-                                        <option value="m">M</option>
-                                        <option value="l">L</option>
-                                        <option value="xl">XL</option>
-                                    </select>
-                                </div>
                                 <div class="mb-3 d-flex align-items-center">
                                     <select class="form-select me-3" style="width: 5rem;">
                                         <option value="1">1</option>
@@ -93,26 +77,68 @@
                                     <button class="btn btn-primary btn-shadow d-block w-100" type="submit"><i class="ci-cart fs-lg me-2"></i>Add to Cart</button>
                                 </div>
                             </form>
-                            <!-- Product panels-->
-                            <div class="accordion mb-4" id="productPanels">
-                                <div class="accordion-item">
-                                    <h3 class="accordion-header"><a class="accordion-button" href="#productInfo" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="productInfo"><i class="ci-announcement text-muted fs-lg align-middle mt-n1 me-2"></i>Product Details</a></h3>
-                                    <div class="accordion-collapse collapse show" id="productInfo" data-bs-parent="#productPanels">
-                                        <div class="accordion-body">
-                                            <h6 class="fs-sm mb-2">Medium</h6>
-                                            <ul class="fs-sm ps-4">
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                            </ul>
-                                            <hr>
-                                            <h6 class="fs-sm mb-2">Art. No.</h6>
-                                            <ul class="fs-sm ps-4 mb-0">
-                                                <li>183260098</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                                           <!-- Product panels-->
+                  <div class="accordion mb-4 border-0" id="productPanels">
+             
+                    <div class="accordion-item">
+                      <h3 class="accordion-header">
+                        <button class="accordion-button btn-none collapsed" href="#shippingOptions" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="shippingOptions">Product Details</button></h3>
+                      <div class="accordion-collapse collapse" id="shippingOptions" data-bs-parent="#productPanels">
+                        <div class="accordion-body fs-sm">
+                          <div class="d-flex justify-content-between border-bottom pb-2">
+                            <div>
+                              <div class="fw-bold body-font text-dark">Description</div>
+                              <div class="fs-sm text-muted">{{ product.product_details }}</div>
+                            </div>
+                           
+                          </div>
+                          <div class="d-flex justify-content-between border-bottom py-2">
+                            <div>
+                              <div class="fw-bold body-font text-dark">Medium</div>
+                            </div>
+                            <div class="body-font">{{ product.medium }}</div>
+                          </div>
+                          <div class="d-flex justify-content-between border-bottom py-2">
+                            <div>
+                              <div class="fw-bold body-font text-dark">Orientation</div>
+                            </div>
+                            <div class="body-font">{{ product.orientation }}</div>
+                          </div>
+                          <div class="d-flex justify-content-between border-bottom py-2">
+                            <div>
+                              <div class="fw-semibold text-dark">UPS ground shipping</div>
+                              <div class="fs-sm text-muted">4 - 6 days</div>
+                            </div>
+                            <div>$18.00</div>
+                          </div>
+                          <div class="d-flex justify-content-between pt-2">
+                            <div>
+                              <div class="fw-semibold text-dark">Local pickup from store</div>
+                              <div class="fs-sm text-muted">—</div>
+                            </div>
+                            <div>$0.00</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h3 class="accordion-header"><a class="accordion-button collapsed" href="#localStore" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="localStore"><i class="ci-location text-muted fs-lg align-middle mt-n1 me-2"></i>Find in local store</a></h3>
+                      <div class="accordion-collapse collapse" id="localStore" data-bs-parent="#productPanels">
+                        <div class="accordion-body">
+                          <select class="form-select">
+                            <option value="">Select your country</option>
+                            <option value="Argentina">Argentina</option>
+                            <option value="Belgium">Belgium</option>
+                            <option value="France">France</option>
+                            <option value="Germany">Germany</option>
+                            <option value="Spain">Spain</option>
+                            <option value="UK">United Kingdom</option>
+                            <option value="USA">USA</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                             </div>
                             <!-- Sharing-->
                             <label class="form-label d-inline-block align-middle my-2 me-3">Share:</label>

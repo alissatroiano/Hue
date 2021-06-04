@@ -24,6 +24,13 @@ h6 {
     text-transform: uppercase;
 }
 
+.heading-sm {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+}
+
 .heading-md {
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
@@ -121,7 +128,7 @@ button,
     letter-spacing: 2px;
     background-color: rgb(170 151 204 / 88%);
     border: none;
-    text-shadow: 1px 1px 3px #000;
+    text-shadow: 1px .5px 2px #666;
     text-decoration: none;
     margin: 0px auto
 }
@@ -129,6 +136,16 @@ button,
 .btn:hover,
 button:hover {
     background-color: #6a509a;
+}
+
+.btn-none {
+    background-color: transparent;
+    border: none;
+}
+
+.btn-none:hover {
+    background-color: transparent;
+    border: none;
 }
 
 input {
@@ -156,6 +173,14 @@ input {
 .fab:hover {
     color: #6a509a;
     margin-top: 5px;
+}
+
+.fas {
+    color: rgb(170 151 204);
+}
+
+.fas:hover {
+    color: #6a509a;
 }
 /****************************./end-icons */
 
@@ -694,6 +719,16 @@ button.btn.btn-primary.loginButton {
 
 #discount-price {
     text-decoration: none;
+}
+
+.shop-container {
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.card-img-top {
+    max-width: 100%;
+    height: auto;
 }
 
 /* Shadow effect copied from https://codepen.io/team/sparkbox/pen/dRpZXj */
