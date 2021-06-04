@@ -14,7 +14,7 @@
         <div class="col text-center mt-5 p-5 ">
             <h2 class="display-font my-3">The Shop</h2>
             <hr class="w-50 mb-1">
-                        {% for c in current_categories %}
+            {% for c in current_categories %}
             <a class="category-badge" style="text-decoration: none;" href="{% url 'shop' %}?category={{ c.title }}">
                 <span class="p-2 mt-2 badge badge-transparent border text-main heading-md rounded-0 border border-0">{{ c.friendly_name }}</span>
             </a>
@@ -30,8 +30,8 @@
                                 <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
                                 <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
                                 <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
-                                <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
-                                <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
+                                <option value="rating_asc" {% if current_sorting == 'created_at_asc' %}selected{% endif %}>Freshness (old to new)</option>
+                                <option value="rating_desc" {% if current_sorting == 'created_at_desc' %}selected{% endif %}>Latest (new to old)</option>
                                 <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
                                 <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
                                 <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category (A-Z)</option>
@@ -48,13 +48,13 @@
                     </p>
                 </div>
             </div>
-            <div class="row p-3">
+            <div class="row g-1">
                 {% for product in products %}
-                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 p-2 p-lg-4">
                     <div class="card h-100 border-0" id=shop-card>
                         {% if product.image %}
                         <a href="{% url 'product_detail' product.id %}">
-                            <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.title }}">
+                            <img class="card-img-top h-100 img-fluid" src="{{ product.image.url }}" alt="{{ product.title }}">
                         </a>
                         {% else %}
                         <a href="{% url 'product_detail' product.id %}">
@@ -62,9 +62,8 @@
                         </a>
                         {% endif %}
                         <div class="card-body pb-0">
-                            <h4 class="mb-2 display-font heading-md">{{ product.title }}</h4>
+                            <h4 class="mb-2 display-font heading-sm">{{ product.title }}</h4>
                              <p class="body-small my-2 text-muted">{{ product.medium }}</p>
-                            <p class="body-small my-2">{{ product.product_details }}</p>
                         </div>
                         <div class="card-footer bg-white pt-0 border-0 text-left">
                             <div class="row">
