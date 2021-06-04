@@ -8,26 +8,50 @@
                 <div class="dropdown-menu border-0 body-font" aria-labelledby="shopDropdown1" id="shopDropdown1">
                     <a href="{% url 'shop' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
                     <a href="{% url 'shop' %}?sort=category&direction=asc" class="dropdown-item">By Category</a>
-                    <a href="{% url 'shop' %}?sort=created_at&direction=desc" class="dropdown-item ">By Latest</a>
+                    <a href="{% url 'shop' %}?sort=created_at&direction=desc" class="dropdown-item ">New Arrivals</a>
                     <a href="{% url 'shop' %}" class="dropdown-item">All Products</a>
                 </div>
             </div>
         </li>
-        <li class="nav-item">
-             <a href="{% url 'shop' %}?category=glitch art&direction=asc" class="nav-link">Glitch Art</a>
-        </li>
-        <li class="nav-item">
-             <a href="{% url 'shop' %}?category=surrealism&direction=asc" class="nav-link">Surrealism</a>
-        </li>
-        <li class="nav-item">
-             <a href="{% url 'shop' %}?category=photo-paintings&direction=asc" class="nav-link">Photo-Paintings</a>
-        </li>
-         <li class="nav-item">
-               <a href="{% url 'shop' %}?category=data mosh&direction=asc" class="nav-link">Data Moshing</a>
-        </li>
-                 <li class="nav-item">
-               <a href="{% url 'shop' %}?category=data mosh&direction=asc" class="nav-link">Dynamic Paintings</a>
-        </li>
+                <li class="nav-item">
+            <div class="dropdown">
+                <button class="btn btn-sm dropdown-toggle" type="button" id="shopDropdown1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="font-weight-bold nav-link text-black" href="#" id="shop-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Paintings</a></button>
+                <div class="dropdown-menu border-0 body-font" aria-labelledby="shopDropdown1" id="shopDropdown1">
+                   <a href="{% url 'shop' %}?category=photo-paintings&direction=asc" class="dropdown-item">Photo-Paintings</a>
+                    <a href="{% url 'shop' %}?category=graffiti&direction=asc" class="dropdown-item">Graffiti</a>
+                    <a href="{% url 'shop' %}?category=dynamic-paintings&direction=asc" class="dropdown-item">Dynamic Paintings</a>
+                  </div>
+              </div>
+          </li>
+          <li class="nav-item">
+              <div class="dropdown">
+                   <button class="btn btn-sm dropdown-toggle" type="button" id="shopDropdown1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="font-weight-bold nav-link text-black" href="#" id="shop-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Graphics</a></button>
+                        <div class="dropdown-menu border-0 p-0 m-0 body-font" aria-labelledby="shopDropdown1" id="shopDropdown1">
+                             <a href="{% url 'shop' %}?category=icons&direction=asc" class="nav-link">Icons</a>
+                             <a href="{% url 'shop' %}?category=illustrations&direction=asc" class="nav-link">Illustrations</a>
+                            <a href="{% url 'shop' %}?category=glitch-art&direction=asc" class="nav-link">Glitch Art</a>
+                           
+                           <a href="{% url 'shop' %}?category=data mosh&direction=asc" class="nav-link">Data Moshing</a>
+                       </div>
+                   </div>
+               </li>
+                <li class="nav-item">
+              <div class="dropdown">
+                   <button class="btn btn-sm dropdown-toggle" type="button" id="shopDropdown1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="font-weight-bold nav-link text-black" href="#" id="shop-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Photos</a></button>
+                        <div class="dropdown-menu border-0 p-0 m-0 body-font" aria-labelledby="shopDropdown1" id="shopDropdown1">
+                             <a href="{% url 'shop' %}?category=surrealism&direction=asc" class="nav-link">Surrealism</a>
+                            <a href="{% url 'shop' %}?category=glitch-art&direction=asc" class="nav-link">Abstract</a>
+                           <a href="{% url 'shop' %}?category=data mosh&direction=asc" class="nav-link">Data Moshing</a>
+                       </div>
+                   </div>
+               </li>
+
             <li class="nav-item">
                <a href="{% url 'shop' %}?category=data mosh&direction=asc" class="nav-link">Algorithmic Art</a>
         </li>
