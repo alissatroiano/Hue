@@ -38,7 +38,7 @@
                             <div class="product-gallery-preview order-sm-2">
                                 <figure class="figure">
                                     <img src="{{ product.image.url }}" class="figure-img img-fluid rounded" alt="...">
-                                    <figcaption class="figure-caption">A caption for the above image.</figcaption>
+                                    <figcaption class="figure-caption">{{ product.product_details }}</figcaption>
                                 </figure>
                             </div>
                         </div>
@@ -54,7 +54,8 @@
                             </div>
                             <div class="mb-3">
                                 <span class="h3 fw-normal text-accent me-1">
-                                    {% if product.discount_price %}
+                                    {% if product.label == 'SL' %}
+                                    {% elif product.label == 'CL' %}
                                     <span class="body-font body-main mb-0 text-left text-muted" id="regular-price">
                                         {{ product.price }} </span>
                                     <span class="p-price text-main body-main mb-0 text-left fw-bold ms-2" style="text-decoration: none;">
@@ -64,13 +65,14 @@
                                     <p class="lead mb-0 text-left text-muted" id="discount-price">
                                         {{ product.display_final_price }}</p>
                                     {% endif %}
-                                </span>
+                                </p>
                             </div>
                             <form class="mb-grid-gutter" method="post">
                                 <div class="mb-3">
                                     <div class="d-flex justify-content-between align-items-center pb-1">
                                         <label class="form-label" for="product-size">Size:</label><a class="nav-link-style fs-sm" href="#size-chart" data-bs-toggle="modal"><i class="ci-ruler lead align-middle me-1 mt-n1"></i>Size guide</a>
                                     </div>
+
                                     <select class="form-select" required="" id="product-size">
                                         <option value="">Select size</option>
                                         <option value="xs">XS</option>
@@ -94,15 +96,16 @@
                             <!-- Product panels-->
                             <div class="accordion mb-4" id="productPanels">
                                 <div class="accordion-item">
-                                    <h3 class="accordion-header"><a class="accordion-button" href="#productInfo" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="productInfo"><i class="ci-announcement text-muted fs-lg align-middle mt-n1 me-2"></i>Product info</a></h3>
+                                    <h3 class="accordion-header"><a class="accordion-button" href="#productInfo" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="productInfo"><i class="ci-announcement text-muted fs-lg align-middle mt-n1 me-2"></i>Product Details</a></h3>
                                     <div class="accordion-collapse collapse show" id="productInfo" data-bs-parent="#productPanels">
                                         <div class="accordion-body">
-                                            <h6 class="fs-sm mb-2">Composition</h6>
+                                            <h6 class="fs-sm mb-2">Medium</h6>
                                             <ul class="fs-sm ps-4">
-                                                <li>Elastic rib: Cotton 95%, Elastane 5%</li>
-                                                <li>Lining: Cotton 100%</li>
-                                                <li>Cotton 80%, Polyester 20%</li>
+                                                <li></li>
+                                                <li></li>
+                                                <li></li>
                                             </ul>
+                                            <hr>
                                             <h6 class="fs-sm mb-2">Art. No.</h6>
                                             <ul class="fs-sm ps-4 mb-0">
                                                 <li>183260098</li>
@@ -127,27 +130,41 @@
         <!-- Product description section 1-->
         <div class="row align-items-center py-4 py-lg-5">
             <div class="col-lg-5 col-md-6 offset-lg-1">
-                <h2 class="h3 mb-4 pb-2 display-font fw-normal">YOUR DIGITAL ORDER</h2>
+                <h2 class="h3 mb-4 pb-2 display-font fw-normal">HUE DIGITAL ART AGREEMENT</h2>
                 <h6 class="fs-base mb-3">HOW TO GET YOUR ORDER</h6>
                 <p class="fs-sm text-muted pb-2 pe-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit.</p>
-                <h6 class="fs-base mb-3">YOUR ORDER</h6>
-                <ul class="nav nav-tabs mb-3" role="tablist">
-                    <li class="nav-item"><a class="nav-link" href="#wash" data-bs-toggle="tab" role="tab" aria-selected="false"><i class="ci-wash fs-xl"></i></a></li>
-                    <li class="nav-item"><a class="nav-link" href="#bleach" data-bs-toggle="tab" role="tab" aria-selected="false"><i class="ci-bleach fs-xl"></i></a></li>
-                    <li class="nav-item"><a class="nav-link" href="#hand-wash" data-bs-toggle="tab" role="tab" aria-selected="false"><i class="ci-hand-wash fs-xl"></i></a></li>
-                    <li class="nav-item"><a class="nav-link" href="#ironing" data-bs-toggle="tab" role="tab" aria-selected="false"><i class="ci-ironing fs-xl"></i></a></li>
-                    <li class="nav-item"><a class="nav-link active" href="#dry-clean" data-bs-toggle="tab" role="tab" aria-selected="true"><i class="ci-dry-clean fs-xl"></i></a></li>
-                </ul>
-                <div class="tab-content text-muted fs-sm">
-                    <div class="tab-pane fade" id="wash" role="tabpanel">OPEN EMAIL</div>
-                    <div class="tab-pane fade" id="bleach" role="tabpanel">SCROLL TO THE BOTTOM</div>
-                    <div class="tab-pane fade" id="hand-wash" role="tabpanel">CLICK THE LINK</div>
-                    <div class="tab-pane fade" id="ironing" role="tabpanel">DOWNLOAD</div>
-                    <div class="tab-pane fade active show" id="dry-clean" role="tabpanel">ENJOY!</div>
-                </div>
             </div>
             <div class="col-lg-4 col-md-6 py-4">
-                <img class="d-block rounded-3 border-0 img-thumbnail img-fluid" src="../../media/hue2.jpg" alt="Map">
+                              <h6 class="fs-base mb-3 body-small">HOW TO GET YOUR ORDER</h6>
+                <ul class="nav nav-tabs mb-3" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link" href="#step1" data-bs-toggle="tab" role="tab" aria-selected="false">
+                        <i class="fas fa-binoculars fa-3x icon-main"></i>
+                    </a>
+                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#step2" data-bs-toggle="tab" role="tab" aria-selected="false">
+                            <i class="fas fa-credit-card fa-3x icon-main"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#step3" data-bs-toggle="tab" role="tab" aria-selected="false">
+                        <i class="fas fa-envelope-open fa-3x icon-main"></i>
+                    </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#step4" data-bs-toggle="tab" role="tab" aria-selected="false">
+                        <i class="fas fa-download fa-3x icon-main"></i>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#step5" data-bs-toggle="tab" role="tab" aria-selected="true"><i class="ci-dry-clean fs-xl"></i></a></li>
+                </ul>
+                <div class="tab-content text-muted fs-sm">
+                    <div class="tab-pane body-small fade pt-4 mt-4 fw-bold" id="step1" role="tabpanel">FIND IT</div>
+                    <div class="tab-pane fade" id="step2" role="tabpanel">BUY IT</div>
+                    <div class="tab-pane fade" id="step3" role="tabpanel">OPEN IT</div>
+                    <div class="tab-pane fade" id="step4" role="tabpanel">DOWNLOAD IT</div>
+                    <div class="tab-pane fade" id="step5" role="tabpanel">ENJOY IT!</div>
+                </div>
             </div>
         </div>
     </div>

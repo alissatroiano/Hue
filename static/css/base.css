@@ -35,6 +35,7 @@ h2.display-font {
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
     letter-spacing: 1px;
+    font-size: 1.4rem;
 }
 
 .heading-lg {
@@ -103,6 +104,15 @@ h2.display-font {
 .link-font:hover {
     color: #6a509a;
 }
+
+.icon-main {
+    color:  rgb(170 151 204);    
+}
+
+.icon-main:hover {
+     color: #6a509a;
+}
+
 
 hr {
     width: 20px;

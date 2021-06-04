@@ -62,21 +62,23 @@
                         </a>
                         {% endif %}
                         <div class="card-body pb-0">
-                            <p class="mb-0">{{ product.name }}</p>
+                            <h4 class="mb-2 display-font heading-md">{{ product.title }}</h4>
+                            <p class="body-small my-2">{{ product.product_details }}</p>
                         </div>
                         <div class="card-footer bg-white pt-0 border-0 text-left">
                             <div class="row">
                                 <div class="col">
-                                    {% if product.discount_price %}
+                                    {% if product.label == 'SL' %}
+                                    {% elif product.label == 'CL' %}
                                     <span class="body-font body-main mb-0 text-left text-muted" id="regular-price">
                                         {{ product.price }} </span>
                                         <span class="p-price text-main body-main mb-0 text-left fw-bold ms-2" style="text-decoration: none;">
                                              {{ product.display_final_price }}
                                         </span>
-                                   
                                     {% else %}
-                                    <p class="lead mb-0 text-left text-muted" id="discount-price">
-                                        {{ product.display_final_price }}</p>
+                         <span class="p-price text-main body-main mb-0 text-left fw-bold ms-2" style="text-decoration: none;">
+                         {{ product.display_final_price }}                                        
+                     </span>
                                     {% endif %}
                                     {% if product.category %}
                                     <p class="body-small body-font mt-1 mb-0">

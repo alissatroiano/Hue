@@ -2,6 +2,8 @@ from django.db import models
 from django.conf import settings
 from .managers import ProductManager
 from django.utils import timezone
+from model_utils import Choices
+
 
 # https://docs.djangoproject.com/en/3.2/topics/i18n/timezones/
 now = timezone.now
@@ -23,9 +25,23 @@ class Category(models.Model):
 
 # https://christosstath10.medium.com/create-your-own-point-of-sale-c25f8b1ff93b
 class Product(models.Model):
+    ORIENTATION = (
+            ('P', 'Portrait'),
+            ('L', 'Landscape'),
+            ('S', 'Square'),
+    )
+    LABEL = (
+            ('SL', 'Sale'),
+            ('CL', 'Clearance'),
+            ('NP', 'No Promotion'),
+    )
+
     sku = models.CharField(unique=True, max_length=254, null=True, blank=True)
     active = models.BooleanField(default=True)
     title = models.CharField(max_length=254, unique=True)
+    orientation = models.CharField(choices=ORIENTATION, max_length=2, default='P')
+    label = models.CharField(choices=LABEL, max_length=2, default='NP')
+    medium = models.CharField(max_length=254, blank=True)
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
     product_details = models.TextField()
@@ -35,7 +51,7 @@ class Product(models.Model):
     final_price = models.DecimalField(
         default=0.00, decimal_places=2, max_digits=10)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
-    image = models.ImageField(null=True, blank=True)
+    image = models.ImageField(null=True, blank=True, )
     qty = models.PositiveIntegerField(default=0)
     # https://stackoverflow.com/questions/1737017/django-auto-now-and-auto-now-add
     created_at = models.DateTimeField(auto_now_add=True)
@@ -56,5 +72,12 @@ class Product(models.Model):
         return self.title
 
     def display_final_price(self):
+        if self.label == "SL":
+            self.final_price = float(self.price) * 0.75
+        elif self.label == 'CL':
+            self.final_price = float(self.price) * 0.25
+        else:
+            self.final_price = self.price
         return f'{CURRENCY} {self.final_price}'
-    display_final_price.short_description = 'Price'
+    display_final_price.short_description = 'Final Price'
+
