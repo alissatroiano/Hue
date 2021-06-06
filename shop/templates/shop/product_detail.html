@@ -27,7 +27,7 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid">
+    <div class="container">
         <!-- Gallery + details-->
         <div class="bg-light shadow-lg rounded-3 px-4 py-3 mb-5">
             <div class="px-lg-3">
@@ -36,7 +36,7 @@
                     <div class="col-lg-7">
                         <div class="product-gallery">
                             <div class="product-gallery-preview order-sm-2">
-                                <figure class="figure">
+                                <figure class="figure img-fluid">
                                     <img src="{{ product.image.url }}" class="figure-img img-fluid rounded" alt="...">
                                     <figcaption class="figure-caption body-small text-muted">{{ product.title }}</figcaption>
                                 </figure>
@@ -47,7 +47,7 @@
                     <div class="col-lg-5 pt-4 pt-lg-0">
                         <div class="product-details ms-auto pb-3">
                             <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <h3 class="d-inline-block fs-sm display-font text-main align-middle mt-1 ms-1">
+                                <h3 class="d-inline-block fs-sm display-font text-main align-middle mt-1 ms-1">
                                     {{ product.title }}</h3>
                                 <button class="btn-none me-0 me-lg-n3" type="button" data-bs-toggle="tooltip" title="" data-bs-original-title="Add to wishlist" aria-label="Add to wishlist"><i class="fas fa-heart text-main"></i></button>
                             </div>
@@ -63,7 +63,7 @@
                                     <p class="lead mb-0 text-left text-muted" id="discount-price">
                                         {{ product.display_final_price }}</p>
                                     {% endif %}
-                                </p>
+                                    </p>
                             </div>
                             <form class="mb-grid-gutter" method="post">
                                 <div class="mb-3 d-flex align-items-center">
@@ -77,83 +77,82 @@
                                     <button class="btn btn-primary btn-shadow d-block w-100" type="submit"><i class="ci-cart fs-lg me-2"></i>Add to Cart</button>
                                 </div>
                             </form>
-                                           <!-- Product panels-->
-                  <div class="accordion mb-4 border-0" id="productPanels">
-             
-                    <div class="accordion-item">
-                      <h3 class="accordion-header">
-                        <button class="accordion-button btn-none collapsed" href="#shippingOptions" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="shippingOptions">Product Details</button></h3>
-                      <div class="accordion-collapse collapse" id="shippingOptions" data-bs-parent="#productPanels">
-                        <div class="accordion-body fs-sm">
-                          <div class="d-flex justify-content-between border-bottom pb-2">
-                            <div>
-                              <div class="fw-bold body-font text-dark">Description</div>
-                              <div class="fs-sm text-muted">{{ product.product_details }}</div>
+                            <!-- Product panels-->
+                            <div class="accordion mb-4 border-0" id="productPanels">
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header">
+                                        <button class="accordion-button btn-none collapsed" href="#shippingOptions" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="shippingOptions">Product Details</button></h3>
+                                    <div class="accordion-collapse collapse" id="shippingOptions" data-bs-parent="#productPanels">
+                                        <div class="accordion-body fs-sm">
+                                            <div class="d-flex justify-content-between border-bottom pb-2">
+                                                <div>
+                                                    <div class="fw-bold body-font text-dark">Description</div>
+                                                    <div class="fs-sm text-muted">{{ product.product_details }}</div>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex justify-content-between border-bottom py-2">
+                                                <div>
+                                                    <div class="fw-bold body-font text-dark">Medium</div>
+                                                </div>
+                                                <div class="body-font">{{ product.medium }}</div>
+                                            </div>
+                                            <div class="d-flex justify-content-between border-bottom py-2">
+                                                <div>
+                                                    <div class="fw-bold body-font text-dark">Orientation</div>
+                                                </div>
+                                                <div class="body-font">{{ product.orientation }}</div>
+                                            </div>
+                                            <div class="d-flex justify-content-between border-bottom py-2">
+                                                <div>
+                                                    <div class="fw-semibold text-dark">UPS ground shipping</div>
+                                                    <div class="fs-sm text-muted">4 - 6 days</div>
+                                                </div>
+                                                <div>$18.00</div>
+                                            </div>
+                                            <div class="d-flex justify-content-between pt-2">
+                                                <div>
+                                                    <div class="fw-semibold text-dark">Local pickup from store</div>
+                                                    <div class="fs-sm text-muted">—</div>
+                                                </div>
+                                                <div>$0.00</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header"><a class="accordion-button collapsed" href="#localStore" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="localStore"><i class="ci-location text-muted fs-lg align-middle mt-n1 me-2"></i>Find in local store</a></h3>
+                                    <div class="accordion-collapse collapse" id="localStore" data-bs-parent="#productPanels">
+                                        <div class="accordion-body">
+                                            <select class="form-select">
+                                                <option value="">Select your country</option>
+                                                <option value="Argentina">Argentina</option>
+                                                <option value="Belgium">Belgium</option>
+                                                <option value="France">France</option>
+                                                <option value="Germany">Germany</option>
+                                                <option value="Spain">Spain</option>
+                                                <option value="UK">United Kingdom</option>
+                                                <option value="USA">USA</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                           
-                          </div>
-                          <div class="d-flex justify-content-between border-bottom py-2">
-                            <div>
-                              <div class="fw-bold body-font text-dark">Medium</div>
-                            </div>
-                            <div class="body-font">{{ product.medium }}</div>
-                          </div>
-                          <div class="d-flex justify-content-between border-bottom py-2">
-                            <div>
-                              <div class="fw-bold body-font text-dark">Orientation</div>
-                            </div>
-                            <div class="body-font">{{ product.orientation }}</div>
-                          </div>
-                          <div class="d-flex justify-content-between border-bottom py-2">
-                            <div>
-                              <div class="fw-semibold text-dark">UPS ground shipping</div>
-                              <div class="fs-sm text-muted">4 - 6 days</div>
-                            </div>
-                            <div>$18.00</div>
-                          </div>
-                          <div class="d-flex justify-content-between pt-2">
-                            <div>
-                              <div class="fw-semibold text-dark">Local pickup from store</div>
-                              <div class="fs-sm text-muted">—</div>
-                            </div>
-                            <div>$0.00</div>
-                          </div>
                         </div>
-                      </div>
-                    </div>
-                    <div class="accordion-item">
-                      <h3 class="accordion-header"><a class="accordion-button collapsed" href="#localStore" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="localStore"><i class="ci-location text-muted fs-lg align-middle mt-n1 me-2"></i>Find in local store</a></h3>
-                      <div class="accordion-collapse collapse" id="localStore" data-bs-parent="#productPanels">
-                        <div class="accordion-body">
-                          <select class="form-select">
-                            <option value="">Select your country</option>
-                            <option value="Argentina">Argentina</option>
-                            <option value="Belgium">Belgium</option>
-                            <option value="France">France</option>
-                            <option value="Germany">Germany</option>
-                            <option value="Spain">Spain</option>
-                            <option value="UK">United Kingdom</option>
-                            <option value="USA">USA</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                            </div>
-                            <!-- Sharing-->
-                            <label class="form-label d-inline-block align-middle my-2 me-3">Share:</label>
-                            <a class="btn-share btn-twitter me-2 my-2" href="#">
-                                <i class="fab fa-twitter"></i></a>
-                            <a class="btn-share btn-instagram me-2 my-2" href="#">
-                                <i class="fab fa-instagram"></i></a>
-                            <a class="btn-share btn-facebook my-2" href="#">
-                                <i class="fab fa-facebook-f"></i></a>
-                        </div>
+                        <!-- Sharing-->
+                        <label class="form-label d-inline-block align-middle my-2 me-3">Share:</label>
+                        <a class="btn-share btn-twitter me-2 my-2" href="#">
+                            <i class="fab fa-twitter"></i></a>
+                        <a class="btn-share btn-instagram me-2 my-2" href="#">
+                            <i class="fab fa-instagram"></i></a>
+                        <a class="btn-share btn-facebook my-2" href="#">
+                            <i class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Product description section 1-->
+    </div>
+    <!-- Product description section 1-->
+    <div class="container">
         <div class="row align-items-center py-4 py-lg-5">
             <div class="col-lg-5 col-md-6 offset-lg-1">
                 <h2 class="h3 mb-4 pb-2 display-font fw-normal">HUE DIGITAL ART AGREEMENT</h2>
@@ -161,26 +160,26 @@
                 <p class="fs-sm text-muted pb-2 pe-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit.</p>
             </div>
             <div class="col-lg-4 col-md-6 py-4">
-                              <h6 class="fs-base mb-3 body-small">HOW TO GET YOUR ORDER</h6>
+                <h6 class="fs-base mb-3 body-small">HOW TO GET YOUR ORDER</h6>
                 <ul class="nav nav-tabs mb-3" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link" href="#step1" data-bs-toggle="tab" role="tab" aria-selected="false">
-                        <i class="fas fa-binoculars fa-3x icon-main"></i>
-                    </a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#step1" data-bs-toggle="tab" role="tab" aria-selected="false">
+                            <i class="fas fa-binoculars fa-3x icon-main"></i>
+                        </a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#step2" data-bs-toggle="tab" role="tab" aria-selected="false">
                             <i class="fas fa-credit-card fa-3x icon-main"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="#step3" data-bs-toggle="tab" role="tab" aria-selected="false">
-                        <i class="fas fa-envelope-open fa-3x icon-main"></i>
-                    </a>
+                        <a class="nav-link" href="#step3" data-bs-toggle="tab" role="tab" aria-selected="false">
+                            <i class="fas fa-envelope-open fa-3x icon-main"></i>
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#step4" data-bs-toggle="tab" role="tab" aria-selected="false">
-                        <i class="fas fa-download fa-3x icon-main"></i>
+                            <i class="fas fa-download fa-3x icon-main"></i>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="#step5" data-bs-toggle="tab" role="tab" aria-selected="true"><i class="ci-dry-clean fs-xl"></i></a></li>
                 </ul>
@@ -219,6 +218,20 @@
             <h6 class="fs-base mb-3 body-font body-sm fw-bold">CUSTOMER SATISFACTION GUARANTEE</h6>
             <p class="fs-sm text-muted pb-md-2">If you are not 100%</p>
         </div>
+    </div>
+    </div>
+    </a>
+    </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+    </span>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
     </div>
     </div>
 </section>
