@@ -52,13 +52,13 @@
         </li>
         <li class="nav-item">
             <div class="dropdown">
-                <button class="btn btn-sm dropdown-toggle" type="button" id="shopDropdown4" data-bs-toggle="dropdown" aria-expanded="false">
-                    <a class="font-weight-bold nav-link text-black" href="#" id="shopDropdown4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-sm dropdown-toggle" type="button" id="shopDropdown5" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="font-weight-bold nav-link text-black" href="#" id="shopDropdown5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Deals & Discounts</a></button>
-                <div class="dropdown-menu border-0 p-0 m-0 body-font" aria-labelledby="shopDropdown4" id="shopDropdown4">
-                    <a href="{% url 'shop' %}?category=surrealism&direction=asc" class="dropdown-item">Sale</a>
-                    <a href="{% url 'shop' %}?category=glitch-art&direction=asc" class="dropdown-item">Clearance</a>
-                    <a href="{% url 'shop' %}?category=data mosh&direction=asc" class="dropdown-item">All Deals & Discounts</a>
+                    <div class="dropdown-menu border-0 p-0 m-0 body-font" aria-labelledby="shopDropdown5" id="shopDropdown5">
+                    <a href="{% url 'shop' %}?label=SL&direction=asc" class="dropdown-item">Sale</a>
+                    <a href="{% url 'shop' %}?label=CL&direction=asc" class="dropdown-item" class="dropdown-item">Clearance</a>
+                    <a href="{% url 'shop' %}?label=SL,CL&direction=asc" class="dropdown-item">All Deals & Discounts</a>
                 </div>
             </div>
         </li>

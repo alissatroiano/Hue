@@ -36,6 +36,10 @@ def shop_all(request):
             products = products.filter(category__title__in=categories)
             categories = Category.objects.filter(title__in=categories)
 
+        if 'label' in request.GET:
+            labels = request.GET['label'].split(',')
+            products = products.filter(label__in=labels)
+
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
