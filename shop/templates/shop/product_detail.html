@@ -9,147 +9,87 @@
 {% endblock %}
 {% block content %}
 <div class="overlay"></div>
-<section class="product-details-wrapper">
-    <div class="bg-light pt-4">
-        <div class="container d-lg-flex justify-content-between py-2 py-lg-3">
-            <div class="order-lg-2 mb-3 mb-lg-0 pt-lg-2">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb breadcrumb-light flex-lg-nowrap justify-content-center justify-content-lg-start">
-                        <li class="breadcrumb-item"><a class="text-nowrap" href="index.html"><i class="ci-home"></i>Home</a></li>
-                        <li class="breadcrumb-item text-nowrap"><a href="#">Shop</a>
-                        </li>
-                        <li class="breadcrumb-item text-nowrap active" aria-current="page">Product Page v.1</li>
-                    </ol>
-                </nav>
-            </div>
-            <div class="order-lg-1 pe-lg-4 text-center text-lg-start">
-                <h1 class="h3 text-light mb-0 bg-light mt-5 pt-5">Sports Hooded Sweatshirt</h1>
-            </div>
-        </div>
-    </div>
-    <div class="container">
+<section class="product-details-wrapper mt-5 pt-5">
+    <div class="container mt-5 pt-5 mt-lg-5 pt-lg-5">
         <!-- Gallery + details-->
-        <div class="bg-light shadow-lg rounded-3 px-4 py-3 mb-5">
-            <div class="px-lg-3">
-                <div class="row">
-                    <!-- Product gallery-->
-                    <div class="col-lg-7">
-                        <div class="product-gallery">
-                            <div class="product-gallery-preview order-sm-2">
-                                <figure class="figure img-fluid">
-                                    <img src="{{ product.image.url }}" class="figure-img img-fluid rounded" alt="...">
-                                    <figcaption class="figure-caption body-small text-muted">{{ product.title }}</figcaption>
-                                </figure>
-                            </div>
+        <div class="row d-flex justify-content-between my-1 my-lg-5 pt-0 pt-lg-5 mx-5">
+            <!-- Product gallery-->
+            <div class="col-lg-7 px-2 px-lg-5 my-0 mx-auto">
+                <div class="product-gallery">
+                    <div class="product-gallery-preview order-sm-2">
+                        <div class="card h-100 img-fluid border border-1 shadow-lg">
+                            <img class="h-100 img-fluid" src="{{ product.image.url }}" class="figure-img img-fluid rounded" alt="...">
                         </div>
-                    </div>
-                    <!-- Product details-->
-                    <div class="col-lg-5 pt-4 pt-lg-0">
-                        <div class="product-details ms-auto pb-3">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <h3 class="d-inline-block fs-sm display-font text-main align-middle mt-1 ms-1">
-                                    {{ product.title }}</h3>
-                                <button class="btn-none me-0 me-lg-n3" type="button" data-bs-toggle="tooltip" title="" data-bs-original-title="Add to wishlist" aria-label="Add to wishlist"><i class="fas fa-heart text-main"></i></button>
-                            </div>
-                            <div class="mb-3">
-                                <span class="h3 fw-normal text-accent me-1">
-                                    {% if product.label != 'NP' %}
-                                    <span class="body-font body-main mb-0 text-left text-muted" id="regular-price">
-                                        {{ product.price }} </span>
-                                    <span class="p-price text-main body-main mb-0 text-left fw-bold ms-2" style="text-decoration: none;">
-                                        {{ product.display_final_price }}
-                                    </span>
-                                    {% else %}
-                                    <p class="lead mb-0 text-left text-muted" id="discount-price">
-                                        {{ product.display_final_price }}</p>
-                                    {% endif %}
-                                    </p>
-                            </div>
-                            <form class="mb-grid-gutter" method="post">
-                                <div class="mb-3 d-flex align-items-center">
-                                    <select class="form-select me-3" style="width: 5rem;">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                    </select>
-                                    <button class="btn btn-primary btn-shadow d-block w-100" type="submit"><i class="ci-cart fs-lg me-2"></i>Add to Cart</button>
-                                </div>
-                            </form>
-                            <!-- Product panels-->
-                            <div class="accordion mb-4 border-0" id="productPanels">
-                                <div class="accordion-item">
-                                    <h3 class="accordion-header">
-                                        <button class="accordion-button btn-none collapsed" href="#shippingOptions" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="shippingOptions">Product Details</button></h3>
-                                    <div class="accordion-collapse collapse" id="shippingOptions" data-bs-parent="#productPanels">
-                                        <div class="accordion-body fs-sm">
-                                            <div class="d-flex justify-content-between border-bottom pb-2">
-                                                <div>
-                                                    <div class="fw-bold body-font text-dark">Description</div>
-                                                    <div class="fs-sm text-muted">{{ product.product_details }}</div>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex justify-content-between border-bottom py-2">
-                                                <div>
-                                                    <div class="fw-bold body-font text-dark">Medium</div>
-                                                </div>
-                                                <div class="body-font">{{ product.medium }}</div>
-                                            </div>
-                                            <div class="d-flex justify-content-between border-bottom py-2">
-                                                <div>
-                                                    <div class="fw-bold body-font text-dark">Orientation</div>
-                                                </div>
-                                                <div class="body-font">{{ product.orientation }}</div>
-                                            </div>
-                                            <div class="d-flex justify-content-between border-bottom py-2">
-                                                <div>
-                                                    <div class="fw-semibold text-dark">UPS ground shipping</div>
-                                                    <div class="fs-sm text-muted">4 - 6 days</div>
-                                                </div>
-                                                <div>$18.00</div>
-                                            </div>
-                                            <div class="d-flex justify-content-between pt-2">
-                                                <div>
-                                                    <div class="fw-semibold text-dark">Local pickup from store</div>
-                                                    <div class="fs-sm text-muted">—</div>
-                                                </div>
-                                                <div>$0.00</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h3 class="accordion-header"><a class="accordion-button collapsed" href="#localStore" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="localStore"><i class="ci-location text-muted fs-lg align-middle mt-n1 me-2"></i>Find in local store</a></h3>
-                                    <div class="accordion-collapse collapse" id="localStore" data-bs-parent="#productPanels">
-                                        <div class="accordion-body">
-                                            <select class="form-select">
-                                                <option value="">Select your country</option>
-                                                <option value="Argentina">Argentina</option>
-                                                <option value="Belgium">Belgium</option>
-                                                <option value="France">France</option>
-                                                <option value="Germany">Germany</option>
-                                                <option value="Spain">Spain</option>
-                                                <option value="UK">United Kingdom</option>
-                                                <option value="USA">USA</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Sharing-->
-                        <label class="form-label d-inline-block align-middle my-2 me-3">Share:</label>
-                        <a class="btn-share btn-twitter me-2 my-2" href="#">
-                            <i class="fab fa-twitter"></i></a>
-                        <a class="btn-share btn-instagram me-2 my-2" href="#">
-                            <i class="fab fa-instagram"></i></a>
-                        <a class="btn-share btn-facebook my-2" href="#">
-                            <i class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
             </div>
+            <!-- Product details-->
+            <div class="col-lg-5 pt-4 pt-lg-0">
+                <div class="ms-auto pb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h3 class="d-inline-block fs-sm display-font text-main align-middle mt-1 ms-1">
+                            {{ product.title }}</h3>
+                    </div>
+                    <span class="fw-normal body-sm">
+                        {% if product.label != 'NP' %}
+                        <span class="body-font body-main my-0 text-left text-muted" id="regular-price">
+                            {{ product.price }} </span>
+                        <span class="p-price text-main body-main my-0 text-left fw-bold ms-2" style="text-decoration: none;">
+                            {{ product.display_final_price }}
+                        </span>
+                        {% else %}
+                        <p class="lead mb-0 text-left text-muted" id="discount-price">
+                            {{ product.display_final_price }}</p>
+                        {% endif %}
+                        </p>
+                    </span>
+                    <div class="d-flex justify-content-between">
+                        <div class="py-2">
+                            <div class="fw-bold body-font">Description</div>
+                            <div class="body-font body-sm text-muted mb-2">{{ product.product_details }}</div>
+                        </div>
+                    </div>
+                     <div class="d-flex justify-content-between border-bottom">
+                                        <div>
+                                            <div class="fw-bold body-font text-dark">Medium</div>
+                                        </div>
+                                        <div class="body-font text-muted body-sm">{{ product.medium }}</div>
+                                    </div>
+                                    <div class="d-flex justify-content-between border-bottom py-2 my-3">
+                                        <div>
+                                            <div class="fw-bold body-font text-dark">Orientation</div>
+                                        </div>
+                                        <div class="body-font text-muted body-sm">{{ product.orientation }}</div>
+                                    </div>
+               
+                <div class="row d-flex justify-content-between my-0 mx-auto">
+                    <div class="col-6">
+                    <form class="" method="post">
+                        <div class="mb-3 d-flex align-items-center">
+                            <select class="form-select w-auto body-sm">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <span class="btn btn-none btn-shadow d-block" type="submit">
+                                <i class="fas fa-shopping-cart fa-lg text-main"></i>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-6">
+                        <div class="mb-3 d-flex align-items-center">
+                      <button class="btn btn-none me-0" type="button" data-bs-toggle="tooltip" title="" data-bs-original-title="Add to wishlist" aria-label="Add to wishlist">
+                        <i class="fas fa-heart text-main fa-lg text-main"></i></button>
+                    </div>
+                </div>
+            </div>                  
+                </div>
+            </div>
         </div>
+    </div>
     </div>
     <!-- Product description section 1-->
     <div class="container">

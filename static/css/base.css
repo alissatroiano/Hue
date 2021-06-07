@@ -120,6 +120,11 @@ hr {
     border-top: 3px solid #6a509a;
 }
 
+#divider {
+    width: 100%;
+    border-top: 1.5px solid #666;
+}
+
 button,
 .btn-primary {
     font-family: 'Raleway', sans-serif;
@@ -159,6 +164,9 @@ input {
     background-color: #6a509aa6!important;
 }
 
+.overlay {
+    margin-top: 30px;
+}
 
 /* ***************************./end-headers-&-special-text*/
 
@@ -806,10 +814,24 @@ button.btn.btn-primary.loginButton {
 
 /* *************************** Product Details */
 .product-details-wrapper {
+position: relative;
+overflow: hidden;
+min-height: 100vh;
 }
 
-.product-details-overlap {
+.product-details {
+    max-width: 100%;
+    min-height: auto;
+    justify-content: center;
+    display: flex;
+    overflow: hidden;
+    border: none;
+    margin: 0px auto;
+    box-shadow: 1px 4px 14px 1px #2f1b31;
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
 }
+
 
 /* ***************************./end-product-details*/
 
