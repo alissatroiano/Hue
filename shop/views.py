@@ -13,6 +13,7 @@ def shop_all(request):
     products = Product.objects.all()
     query= None
     categories = None
+    labels = None
     sort = None
     direction = None
 
@@ -27,6 +28,8 @@ def shop_all(request):
                 products = products.annotate(lower_title=Lower('title'))
             if sortkey == 'category':
                 sortkey = 'category__title'
+            if sortkey == 'label':
+                 sortkey = 'product__label'
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
@@ -41,6 +44,7 @@ def shop_all(request):
         if 'label' in request.GET:
             labels = request.GET['label'].split(',')
             products = products.filter(label__in=labels)
+            labels = products.filter(label__in=labels)
 
         if 'q' in request.GET:
             query = request.GET['q']
@@ -59,6 +63,7 @@ def shop_all(request):
         'search_term': query,
         'current_categories': categories,
         'current_sorting': current_sorting,
+        'current_labels': labels,
     }
 
     return render(request, 'shop/shop.html', context)
