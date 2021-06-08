@@ -14,12 +14,22 @@
         <div class="col text-center mt-5 p-5 ">
             <h2 class="display-font my-3">The Shop</h2>
              <hr class="w-50 mb-1">
-                {% for c in current_categories %}
+            {% for c in current_categories %}
             <a class="category-badge text-decoration-none" href="{% url 'shop' %}?category={{ c.title }}">
                 <span class="p-2 mt-3 mb- badge bg-primary text-light rounded-0 border-0 border-dark">
                 {{ c.friendly_name }}</span>
             </a>
             {% endfor %}
+            {% for l in current_labels %}
+                {% if l.label != 'NP' %}
+            <a class="label-badge text-decoration-none" href="{% url 'shop' %}?category={{ c.title }}">
+                <span class="p-2 mt-3 mb- badge bg-primary text-light rounded-0 border-0 border-dark">Deals & Disconts
+                </span>
+            </a>
+                {% endif %}
+            {% endfor %}
+
+
         </div>
     </div>
     <div class="row my-0 mx-auto">
