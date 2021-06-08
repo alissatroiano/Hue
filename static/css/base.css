@@ -165,7 +165,13 @@ input {
 }
 
 .overlay {
-    margin-top: 30px;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: white;
+    z-index: -1;
 }
 
 /* ***************************./end-headers-&-special-text*/
@@ -836,19 +842,23 @@ min-height: 100vh;
 /* *************************** Media Queries */
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
-    #topnav {
+    #main-nav {
         position: fixed;
         top: 0;
         right: 0;
         left: 0;
         z-index: 1030;
     }
+    .header-container {
+        padding-top: 164px;
+    }
 }
-
 
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
-    .header-container {}
+    .header-container {
+        padding-top:  116px;
+    }
 }
 
 @media only screen and (max-width: 768px) {

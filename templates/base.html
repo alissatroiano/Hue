@@ -99,7 +99,7 @@
                         </a>
                     </li>
                     <li class="list-item">
-                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}{% endif %}nav-link" href="#" id="shopping-cart">
+                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}{% endif %}nav-link" href="{% url 'cart' %}" id="shopping-cart">
                             <div class="text-center">
                                 <div><i class="bi d-block mx-auto my-0 mb-1 fas fa-shopping-cart text-center"></i></div>
                                 <p class="my-0">
