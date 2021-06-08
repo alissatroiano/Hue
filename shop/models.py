@@ -82,5 +82,5 @@ class Product(models.Model):
         else:
             self.final_price = self.price
         return f'{CURRENCY} {self.final_price}'
-    display_final_price.short_description = 'Price'
+    display_final_price.short_description = 'Final Price'
 

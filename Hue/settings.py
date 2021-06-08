@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "allauth.socialaccount.providers.pinterest",
     'home',
     'shop',
+    'cart',
 ]
 
 CURRENCY = '$'
