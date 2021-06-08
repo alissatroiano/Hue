@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+{% block content %}
+<!--overlay-->
+<div class="overlay"></div>
+<!--./end-overlay-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12 pt-5 my-0 mx-auto">
+            <!-- breadcrumb-->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li aria-current="page" class="breadcrumb-item active">Shopping cart</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row d-flex my-0 mx-auto justify-content-between">
+            <div id="cart" class="col-12 col-lg-7">
+                <div class="table">
+                    <form method="post" action="checkout1.html">
+                        <h1>Shopping cart</h1>
+                        <p class="text-muted">You currently have __ in your cart.</p>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">Product</th>
+                                        <th>Quantity</th>
+                                        <th>Unit price</th>
+                                        <th>Discount</th>
+                                        <th colspan="2">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <a href="#">
+                                                <img class="img-thumbnail img-fluid" src="https://images.pexels.com/photos/8208065/pexels-photo-8208065.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+                                            </a>
+                                        </td>
+                                        <td>
+                                        	<a href="#">{{ product.title }}</a></td>
+                                        <td>
+                                            <input type="number" value="2" class="form-control">
+                                        </td>
+                                        <td>$123.00</td>
+                                        <td>$0.00</td>
+                                        <td>$246.00</td>
+                                        <td>
+                                            <a href="#">
+                                                <i class="fa fa-trash-o"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th colspan="5">Total</th>
+                                        <th colspan="2">$446.00</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                       <!-- /.table-responsive-->
+                         <div class="box-footer d-flex justify-content-between flex-column flex-lg-row">
+                            <div class="text-start">
+                                <a href="category.html" class="btn btn-outline-secondary">
+                                	<i class="fas fa-chevron-left"></i> 
+                                Continue shopping</a></div>
+                            <div class="text-end">
+                                <button class="btn btn-outline-secondary body-small">
+                                	<i class="fas fa-refresh"></i> Update cart</button>
+                                <button type="submit" class="btn btn-primary">Proceed to checkout <i class="fa fa-chevron-right">
+                                    </i></button>
+                            </div>
+                </div>
+                </form>
+            </div>
+            <!-- /.box-->
+        </div>
+        <div class="col-12 col-lg-5">
+            <h4 class="align-items-center offset-1 mb-3">
+                <span class="text-main body-main fw-bolds">Order Summary</span>
+                <span class="badge bg-primary rounded-pill">3</span>
+            </h4>
+            <ul class="d-flex list-group mb-3 col-10 offset-1">
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div>
+                        <h6 class="my-0">Product name</h6>
+                        <small class="text-muted">Brief description</small>
+                    </div>
+                    <span class="text-muted">$12</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div>
+                        <h6 class="my-0">Second product</h6>
+                        <small class="text-muted">Brief description</small>
+                    </div>
+                    <span class="text-muted">$8</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div>
+                        <h6 class="my-0">Third item</h6>
+                        <small class="text-muted">Brief description</small>
+                    </div>
+                    <span class="text-muted">$5</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between bg-light">
+                    <div class="text-success">
+                        <h6 class="my-0">Promo code</h6>
+                        <small>EXAMPLECODE</small>
+                    </div>
+                    <span class="text-success">−$5</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Total (USD)</span>
+                    <strong>$20</strong>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--Section: Block Content-->
+{% block page_footer %}
+{% endblock %}
+{% endblock %}
