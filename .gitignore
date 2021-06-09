@@ -12,3 +12,5 @@ pyvenv.cfg
 .gitpod.dockerfile
 .DS_store
 .gitpod.yml
+env_hue/
+db.json
