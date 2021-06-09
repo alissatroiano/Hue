@@ -52,7 +52,7 @@ def shop_all(request):
                 messages.error(request, "You didn't enter any search criteria!")
                 return redirect(reverse('shop'))
             
-            queries = Q(title__icontains=query) | Q(product_details__icontains=query)
+            queries = Q(title__icontains=query) | Q(product_details__icontains=query) | Q(label__icontains=query) |  Q(category__title__icontains=query)
             products = products.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
