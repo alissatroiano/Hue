@@ -25,7 +25,7 @@ SECRET_KEY = '[!,W5sBgki4tCB#$g"u9NXh*~##!5;'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://hue-alissa.herokuapp.com/', 'localhost']
 
 # Application definition
 
@@ -131,13 +131,24 @@ WSGI_APPLICATION = 'Hue.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse('postgres://zcunftnrbihayz:60284d7c2a47cb539beb24ff7a73d532ed51e101424c1c5b7732ed1865c15771@ec2-54-87-112-29.compute-1.amazonaws.com:5432/d4c5qrihpvrala')
+        }
+else:
+    DATABASES = {
+        'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
