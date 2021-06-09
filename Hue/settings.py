@@ -25,7 +25,7 @@ SECRET_KEY = '[!,W5sBgki4tCB#$g"u9NXh*~##!5;'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://hue-alissa.herokuapp.com/', 'localhost']
+ALLOWED_HOSTS = ['hue-alissa.herokuapp.com', 'localhost', '127.0.0.1']
 
 # Application definition
 
