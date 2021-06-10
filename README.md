@@ -216,14 +216,13 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 
 ### Acknowledgements
 
-
-### Research & Planning
-
 - I learned about writing user stories for multiple end-users by reading the following articles:
 
  - "User Stories with Examples and Template" from [Atlassian article "User Stories with Examples and Template"](https://www.atlassian.com/agile/project-management/user-stories)
 
  - "User Stories and User Stories Examples", [Knowledge Hut article "User Stories and User Stories Examples](https://www.knowledgehut.com/blog/agile/user-stories-examples)
+
+ - I referenced [this article](https://opensource.com/article/18/6/git-reset-revert-rebase-commands) for any commands related to `git reset`, `git revert` or `git rebase`
 
 - I learned how to make user stories that capture feature requirements from:
 
