@@ -13,4 +13,4 @@ pyvenv.cfg
 .DS_store
 .gitpod.yml
 env_hue/
-db.json
+db.json	
