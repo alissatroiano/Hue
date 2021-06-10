@@ -25,7 +25,7 @@ SECRET_KEY = '[!,W5sBgki4tCB#$g"u9NXh*~##!5;'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['hue-alissa.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['https://hue-alissa.herokuapp.com/', 'localhost']
 
 # Application definition
 
@@ -140,7 +140,7 @@ WSGI_APPLICATION = 'Hue.wsgi.application'
 
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
-        'default': dj_database_url.parse('postgres://zcunftnrbihayz:60284d7c2a47cb539beb24ff7a73d532ed51e101424c1c5b7732ed1865c15771@ec2-54-87-112-29.compute-1.amazonaws.com:5432/d4c5qrihpvrala')
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
         }
 else:
     DATABASES = {
