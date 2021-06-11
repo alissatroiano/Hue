@@ -3,6 +3,7 @@ from django.conf import settings
 from .managers import ProductManager
 from django.utils import timezone
 from model_utils import Choices
+from decimal import Decimal
 
 
 # https://docs.djangoproject.com/en/3.2/topics/i18n/timezones/
@@ -74,10 +75,12 @@ class Product(models.Model):
 
     def display_final_price(self):
         if self.label == "SL":
-            self.final_price = float(self.price) * 0.75
+            sale_discount = 0.75
+            self.final_price = self.price * Decimal(sale_discount)
             return '${:,.2f}'.format(self.final_price)
         elif self.label == 'CL':
-            self.final_price = float(self.price) * 0.25
+            clearance_discount = 0.25
+            self.final_price = self.price * Decimal(clearance_discount)
             return '${:,.2f}'.format(self.final_price)
         else:
             self.final_price = self.price
