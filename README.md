@@ -216,6 +216,8 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 
 ### Acknowledgements
 
+- I followed [Code Insitute's](https://learn.codeinstitute.net/) video lessons.
+
 - I learned about writing user stories for multiple end-users by reading the following articles:
 
  - "User Stories with Examples and Template" from [Atlassian article "User Stories with Examples and Template"](https://www.atlassian.com/agile/project-management/user-stories)
