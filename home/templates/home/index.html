@@ -11,19 +11,19 @@
 <!--hero starts here-->
 <section class="hero-container py-5" id="welcome">
     <div class="container-fluid py-5 mt-5">
-        <div class="row mt-5 d-flex align-items-center text-center py-5">
+        <div class="row d-flex align-items-center text-center py-3">
             <!--call to action-->
             <div class="col-12">
-                <h1 class="text-center my-lg-3 lh-1 mb-auto" id="title">HUE</h1>
-                <h2 class="lead mt-4 py-2 mx-auto">Digital art like never before </h2>
-                <button role="button" class="btn btn-link rounded" id="hero-button">
+                <h1 class="text-center py-2 py-lg-3 lh-1 mb-auto" id="title">HUE</h1>
+                <h2 class="lead my-4 py-3 mx-auto">
+                    <button class="btn-none">
+                        <a id="sale" class="typewrite" href="{% url 'shop' %}" data-type='["{{ promotion_percentage }}% off  orders over ${{ promotion_minimum }}! "]'>
+                            <span class="wrap"></span>
+                        </a>
+                    </button>
+                </h2>
+                <button role="button" class="btn btn-link my-2 rounded" id="hero-button">
                     <a href="{% url 'shop' %}" class="text-light text-decoration-none">Shop</a></button>
-            </div>
-        </div>
-        <div class="row d-flex justify-content-center text-center">
-            <div class="col-12 flex-nowrap">
-                <br>
-                <button class="btn btn-md"><a id="sale" class="lead my-2 mx-auto text-nowrap" href="{% url 'shop' %}"></a></button>
             </div>
         </div>
         <!--./call-to-action-->
@@ -92,4 +92,65 @@
 </section>
 {% block page_footer %}
 {% endblock %}
+{% endblock %}
+{% block postloadjs %}
+{{ block.super }}
+<script>
+var TxtType = function(el, toRotate, period) {
+    this.toRotate = toRotate;
+    this.el = el;
+    this.loopNum = 0;
+    this.period = parseInt(period, 10) || 2000;
+    this.txt = '';
+    this.tick();
+    this.isDeleting = false;
+};
+
+TxtType.prototype.tick = function() {
+    var i = this.loopNum % this.toRotate.length;
+    var fullTxt = this.toRotate[i];
+
+    if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+    } else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+    }
+
+    this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+
+    var that = this;
+    var delta = 200 - Math.random() * 100;
+
+    if (this.isDeleting) { delta /= 2; }
+
+    if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+    } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 500;
+    }
+
+    setTimeout(function() {
+        that.tick();
+    }, delta);
+};
+
+window.onload = function() {
+    var elements = document.getElementsByClassName('typewrite');
+    for (var i = 0; i < elements.length; i++) {
+        var toRotate = elements[i].getAttribute('data-type');
+        var period = elements[i].getAttribute('data-period');
+        if (toRotate) {
+            new TxtType(elements[i], JSON.parse(toRotate), period);
+        }
+    }
+    // INJECT CSS
+    var css = document.createElement("style");
+    css.type = "text/css";
+    css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+    document.body.appendChild(css);
+};
+</script>
 {% endblock %}
