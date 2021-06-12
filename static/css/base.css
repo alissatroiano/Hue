@@ -200,10 +200,6 @@ input {
     margin-top: 5px;
 }
 
-.fas {
-    color: rgb(170 151 204);
-}
-
 .fas:hover {
     color: #6a509a;
 }
@@ -403,11 +399,6 @@ h1#title {
     margin-top: 80px;
 }
 
-h1#title:hover {
-    color: rgb(132, 116, 161);
-    background-color: transparent;
-}
-
 h2.lead.my-4.py-3.mx-auto {
     font-size: 1.3rem;
     font-family: 'Raleway', sans-serif;
@@ -419,10 +410,6 @@ h2.lead.my-4.py-3.mx-auto {
     text-shadow: 3px 3px 6px #000;
     margin-top: 20px;
     margin-bottom: 20px;
-}
-
-h2.lead.mt-4.py-2.mx-auto:hover {
-    color: rgb(172, 125, 219);
 }
 
 a#sale {
@@ -475,9 +462,6 @@ h3.py-3.mt-5.mb-4.lh-1.fw-bold {
     font-weight: 300;
     letter-spacing: 1.5px;
     margin: 0px auto;
-}
-
-.card-body {
 }
 
 img.card-img-overlay {
@@ -852,9 +836,9 @@ button.btn.btn-primary.loginButton {
 
 /* *************************** Product Details */
 .product-details-wrapper {
-position: relative;
-overflow: hidden;
-min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
 }
 
 .product-details {
@@ -865,10 +849,41 @@ min-height: 100vh;
     overflow: hidden;
     border: none;
     margin: 0px auto;
-    box-shadow: 1px 4px 14px 1px #2f1b31;
-    filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);
+    box-shadow: 0 1.5em 2em -1em #999;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.35);
+    filter: grayscale(0%);
+    -webkit-filter: grayscale(0%);
 }
+
+/* Shadow effect copied from https://codepen.io/team/sparkbox/pen/dRpZXj */
+#shop-card {
+    box-shadow: 0 1.5em 2em -1em #999;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.product-details:hover {
+    max-width: 100%;
+    min-height: auto;
+    justify-content: center;
+    display: flex;
+    overflow: hidden;
+    border: none;
+    margin: 0px auto;
+}
+
+a.btn.btn-outline-dark.btn-dark.rounded-1,
+input.btn.btn-outline-dark.btn-dark.text-light.fw-bold.rounded-1.text-uppercase {
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: .5px;
+    font-size: 11px;
+    margin: 5px;
+    position:  relative;
+    vertical-align: center;
+    overflow: hidden;
+}
+
 /* ***************************./end-product-details*/
 
 /* *************************** Media Queries */
