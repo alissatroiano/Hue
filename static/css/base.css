@@ -237,6 +237,7 @@ li.nav-item:hover {
 .navbar-dark .navbar-nav .nav-link:focus,
 .navbar-dark .navbar-nav .nav-link:hover {
     color: rgb(132, 116, 161);
+    background-color: transparent;
 }
 
 a#logo {
@@ -332,7 +333,7 @@ li {
 /*.end-header-&-navigations */
 
 /* ************************** Mobile Nav & Shop Nav */
-.input-group-text { 
+.input-group-text, .input-group { 
   background-color: transparent;    
   border-color: none;    
   border: none; 
@@ -344,6 +345,10 @@ button#shopDropdown1 {
 
 .dropdown-toggle {
     background: none;
+}
+
+a.dropdown-toggler.nav-link.d-block.d-lg-none {
+background-color: none;
 }
 /* https://www.solodev.com/blog/web-design/creating-a-toggled-search-bar.stml */
 /* ***************************.end-mobile-nav-&-shop-nav */
