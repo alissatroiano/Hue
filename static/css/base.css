@@ -332,6 +332,11 @@ li {
 /*.end-header-&-navigations */
 
 /* ************************** Mobile Nav & Shop Nav */
+.input-group-text { 
+  background-color: transparent;    
+  border-color: non;    
+  border: none; 
+}
 
 button#shopDropdown1 {
     background-color: transparent;
