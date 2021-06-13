@@ -3,7 +3,6 @@
 {% load i18n %}
 {% load static %}
 {% load account socialaccount %}
-
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -11,11 +10,10 @@
     </div>
 </div>
 {% endblock %}
-
 {% block content %}
 <div class="hue-login container-fluid text-center mx-auto my-0">
     <div class="row flex-wrap g-0 login-auth-wrapper pt-0 my-0 mx-auto">
-        <div class="col-12 col-md-7 col-lg-6 login-main-col text-center mt-5 pt-3 px-2">
+        <div class="col-12 col-md-7 col-lg-6 login-main-col text-center px-2">
             <div class="d-flex flex-column align-content-end pt-5">
                 <div class="app-auth-body mx-auto">
                     <div class="my-0 mx-auto text-center">
@@ -28,9 +26,9 @@
                                 {{ form.as_p }}
                                 {% if redirect_field_value %}
                                 <div class="form-label-group">
-                                        <label for="validationDefault03" class="form-label">City</label>
-                                            <input type="text" class="form-control" name="{{ redirect_field_name }}" id="userName" value="{{ redirect_field_value }}" required>
-                                {% endif %}
+                                    <label for="validationDefault03" class="form-label">City</label>
+                                    <input type="text" class="form-control" name="{{ redirect_field_name }}" id="userName" value="{{ redirect_field_value }}" required>
+                                    {% endif %}
                                     <div class="form-group row justify-content-center text-center">
                                         <button class="btn btn-primary loginButton px-3 py-2" type="submit" aria-label="submit">{% trans "Log In" %}</button>
                                     </div>
@@ -46,8 +44,8 @@
                         <br>
                         <strong><a class="px-0 py-1 mx-auto my-0 link-font" href="{% url 'account_reset_password' %}">{% trans "Reset your password here!" %}</a>
                         </strong>
-                         <p class="body-small text-center py-1">{% blocktrans %}Don't have an account?
-                        <a href="{{ signup_url }}" class="link-font">Sign Up!</a>{% endblocktrans %}</p>
+                        <p class="body-small text-center py-1">{% blocktrans %}Don't have an account?
+                            <a href="{{ signup_url }}" class="link-font">Sign Up!</a>{% endblocktrans %}</p>
                 </div>
                 {% get_providers as socialaccount_providers %}
                 {% if socialaccount_providers %}

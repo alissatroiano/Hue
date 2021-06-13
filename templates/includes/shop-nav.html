@@ -3,7 +3,7 @@
         <li class="nav-item">
             <div class="dropdown">
                 <button class="btn btn-sm dropdown-toggle" type="button" id="shopDropdown1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <a class="font-weight-bold nav-link text-black" href="#" id="shopDropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link text-black" href="#" id="shopDropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         All Products</a></button>
                 <div class="dropdown-menu border-0 body-font" aria-labelledby="shopDropdown1" id="shopDropdown1">
                     <a href="{% url 'shop' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
@@ -16,7 +16,7 @@
         <li class="nav-item">
             <div class="dropdown">
                 <button class="btn btn-sm dropdown-toggle" type="button" id="shopDropdown2" data-bs-toggle="dropdown" aria-expanded="false">
-                    <a class="font-weight-bold nav-link text-black" href="#" id="shopDropdown2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="font-weight-bold nav-link" href="#" id="shopDropdown2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Paintings</a></button>
                 <div class="dropdown-menu border-0 body-font" aria-labelledby="shopDropdown2" id="shopDropdown2">
                     <a href="{% url 'shop' %}?category=photo-paintings&direction=asc" class="dropdown-item">Photo-Paintings</a>

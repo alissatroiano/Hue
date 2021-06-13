@@ -1,17 +1,19 @@
 <ul class="nav list-group list-group-horizontal text-center my-0 mx-auto py-1">
-    <a class="nav-link d-block d-lg-none" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" href="/shop/">
-        <span>
-            <div class="text-center">
-                <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-                <p class="my-0">SHOP</p>
-            </div>
-        </span>
-    </a>
-    <li >
-        <div class="col-12 col-lg-auto my-0 mx-auto w-auto">
-            <a class="nav-link btn d-block d-lg-none me-auto float-none" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    <li class="list-item">
+        <a class="nav-link d-block d-lg-none" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" href="/shop/">
+            <span>
                 <div class="text-center">
-                    <div><i class="fas fa-search fa-lg"></i></div>
+                    <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                    <p class="my-0">SHOP</p>
+                </div>
+            </span>
+        </a>
+    </li>
+    <li>
+        <div class="col-12 col-lg-auto my-0 mx-auto w-auto">
+            <a class="nav-link dropdown-toggle btn d-block d-lg-none me-auto float-none" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="text-center">
+                    <div><i class="bi d-block mx-auto text-center mb-1 fas fa-search fa-lg"></i></div>
                     <p class="my-0">Search</p>
                 </div>
             </a>
@@ -33,17 +35,25 @@
             </ul>
         </div>
     </li>
-    <li class="list-inline-item dropdown">
-        <a class="nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <div class="text-center">
-                <div><i class="fas fa-user fa-lg"></i></div>
-                <p class="my-0">My Account</p>
-            </div>
+    <li class="list-item dropdown text-light bg-dark">
+        <a class="dropdown-toggle nav-link link-dark text-small" href="#" role="button" id="acccountOptions" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi d-block mx-auto text-center mb-1 fas fa-user">
+            </i>
+            My Account
         </a>
-        <div class="dropdown-menu border-0" aria-labelledby="user-options">
-            <a href="/accounts/signup/" class="dropdown-item">Register</a>
-            <a href="/accounts/login/" class="dropdown-item">Login</a>
-        </div>
+        <ul class="dropdown-menu text-dark" aria-labelledby="acccountOptions">
+            {% if request.user.is_authenticated %}
+            {% if request.user.is_superuser %}
+            <li class="list-item">
+                <a href="" class="dropdown-item">Product Management</a>
+            </li>
+            {% endif %}
+            <li class="text-dark"> <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a></li>
+            {% else %}
+            <a class="dropdown-item body-font" href="{% url 'account_signup' %}">Sign Up</a>
+            <a class="dropdown-item body-font" href="{% url 'account_login' %}">Login</a>
+            {% endif %}
+        </ul>
     </li>
     <li class="list-inline-item">
         <a class="text-black nav-link d-block d-lg-none" href="/">
