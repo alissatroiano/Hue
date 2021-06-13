@@ -1,7 +1,6 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@100;200;300;400;500;600;700&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 */
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Oswald:wght@200;300;400;500;600;700&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 body {
     font-size: 16px;
     overflow: auto;
@@ -22,6 +21,13 @@ h6 {
 .display-font {
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
+}
+
+.heading-xs {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 12px;
 }
 
 .heading-sm {
@@ -45,9 +51,15 @@ h6 {
     letter-spacing: 1px;
 }
 
+.body-light {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 4rem;
+}
+
 .body-font {
     font-family: 'Raleway', sans-serif;
-    font-weight: 400;
     font-size: 1rem;
 }
 
@@ -868,6 +880,23 @@ input.btn.btn-outline-dark.btn-dark.text-light.fw-bold.rounded-1.text-uppercase 
 }
 
 /* ***************************./end-product-details*/
+
+/* **************************** Shopping Cart */
+#cart-total {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: .5px;
+}
+
+th {
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+/* ****************************./end-shopping-cart */
 
 /* *************************** Media Queries */
 /* fixed top navbar only on medium and up */
