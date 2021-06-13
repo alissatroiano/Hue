@@ -884,8 +884,7 @@ input.btn.btn-outline-dark.btn-dark.text-light.fw-bold.rounded-1.text-uppercase 
 /* **************************** Shopping Cart */
 #cart-total {
     font-family: 'Raleway', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: .5px;
 }
 
