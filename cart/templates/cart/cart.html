@@ -23,34 +23,85 @@
             </nav>
         </div>
     </div>
-    <div class="container-fluid py-5 px-3 my-0 mx-auto">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                {% if cart_items %}
+                <div class="table-responsive my-0 mx-auto px-2 border border-1 rounded">
+                    <table class="table table-sm">
+                        <thead class="text-dark">
+                            <tr>
+                                <th scope="col">Product Details</th>
+                                <th scope="col"></th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Qty</th>
+                                <th scope="col">Subtotal</th>
+                            </tr>
+                        </thead>
+                        {% for item in cart_items %}
+                        <tr>
+                            <td class="p-3 w-25">
+                                <img class="img-fluid" src="{{ item.product.image.url }}" width="80" height="auto">
+                            </td>
+                            <td class="py-3">
+                                <p class="my-0">
+                                    <strong>{{ item.product.title }}</strong></p>
+                                <p class="my-0 body-small text-muted">SKU:
+                                    {{ item.product.sku|upper }}
+                                </p>
+                            </td>
+                            <td class="py-3">
+                                <p class="my-0">
+                                    <strong>{{ item.product.price }}</strong></p>
+                            </td>
+                            <td class="py-3">
+                                <p class="my-0">
+                                    <strong>{{ item.quantity }}</strong></p>
+                            </td>
+                            <td class="py-3">
+                                <p class="my-0">
+                                    <strong>{{ item.product.price }}</strong></p>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+                {% else %}
+                <p class="lead">Your bag is empty</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <!--    <div class="container-fluid py-5 px-3 my-0 mx-auto">
         <div class="row d-flex my-0 mx-auto justify-content-between">
             <div id="cart" class="col-12 col-lg-7 px-5">
                 <div class="table">
                     <form method="post" action="checkout1.html">
                         <h1>Shopping cart</h1>
                         <p class="body-main text-muted">You currently have # in your cart.</p>
+
+                        {% if cart_items %}
                         <div class="table table-responsive table-rounded">
-                            <table class="table body-font">
-                                <thead>
+                            <table class="table table-sm table-borderless body-font">
+                                <thead class="text-dark">
                                     <tr>
-                                        <th colspan="2">Product</th>
-                                        <th>Quantity</th>
-                                        <th>Price</th>
-                                        <th>Discount</th>
-                                        <th colspan="2">Total</th>
+                                        <th scope="col">Product</th>
+                                        <th scope="col"></th>
+                                         <th scope="col">Qty</th>
+                                         <th scope="col">Price</th>
+                                         <th scope="col">SubTotal</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {% for items in cart_items %}
                                     <tr>
-                                        <td>
-                                            <a href="#">
-                                                <img class="img-thumbnail img-fluid" src="https://images.pexels.com/photos/8208065/pexels-photo-8208065.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" width="50" height="50">
-                                            </a>
+                                        <td class="p-3 w-25">
+                                                <img class="img-rounded img-fluid" src="{{ item.product.image.url }}" width="50" height="50">
                                         </td>
                                         <td>
-                                            <a href="#">{{ product.price }}</a></td>
+                                            <a href="#">{{ item.product.price }}</a></td>
                                         <td>
+                                     {% endfor %}
                                             <input type="number" value="1" class="form-control">
                                         </td>
                                         <td>$</td>
@@ -62,6 +113,7 @@
                                             </a>
                                         </td>
                                     </tr>
+                                   
                                 </tbody>
                                 <tfoot>
                                     <tr>
@@ -71,7 +123,7 @@
                                 </tfoot>
                             </table>
                         </div>
-                        <!-- /.table-responsive-->
+                        {% endif%}
                         <div class="d-flex justify-content-between flex-column flex-lg-row">
                             <div class="text-center text-lg-start">
                                 <p class="body-small">
@@ -81,7 +133,6 @@
                         </div>
                     </form>
                 </div>
-                <!-- /.box-->
             </div>
             <div class="col-12 col-lg-5">
                 <h4 class="align-items-center offset-1 mb-3">
@@ -124,8 +175,36 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </div> -->
     <!--Section: Block Content-->
     {% block page_footer %}
     {% endblock %}
+    {% endblock %}
+    {% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+    $('.btt-link').click(function(e) {
+        window.scrollTo(0, 0)
+    })
+    </script>
+    {% include 'shop/includes/qty-script.html' %}
+    <script type="text/javascript">
+    // Update quantity on click
+    $('.update-link').click(function(e) {
+        var form = $(this).prev('.update-form');
+        form.submit();
+    })
+
+    // Remove item and reload on click
+    $('.remove-item').click(function(e) {
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('remove_')[1];
+        var url = `/cart/remove/${itemId}/`;
+
+        $.post(url, data)
+            .done(function() {
+                location.reload();
+            });
+    })
+    </script>
     {% endblock %}
