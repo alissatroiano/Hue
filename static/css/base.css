@@ -822,7 +822,6 @@ button.btn.btn-primary.loginButton {
 .product-details-wrapper {
     position: relative;
     overflow: hidden;
-    min-height: 100vh;
 }
 
 .product-details {
