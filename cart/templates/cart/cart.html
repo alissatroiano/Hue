@@ -12,8 +12,8 @@
 <div class="overlay"></div>
 <!--./end-overlay-->
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-12 pt-5 my-0 mx-auto">
+    <div class="row d-flex justify-content-center">
+        <div class="col-12 pt-5 px-3 my-0 mx-auto">
             <!-- breadcrumb-->
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb display-font heading-xs">
@@ -23,19 +23,24 @@
             </nav>
         </div>
     </div>
+</div>
+<!--Page Heading-->
+<div class="container-fluid mx-1 mx-lg-4">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-8 text-start px-3 py-4">
             <h2 class="display-font ms-lg-4 ps-lg-2">YOUR CART</h2>
         </div>
     </div>
 </div>
+<!--./page-heading-->
+<!--Shopping Cart Container -->
 <div class="container-fluid px-3">
     <div class="row justify-content-center">
-        <div id="cart" class="col-12 col-lg-8 px-2 px-lg-5">
+        <div id="cart" class="col-12 col-lg-7 px-2">
             {% if cart_items %}
-            <div class="table table-responsive">
-                <table class="table table-sm table-borderless body-font">
-                    <thead class="text-dark">
+            <div class="table-responsive">
+                <table class="table table-striped table-hover body-font">
+                    <thead class="table-dark">
                         <tr>
                             <th scope="col">ITEM</th>
                             <th scope="col">TITLE</th>
@@ -66,99 +71,106 @@
                             <p class="my-0">
                                 <strong>{{ item.product.display_final_price }}</strong></p>
                         </td>
-                        <td class="py-3 d-block d-lg-flex">
-                            <form class="form update-form" method="POST" action="">
+                        <td class="py-3 my-0 w-auto d-block text-center overflow-hidden">
+                            <form class="form update-form" method="POST" action="{% url 'update_cart' item.item_id %}">
                                 {% csrf_token %}
                                 <div class="form-group">
-                                    <div class="input-group text-center">
-                                        <button class="decrement-qty btn btn-sm btn-black rounded-0" data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
-                                                <i class="fas fa-minus fa-sm"></i>
-                                        </button>
-                                        <input class="form-control-sm w-10 qty_input" type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
-                                        <div class="input-group-append">
-                                            <button class="increment-qty btn btn-sm btn-black rounded-0" data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
-                                                <i class="fas fa-plus fa-sm"></i>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <button class="decrement-qty btn btn-sm btn-black rounded-0" data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                                <span>
+                                                    <i class="fas fa-minus fa-sm"></i>
+                                                </span>
                                             </button>
                                         </div>
+                                        <input class="form-control form-control-sm qty_input" type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                                        <div class="input-group-append">
+                                            <button class="increment-qty btn btn-sm btn-black rounded-0" data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                                <span>
+                                                    <i class="fas fa-plus fa-sm"></i>
+                                                </span>
+                                            </button>
+                                        </div>
+                                        {% if item.product.has_sizes %}
+                                        <input type="hidden" name="product_size" value="{{ item.size }}">
+                                        {% endif %}
                                     </div>
                                 </div>
                             </form>
-                        </div>
-                            <div class="d-flex justify-content-center py-1">
-                                <a class="update-link text-dark">
-                                    <i class="bi mx-2 fas fa-sync fa-sm"></i>
-                                </a>
-                                <a class="text-dark float-right" id="remove_{{ item.item_id }}">
-                                    <i class="fas fa-trash fa-sm"></i>
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                    <tr>
-                        <td colspan="5" class="py-4 my-3 text-start px-3 body-font">
-                            <h6 class="my-2 fw-main">Total: ${{ total|floatformat:2 }}</h6>
-                            <h6 class="my-2 fw-normal">Promotion: ${{ promotion|floatformat:2 }}
-                            </h6>
-                            <h4 class="my-2" id="cart-total body-sm">Grand Total: ${{ grand_total|floatformat:2 }}
-                            </h4>
-                            {% if item.product.pricce >= 50 %}
-                            <p class="mb-1 text-danger">
-                                You could get 25% off <strong>your entire purchase</strong> by spending just <strong>${{ promotion_delta }}</strong> more!
-                            </p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr class="border-0">
-                        <td colspan="5" class="text-center my-0 mx-auto pt-4">
-                            <a href="{% url 'shop' %}" class="btn btn-dark rounded-0 btn-lg">
-                                <i class="fas fa-chevron-left fa-xs"></i>
-                                <span class="body-font body-sm">Shop</span>
-                            </a>
-                            <a href="" class="btn btn-dark border-0 rounded-0 btn-lg">
-                                <span class="body-sm body-light">Secure Checkout</span>
-                                <span class="icon">
-                                    <i class="fas fa-chevron-right fa-xs">
-                                    </i>
-                                </span>
-                            </a>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            {% else %}
-            <p class="lead">Your bag is empty</p>
-            {% endif %}
+                <a class="update-link" id="update{{ item.item_id }}">
+                    <i class="bi mx-2 fas fa-sync fa-sm"></i>
+                </a>
+                <a class="remove-item text-dark float-right" id="remove_{{ item.item_id }}">
+                    <i class="fas fa-trash fa-sm"></i>
+                </a>
+            </td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="5" class="py-4 my-3 text-start px-3 body-font">
+                    <h6 class="my-2 fw-main">Total: ${{ total|floatformat:2 }}</h6>
+                    <h6 class="my-2 fw-normal">Promotion: ${{ promotion|floatformat:2 }}
+                    </h6>
+                    <h4 class="my-2" id="cart-total body-sm">Grand Total: ${{ grand_total|floatformat:2 }}
+                    </h4>
+                    {% if item.product.pricce >= 50 %}
+                    <p class="mb-1 text-danger">
+                        You could get 25% off <strong>your entire purchase</strong> by spending just <strong>${{ promotion_delta }}</strong> more!
+                    </p>
+                    {% endif %}
+                </td>
+            </tr>
+            <tr class="border-0">
+                <td colspan="5" class="text-center my-0 mx-auto pt-4">
+                    <a href="{% url 'shop' %}" class="btn btn-dark rounded-0 btn-lg">
+                        <i class="fas fa-chevron-left fa-xs"></i>
+                        <span class="body-font body-sm">Shop</span>
+                    </a>
+                    <a href="" class="btn btn-dark border-0 rounded-0 btn-lg">
+                        <span class="body-sm body-light">Secure Checkout</span>
+                        <span class="icon">
+                            <i class="fas fa-chevron-right fa-xs">
+                            </i>
+                        </span>
+                    </a>
+                </td>
+            </tr>
+            </table>
         </div>
-        <!--Section: Block Content-->
-        {% block page_footer %}
-        {% endblock %}
-        {% endblock %}
-        {% block postloadjs %}
-        {{ block.super }}
-        <script type="text/javascript">
-        $('.btt-link').click(function(e) {
-            window.scrollTo(0, 0)
-        })
-        </script>
-        {% include 'shop/includes/qty-script.html' %}
-        <script type="text/javascript">
-        // Update quantity on click
-        $('.update-link').click(function(e) {
-            var form = $(this).prev('.update-form');
-            form.submit();
-        })
+        {% else %}
+        <p class="lead">Your bag is empty</p>
+        {% endif %}
+    </div>
+    <!--Section: Block Content-->
+    {% block page_footer %}
+    {% endblock %}
+    {% endblock %}
+    {% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+    $('.btt-link').click(function(e) {
+        window.scrollTo(0, 0)
+    })
+    </script>
+    {% include 'shop/includes/qty-script.html' %}
+    <script type="text/javascript">
+    // Update quantity on click
+    $('.update-link').click(function(e) {
+        var form = $(this).prev('.update-form');
+        form.submit();
+    })
 
-        // Remove item and reload on click
-        $('.remove-item').click(function(e) {
-            var csrfToken = "{{ csrf_token }}";
-            var itemId = $(this).attr('id').split('remove_')[1];
-            var url = `/cart/remove/${itemId}/`;
+     // Remove item and reload on click
+    $('.remove-item').click(function(e) {
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('remove_')[1];
+        var url = `/cart/remove/${itemId}/`;
+        var data = {'csrfmiddlewaretoken': csrfToken};
 
-            $.post(url, data)
-                .done(function() {
-                    location.reload();
-                });
-        })
-        </script>
-        {% endblock %}
+        $.post(url, data)
+         .done(function() {
+             location.reload();
+         });
+    })
+    </script>
+    {% endblock %}
