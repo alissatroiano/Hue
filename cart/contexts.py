@@ -22,7 +22,7 @@ def cart_items_function(request):
 		})
 
 	if total < settings.PROMOTION_MINIMUM:
-		promotion = total - settings.PROMOTION_PERCENTAGE
+		promotion =  total * Decimal(settings.PROMOTION_PERCENTAGE / 100)
 		promotion_delta = settings.PROMOTION_MINIMUM - total
 	else:
 		promotion = 0

@@ -18,6 +18,18 @@ h6 {
     letter-spacing: 1px;
 }
 
+a {
+    cursor: pointer;
+}
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
 .display-font {
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
@@ -97,8 +109,8 @@ h6 {
     font-size: 12px;
 }
 
-.text-main {
-    color:  rgb(170 151 204);    
+.fc-main {
+    color: rgb(170 151 204);    
 }
 
 .border-main {
@@ -118,7 +130,7 @@ h6 {
 }
 
 .icon-main {
-    color:  rgb(170 151 204);    
+    color: rgb(170 151 204);    
 }
 
 .icon-main:hover {
@@ -278,8 +290,7 @@ a#logo:hover {
 
 #acccountOptions,
 a.nav-link,
-div#bottom-nav,
-#shopping-cart {
+div#bottom-nav {
     font-family: 'Oswald', sans-serif;
     font-size: 12px;
     text-transform: uppercase;
@@ -362,6 +373,7 @@ button#shopDropdown1 {
 a.dropdown-toggler.nav-link.d-block.d-lg-none {
 background-color: none;
 }
+
 /* https://www.solodev.com/blog/web-design/creating-a-toggled-search-bar.stml */
 /* ***************************.end-mobile-nav-&-shop-nav */
 
@@ -840,7 +852,6 @@ button.btn.btn-primary.loginButton {
     max-width: 100%;
     min-height: auto;
     justify-content: center;
-    display: flex;
     overflow: hidden;
     border: none;
     margin: 0px auto;
@@ -856,16 +867,6 @@ button.btn.btn-primary.loginButton {
     position: relative;
     overflow: hidden;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-}
-
-.product-details:hover {
-    max-width: 100%;
-    min-height: auto;
-    justify-content: center;
-    display: flex;
-    overflow: hidden;
-    border: none;
-    margin: 0px auto;
 }
 
 a.btn.btn-outline-dark.btn-dark.rounded-1,

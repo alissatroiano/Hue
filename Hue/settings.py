@@ -195,7 +195,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 PROMOTION_MINIMUM = 50
-PROMOTION_PERCENTAGE = 10
+PROMOTION_PERCENTAGE = 25
 
 if 'USE_AWS' in os.environ:
     # Bucket Config

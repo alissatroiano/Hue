@@ -45,7 +45,7 @@
             <div class="col-12 col-lg-auto my-0 mx-auto py-1 py-lg-0 float-end">
                 <form method="GET" action="{% url 'shop' %}">
                     <div class="input-group w-100">
-                        <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site">
+                        <input class="form-control-sm border border-black rounded-0" type="text" name="q" placeholder="Search our site">
                         <div class="input-group-append">
                             <button class="form-control btn btn-black border border-black rounded-0" type="submit">
                                 <span class="icon">
@@ -60,7 +60,7 @@
                 <ul class="list-group list-group-horizontal pt-2 border-bottom-1 text-center text-lg-end my-0 mx-auto">
                     <li class="list-item dropdown text-light bg-dark">
                         {% if request.user.is_authenticated %}
-                        <a class="dropdown-toggle nav-link link-dark text-small" href="#" role="button" id="acccountOptions" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="dropdown-toggle nav-link" href="#" role="button" id="acccountOptions" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="bi d-block mx-auto text-center mb-1 fas fa-user">
                             </i>
                             My Account
@@ -99,9 +99,11 @@
                         </a>
                     </li>
                     <li class="list-item">
-                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}{% endif %}nav-link" href="{% url 'cart' %}" id="shopping-cart">
+                        <a class="nav-link {% if grand_total %} text-info {% else %}{% endif %}" href="{% url 'cart' %}">
                             <div class="text-center">
-                                <div><i class="bi d-block mx-auto my-0 mb-1 fas fa-shopping-cart text-center"></i></div>
+                                <div>
+                                    <i class="bi d-block mx-auto mb-1 fas fa-shopping-cart" width="30" height="30"></i>
+                                </div>
                                 <p class="my-0">
                                     {% if grand_total %}
                                     ${{ grand_total|floatformat:2 }}
@@ -116,14 +118,14 @@
             </div>
         </div>
         </div>
-         <div class="row bg-dark">
+        <div class="row bg-dark">
             <nav class="navbar navbar-expand-lg navbar-dark py-1 w-auto me-auto my-0 mx-auto">
                 <div class="col-4 col-lg-auto w-100 navbar-brand me-auto my-auto d-lg-none py-3 py-lg-0 text-center">
-                 <a href="{% url 'home' %}" class="nav-link navbar-brand my-0 me-auto d-lg-none justify-content-center" id="logo">
-                    <i class="bi me-2 fas fa-tint">
-                    </i> Hue
-                </a>
-            </div>
+                    <a href="{% url 'home' %}" class="nav-link navbar-brand my-0 me-auto d-lg-none justify-content-center" id="logo">
+                        <i class="bi me-2 fas fa-tint">
+                        </i> Hue
+                    </a>
+                </div>
                 {% include 'includes/mobilenavbar.html' %}
                 {% include 'includes/shop-nav.html' %}
             </nav>
