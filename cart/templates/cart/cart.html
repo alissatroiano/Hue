@@ -91,86 +91,76 @@
                                                 </span>
                                             </button>
                                         </div>
-                                        {% if item.product.has_sizes %}
-                                        <input type="hidden" name="product_size" value="{{ item.size }}">
-                                        {% endif %}
+
                                     </div>
                                 </div>
                             </form>
-                <a class="update-link" id="update{{ item.item_id }}">
-                    <i class="bi mx-2 fas fa-sync fa-sm"></i>
-                </a>
-                <a class="remove-item text-dark float-right" id="remove_{{ item.item_id }}">
-                    <i class="fas fa-trash fa-sm"></i>
-                </a>
-            </td>
-            </tr>
-            {% endfor %}
-            <tr>
-                <td colspan="5" class="py-4 my-3 text-start px-3 body-font">
-                    <h6 class="my-2 fw-main">Total: ${{ total|floatformat:2 }}</h6>
-                    <h6 class="my-2 fw-normal">Promotion: ${{ promotion|floatformat:2 }}
-                    </h6>
-                    <h4 class="my-2" id="cart-total body-sm">Grand Total: ${{ grand_total|floatformat:2 }}
-                    </h4>
-                    {% if item.product.pricce >= 50 %}
-                    <p class="mb-1 text-danger">
-                        You could get 25% off <strong>your entire purchase</strong> by spending just <strong>${{ promotion_delta }}</strong> more!
-                    </p>
-                    {% endif %}
-                </td>
-            </tr>
-            <tr class="border-0">
-                <td colspan="5" class="text-center my-0 mx-auto pt-4">
-                    <a href="{% url 'shop' %}" class="btn btn-dark rounded-0 btn-lg">
-                        <i class="fas fa-chevron-left fa-xs"></i>
-                        <span class="body-font body-sm">Shop</span>
-                    </a>
-                    <a href="" class="btn btn-dark border-0 rounded-0 btn-lg">
-                        <span class="body-sm body-light">Secure Checkout</span>
-                        <span class="icon">
-                            <i class="fas fa-chevron-right fa-xs">
-                            </i>
-                        </span>
-                    </a>
-                </td>
-            </tr>
-            </table>
+                            <a class="update-link" id="{{ item.item_id }}">
+                                <i class="bi mx-2 fas fa-sync fa-sm"></i>
+                            </a>
+                            <a class="remove-item text-dark float-right" id="remove_{{ item.item_id }}">
+                                <i class="fas fa-trash fa-sm"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td colspan="5" class="py-4 my-3 text-start px-3 body-font">
+                            <h6 class="my-2 fw-main">Total: ${{ total|floatformat:2 }}</h6>
+                            <h6 class="my-2 fw-normal">Promotion: ${{ promotion|floatformat:2 }}
+                            </h6>
+                            <h4 class="my-2" id="cart-total body-sm">Grand Total: ${{ grand_total|floatformat:2 }}
+                            </h4>
+                            {% if item.product.pricce >= 50 %}
+                            <p class="mb-1 text-danger">
+                                You could get 25% off <strong>your entire purchase</strong> by spending just <strong>${{ promotion_delta }}</strong> more!
+                            </p>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr class="border-0">
+                        <td colspan="5" class="text-center my-0 mx-auto pt-4">
+                            <a href="{% url 'shop' %}" class="btn btn-dark rounded-0 btn-lg">
+                                <i class="fas fa-chevron-left fa-xs"></i>
+                                <span class="body-font body-sm">Shop</span>
+                            </a>
+                            <a href="" class="btn btn-dark border-0 rounded-0 btn-lg">
+                                <span class="body-sm body-light">Secure Checkout</span>
+                                <span class="icon">
+                                    <i class="fas fa-chevron-right fa-xs">
+                                    </i>
+                                </span>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            {% else %}
+            <p class="lead">Your bag is empty</p>
+            {% endif %}
         </div>
-        {% else %}
-        <p class="lead">Your bag is empty</p>
-        {% endif %}
-    </div>
-    <!--Section: Block Content-->
-    {% block page_footer %}
-    {% endblock %}
-    {% endblock %}
-    {% block postloadjs %}
-    {{ block.super }}
-    <script type="text/javascript">
-    $('.btt-link').click(function(e) {
-        window.scrollTo(0, 0)
-    })
-    </script>
-    {% include 'shop/includes/qty-script.html' %}
-    <script type="text/javascript">
-    // Update quantity on click
-    $('.update-link').click(function(e) {
-        var form = $(this).prev('.update-form');
-        form.submit();
-    })
+        {% endblock %}
+        {% block postloadjs %}
+        {{ block.super }}
+        {% include 'shop/includes/qty-script.html' %}
+        <script type="text/javascript">
+        // Update quantity on click
+        $('.update-link').click(function(e) {
+            var form = $(this).prev('.update-form');
+            form.submit();
+        })
 
-     // Remove item and reload on click
-    $('.remove-item').click(function(e) {
-        var csrfToken = "{{ csrf_token }}";
-        var itemId = $(this).attr('id').split('remove_')[1];
-        var url = `/cart/remove/${itemId}/`;
-        var data = {'csrfmiddlewaretoken': csrfToken};
+        // Remove item and reload on click
+        $('.remove-item').click(function(e) {
+            var csrfToken = "{{ csrf_token }}";
+            var itemId = $(this).attr('id').split('remove_')[1];
+            var url = `/cart/remove/${itemId}/`;
+            var data = { 'csrfmiddlewaretoken': csrfToken };
 
-        $.post(url, data)
-         .done(function() {
-             location.reload();
-         });
-    })
-    </script>
-    {% endblock %}
+            $.post(url, data)
+                .done(function() {
+                    location.reload();
+                });
+        })
+        </script>
+        {% endblock %}
