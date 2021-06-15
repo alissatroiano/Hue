@@ -41,6 +41,7 @@ class Product(models.Model):
     active = models.BooleanField(default=True)
     title = models.CharField(max_length=254, unique=True)
     orientation = models.CharField(choices=ORIENTATIONS, max_length=254, default='Portrait')
+    has_dimensions = models.BooleanField(default=False, null=True, blank=True)
     label = models.CharField(choices=LABEL, max_length=2, default='NP')
     medium = models.CharField(max_length=254, blank=True)
     category = models.ForeignKey(
