@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'home',
     'shop',
     'cart',
-    'storages',
+    'checkout',
 ]
 
 CURRENCY = '$'
@@ -195,7 +195,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 PROMOTION_MINIMUM = 50
-PROMOTION_PERCENTAGE = 25
+PROMOTION_PERCENTAGE = 10
+TAX_RATE = 4.0
 
 if 'USE_AWS' in os.environ:
     # Bucket Config

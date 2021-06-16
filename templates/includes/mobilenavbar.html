@@ -1,6 +1,6 @@
 <ul class="nav list-group list-group-horizontal text-center my-0 mx-auto py-1">
     <li class="list-item">
-        <a class="nav-link d-block d-lg-none" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" href="/shop/">
+        <a class="nav-link d-block d-lg-none" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" href="{% url 'shop' %}">
             <span>
                 <div class="text-center">
                     <div><i class="fas fa-shopping-bag fa-lg"></i></div>
@@ -9,10 +9,10 @@
             </span>
         </a>
     </li>
-    <li>
+    <li class="list-item">
         <div class="col-12 col-lg-auto my-0 mx-auto w-auto">
             <a class="nav-link btn 
-             d-lg-none me-auto float-none" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+             d-lg-none me-auto float-none" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" data-bs-target="#mobile-search" aria-label="Toggle navigation" href="#">
                 <div class="text-center">
                     <div><i class="bi d-block mx-auto text-center mb-1 fas fa-search fa-lg"></i></div>
                     <p class="my-0">Search</p>
@@ -45,16 +45,16 @@
         <ul class="dropdown-menu" aria-labelledby="acccountOptions">
             {% if request.user.is_authenticated %}
             {% if request.user.is_superuser %}
-            <li class="dropdown-item body-font">
+            <li class="dropdown-item display-font">
                 <a href="" class="dropdown-item">Product Management</a>
             </li>
             {% endif %}
-            <li class="dropdown-item body-font"> 
+            <li class="dropdown-item display-font"> 
                 <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
             </li>
             {% else %}
-            <a class="dropdown-item body-font" href="{% url 'account_signup' %}">Sign Up</a>
-            <a class="dropdown-item body-font" href="{% url 'account_login' %}">Login</a>
+            <a class="dropdown-item display-font" href="{% url 'account_signup' %}">Sign Up</a>
+            <a class="dropdown-item display-font" href="{% url 'account_login' %}">Login</a>
             {% endif %}
         </ul>
     </li>

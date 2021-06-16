@@ -5,7 +5,7 @@
                 <button class="btn btn-sm dropdown-toggle" type="button" id="shopDropdown1" data-bs-toggle="dropdown" aria-expanded="false">
                     <a class="nav-link text-black" href="#" id="shopDropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         All Products</a></button>
-                <div class="dropdown-menu border-0 body-font" aria-labelledby="shopDropdown1" id="shopDropdown1">
+                <div class="dropdown-menu border-0 display-font" aria-labelledby="shopDropdown1" id="shopDropdown1">
                     <a href="{% url 'shop' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
                     <a href="{% url 'shop' %}?sort=category&direction=asc" class="dropdown-item">By Category</a>
                     <a href="{% url 'shop' %}?sort=created_at&direction=desc" class="dropdown-item ">New Arrivals</a>
@@ -18,7 +18,7 @@
                 <button class="btn btn-sm dropdown-toggle" type="button" id="shopDropdown2" data-bs-toggle="dropdown" aria-expanded="false">
                     <a class="font-weight-bold nav-link" href="#" id="shopDropdown2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Paintings</a></button>
-                <div class="dropdown-menu border-0 body-font" aria-labelledby="shopDropdown2" id="shopDropdown2">
+                <div class="dropdown-menu border-0 display-font" aria-labelledby="shopDropdown2" id="shopDropdown2">
                     <a href="{% url 'shop' %}?category=photo-paintings&direction=asc" class="dropdown-item">Photo-Paintings</a>
                     <a href="{% url 'shop' %}?category=graffiti&direction=asc" class="dropdown-item">Graffiti</a>
                     <a href="{% url 'shop' %}?category=dynamic-paintings&direction=asc" class="dropdown-item">Dynamic Paintings</a>
@@ -30,7 +30,7 @@
                 <button class="btn btn-sm dropdown-toggle" type="button" id="shopDropdown3" data-bs-toggle="dropdown" aria-expanded="false">
                     <a class="font-weight-bold nav-link text-black" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Graphics</a></button>
-                <div class="dropdown-menu border-0 p-0 m-0 body-font" aria-labelledby="shopDropdown3" id="shopDropdown3">
+                <div class="dropdown-menu border-0 p-0 m-0 display-font" aria-labelledby="shopDropdown3" id="shopDropdown3">
                    <a href="{% url 'shop' %}?category=surrealism&direction=asc" class="dropdown-item">Surrealism</a>
                     <a href="{% url 'shop' %}?category=illustrations&direction=asc" class="dropdown-item">Illustrations</a>
                     <a href="{% url 'shop' %}?category=glitch-art&direction=asc" class="dropdown-item">Glitch Art</a>
@@ -42,7 +42,7 @@
                 <button class="btn btn-sm dropdown-toggle" type="button" id="shopDropdown5" data-bs-toggle="dropdown" aria-expanded="false">
                     <a class="font-weight-bold nav-link text-black" href="#" id="shopDropdown5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Deals & Discounts</a></button>
-                    <div class="dropdown-menu border-0 p-0 m-0 body-font" aria-labelledby="shopDropdown5" id="shopDropdown5">
+                    <div class="dropdown-menu border-0 p-0 m-0 display-font" aria-labelledby="shopDropdown5" id="shopDropdown5">
                     <a href="{% url 'shop' %}?label=SL&direction=asc" class="dropdown-item">Sale</a>
                     <a href="{% url 'shop' %}?label=CL&direction=asc" class="dropdown-item" class="dropdown-item">Clearance</a>
                     <a href="{% url 'shop' %}?label=SL,CL&direction=asc" class="dropdown-item">All Deals & Discounts</a>

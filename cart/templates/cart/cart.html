@@ -64,14 +64,17 @@
                         <td class="py-3">
                             <p class="my-0">
                                 {% if item.product.label != 'NP' %}
-                                <strong style="text-decoration: line-through;" class="text-muted fw-normal">${{ item.product.price }}</strong></p>
+                                <strong style="text-decoration: line-through;" class="text-muted fw-bold ms-0">{{ item.product.price }}</strong></p>
+                            {% else %}
+                            <p class="my-0">
+                                <strong class="text-muted fw-normal">${{ item.product.price }}</strong></p>
                             {% endif %}
                         </td>
                         <td class="py-3 w-25">
                             <p class="my-0">
                                 <strong>{{ item.product.display_final_price }}</strong></p>
                         </td>
-                        <td class="py-3 my-0 w-auto d-block text-center overflow-hidden">
+                        <td class="py-3 my-0 w-auto text-center overflow-hidden">
                             <form class="form update-form" method="POST" action="{% url 'update_cart' item.item_id %}">
                                 {% csrf_token %}
                                 <div class="form-group">
@@ -84,83 +87,81 @@
                                             </button>
                                         </div>
                                         <input class="form-control form-control-sm qty_input" type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
-                                        <div class="input-group-append">
-                                            <button class="increment-qty btn btn-sm btn-black rounded-0" data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
-                                                <span>
-                                                    <i class="fas fa-plus fa-sm"></i>
-                                                </span>
-                                            </button>
-                                        </div>
-
+                                        <button class="increment-qty btn btn-sm btn-black rounded-0" data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                            <span>
+                                                <i class="fas fa-plus fa-sm"></i>
+                                            </span>
+                                        </button>
                                     </div>
                                 </div>
-                            </form>
-                            <a class="update-link" id="{{ item.item_id }}">
-                                <i class="bi mx-2 fas fa-sync fa-sm"></i>
-                            </a>
-                            <a class="remove-item text-dark float-right" id="remove_{{ item.item_id }}">
-                                <i class="fas fa-trash fa-sm"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                    <tr>
-                        <td colspan="5" class="py-4 my-3 text-start px-3 body-font">
-                            <h6 class="my-2 fw-main">Total: ${{ total|floatformat:2 }}</h6>
-                            <h6 class="my-2 fw-normal">Promotion: ${{ promotion|floatformat:2 }}
-                            </h6>
-                            <h4 class="my-2" id="cart-total body-sm">Grand Total: ${{ grand_total|floatformat:2 }}
-                            </h4>
-                            {% if item.product.pricce >= 50 %}
-                            <p class="mb-1 text-danger">
-                                You could get 25% off <strong>your entire purchase</strong> by spending just <strong>${{ promotion_delta }}</strong> more!
-                            </p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr class="border-0">
-                        <td colspan="5" class="text-center my-0 mx-auto pt-4">
-                            <a href="{% url 'shop' %}" class="btn btn-dark rounded-0 btn-lg">
-                                <i class="fas fa-chevron-left fa-xs"></i>
-                                <span class="body-font body-sm">Shop</span>
-                            </a>
-                            <a href="" class="btn btn-dark border-0 rounded-0 btn-lg">
-                                <span class="body-sm body-light">Secure Checkout</span>
-                                <span class="icon">
-                                    <i class="fas fa-chevron-right fa-xs">
-                                    </i>
-                                </span>
-                            </a>
-                        </td>
-                    </tr>
-                </table>
             </div>
-            {% else %}
-            <p class="lead">Your bag is empty</p>
-            {% endif %}
+            </form>
+            <a class="update-link" id="{{ item.item_id }}">
+                <i class="bi mx-2 fas fa-sync fa-sm"></i>
+            </a>
+            <a class="remove-item text-dark float-right" id="remove_{{ item.item_id }}">
+                <i class="fas fa-trash fa-sm"></i>
+            </a>
+            </td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="5" class="py-4 my-3 text-start px-3 body-font">
+                    <h6 class="my-2 fw-main">Total: ${{ total|floatformat:2 }}</h6>
+                    <h6 class="my-2 fw-normal">Promotion: ${{ promotion|floatformat:2 }}
+                    </h6>
+                    <h4 class="my-2" id="cart-total body-sm">Grand Total: ${{ grand_total|floatformat:2 }}
+                    </h4>
+                    {% if item.product.pricce >= 50 %}
+                    <p class="mb-1 text-danger">
+                        You could get 25% off <strong>your entire purchase</strong> by spending just <strong>${{ promotion_delta }}</strong> more!
+                    </p>
+                    {% endif %}
+                </td>
+            </tr>
+            <tr class="border-0">
+                <td colspan="5" class="text-center my-0 mx-auto pt-4">
+                    <a href="{% url 'shop' %}" class="btn btn-dark rounded-0 btn-lg">
+                        <i class="fas fa-chevron-left fa-xs"></i>
+                        <span class="body-font body-sm">Shop</span>
+                    </a>
+                    <a href="" class="btn btn-dark border-0 rounded-0 btn-lg">
+                        <span class="body-sm body-light">Secure Checkout</span>
+                        <span class="icon">
+                            <i class="fas fa-chevron-right fa-xs">
+                            </i>
+                        </span>
+                    </a>
+                </td>
+            </tr>
+            </table>
         </div>
-        {% endblock %}
-        {% block postloadjs %}
-        {{ block.super }}
-        {% include 'shop/includes/qty-script.html' %}
-        <script type="text/javascript">
-        // Update quantity on click
-        $('.update-link').click(function(e) {
-            var form = $(this).prev('.update-form');
-            form.submit();
-        })
+        {% else %}
+        <p class="lead">Your bag is empty</p>
+        {% endif %}
+    </div>
+    {% endblock %}
+    {% block postloadjs %}
+    {{ block.super }}
+    {% include 'shop/includes/qty-script.html' %}
+    <script type="text/javascript">
+    // Update quantity on click
+    $('.update-link').click(function(e) {
+        var form = $(this).prev('.update-form');
+        form.submit();
+    })
 
-        // Remove item and reload on click
-        $('.remove-item').click(function(e) {
-            var csrfToken = "{{ csrf_token }}";
-            var itemId = $(this).attr('id').split('remove_')[1];
-            var url = `/cart/remove/${itemId}/`;
-            var data = { 'csrfmiddlewaretoken': csrfToken };
+    // Remove item and reload on click
+    $('.remove-item').click(function(e) {
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('remove_')[1];
+        var url = `/cart/remove/${itemId}/`;
+        var data = { 'csrfmiddlewaretoken': csrfToken };
 
-            $.post(url, data)
-                .done(function() {
-                    location.reload();
-                });
-        })
-        </script>
-        {% endblock %}
+        $.post(url, data)
+            .done(function() {
+                location.reload();
+            });
+    })
+    </script>
+    {% endblock %}
