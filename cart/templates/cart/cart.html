@@ -19,6 +19,7 @@
                 <ol class="breadcrumb display-font heading-xs">
                     <li class="breadcrumb-item"><a href="{% url 'shop' %}">Shop</a></li>
                     <li aria-current="page" class="breadcrumb-item active">Your Cart</li>
+                    <li class="breadcrumb-item active"><a href="{% url 'checkout' %}">Checkout</a></li>
                 </ol>
             </nav>
         </div>
@@ -51,7 +52,7 @@
                     </thead>
                     {% for item in cart_items %}
                     <tr>
-                        <td class="p-3 w-25">
+                        <td class="my-0 mx-auto p-2">
                             <img class="img-fluid" src="{{ item.product.image.url }}" width="80" height="auto">
                         </td>
                         <td class="py-3">
@@ -137,7 +138,13 @@
             </table>
         </div>
         {% else %}
-        <p class="lead">Your bag is empty</p>
+        <p class="body-font mx-2 mx-lg-4">Your shopping cart is empty
+        <span>
+        <a href="{% url 'shop' %}" class="link-font btn-link">
+                <i class="fas fa-chevron-left"></i>
+           Keep Shopping</a>
+        </span>
+    </p>
         {% endif %}
     </div>
     {% endblock %}

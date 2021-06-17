@@ -17,13 +17,13 @@
                 <h1 class="text-center py-2 py-lg-3 lh-1 mb-auto" id="title">HUE</h1>
                 <h2 class="lead my-4 py-3 mx-auto">
                     <button class="btn-none">
-                        <a id="sale" class="typewrite" href="{% url 'shop' %}" data-type='["{{ promotion_percentage }}% off  orders over ${{ promotion_minimum }}! "]'>
+                        <a id="sale" class="typewrite btn-link" href="{% url 'shop' %}" data-type='["${{ promotion_percentage }} off  orders over $ {{ promotion_minimum }}! "]'>
                             <span class="wrap"></span>
                         </a>
                     </button>
                 </h2>
                 <button role="button" class="btn btn-link my-2 rounded" id="hero-button">
-                    <a href="{% url 'shop' %}" class="text-light text-decoration-none">Shop</a></button>
+                    <a href="{% url 'shop' %}" class="text-light btn text-decoration-none">Shop</a></button>
             </div>
         </div>
         <!--./call-to-action-->
@@ -90,8 +90,6 @@
         </div>
     </div>
 </section>
-{% block page_footer %}
-{% endblock %}
 {% endblock %}
 {% block postloadjs %}
 {{ block.super }}

@@ -39,20 +39,23 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    # 3rd party
+    # Custom Apps
+    'home',
+    'shop',
+    'cart',
+    'checkout',
+    # 3rd party 
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     "allauth.socialaccount.providers.facebook",
     "allauth.socialaccount.providers.google",
-    "allauth.socialaccount.providers.pinterest",
-    'home',
-    'shop',
-    'cart',
-    'checkout',
+    "allauth.socialaccount.providers.pinterest", 
+    "crispy_forms",
+    "crispy_bootstrap5",
 ]
 
-CURRENCY = '$'
+CURRENCY = '$' # Set default currency to US Dollar
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -65,6 +68,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'Hue.urls'
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 TEMPLATES = [
     {
@@ -83,6 +90,10 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'cart.contexts.cart_items_function',
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]

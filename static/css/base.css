@@ -30,6 +30,23 @@ a {
     width: 1.5rem;
 }
 
+.text-dark {
+    color:  #100324;
+}
+
+.bg-dark {
+    background-color: #100324;
+}
+
+.btn-link {
+    color:  #100324;
+}
+
+.btn-link:hover {
+    text-decoration: none;
+    background-color: ;
+}
+
 .display-font {
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
@@ -120,13 +137,16 @@ a {
 .link-font {
     font-family: 'Raleway', sans-serif;
     text-decoration: none;
-    font-weight: 500;
-    color: rgb(124 109 150);
-    text-shadow: 0px 15px 5px rgba(0, 0, 0, 0.1);
+    font-weight: 400;
 }
 
 .link-font:hover {
-    color: #6a509a;
+    background-color: rgb(165, 221, 224);
+    opacity: 1;
+    color: #fafafa;
+    padding: 15px 5px;
+    transition: 0.5s;
+    opacity: 1;
 }
 
 .icon-main {

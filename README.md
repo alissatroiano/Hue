@@ -120,6 +120,13 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 
     - This project uses Homebrew to simplify software and package installations in MacOS.
 
+- [Bootstrap 5]
+
+- Django form plugins:
+    - [Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/)
+    - [Crispy-Bootstrap5](https://pypi.org/project/crispy-bootstrap5/) 
+        - This project uses crispy filters & tags to control the rendering behavior of Django forms in a consistent, visually appealing and *DRY* manner.
+
 ## Testing
 
 ## Deployment
@@ -213,8 +220,16 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 
     - [Sublime Text](https://packagecontrol.io/docs)
 
+### Security
 
-### Acknowledgements
+- I copied the following settings(located in `settings.py`) from [Django's Documentation]()
+
+    - [SECURE_SSL_REDIRECT](https://docs.djangoproject.com/en/3.2/ref/settings/#std:setting-SECURE_SSL_REDIRECT)
+
+    - 
+
+
+## Acknowledgements
 
 - I followed [Code Insitute's](https://learn.codeinstitute.net/) video lessons.
 
