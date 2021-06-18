@@ -10,7 +10,7 @@ __pycache__
 pyvenv.cfg
 .Python
 .gitpod.dockerfile
-.DS_store
 .gitpod.yml
 env_hue/
-db.json	
+db.json
+.DS_Store
