@@ -108,16 +108,13 @@
             {% endfor %}
             <tr>
                 <td colspan="5" class="py-4 my-3 text-start px-3 body-font">
-                    <h6 class="my-2 fw-main">Total: ${{ total|floatformat:2 }}</h6>
-                    <h6 class="my-2 fw-normal">Promotion: ${{ promotion|floatformat:2 }}
+                    <h6 class="my-2 fw-main">
+                        Total: ${{ total|floatformat:2 }}</h6>
+                    <h6 class="my-2 fw-normal">
+                        Promotion: ${{ promotion|floatformat:2 }}
                     </h6>
                     <h4 class="my-2" id="cart-total body-sm">Grand Total: ${{ grand_total|floatformat:2 }}
                     </h4>
-                    {% if item.product.pricce >= 50 %}
-                    <p class="mb-1 text-danger">
-                        You could get 25% off <strong>your entire purchase</strong> by spending just <strong>${{ promotion_delta }}</strong> more!
-                    </p>
-                    {% endif %}
                 </td>
             </tr>
             <tr class="border-0">
@@ -126,7 +123,7 @@
                         <i class="fas fa-chevron-left fa-xs"></i>
                         <span class="body-font body-sm">Shop</span>
                     </a>
-                    <a href="" class="btn btn-dark border-0 rounded-0 btn-lg">
+                    <a href="{% url 'checkout' %}" class="btn btn-dark border-0 rounded-0 btn-lg">
                         <span class="body-sm body-light">Secure Checkout</span>
                         <span class="icon">
                             <i class="fas fa-chevron-right fa-xs">
@@ -139,12 +136,12 @@
         </div>
         {% else %}
         <p class="body-font mx-2 mx-lg-4">Your shopping cart is empty
-        <span>
-        <a href="{% url 'shop' %}" class="link-font btn-link">
-                <i class="fas fa-chevron-left"></i>
-           Keep Shopping</a>
-        </span>
-    </p>
+            <span>
+                <a href="{% url 'shop' %}" class="link-font btn-link">
+                    <i class="fas fa-chevron-left"></i>
+                    Keep Shopping</a>
+            </span>
+        </p>
         {% endif %}
     </div>
     {% endblock %}
