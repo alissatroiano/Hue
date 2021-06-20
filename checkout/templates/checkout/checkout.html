@@ -25,93 +25,95 @@
     </div>
 </div>
 <div class="container-fluid">
-    <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-        <h2>Checkout form</h2>
-        <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
-    </div>
-    <div class="row d-flex justify-content-center">
-        <div class="col-12 col-md-4 order-md-2 mb-4">
-            <h4 class="align-items-center mb-3">
-                <span class="px-3">Your Order</span>
-                <span class="badge badge-secondary badge-pill">3</span>
-            </h4>
-            <ul class="list-group mb-3 sticky-top">
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div class="col-6">
-                        <h6 class="my-0 text-small">Items</h6>
-                        <small class="text-muted"></small>
-                    </div>
-                </li>
-                {% for item in cart_items %}
-                <li class="list-group-item d-flex justify-content-between">
-                    <div class="col-6">
-                        {% if item.product.image %}
-                        <figure class="figure">
-                            <img class="figure-img img-fluid w-50" src="{{ item.product.image.url }}" alt="{{ product.name }}">
-                            <figcaption class="figure-caption body-font">{{ item.product.title }}</figcaption>
-                            {% else %}
-                            <h6 class="my-0 fw-bold">{{ item.product.title }}</h6>
-                            {% endif %}
-                            <small class="text-muted"></small>
-                    </div>
-                    <div>
-                        <span class="body-font body-small fw-bold text-muted">{{ item.product.display_final_price | calc_subtotal:item.quantity }}</span>
-                    </div>
-                </li>
-                {% endfor %}
-                <li class="list-group-item d-flex justify-content-between">
-                    <span>Total</span>
-                    <strong>${{ grand_total|floatformat:2 }}</strong>
-                </li>
-            </ul>
-            <!--./end-col-->
-            <!-- Checkout Form Starts Here -->
-            <div class="col-md-7 col-12">
-                <form method="POST" action="{% url 'checkout' %}" id="payment-form">
-                    {% csrf_token %}
-                    <fieldset>
-                        <legend class="fieldset-labe
-                    {{ order_form.user_full_name | as_crispy_field }}
-                    {{ order_form.email | as_crispy_field }}
-                </fieldset>
-                <!-- Stripe payment elements start here -->
-                <fieldset class=" rounded px-3 mb-5">
-                            <legend class="fieldset-label px-3 w-auto">
-                                Payment
-                            </legend>
-                            <!-- Stripe Payment Elements Start Here -->
-                            <div class="mb-3" id="card-element"></div>
-                            <!--Render form errors here -->
-                            <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
-                    </fieldset>
-                    <!--./end-stripe-payment-elements-->
-                    <!--Submit Button starts here -->
-                    <div class="submit-button text-end mt-5 mb-2">
-                        <a href="{% url 'view_cart' %}" class="btn link-font">
-                            <span class="icon">
-                                <i class="fas fa-chevron-circle-left"></i>
-                            </span>
-                            <
-                        <button class="btn btn-main" id="submit-button">
-                            <span class="icon">
-                                <i class="fas fa-lock"></i>
-                            </span>
-                        </button>
-                        <p class="text-small text-danger my-0">
-                            <span class="icon">
-                                <i class="fas fa-exclamation-circle"></i>
-                            </span>
-                            <span>Your card will be charged
-                                <strong>${{ grand_total|floatformat:2 }}
-                                </strong>
-                            </span>
-                        </p>
-                    </div>
-                    <!--./end-submit-button-->
-                </form>
-            </div>
+    <div class="row py-3 text-center">
+        <div class="col-12">
+            <h2 class="display-font text-start px-1 px-lg-3">Checkout</h2>
+            <p class="text-start body-font px-1 px-lg-3 pe-2">Here at Hue, we pride ourselves on delivering our high-quality artwork quickly and securely. Please enter your payment details and checkout below.</p>
         </div>
     </div>
-    <!--./end-container-->
-    {% endblock %}
+</div>
+<div class="row d-flex justify-content-center">
+    <div class="col-12 col-md-4 order-md-2 mb-4">
+        <h4 class="align-items-center mb-3">
+            <span class="px-3">Your Order</span>
+            <span class="badge badge-secondary badge-pill">3</span>
+        </h4>
+        <ul class="list-group mb-3 sticky-top">
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div class="col-6">
+                    <h6 class="my-0 text-small">Items</h6>
+                    <small class="text-muted"></small>
+                </div>
+            </li>
+            {% for item in cart_items %}
+            <li class="list-group-item d-flex justify-content-between">
+                <div class="col-6">
+                    {% if item.product.image %}
+                    <figure class="figure">
+                        <img class="figure-img img-fluid w-50" src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                        <figcaption class="figure-caption body-font">{{ item.product.title }}</figcaption>
+                        {% else %}
+                        <h6 class="my-0 fw-bold">{{ item.product.title }}</h6>
+                        {% endif %}
+                        <small class="text-muted"></small>
+                </div>
+                <div>
+                    <span class="body-font fw-bold text-muted">{{ item.product.display_final_price | calc_subtotal:item.quantity }}</span>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <!--./end-col-->
+    <!-- Checkout Form Starts Here -->
+    <div class="col-md-7 col-12">
+        <form method="POST" action="{% url 'checkout' %}" id="payment-form">
+            {% csrf_token %}
+            <fieldset>
+                <legend class="fieldset-label px-3 w-auto">Details</legend>
+                {{ order_form.user_full_name | as_crispy_field }}
+                {{ order_form.email | as_crispy_field }}
+            </fieldset>
+            <!-- Stripe payment elements start here -->
+            <fieldset class="rounded px-3 mb-5">
+                <legend class="fieldset-label px-3 w-auto">
+                    Payment
+                </legend>
+                <!-- Stripe Payment Elements Start Here -->
+                <div class="mb-3" id="card-element"></div>
+                <!--Render form errors here -->
+                <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+            </fieldset>
+            <!--./end-stripe-payment-elements-->
+            <!--Submit Button starts here -->
+            <div class="submit-button text-end mt-5 mb-2">
+                <a href="{% url 'view_cart' %}" class="btn link-font">
+                    <span class="icon">
+                        <i class="fas fa-chevron-circle-left"></i>
+                    </span>
+                    <span class="fw-bold">Update Cart</span>
+                </a>
+                <a href="{% url 'checkout' %}" class="btn link-font">
+                    <span class="fw-bold">Secure Checkout</span>
+                    <span class="icon">
+                        <i class="fas fa-chevron-circle-right">
+                        </i>
+                    </span>
+                </a>
+                <p class="text-small text-danger my-0">
+                    <span class="icon">
+                        <i class="fas fa-exclamation-circle"></i>
+                    </span>
+                    <span>Your card will be charged
+                        <strong>${{ grand_total|floatformat:2 }}
+                        </strong>
+                    </span>
+                </p>
+            </div>
+            <!--./end-submit-button-->
+        </form>
+    </div>
+</div>
+</div>
+<!--./end-container-->
+{% endblock %}
