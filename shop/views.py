@@ -43,7 +43,8 @@ def shop_all(request):
         if 'label' in request.GET:
             labels = request.GET['label'].split(',')
             products = products.filter(label__in=labels)
-            labels = products.filter(label__in=labels)
+            for i,l in enumerate(labels):
+                labels[i] = Product.get_label(l)
 
         if 'q' in request.GET:
             query = request.GET['q']
@@ -55,6 +56,8 @@ def shop_all(request):
             products = products.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
+
+    print('The labels are:', labels)
 
     context = {
         'products': products,

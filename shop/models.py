@@ -10,6 +10,17 @@ from decimal import Decimal
 now = timezone.now
 CURRENCY = settings.CURRENCY
 
+ORIENTATIONS = (
+        ('Portrait','Portrait'),
+        ('Landscape', 'Landscape'),
+        ('Square', 'Square'),
+)
+LABEL = (
+        ('SL', 'Sale'),
+        ('CL', 'Clearance'),
+        ('NP', 'No Promotion'),
+)
+
     # https://github.com/Code-Institute-Solutions/Boutique-Ado/blob/master/06-Products-Setup/Adding-The-Products/products/models.py
 class Category(models.Model):
     # parent solution copied from https://www.youtube.com/watch?v=QIoUJ1PutV0
@@ -23,20 +34,8 @@ class Category(models.Model):
     def __str__(self):
         return self.title
 
-
 # https://christosstath10.medium.com/create-your-own-point-of-sale-c25f8b1ff93b
 class Product(models.Model):
-    ORIENTATIONS = (
-            ('Portrait','Portrait'),
-            ('Landscape', 'Landscape'),
-            ('Square', 'Square'),
-    )
-    LABEL = (
-            ('SL', 'Sale'),
-            ('CL', 'Clearance'),
-            ('NP', 'No Promotion'),
-    )
-
     sku = models.CharField(unique=True, max_length=254, null=True, blank=True)
     active = models.BooleanField(default=True)
     title = models.CharField(max_length=254, unique=True)
@@ -64,6 +63,9 @@ class Product(models.Model):
     objects = models.Manager()
     hue_manager = ProductManager()
 
+    def get_label(l):
+        return dict(LABEL).get(l)
+
     class Meta:
         verbose_name_plural = 'Products'
 
@@ -85,6 +87,6 @@ class Product(models.Model):
             return '${:,.2f}'.format(self.final_price)
         else:
             self.final_price = self.price
-        return f'{CURRENCY} {self.final_price}'
-    display_final_price.short_description = 'Final Price'
+        return f'{CURRENCY} {self.price}'
+    display_final_price.short_description = 'Whatever Price'
 
