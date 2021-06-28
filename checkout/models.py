@@ -3,35 +3,41 @@ import uuid
 from django.db import models
 from django.db.models import Sum
 from django.conf import settings
+
+from django_countries.fields import CountryField
+
 from shop.models import Product
 import datetime
 
 from decimal import Decimal
 CURRENCY = settings.CURRENCY
-# Create your models here.
-
 
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False, unique=True)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     user_full_name = models.CharField(max_length=50, null=False, blank=False)
+    town_or_city = models.CharField(max_length=40, null=False, blank=False)
+    street_address1 = models.CharField(max_length=50, null=False, blank=False)
+    street_address2 = models.CharField(max_length=50, null=False, blank=False)
+    state = models.CharField(max_length=50, null=False, blank=False)
+    country = CountryField(blank_label='Country *', null=False, blank=False)
+    county = models.CharField(max_length=80, null=True, blank=True)
+    postcode = models.CharField(max_length=20, null=True, blank=True)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
-    billing_address = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     deleted_at = models.DateTimeField(auto_now=True)
+    special_discount = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     date = models.DateTimeField(auto_now_add=True)
-    tax_rate = models.DecimalField(
-        max_digits=6, decimal_places=2, null=False, default=0)
     order_total = models.DecimalField(
         max_digits=10, decimal_places=2, null=False, default=0)
     grand_total = models.DecimalField(
         max_digits=10, decimal_places=2, null=False, default=0)
-    hue_cart = models.TextField(
+    original_cart = models.TextField( 
         null=False, blank=False, default='')
     stripe_pid = models.CharField(
         max_length=254, null=False, blank=False, default='')
+
 
     def _create_order_number(self):
         """
@@ -40,18 +46,18 @@ class Order(models.Model):
         return uuid.uuid4().hex.upper()
 
     def update_grand_total(self):
-    	"""
-    	Update grand total each time a line item is added,
-    	accounting for delivery costs.
-    	"""
-    	self.order_total = self.lineitems.aggregate(
-    	    Sum('orderitem_total'))['orderitem_total__sum'] or 0
-    	if self.order_total is not None:
-    	    self.order_total = self.order_total * Decimal(settings.TAX_RATE / 100)
-    	else:
-    	    self.tax_rate = 0
-    	self.grand_total = self.order_total * self.tax_rate
-    	self.save()
+        """
+        Update grand total each time a line item is added,
+        accounting for delivery costs.
+        """
+        self.total = self.lineitems.aggregate(
+            Sum('orderitem_total'))['orderitem_total__sum'] or 0
+        if self.total is not None:
+            self.total = self.total * Decimal(settings.TAX_RATE / 100)
+        else:
+            self.tax_rate = 0
+        self.grand_total = self.total * self.tax_rate
+        self.save()
 
     def save(self, *args, **kwargs):
         """
@@ -87,4 +93,3 @@ class OrderItem(models.Model):
 
     def __str__(self):
         return f'SKU {self.product.sku} on order {self.order.order_number}'
-
