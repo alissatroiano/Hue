@@ -11,32 +11,31 @@ def cart_components(request):
 	product_count = 0
 	cart = request.session.get('cart', {})
 
-	for item_id, item_data in cart.items():
-		if isinstance(item_data, int):
-			product = get_object_or_404(Product, pk=item_id)
-			total += item_data * product.price
-			product_count += item_data
-			cart_items.append({
-				'item_id': item_id,
-				'quantity': item_data,
-				'product': product,
-			})
-		else:
-			product = get_object_or_404(Product, pk=item_id)
-			for dimension, quantity in item_data['items_by_dimension'].items():
-				total += quantity * product.price
-				product_count += quantity
-				cart_items.append({
-                    'item_id': item_id,
-                    'quantity': quantity,
-                    'product': product,
-                    'dimension': dimension,
-                })
+	for item_id, quantity in cart.items():
+		product = get_object_or_404(Product, pk=item_id)
+		total += quantity * product.final_price
+		product_count += quantity
+		print(quantity, product.price, product.final_price, total)
+		cart_items.append({
+            'item_id': item_id,
+            'quantity': quantity,
+            'product': product,
+        })
+
+
+	print('The total is', total)
 
 	if total > settings.PROMOTION_MINIMUM:
 		promotion = settings.PROMOTION_PERCENTAGE
 	#	promotion =  total * Decimal(settings.PROMOTION_PERCENTAGE / 100)
 		promotion_delta = settings.PROMOTION_MINIMUM - total
+		grand_total = total * Decimal(settings.PROMOTION_PERCENTAGE)
+	# 	promotion = Decimal(settings.PROMOTION_PERCENTAGE)
+	# #	promotion =  total * Decimal(settings.PROMOTION_PERCENTAGE / 100)
+	# 	promotion_delta = settings.PROMOTION_MINIMUM - total
+	# else:
+	# 	promotion = 0
+	# 	promotion_delta = 0
 	else:
 		promotion = 0
 		promotion_delta = 0
@@ -47,11 +46,11 @@ def cart_components(request):
 		'cart_items': cart_items,
 		'total': total,
 		'product_count': product_count,
-		'promotion': promotion,
-		'promotion_delta': promotion_delta,
 		'promotion_minimum': settings.PROMOTION_MINIMUM,
 		'promotion_percentage': settings.PROMOTION_PERCENTAGE,
 		'grand_total': grand_total,
 		}
+
+	print(context)
 
 	return context

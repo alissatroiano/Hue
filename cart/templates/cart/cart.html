@@ -111,7 +111,7 @@
                     <h6 class="my-2 fw-main">
                         Total: ${{ total|floatformat:2 }}</h6>
                     <h6 class="my-2 fw-normal">
-                        Promotion: ${{ promotion|floatformat:2 }}
+                        Promotion: {{ promotion_percentage|floatformat:2 }}%
                     </h6>
                     <h4 class="my-2" id="cart-total body-sm">Grand Total: ${{ grand_total|floatformat:2 }}
                     </h4>
