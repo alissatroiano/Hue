@@ -14,3 +14,4 @@ pyvenv.cfg
 env_hue/
 db.json
 .DS_Store
+db.json

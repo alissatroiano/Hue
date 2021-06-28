@@ -61,7 +61,7 @@ class Product(models.Model):
     deleted_at = models.DateTimeField(auto_now=True)
 
     objects = models.Manager()
-    hue_manager = ProductManager()
+    product_manager = ProductManager()
 
     def get_label(l):
         return dict(LABEL).get(l)
@@ -70,7 +70,7 @@ class Product(models.Model):
         verbose_name_plural = 'Products'
 
     def save(self, *args, **kwargs):
-        self.final_price = self.discount_price if self.discount_price > 0 else self.price
+        self.discount_price = self.price if self.discount_price > 0 else self.price
         super().save(*args, **kwargs)
 
     def __str__(self):
@@ -79,14 +79,14 @@ class Product(models.Model):
     def display_final_price(self):
         if self.label == "SL":
             sale_discount = 0.75
-            self.final_price = self.price * Decimal(sale_discount)
-            return '${:,.2f}'.format(self.final_price)
+            self.discount_price = self.price * Decimal(sale_discount)
+            return '${:,.2f}'.format(self.discount_price)
         elif self.label == 'CL':
             clearance_discount = 0.25
-            self.final_price = self.price * Decimal(clearance_discount)
-            return '${:,.2f}'.format(self.final_price)
+            self.discount_price = self.price * Decimal(clearance_discount)
+            return '${:,.2f}'.format(self.discount_price)
         else:
-            self.final_price = self.price
-        return f'{CURRENCY} {self.price}'
-    display_final_price.short_description = 'Whatever Price'
+            self.price = self.price
+        return f'{CURRENCY} {self.discount_price}'
+    display_final_price.short_description = 'Display Final Price'
 

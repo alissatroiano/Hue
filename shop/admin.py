@@ -22,7 +22,7 @@ class ProductAdmin(admin.ModelAdmin):
     # Add search_fields so autocomplete will work in product admin 
     search_fields = ['title']
     list_per_page = 50
-    fields = ['sku', 'active', 'medium', 'product_details', 'title', 'label', 'image', 'image_url', 'category', 'price', 'display_final_price', 'orientation', 'has_dimensions']
+    fields = ['sku', 'active', 'medium', 'product_details', 'title', 'label', 'image', 'image_url', 'category', 'discount_price', 'price', 'display_final_price', 'orientation', 'has_dimensions']
     autocomplete_fields = ['category']
    # Add display_final_price to readonly_fields because it is a function not a db field
     readonly_fields = ['display_final_price']
