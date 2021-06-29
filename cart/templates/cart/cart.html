@@ -66,7 +66,7 @@
                             <p class="my-0">
                                 <strong>${{ item.product.price }}</strong></p>
                         </td>
-                            <td class="py-3 w-25">
+                        <td class="py-3 w-25">
                             <p class="my-0">
                                 <strong>${{ item.product.price }}</strong></p>
                         </td>
@@ -105,11 +105,16 @@
                 <td colspan="5" class="py-4 my-3 text-start px-3 body-font">
                     <h6 class="my-2 fw-main">
                         Total: ${{ total|floatformat:2 }}</h6>
+                    {% if total >= promotion_minimum %}
                     <h6 class="my-2 fw-normal">
                         Promotion: <strong>25%</strong>
                     </h6>
                     <h4 class="my-2" id="cart-total body-sm">Grand Total: ${{ grand_total|floatformat:2 }}
                     </h4>
+                    {% else %}
+                    <h4 class="my-2" id="cart-total body-sm">Grand Total: ${{ grand_total|floatformat:2 }}
+                    </h4>
+                    {% endif %}
                 </td>
             </tr>
             <tr class="border-0">

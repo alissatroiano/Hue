@@ -45,11 +45,9 @@
             <li class="list-group-item d-flex justify-content-center lh-condensed">
                 <div class="col-6">
                     <h6 class="my-0 text-small">Items</h6>
-           
                 </div>
-                 <div class="col-6">
+                <div class="col-6">
                     <h6 class="my-0 text-small">Price</h6>
-
                 </div>
             </li>
             {% for item in cart_items %}
@@ -60,14 +58,13 @@
                         <img class="figure-img img-fluid w-50" src="{{ item.product.image.url }}" alt="{{ product.title }}">
                         <figcaption class="figure-caption body-font">{{ item.product.title }}</figcaption>
                     </figure>
-                        {% else %}
-                        <h6 class="my-0 fw-bold">{{ item.product.title }}</h6>
-                {% endif %}
+                    {% else %}
+                    <h6 class="my-0 fw-bold">{{ item.product.title }}</h6>
+                    {% endif %}
                 </div>
                 <div class="col-6">
                     <span class="body-font fw-bold text-muted" style="text-decoration: line-through;">${{ item.product.price | calc_subtotal:item.quantity }}</span>
                     <span class="mb-0">${{ grand_total|floatformat:2 }}</span>
-
                 </div>
             </li>
             {% endfor %}
@@ -87,7 +84,7 @@
                 {{ order_form.email | as_crispy_field }}
             </fieldset>
             <fieldset class="rounded px-3 mb-5">
-               <legend class="fieldset-label small text-dark px-2 w-auto">
+                <legend class="fieldset-label small text-dark px-2 w-auto">
                     <h4 class="align-items-center mb-3">
                         <span>Billing Details</span></h4>
                 </legend>
@@ -104,15 +101,20 @@
                     <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
                     {% else %}
                     <label class="form-check-label" for="id-save-info">
-                        <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or
-                        <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
+                        <p class="body-font">
+                            <span>
+                                <a class="link-font" href="{% url 'account_signup' %}">Create an account</a>
+                            </span>
+                            or
+                            <span>
+                                <a class="link-font" href="{% url 'account_login' %}">login</a></span> to save this information</p>
                     </label>
                     {% endif %}
                 </div>
             </fieldset>
             <!-- Stripe payment elements start here -->
             <fieldset class="px-3">
-                <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
+                <legend class="fieldset-label small text-dark body-font fw-bold px-2 w-auto">Payment</legend>
                 <!-- A Stripe card element will go here -->
                 <div class="mb-3" id="card-element"></div>
                 <!-- Used to display form errors -->

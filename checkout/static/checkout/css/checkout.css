@@ -45,8 +45,10 @@
 }
 
 #payment-form .form-control,
-#card-element {
-    color: #000;
+#card-element, .InputElement {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    color: #6a509a;
     border: 1px solid #000;
 }
 
@@ -58,6 +60,10 @@ select option {
 select:invalid,
 select option[value=""] {
     color: #aab7c4 !important;
+}
+
+.crispy_field {
+        color:  hotpink;
 }
 
 #loading-overlay {

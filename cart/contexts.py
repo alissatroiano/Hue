@@ -13,11 +13,12 @@ def cart_components(request):
 
 	for item_id, quantity in cart.items():
 		product = get_object_or_404(Product, pk=item_id)
-		total += quantity * product.final_price
+		total += quantity * product.price
 		product_count += quantity
 		print(quantity, product.price, product.final_price, total)
 		cart_items.append({
             'item_id': item_id,
+            'total': total,
             'quantity': quantity,
             'product': product,
         })
@@ -25,15 +26,12 @@ def cart_components(request):
 
 	print('The total is', total)
 
-	if total > settings.PROMOTION_MINIMUM:
+	if total >= Decimal(settings.PROMOTION_MINIMUM):
 		promotion = Decimal(settings.PROMOTION_PERCENTAGE)
-		grand_total = total * Decimal(settings.PROMOTION_MINIMUM)
-
+		grand_total = total * Decimal(settings.PROMOTION_PERCENTAGE)
 	else:
 		promotion = 0
 		grand_total = total
-	
-	grand_total = total * promotion	 
 
 	context = {
 		'cart_items': cart_items,
@@ -45,5 +43,7 @@ def cart_components(request):
 		}
 
 	print(context)
+	print('The grand total is', grand_total)
+
 
 	return context
