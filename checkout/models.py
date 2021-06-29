@@ -52,11 +52,6 @@ class Order(models.Model):
         """
         self.total = self.lineitems.aggregate(
             Sum('orderitem_total'))['orderitem_total__sum'] or 0
-        if self.total is not None:
-            self.total = self.total * Decimal(settings.TAX_RATE / 100)
-        else:
-            self.tax_rate = 0
-        self.grand_total = self.total * self.tax_rate
         self.save()
 
     def save(self, *args, **kwargs):
