@@ -56,7 +56,7 @@ INSTALLED_APPS = [
     "django_countries",
 ]
 
-CURRENCY = '$' # Set default currency to US Dollar
+CURRENCY = '$' # Default currency is US Dollar
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
