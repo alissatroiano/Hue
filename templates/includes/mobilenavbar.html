@@ -36,13 +36,13 @@
             </ul>
         </div>
     </li>
-    <li class="list-item dropdown">
-        <a class="dropdown-toggle nav-link link-dark text-small" href="#" role="button" id="acccountOptions" data-bs-toggle="dropdown" aria-expanded="false">
+    <li class="list-inline-item dropdown d-lg-none">
+        <a class="dropdown-toggle nav-link link-dark text-small" href="#" role="button" id="mobileAccountOptions" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="bi d-block mx-auto text-center mb-1 fas fa-user">
             </i>
             My Account
         </a>
-        <ul class="dropdown-menu" aria-labelledby="acccountOptions">
+        <ul class="dropdown-menu" aria-labelledby="mobileAccountOptions">
             {% if request.user.is_authenticated %}
             {% if request.user.is_superuser %}
             <li class="dropdown-item display-font">

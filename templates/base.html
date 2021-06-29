@@ -73,14 +73,14 @@
                             </i>
                             My Account
                         </a>
-                        <ul class="dropdown-menu text-dark" aria-labelledby="acccountOptions">
+                        <ul class="dropdown-menu text-dark" aria-labelledby="accountOptions">
                             {% if request.user.is_superuser %}
                             <li class="list-item"> <a href="" class="dropdown-item">Product Management</a>
                             </li>
                             {% endif %}
                             <li class="text-dark"> <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a></li>
                             {% else %}
-                            <a type="button" id="login-button" class="btn btn-primary text-dark me-2" href="{% url 'account_login' %}">Login</a>
+                            <a type="button" id="login-button" class="btn btn-primary me-2" href="{% url 'account_login' %}">Login</a>
                             <a type="button" id="signup-button" class="btn btn-primary" href="{% url 'account_signup' %}">Sign Up</a>
                             {% endif %}
                         </ul>
