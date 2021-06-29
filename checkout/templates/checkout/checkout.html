@@ -42,10 +42,14 @@
             <span class="badge" id="checkout_badge">{{ product_count }}</span>
         </h4>
         <ul class="list-group mb-3 sticky-top">
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <li class="list-group-item d-flex justify-content-center lh-condensed">
                 <div class="col-6">
                     <h6 class="my-0 text-small">Items</h6>
-                    <small class="text-muted"></small>
+           
+                </div>
+                 <div class="col-6">
+                    <h6 class="my-0 text-small">Price</h6>
+
                 </div>
             </li>
             {% for item in cart_items %}
@@ -53,15 +57,17 @@
                 <div class="col-6">
                     {% if item.product.image %}
                     <figure class="figure">
-                        <img class="figure-img img-fluid w-50" src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                        <img class="figure-img img-fluid w-50" src="{{ item.product.image.url }}" alt="{{ product.title }}">
                         <figcaption class="figure-caption body-font">{{ item.product.title }}</figcaption>
+                    </figure>
                         {% else %}
                         <h6 class="my-0 fw-bold">{{ item.product.title }}</h6>
-                        {% endif %}
-                        <small class="text-muted"></small>
+                {% endif %}
                 </div>
-                <div>
-                    <span class="body-font fw-bold text-muted">{{ item.product.display_final_price | calc_subtotal:item.quantity }}</span>
+                <div class="col-6">
+                    <span class="body-font fw-bold text-muted" style="text-decoration: line-through;">${{ item.product.price | calc_subtotal:item.quantity }}</span>
+                    <span class="mb-0">${{ grand_total|floatformat:2 }}</span>
+
                 </div>
             </li>
             {% endfor %}

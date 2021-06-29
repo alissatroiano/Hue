@@ -14,6 +14,7 @@ h3,
 h4,
 h5,
 h6 {
+    font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -74,6 +75,13 @@ a {
 }
 
 .heading-lg {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 3rem;
+}
+
+.heading-xl {
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
     font-size: 5rem;
@@ -138,15 +146,16 @@ a {
     font-family: 'Raleway', sans-serif;
     text-decoration: none;
     font-weight: 400;
+    color: #6a509a;
 }
 
 .link-font:hover {
-    background-color: rgb(165, 221, 224);
+    background-color: rgb(170 151 204);
     opacity: 1;
     color: #fafafa;
-    padding: 15px 5px;
-    transition: 0.5s;
-    opacity: 1;
+    padding: 5px 8px;
+    width: 300px;
+    transition: 0.5s ease-in-out;
 }
 
 .icon-main {
@@ -157,7 +166,6 @@ a {
      color: #6a509a;
 }
 
-
 hr {
     width: 20px;
     margin: 0px auto;
@@ -166,7 +174,7 @@ hr {
 
 #divider {
     width: 100%;
-    border-top: 1.5px solid #666;
+    border-top: 1.5px solid #6a509a;
 }
 
 button,
@@ -201,6 +209,7 @@ button,
 .btn-none {
     background-color: transparent;
     border: none;
+    color: #6a509a;
 }
 
 .btn-none:hover {
@@ -663,6 +672,8 @@ i .login-auth-wrapper .login-auth-body {
 .signup-main-col,
 .signup-background-col {
     position: relative;
+    min-height: 100vh;
+    overflow: hidden;
 }
 
 .form-login,
@@ -714,7 +725,8 @@ p#login-slug {
     left: 0;
     top: 0;
     z-index: 10;
-    background: rgba(0, 0, 0, .1);
+    background: rgba(0, 0, 0, .15);
+    overflow: hidden;
 }
 
 .login-background-lg,
@@ -759,7 +771,6 @@ img.me-auto.mb-4 {
 button.btn.btn-primary.loginButton {
     max-width: fit-content;
     padding: 25px 12px;
-
 }
 
 .d-flex.flex-column.align-content-end.pt-5 {

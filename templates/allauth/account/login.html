@@ -14,11 +14,12 @@
 <div class="hue-login container-fluid text-center mx-auto my-0">
     <div class="row flex-wrap g-0 login-auth-wrapper pt-0 my-0 mx-auto">
         <div class="col-12 col-md-7 col-lg-6 login-main-col text-center px-2">
-            <div class="d-flex flex-column align-content-end pt-5">
+            <div class="d-flex flex-column align-content-center pt-5">
                 <div class="app-auth-body mx-auto">
                     <div class="my-0 mx-auto text-center">
-                        <h2 class="pt-5 mt-5 py-2 text-center display-font font-weight-normal">Login</h2>
-                        <hr class="mt-3">
+                        <i class="fas fa-tint fa-3x my-4"></i>
+                        <h2 class="py-2 text-center heading-lg">Login</h2>
+                        <hr class="my-4">
                         <div class="auth-form-container text-start">
                             <!--auth-form-->
                             <form class="form-login" method="POST" action="{% url 'account_login' %}" id="loginForm">
@@ -40,17 +41,16 @@
                 <!--./d-flex-->
                 <div class="login-utilities text-center">
                     <hr class="mb-4 mt-2">
-                    <p class="body-small text-center py-1"> Can't access your account?
+                    <p class="body-sm text-center py-1"> Can't access your account?
                         <br>
-                        <strong><a class="px-0 py-1 mx-auto my-0 link-font" href="{% url 'account_reset_password' %}">{% trans "Reset your password here!" %}</a>
-                        </strong>
-                        <p class="body-small text-center py-1">{% blocktrans %}Don't have an account?
+                        <a class="link-font" href="{% url 'account_reset_password' %}">{% trans "Reset your password here!" %}</a>
+                        <p class="body-sm text-center py-1">{% blocktrans %}Don't have an account?<br>
                             <a href="{{ signup_url }}" class="link-font">Sign Up!</a>{% endblocktrans %}</p>
                 </div>
                 {% get_providers as socialaccount_providers %}
                 {% if socialaccount_providers %}
                 <div class="d-flex flex-column align-content-center my-0 mx-auto text-center pt-2 socialaccount_ballot">
-                    <p class="body-small px-5 py-1 body-small mx-auto my-0 text-wrap text-muted" id="login_slug">{% blocktrans with site.name as site_name %} Login with your favorite social account!{% endblocktrans %}</p>
+                    <p class="body-sm px-5 py-1 body-sm mx-auto my-0 text-wrap text-dark" id="login_slug">{% blocktrans with site.name as site_name %} Login with your favorite social media provider!{% endblocktrans %}</p>
                     <ul class="nav justify-content-center socialaccount_providers py-3">
                         <li>
                             <a title="Facebook" class="px-2 socialaccount_provider facebook" href="/accounts/facebook/login/?process=login"><i class="fab fa-facebook fa-2x"></i></a>

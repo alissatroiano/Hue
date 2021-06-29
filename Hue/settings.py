@@ -209,7 +209,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Discounts
 PROMOTION_MINIMUM = 50
-PROMOTION_PERCENTAGE = 10
+PROMOTION_PERCENTAGE = .75
 TAX_RATE = 8.0
 
 # Stripe Config
