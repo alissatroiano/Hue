@@ -52,8 +52,7 @@ INSTALLED_APPS = [
     "allauth.socialaccount.providers.google",
     "allauth.socialaccount.providers.pinterest", 
     "crispy_forms",
-    "crispy_bootstrap5",
-    "django_countries",
+    "crispy_bootstrap5"
 ]
 
 CURRENCY = '$' # Default currency is US Dollar
