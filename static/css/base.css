@@ -39,15 +39,6 @@ a {
     background-color: #100324;
 }
 
-.btn-link {
-    color:  #100324;
-}
-
-.btn-link:hover {
-    text-decoration: none;
-    background-color: ;
-}
-
 .display-font {
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
@@ -153,8 +144,7 @@ a {
     background-color: rgb(170 151 204);
     opacity: 1;
     color: #fafafa;
-    padding: 5px 8px;
-    width: 300px;
+    padding: 5px;
     transition: 0.5s ease-in-out;
 }
 
