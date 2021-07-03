@@ -19,9 +19,12 @@
         <div class="row">
             <div class="col">
                 <hr>
-                <h2 class="logo-font mb-4">Thank You</h2>
-                <hr>
-                <p class="text-black">Your order information is below. A confirmation email will be sent to <strong>{{ order.email }}</strong>.</p>
+                <h2 class="display-font heading-lg mb-4">Thank You</h2>
+                <hr class="my-3">
+                <p class="text-dark body-font">Your order information is below. A confirmation email will be sent to 
+                    <strong>{{ order.email }}
+                    </strong>.
+                </p>
             </div>
         </div>
 
@@ -62,7 +65,7 @@
                     <div class="row">
                         <div class="col-12 col-md-4">
                             <p class="small mb-0 text-black font-weight-bold">
-                                {{ item.product.name }}{% if item.product_dimension %} - dimension {{ item.product.dimension|upper }}{% endif %}
+                                {{ item.product.title }}{% if item.product_dimension %} - dimension {{ item.product.dimension|upper }}{% endif %}
                             </p>
                         </div>
                         <div class="col-12 col-md-8 text-md-right">
@@ -73,7 +76,7 @@
 
                     <div class="row">
                         <div class="col">
-                            <small class="text-muted">Delivering To:</small>
+                            <small class="text-muted">Your Information</small>
                         </div>
                     </div>
 
@@ -82,10 +85,15 @@
                             <p class="mb-0 text-black font-weight-bold">Full Name</p>
                         </div>
                         <div class="col-12 col-md-8 text-md-right">
-                            <p class="mb-0">{{ order.full_name }}</p>
+                            <p class="mb-0">{{ order.user_full_name }}</p>
                         </div>
                          <div class="col-12 col-md-8 text-md-right">
                             <p class="mb-0">{{ order.email }}</p>
+                        </div>
+                    </div>
+                    div class="row">
+                        <div class="col">
+                            <small class="text-muted">Your Billing Details</small>
                         </div>
                     </div>
 
@@ -175,7 +183,7 @@
 
                     <div class="row">
                         <div class="col-12 col-md-4">
-                            <p class="mb-0 text-black font-weight-bold">Delivery</p>
+                            <p class="mb-0 text-black font-weight-bold">Summary</p>
                         </div>
                         <div class="col-12 col-md-8 text-md-right">
                             <p class="mb-0">{{ order.special_discount }}</p>

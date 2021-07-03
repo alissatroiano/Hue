@@ -45,13 +45,18 @@ class Order(models.Model):
         """
         return uuid.uuid4().hex.upper()
 
-    def update_grand_total(self):
+    def update_total(self):
         """
         Update grand total each time a line item is added,
         accounting for delivery costs.
         """
-        self.total = self.lineitems.aggregate(
+        self.order_total = self.orderitems.aggregate(
             Sum('orderitem_total'))['orderitem_total__sum'] or 0
+        if self.order_total > settings.PROMOTION_MINIMUM:
+            self.special_discount = self.order_total * settings.PROMOTION_PERCENTAGE
+        else:
+            self.special_discount = 0
+        self.grand_total = self.order_total
         self.save()
 
     def save(self, *args, **kwargs):
@@ -60,7 +65,7 @@ class Order(models.Model):
         if it hasn't been set already.
         """
         if not self.order_number:
-            self.order_number = self._generate_order_number()
+            self.order_number = self._create_order_number()
         super().save(*args, **kwargs)
         
     def __str__(self):

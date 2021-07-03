@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
 {% load cart_tools %}
+
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
+
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -11,6 +13,7 @@
     </div>
 </div>
 {% endblock %}
+
 {% block content %}
 <div class="overlay"></div>
 <div class="container-fluid">
@@ -75,8 +78,7 @@
         <!--./end-row-->
         <!-- Checkout Form Starts Here -->
         <div class="col-md-7 col-12">
-            <form method="POST" action="{% url 'checkout' %}" id="payment-form">
-                {% csrf_token %}
+            <form action="{% url 'checkout' %}" method="POST" id="payment-form">  {% csrf_token %}
                 <fieldset class="rounded px-3 mb-5">
                     <legend class="fieldset-label small text-dark px-2 w-auto">
                         <h4 class="align-items-center mb-3">
@@ -124,7 +126,6 @@
                     <!-- Pass the client secret to the view so we can get the payment intent id -->
                     <input type="hidden" value="{{ client_secret }}" name="client_secret">
                 </fieldset>
-                <fieldset>
                     <!--Submit Button starts here -->
                     <div class="submit-button text-center mt-5 mb-2">
                         <a href="{% url 'view_cart' %}" class="btn link-font">
@@ -133,13 +134,12 @@
                             </span>
                             <span class="fw-bold">Update Cart</span>
                         </a>
-                        <a href="{% url 'checkout' %}" class="btn link-font">
-                            <span class="fw-bold">Secure Checkout</span>
+                     <button id="submit-button" class="link-font">
+                            <span class="fw-bold">Complete Order</span>
                             <span class="icon">
-                                <i class="fas fa-chevron-circle-right">
-                                </i>
+                                <i class="fas fa-lock"></i>
                             </span>
-                        </a>
+                        </button>
                         <p class="text-small text-danger my-0">
                             <span class="icon">
                                 <i class="fas fa-exclamation-circle"></i>
@@ -151,7 +151,6 @@
                         </p>
                     </div>
                     <!--./end-submit-button-->
-                </fieldset>
             </form>
         </div>
     </div>
@@ -167,8 +166,8 @@
 {% endblock %}
 <!--./end-block-->
 {% block postloadjs %}
-{{ block.super }}
-{{ stripe_public_key|json_script:"id_stripe_public_key" }}
-{{ client_secret|json_script:"id_client_secret" }}
-<script src="{% static 'checkout/js/checkout.js' %}"></script>
+    {{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}

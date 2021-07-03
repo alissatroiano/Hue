@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
-from django.views.decorators.http import require_POST
-from django.contrib import messages
+
 from django.conf import settings
 
 from .forms import OrderForm
@@ -69,11 +68,12 @@ def checkout(request):
         if not cart:
             messages.error(request, "There's nothing in your cart at the moment")
             return redirect(reverse('shop'))
+
         current_cart = cart_components(request)
         total = current_cart['grand_total']
         # stripe
         stripe_total = round(total * 100)
-        stripe.api_key = settings.STRIPE_SECRET_KEY
+        stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
@@ -88,9 +88,9 @@ def checkout(request):
 
         template = 'checkout/checkout.html'
         context = {
-        'order_form': order_form,
-        'stripe_public_key': 'pk_test_51J5BfyJuLUUDUAz9Rkhvu4bi7GFnV0T1E3ueMvoUlFvU6OCJOCWhYG3LFRmeTvTFyUvb0CyF6W8uALTdnuYhUSJD00AL9gibGI',
-        'client_secret': intent.client_secret,
+            'order_form': order_form,
+            'stripe_public_key': stripe_public_key,
+            'client_secret': intent.client_secret,
         }
 
         return render(request, template, context)

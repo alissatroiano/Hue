@@ -24,6 +24,7 @@ class OrderForm(forms.ModelForm):
             'street_address1': 'Street Address 1',
             'street_address2': 'Street Address 2',
             'county': 'County, State or Locality',
+            'country': 'Country',
         }
 
         self.fields['user_full_name'].widget.attrs['autofocus'] = True
