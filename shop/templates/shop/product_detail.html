@@ -60,6 +60,20 @@
                             <div class="body-font text-break body-sm text-muted mb-2">{{ product.product_details }}</div>
                         </div>
                     </div>
+                     <div class="form-row my-3">
+                            {% with product.has_dimensions as s %}
+                            {% if s %}
+                                <div class="col-12">
+                                    <p><strong>File Size:</strong></p>
+                                    <select class="form-control rounded-0 w-auto" name="product_dimension" id='id_product_dimension'>
+                                        <option value="s">Low Resolution (1024px)</option>
+                                        <option value="m" selected>Medium Resolution (2048px)</option>
+                                        <option value="l">High Resolution (3600px)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            {% endif %}
+                        {% endwith %}
                     <div class="d-flex justify-content-between border-bottom">
                         <div>
                             <div class="fw-bold body-font text-dark">Medium</div>
