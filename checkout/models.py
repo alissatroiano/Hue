@@ -7,13 +7,12 @@ from django.conf import settings
 from django_countries.fields import CountryField
 
 from shop.models import Product
-import datetime
 
 from decimal import Decimal
 CURRENCY = settings.CURRENCY
 
-import datetime
-now = datetime.datetime.now()
+from datetime import datetime
+import pytz
 
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False, unique=True)
