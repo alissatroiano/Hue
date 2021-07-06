@@ -12,6 +12,9 @@ import datetime
 from decimal import Decimal
 CURRENCY = settings.CURRENCY
 
+import datetime
+now = datetime.datetime.now()
+
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False, unique=True)
     user_full_name = models.CharField(max_length=50, null=False, blank=False)
@@ -53,7 +56,7 @@ class Order(models.Model):
         self.order_total = self.orderitems.aggregate(
             Sum('orderitem_total'))['orderitem_total__sum'] or 0
         if self.order_total > settings.PROMOTION_MINIMUM:
-            self.special_discount = self.order_total * settings.PROMOTION_PERCENTAGE
+            self.special_discount = self.order_total * Decimal(settings.PROMOTION_PERCENTAGE)
         else:
             self.special_discount = 0
         self.grand_total = self.order_total
