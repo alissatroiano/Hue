@@ -28,7 +28,6 @@ def checkout(request):
             'street_address2': request.POST['street_address2'],
             'county': request.POST['county'],
         }
-
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save()
@@ -91,7 +90,7 @@ def checkout(request):
         context = {
             'order_form': order_form,
             'stripe_public_key': 'pk_test_51J5BfyJuLUUDUAz9Rkhvu4bi7GFnV0T1E3ueMvoUlFvU6OCJOCWhYG3LFRmeTvTFyUvb0CyF6W8uALTdnuYhUSJD00AL9gibGI',
-            'client_secret': 'test client secret',
+            'client_secret': intent.client_secret,
         }
 
         return render(request, template, context)
@@ -99,7 +98,7 @@ def checkout(request):
 
 def checkout_success(request, order_number):
     """
-    Handles successful checkout and renders order confirmaion for users 
+    Handle successful checkouts
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
