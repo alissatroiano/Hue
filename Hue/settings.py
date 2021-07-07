@@ -185,14 +185,13 @@ LANGUAGE_CODE = 'en-us'
 USE_I18N = True
 
 USE_L10N = True
-# Time zone support is enabled
-USE_TZ = True
-TIME_ZONE = 'America/New_York'
+
+USE_TZ = True # Enable Timezone support https://docs.djangoproject.com/en/3.2/topics/i18n/timezones/
+TIME_ZONE = 'America/New_York' # Set the timezone https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
 STATIC_URL = '/static/'
 
 # Extra places for collectstatic to find static files.
@@ -205,7 +204,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Discounts
 PROMOTION_MINIMUM = 50
-PROMOTION_PERCENTAGE = .75
+PROMOTION_PERCENTAGE = .25
 TAX_RATE = 8.0
 
 # Stripe Config
