@@ -28,6 +28,7 @@ def checkout(request):
             'street_address2': request.POST['street_address2'],
             'county': request.POST['county'],
         }
+
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save()
@@ -98,7 +99,7 @@ def checkout(request):
 
 def checkout_success(request, order_number):
     """
-    Handle successful checkouts
+    Handles successful checkout and renders order confirmaion for users 
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
