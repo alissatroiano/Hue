@@ -53,13 +53,13 @@ class Order(models.Model):
         Update grand total each time a line item is added,
         accounting for delivery costs.
         """
-        self.order_total = self.orderitems.aggregate(
-            Sum('orderitem_total'))['orderitem_total__sum'] or 0
-        if self.order_total > settings.PROMOTION_MINIMUM:
+        self.order_total = self.orderitems.aggregate(Sum('orderitem_total'))['orderitem_total__sum'] or 0
+        if self.order_total >= settings.PROMOTION_MINIMUM:
             self.special_discount = self.order_total * Decimal(settings.PROMOTION_PERCENTAGE)
+            self.grand_total = self.order_total - self.special_discount
         else:
             self.special_discount = 0
-        self.grand_total = self.order_total
+        self.grand_total = self.order_total - self.special_discount
         self.save()
 
     def save(self, *args, **kwargs):
@@ -74,7 +74,6 @@ class Order(models.Model):
     def __str__(self):
         return self.order_number
 
-
 class OrderItem(models.Model):
     """
     The OrderItem model stores data of the product and the amount of the product
@@ -88,8 +87,7 @@ class OrderItem(models.Model):
 
     def save(self, *args, **kwargs):
         """
-        Override the original save method to set the lineitem total
-        and update the order total.
+        Override save method to set update the order total with orderitem_total.
         """
         self.orderitem_total = self.product.price * self.quantity
         super().save(*args, **kwargs)
