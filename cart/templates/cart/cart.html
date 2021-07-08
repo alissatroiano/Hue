@@ -159,8 +159,9 @@
     $('.remove-item').click(function(e) {
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove_')[1];
+        var dimension = $(this).data('product_dimension');
         var url = `/cart/remove/${itemId}/`;
-        var data = { 'csrfmiddlewaretoken': csrfToken };
+        var data = { 'csrfmiddlewaretoken': csrfToken, 'product_dimension': dimension };
 
         $.post(url, data)
             .done(function() {

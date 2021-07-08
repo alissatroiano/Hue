@@ -31,18 +31,18 @@ def checkout(request):
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save()
-            for item_id, item_data in cart.items():
+            for item_id, quantity in cart.items():
                 try:
                     product = Product.objects.get(id=item_id)
-                    if isinstance(item_data, int):
+                    if isinstance(quantity, int):
                         order_item = OrderItem(
                             order=order,
                             product=product,
-                            quantity=item_data,
+                            quantity=quantity,
                         )
                         order_item.save()
                     else:
-                        for dimension, quantity in item_data['items_by_dimension'].items():
+                        for dimension, quantity in quantity['items_by_dimension'].items():
                             order_item = OrderItem(
                                 order=order,
                                 product=product,
