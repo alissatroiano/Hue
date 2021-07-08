@@ -25,14 +25,16 @@
         <div class="row d-flex justify-content-between my-5 py-5 my-lg-5 pt-0 pt-lg-5 mx-5">
             <!-- product image card-->
             <div class="col-12 col-lg-7 px-2 px-lg-5 my-0 mx-auto">
-                <div class="product-details">
-                    <div class="product-details-preview order-sm-2">
-                        <div class="card h-100 img-fluid border border-1 shadow-lg">
-                            <img class="h-100 img-fluid" src="{{ product.image.url }}" class="figure-img img-fluid" alt="{{ product.title }}">
-                        </div>
-                    </div>
+                    {% if product.image %}
+                    <a href="{{ product.image.url }}" target="_blank">
+                        <img id="productdetails1" class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.title }}">
+                    </a>
+                    {% else %}
+                    <a href="">
+                        <img id="productdetails2" class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.title }}">
+                    </a>
+                    {% endif %}
                 </div>
-            </div>
             <!--./end-product-image-card-->
             <!-- product details -->
             <div class="col-12 col-lg-5 pt-4 pt-lg-0 px-2 px-lg-5 my-0 mx-auto">

@@ -862,24 +862,25 @@ button.btn.btn-primary.loginButton {
 
 /* ***************************./end-shop */
 
-
 /* *************************** Product Details */
 .product-details-wrapper {
     position: relative;
     overflow: hidden;
 }
 
-.product-details {
+#productdetails1,
+#productdetails2 {
     max-width: 100%;
-    min-height: auto;
-    justify-content: center;
+    height: auto;
     overflow: hidden;
-    border: none;
-    margin: 0px auto;
     box-shadow: 0 1.5em 2em -1em #999;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.35);
-    filter: grayscale(0%);
     -webkit-filter: grayscale(0%);
+}
+
+#productdetails1:hover,
+#productdetails2:hover {
+    -webkit-filter: grayscale(100%);
 }
 
 /* Shadow effect copied from https://codepen.io/team/sparkbox/pen/dRpZXj */
@@ -888,6 +889,11 @@ button.btn.btn-primary.loginButton {
     position: relative;
     overflow: hidden;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    -webkit-filter: grayscale(100%);
+}
+
+#shop-card:hover {
+    -webkit-filter: grayscale(0%);
 }
 
 a.btn.btn-outline-dark.btn-dark.rounded-1,
