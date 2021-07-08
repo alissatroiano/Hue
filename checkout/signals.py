@@ -3,9 +3,11 @@ from django.dispatch import receiver
 
 from .models import OrderItem
 
-
 @receiver(post_save, sender=OrderItem)
 def update_on_save(sender, instance, created, **kwargs):
+    """
+    Signal to update order total when items are added/edited
+    """
     instance.order.update_total()
 
 
