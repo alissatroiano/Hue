@@ -10,7 +10,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {% endblock %}
+
     {% block extra_meta %}{% endblock %}
+
     {% block corecss %}
     <!--Font Awesome CDN-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" type="text/css" crossorigin="anonymous" />
@@ -26,7 +28,7 @@
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     <!--jQuery Plugin-->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!--Stripe -->
     <script src="https://js.stripe.com/v3/"></script>
     {% endblock %}
@@ -34,8 +36,9 @@
     {% block extra_js%}
     {% endblock %}
 
-    {% block head_title %}{% endblock %}
+    {% block head_title %}
     <title>Hue</title>
+    {% endblock %}
     <!--Favicon -->
     <link rel="shortcut icon" type="image/ico" href="{% static 'images/favicon1.png' %}" />
 </head>
@@ -140,15 +143,14 @@
         </div>
     </header>
     <!--end header-->
+    <div class="message-container"></div>
+    
     {% block page_header %}{% endblock %}
     {% block content %}{% endblock %}
     {% if messages %}
-    <div class="message-container"></div>
     {% endif %}
 
-    {% block postloadjs %}
-    
-    {% endblock %}
+    {% block postloadjs %}{% endblock %}
 </body>
 <!--./body-ends-here-->
 

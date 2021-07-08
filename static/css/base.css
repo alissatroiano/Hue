@@ -353,12 +353,6 @@ a#nav-alert-link:hover {
     color: #033030;
 }
 
-button#hero-button:hover,
-button#hero-button-2:hover {
-    background-color: rgb(54 45 70 / 80%);
-    color: #fafafa;
-}
-
 ul,
 li {
     list-style: none;
@@ -371,22 +365,7 @@ li {
   background-color: transparent;    
   border: none; 
 }
-
-button#shopDropdown1 {
-    background-color: transparent;
-}
-
-.dropdown-toggle {
-    background: none;
-}
-
-a.dropdown-toggler.nav-link.d-block.d-lg-none {
-    background: none;
-}
-
-/* https://www.solodev.com/blog/web-design/creating-a-toggled-search-bar.stml */
 /* ***************************.end-mobile-nav-&-shop-nav */
-
 
 /***************************** Homepage */
 .hero-container,
@@ -459,7 +438,7 @@ button#hero-button {
 
 button#hero-button:hover,
 button#hero-button-2:hover {
-    background-color: rgb(54 45 70 / 80%);
+    background-color: rgba(54 45 70 / 80%);
     color: #fafafa;
 }
 
@@ -880,7 +859,7 @@ button.btn.btn-primary.loginButton {
 
 #shop-card:hover {
     -webkit-filter: grayscale(0%);
-    filter: grayscale(100%);
+    filter: grayscale(0%);
 }
 
 a.btn.btn-outline-dark.btn-dark.rounded-1,
