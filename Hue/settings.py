@@ -185,13 +185,16 @@ LANGUAGE_CODE = 'en-us'
 USE_I18N = True
 
 USE_L10N = True
-
-USE_TZ = True # Enable Timezone support https://docs.djangoproject.com/en/3.2/topics/i18n/timezones/
-TIME_ZONE = 'UTC' # Set the timezone https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+# Time zone support is enabled
+USE_TZ = True
+TIME_ZONE = 'America/New_York'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 STATIC_URL = '/static/'
+
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
@@ -200,13 +203,17 @@ STATICFILES_DIRS = (
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-if 'USE_AWS' in os.environ:
-    # Cache control
-    AWS_S3_OBJECT_PARAMETERS = {
-        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
-        'CacheControl': 'max-age=94608000',
-    }
+# Discounts
+PROMOTION_MINIMUM = 50
+PROMOTION_PERCENTAGE = .75
+TAX_RATE = 8.0
 
+# Stripe Config
+STRIPE_CURRENCY = 'usd'
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
+
+if 'USE_AWS' in os.environ:
     # Bucket Config
     AWS_STORAGE_BUCKET_NAME = 'hue-alissa'
     AWS_S3_REGION_NAME = 'us-east-2'
@@ -225,15 +232,5 @@ if 'USE_AWS' in os.environ:
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
-# Discounts
-PROMOTION_MINIMUM = 50
-PROMOTION_PERCENTAGE = .25
-TAX_RATE = 8.0
-
-# Stripe Config
-STRIPE_CURRENCY = 'usd'
-STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
-STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

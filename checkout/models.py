@@ -3,11 +3,17 @@ import uuid
 from django.db import models
 from django.db.models import Sum
 from django.conf import settings
+
 from django_countries.fields import CountryField
 
 from shop.models import Product
+import datetime
+
 from decimal import Decimal
 CURRENCY = settings.CURRENCY
+
+import datetime
+now = datetime.datetime.now()
 
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False, unique=True)
@@ -49,12 +55,11 @@ class Order(models.Model):
         """
         self.order_total = self.orderitems.aggregate(
             Sum('orderitem_total'))['orderitem_total__sum'] or 0
-        if self.order_total >= settings.PROMOTION_MINIMUM:
+        if self.order_total > settings.PROMOTION_MINIMUM:
             self.special_discount = self.order_total * Decimal(settings.PROMOTION_PERCENTAGE)
-            self.grand_total = self.order_total - self.special_discount 
         else:
             self.special_discount = 0
-        self.grand_total = self.order_total - self.special_discount
+        self.grand_total = self.order_total
         self.save()
 
     def save(self, *args, **kwargs):

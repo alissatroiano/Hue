@@ -27,11 +27,11 @@ def cart_components(request):
 	print('The total is', total)
 
 	if total >= Decimal(settings.PROMOTION_MINIMUM):
-		promotion = total * Decimal(settings.PROMOTION_PERCENTAGE)
-		grand_total = total - promotion
+		promotion = Decimal(settings.PROMOTION_PERCENTAGE)
+		grand_total = total * Decimal(settings.PROMOTION_PERCENTAGE)
 	else:
 		promotion = 0
-	grand_total = total - promotion
+		grand_total = total
 
 	context = {
 		'cart_items': cart_items,
