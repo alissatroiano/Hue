@@ -194,6 +194,8 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 ## Version Control
 - [GitHowTo.com](https://githowto.com/getting_old_versions) for returning to the latest version in master branch after `git reset --hard <commitsha>.`
 
+- [Git's Documentation](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging) for basic branching & merging.
+
 -[Stack Overflow](https://stackoverflow.com/questions/9529078/how-do-i-use-git-reset-hard-head-to-revert-to-a-previous-commit) for the following solution to my inquiry of how to properly `git reset --hard <commitsha>`.
 
 ## Utilities & tools
