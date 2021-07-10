@@ -1,17 +1,3 @@
-.badge, #checkout_badge {
-    display: inline-block;
-    padding: .5em .6em;
-    font-size: .75em;
-    font-weight: 700;
-    line-height: 1;
-    color: #fff;
-    text-align: center;
-    white-space: nowrap;
-    background: #6a509a7d!important;
-    vertical-align: baseline;
-    border-radius: 50%;
-}
-
 .StripeElement,
 .stripe-style-input {
   box-sizing: border-box;
@@ -45,25 +31,9 @@
 }
 
 #payment-form .form-control,
-#card-element, .InputElement {
-    font-family: 'Raleway', sans-serif;
-    font-weight: 500;
-    color: #6a509a;
+#card-element {
+    color: #000;
     border: 1px solid #000;
-}
-
-select,
-select option {
-    color: #000000;
-}
-
-select:invalid,
-select option[value=""] {
-    color: #aab7c4 !important;
-}
-
-.crispy_field {
-        color:  hotpink;
 }
 
 #loading-overlay {

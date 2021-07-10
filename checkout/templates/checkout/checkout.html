@@ -16,20 +16,7 @@
 
 {% block content %}
 <div class="overlay"></div>
-<div class="container-fluid">
-    <div class="row d-flex justify-content-center">
-        <div class="col-12 pt-5 px-3 my-0 mx-auto">
-            <!-- breadcrumb-->
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb display-font heading-xs">
-                    <li class="breadcrumb-item"><a href="{% url 'shop' %}">Shop</a></li>
-                    <li class="breadcrumb-item"><a href="{% url 'view_cart' %}">Your Cart</a></li>
-                    <li aria-current="page" class="breadcrumb-item active">Checkout</li>
-                </ol>
-            </nav>
-        </div>
-    </div>
-</div>
+
 <div class="container-fluid">
     <div class="row py-3 text-center">
         <div class="col-12">
@@ -38,7 +25,7 @@
         </div>
     </div>
 </div>
-<div class="container-fluid">
+<div class="container">
     <div class="row d-flex justify-content-center">
         <div class="col-12 col-md-4 order-md-2 mb-4">
             <h4 class="align-items-center mb-3">
@@ -78,12 +65,12 @@
         <!--./end-row-->
         <!-- Checkout Form Starts Here -->
         <div class="col-md-7 col-12">
-            <form action="{% url 'checkout' %}" method="POST" id="payment-form">  {% csrf_token %}
+            <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+                {% csrf_token %}
                 <fieldset class="rounded px-3 mb-5">
                     <legend class="fieldset-label small text-dark px-2 w-auto">
                         <h4 class="align-items-center mb-3">
-                            <span>Your Info</span></h4>
-                    </legend>
+                            <span>Your Info</span></h4></legend>
                     {{ order_form.user_full_name | as_crispy_field }}
                     {{ order_form.email | as_crispy_field }}
                 </fieldset>
@@ -124,7 +111,6 @@
                     <!-- Used to display form errors -->
                     <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
                     <!-- Pass the client secret to the view so we can get the payment intent id -->
-                    <input type="hidden" value="{{ client_secret }}" name="client_secret">
                 </fieldset>
                     <!--Submit Button starts here -->
                     <div class="submit-button text-center mt-5 mb-2">
@@ -155,7 +141,6 @@
         </div>
     </div>
 </div>
-
 <div id="loading-overlay">
     <h1 class="text-light logo-font loading-spinner">
         <span class="icon">
