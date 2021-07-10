@@ -90,3 +90,28 @@
 	- 16. Reinstall django-storages from my virtual environment.
 	- 17. Freeze the requirements file.
 	- 18. Save, commit and push these changes to Heroku.
+
+### Stripe Tests
+**Test #1: Setup Stripe CLI**
+- Date: July 10, 2021, 10:38am
+- Objective: 'Setup Stripe CLI'
+  - 1. Open terminal in local development environment.
+  - 2. Use Homebrew to install the Stripe CLI: `brew install stripe/stripe-cli/stripe`
+  - 3. Login: `stripe login`
+  - 4. Ensure the output includes a Stripe pairing code, then press Enter to open browser and login to Stripe.
+  - 5. Run a test command to ensure setup was successful: `stripe customers create`.
+  - 6. Review raw Customer Object JSON output..
+  - 7. Navigate to Stripe Dashboard and confirm that a new customer object has been created successfully.
+  
+**Test #2: Use Stripe CLI to Test Webhook Endpoint**
+- Date: July 10, 2021, 10:45am
+- Objective: 'Test Stripe webhook endpoint using Stripe CLI'
+  - 1. Open terminal in local development environment.
+  - 2. Enter `stripe listen` to begin listening for events.
+  - 3. Review output ` Ready! Your webhook signing secret is whsec_##############`.
+  - 4. Trigger an event: `stripe trigger payment_intent.succeeded`
+	![stripe test](tests/stripetest1.png)
+  - 5. Review output:
+	![stripe test output](tests/stripetestoutput.png)
+  - 6. Forward events to my local server: `stripe listen --forward-to localhost:8000/checkout/wh/`
+  - 7. Observe output with new signing secret.
