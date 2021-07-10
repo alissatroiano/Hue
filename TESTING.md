@@ -17,8 +17,6 @@
     - [x] [mobilenavbar.html](templates/includes/mobilenavbar.html)
     - [x] [shopnav.html](templates/includes/shopnav.html)
 
-### CSS
-
 #### W3C Jigsaw Test
 **CSS Validation Testing**
 - Date: July 8, 2021
@@ -115,3 +113,14 @@
 	![stripe test output](tests/stripetestoutput.png)
   - 6. Forward events to my local server: `stripe listen --forward-to localhost:8000/checkout/wh/`
   - 7. Observe output with new signing secret.
+  - 8. Open project in web browser and add products to shopping cart.
+  - 9. Visit the checkout page.
+  - 10. Head back to terminal window and observe output reads, `payment_intent.created`.
+  - 11. Fill out the payment form with Stripe test credit card credentials and click, `submit`.
+  - 12. Observe two new lines of output from STRIPE-CLI: 
+      - 'payment_intent.succeeded'
+      - 'charge_succeeded'.
+  - 13. Open Stripe developer dashboard and click, 'events.'
+  - 14. Verify payment succeeded.
+  - 15. Declare test, 'passed', proving that Stripe payment intents are being both created & completed successfully on the front & back end.
+
