@@ -46,19 +46,23 @@ def checkout(request):
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
-            order = order_form.save()
-            for item_id, quantity in cart.items():
+            order = order_form.save(commit=False)
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pid
+            order.original_cart = json.dumps(cart)
+            order.save()
+            for item_id, item_data in cart.items():
                 try:
                     product = Product.objects.get(id=item_id)
-                    if isinstance(quantity, int):
+                    if isinstance(item_data, int):
                         order_item = OrderItem(
                             order=order,
                             product=product,
-                            quantity=quantity,
+                            quantity=item_data,
                         )
                         order_item.save()
                     else:
-                        for dimension, quantity in quantity['items_by_dimension'].items():
+                        for dimension, quantity in item_data['items_by_dimension'].items():
                             order_item = OrderItem(
                                 order=order,
                                 product=product,

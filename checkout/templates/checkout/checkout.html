@@ -106,11 +106,12 @@
                 <!-- Stripe payment elements start here -->
                 <fieldset class="px-3">
                     <legend class="fieldset-label small text-dark body-font fw-bold px-2 w-auto">Payment</legend>
-                    <!-- A Stripe card element will go here -->
+                    <!-- Use JavaScript to render Stripe card element here -->
                     <div class="mb-3" id="card-element"></div>
-                    <!-- Used to display form errors -->
+                    <!-- Display card errors here-->
                     <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
-                    <!-- Pass the client secret to the view so we can get the payment intent id -->
+                    <!-- Pass client secret to the view to get payment intent id here -->
+                    <input type="hidden" value="{{ client_secret }}" name="client_secret">
                 </fieldset>
                     <!--Submit Button starts here -->
                     <div class="submit-button text-center mt-5 mb-2">
