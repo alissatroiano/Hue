@@ -15,3 +15,5 @@ env_hue/
 db.json
 .DS_Store
 db.json
+.vscode/
+.vscode/settings.json

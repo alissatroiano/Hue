@@ -32,8 +32,9 @@
 
 #payment-form .form-control,
 #card-element {
-    color: #000;
+    color: indigo;
     border: 1px solid #000;
+    font-family: 'Roboto', sans-serif;
 }
 
 #loading-overlay {
@@ -53,4 +54,18 @@
     justify-content: center;
     margin: 0;
     height: 100%;
+}
+
+select#id_country {
+  border: 1px solid #000;
+  color: #a9b7c4;
+}
+
+#card-element {
+    border: 1px solid #000;
+    font-family: 'Roboto', sans-serif;
+}
+
+input {
+  color: indigo;
 }
