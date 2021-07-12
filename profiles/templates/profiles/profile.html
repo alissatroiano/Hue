@@ -14,18 +14,20 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container pt-5">
     <div class="row">
-        <div class="col-md-4 mb-3">
+        <div class="col-md-4 mb-3 py-2">
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex flex-column align-items-center text-center">
                         <h4 class="card-title text-dark">{{ username }}</h4>
-                        <img alt='' id="profile" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80" class="img-fluid rounded-circle" width="150">
-                        <div class="mt-3">
+                        <img alt='' id="profile"
+                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80"
+                            class="img-fluid rounded-circle" width="150">
+                        <div class="user-name mt-3">
                             <h4 class="display-font">Your Stupid Name</h4>
                         </div>
-                        <!--./end-avatar-->
+                        <!--./end-user-name-->
                     </div>
                     <!--./end-flex-column-->
                 </div>
@@ -36,19 +38,65 @@
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                         </li>
                     </ul>
-
+                    <!--./end-list-group-->
                 </div>
                 <!--./end-card-body-->
             </div>
             <!--./end-card-->
         </div>
         <!--./end-col-md-4-->
+        <div class="col-md-8 mb-3 py-2">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="row card-row">
+                        <div class="card-title display-font heading-lg">
+                            Username's Profile
+                        </div>
+                        <!--./end-card-title-->
+                        <div class="col-sm-12">
+                            <div class="accordion" id="order-history">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne" aria-expanded="true"
+                                            aria-controls="collapseOne">
+                                            Orders
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse"
+                                        aria-labelledby="headingOne" data-bs-parent="#order-history">
+                                        <div class="accordion-body">
+                                            <strong>This is the first item's accordion body.</strong> It is shown by
+                                            default, until the collapse plugin adds the appropriate classes that we use
+                                            to style each element. These classes control the overall appearance, as well
+                                            as the showing and hiding via CSS transitions. You can modify any of this
+                                            with custom CSS or overriding our default variables. It's also worth noting
+                                            that just about any HTML can go within the <code>.accordion-body</code>,
+                                            though the transition does limit overflow.
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--./end-card-row-->
+                            </div>
+                            <!--./end-accordion-->
+                        </div>
+                        <!--./end-col-sm-12-->
+                    </div>
+                    <!--./end-row-card-row-->
+                </div>
+                <!--./end-card-body-->
+            </div>
+            <!--./end-card-->
+        </div>
+        <!--./end-col-md-8-->
     </div>
     <!--./end-row-->
 </div>
 <!--./end-container-->
 {% endblock %}
-

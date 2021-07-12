@@ -1,10 +1,19 @@
+<!--The layout and structure of this login page were applied by copying the contents of this Bootstrap 5 Portal theme's login page (https://themes.3rdwavemedia.com/bootstrap-templates/startup/portal-free-bootstrap-admin-dashboard-template-for-developers/)-->
 {% extends "account/base.html" %}
 
 {% load i18n %}
+{% load static %}
+{% load account socialaccount %}
 
-{% block head_title %}{% trans "Account Inactive" %}{% endblock %}
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+{% block inner_content %}
 
-{% block content %}
 <h1>{% trans "Account Inactive" %}</h1>
 
 <p>{% trans "This account is inactive." %}</p>

@@ -1,7 +1,8 @@
-{% extends "base.html" %}
+{% extends "account/base.html" %}
 {% load i18n %}
-{% load static %}
+
 {% load account socialaccount %}
+
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -9,8 +10,9 @@
     </div>
 </div>
 {% endblock %}
-{% block content %}
-<div class="hue-signup container-fluid text-center mx-auto my-0">
+
+{% block inner_content %}
+<div class="hue-signup container-fluid text-center mx-auto my-0"id="signup-container">
     <div class="row flex-wrap g-0 signup-auth-wrapper my-0 mx-auto">
         <div class="col-12 col-md-7 col-lg-6 signup-main-col text-center px-0 py-0">
             <div class="d-flex flex-column align-content-center pt-5">
@@ -24,7 +26,7 @@
                             <!--signup form starts here -->
                             <form class="signup" id="signupForm" method="post" action="{% url 'account_signup' %}">
                                 {% csrf_token %}
-                                {{ form.as_p }}
+                                {{ form|crispy }}
                                 {% if redirect_field_value %}`~
                                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                                 {% endif %}
