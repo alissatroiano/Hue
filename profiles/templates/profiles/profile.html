@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'profile/css/profile.css' %}">
+{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex flex-column align-items-center text-center">
+                        <h4 class="card-title text-dark">{{ username }}</h4>
+                        <img alt='' id="profile" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80" class="img-fluid rounded-circle" width="150">
+                        <div class="mt-3">
+                            <h4 class="display-font">Your Stupid Name</h4>
+                        </div>
+                        <!--./end-avatar-->
+                    </div>
+                    <!--./end-flex-column-->
+                </div>
+                <!--./end-card-body-->
+            </div>
+            <!--./end-card-->
+            <div class="card mt-3">
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+
+                        </li>
+                    </ul>
+
+                </div>
+                <!--./end-card-body-->
+            </div>
+            <!--./end-card-->
+        </div>
+        <!--./end-col-md-4-->
+    </div>
+    <!--./end-row-->
+</div>
+<!--./end-container-->
+{% endblock %}
+

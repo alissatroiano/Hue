@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     "crispy_forms",
     'django_countries',
     "crispy_bootstrap5",
+    "profiles",
 ]
 
 CURRENCY = '$' # Default currency is US Dollar
@@ -122,7 +123,7 @@ SOCIALACCOUNT_PROVIDERS = {
             'access_type': 'offline',
         },
         'APP': {
-            'client_id': '303991007373-mr20m8gbbkbhtag3gvi49c8gtav00drv.apps.googleusercontent.com',
+            'client_id': os.environ.get('client_id', ''),
             'secret': '5g8OUjB29N5tL6Sh-_RtdBuL',
             'key': ''
         }
