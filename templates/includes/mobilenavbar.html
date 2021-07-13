@@ -38,7 +38,7 @@
         </div>
     </li>
     <li class="list-inline-item dropdown d-lg-none">
-        <a class="dropdown-toggle nav-link link-dark text-small" href="#" role="button" id="mobileAccountOptions"
+        <a class="dropdown-toggle nav-link link-dark text-small" href="" role="button" id="mobileAccountOptions"
             data-bs-toggle="dropdown" aria-expanded="false">
             <i class="bi d-block mx-auto text-center mb-1 fas fa-user">
             </i>
@@ -46,9 +46,12 @@
         </a>
         <ul class="dropdown-menu" aria-labelledby="mobileAccountOptions">
             {% if request.user.is_authenticated %}
+            <li class="list-item">
+                <a href="{% url 'profile' %}" class="dropdown-item">Profile</a>
+            </li>
             {% if request.user.is_superuser %}
             <li class="dropdown-item display-font">
-                <a href="" class="dropdown-item">Product Management</a>
+                <a href="{% url 'profile' %}" class="dropdown-item">Product Management</a>
             </li>
             {% endif %}
             <li class="dropdown-item display-font">

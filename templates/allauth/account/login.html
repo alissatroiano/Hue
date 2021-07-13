@@ -21,19 +21,22 @@
                 <div class="app-auth-body mx-auto">
                     <div class="my-0 mx-auto text-center">
                         <i class="fas fa-tint fa-3x my-4"></i>
-                        <h2 class="py-2 text-center heading-lg">Login</h2>
+                        <h2 class="py-2 text-center heading-lg">
+                            {% trans "Login" %}
+                        </h2>
                         <div class="auth-form-container text-start">
                             <!--auth-form-->
                             <form class="form-login" method="POST" action="{% url 'account_login' %}">
                                 {% csrf_token %}
                                 {{ form|crispy }}
                                 {% if redirect_field_value %}
-                                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                                    {% endif %}
-                                    <div class="form-group row justify-content-center text-center">
-                                        <button class="btn btn-primary loginButton px-3 py-2" type="submit"
-                                            aria-label="submit">{% trans "Log In" %}</button>
-                                    </div>
+                                <input type="hidden" name="{{ redirect_field_name }}"
+                                    value="{{ redirect_field_value }}" />
+                                {% endif %}
+                                <div class="form-group row justify-content-center text-center">
+                                    <button class="btn btn-primary loginButton px-3 py-2" type="submit"
+                                        aria-label="submit">{% trans "Log In" %}</button>
+                                </div>
                             </form>
                             <!--./auth-form-->
                         </div>
@@ -47,17 +50,21 @@
                     <hr class="mb-4 mt-2">
                     <p class="body-sm text-center py-1"> Can't access your account?
                         <br>
-                        <a class="link-font" href="{% url 'account_reset_password' %}">{% trans "Reset your password here!" %}</a>
-                        <p class="body-sm text-center py-1">{% blocktrans %}Don't have an account?<br>
-                            <a href="{{ signup_url }}" class="link-font">Sign Up!</a>{% endblocktrans %}</p>
+                        <a class="link-font" href="{% url 'account_reset_password' %}">
+                        Reset your password here!
+                        </a>
+                    <p class="body-sm text-center py-1">{% blocktrans %}Don't have an account?<br>
+                        <a href="{{ signup_url }}" class="link-font">Sign Up!</a>{% endblocktrans %}
+                    </p>
                 </div>
                 <!--./end-login-utilities-->
                 {% get_providers as socialaccount_providers %}
                 {% if socialaccount_providers %}
                 <div class="d-flex flex-column align-content-center my-0 mx-auto text-center pt-2 socialaccount_ballot">
-                    <p class="body-sm px-5 py-1 body-sm mx-auto my-0 text-wrap text-dark" id="login_slug">{% blocktrans
-                        with site.name as site_name %} Login with your favorite social media provider!{% endblocktrans
-                        %}</p>
+                    <p class="body-sm px-5 py-1 body-sm mx-auto my-0 text-wrap text-dark" id="login_slug">
+                        {% blocktrans %} 
+                        Login with your favorite social media provider!
+                        {% endblocktrans %}</p>
                     <ul class="nav justify-content-center socialaccount_providers py-3">
                         <li>
                             <a title="Facebook" class="px-2 socialaccount_provider facebook"
@@ -69,23 +76,22 @@
                         </li>
                         <li>
                             <a title="Pinterest" class="socialaccount_provider pinterest px-2"
-                                href="/accounts/pinterest/login/?process=login"><i
-                                    class="fab fa-pinterest fa-2x"></i></a>
+                                href="/accounts/pinterest/login/?process=login">
+                                <i class="fab fa-pinterest fa-2x"></i>
+                            </a>
                         </li>
                     </ul>
                     {% endif %}
                 </div>
-                </form>
-            </div>
-            <!--./end-d-flex-->
+            </form>
         </div>
-        <!--./end-login-main-col-->
-        <div class="col-12 col-md-5 col-lg-6 h-100 login-background-col">
-            <div class="login-background-lg"> </div>
-            <div class="login-background-mask"></div>
-            <div class="login-background-overlay p-3 p-lg-5 d-none d-lg-flex"></div>
-        </div>
-    </div>
+    <!--./end-d-flex-->
+</div>
+<!--./end-login-main-col-->
+<div class="col-12 col-md-5 col-lg-6 h-100 login-background-col">
+    <div class="login-background-lg"> </div>
+    <div class="login-background-mask"></div>
+    <div class="login-background-overlay p-3 p-lg-5 d-none d-lg-flex"></div>
     <!--./end-row-->
 </div>
 <!--./end-login-container-->

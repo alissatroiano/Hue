@@ -1,5 +1,15 @@
 {% extends "base.html" %}
 
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
 {% block content %}
+<div class="allauth-inner-content">
     {% block inner_content %}{% endblock %}
+</div>
 {% endblock %}
