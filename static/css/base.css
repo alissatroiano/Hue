@@ -600,7 +600,7 @@ div#category-card6:hover {
 
 /* ***************************./end-homepage */
 
-/* ***************************Login & Sign Up */
+/* *************************** User Authentication */
 .login,
 .signup {
     height: 100%;
@@ -735,8 +735,7 @@ button.btn.btn-primary.loginButton {
     height: 100vh;
     overflow: scroll;
 }
-
-/* ***************************./end-login */
+/* ***************************./end-user-authentication */
 
 
 /* *************************** Shop */

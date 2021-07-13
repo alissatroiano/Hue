@@ -56,33 +56,50 @@
                 <div class="card-body">
                     <div class="row card-row">
                         <div class="card-title display-font heading-lg">
-                            {{ profile }}'s Profile
+                            {{ user.profile }}'s Profile
                         </div>
                         <!--./end-card-title-->
                         <div class="col-sm-12">
-                            <div class="accordion" id="order-history">
+                            <div class="accordion accordion-flush" id="user-settings">
                                 <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingOne">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    <h2 class="accordion-header bg-light" id="headingOne">
+                                        <button class="accordion-button btn-none" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#collapseOne" aria-expanded="true"
                                             aria-controls="collapseOne">
-                                            Orders
+                                            Your Settings
                                         </button>
                                     </h2>
                                     <div id="collapseOne" class="accordion-collapse collapse"
-                                        aria-labelledby="headingOne" data-bs-parent="#order-history">
+                                        aria-labelledby="headingOne" data-bs-parent="#user-settings">
                                         <div class="accordion-body">
-                                            <strong>This is the first item's accordion body.</strong> It is shown by
-                                            default, until the collapse plugin adds the appropriate classes that we use
-                                            to style each element. These classes control the overall appearance, as well
-                                            as the showing and hiding via CSS transitions. You can modify any of this
-                                            with custom CSS or overriding our default variables. It's also worth noting
-                                            that just about any HTML can go within the <code>.accordion-body</code>,
-                                            though the transition does limit overflow.
+                                            <form action="{% url 'profile' %}" method="POST" class="mt-3"id="update-profile-form">
+                                            {% csrf_token %}
+                                            {{ form|crispy }}
+                                            </form>
                                         </div>
                                     </div>
+
                                 </div>
-                                <!--./end-card-row-->
+                                <!--./end-accordion-item-->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header bg-light" id="orderHistory">
+                                        <button class="accordion-button btn-none" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseTwo" aria-expanded="true"
+                                            aria-controls="collapseTwo">
+                                            Your Orders
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse"
+                                        aria-labelledby="orderHistory" data-bs-parent="#order-history">
+                                        <div class="accordion-body">
+                                            <div class="row">
+                                                {{ orders }}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!--./end-accordion-item-->
                             </div>
                             <!--./end-accordion-->
                         </div>

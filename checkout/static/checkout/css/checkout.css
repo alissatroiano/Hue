@@ -1,3 +1,5 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@100;200;300;400;500;600;700&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap'); */
+
 .StripeElement,
 .stripe-style-input {
   box-sizing: border-box;
@@ -9,6 +11,8 @@
   box-shadow: 0 1px 3px 0 #e6ebf1;
   -webkit-transition: box-shadow 150ms ease;
   transition: box-shadow 150ms ease;
+  font-family: 'Raleway', sans-serif;
+  color: #6a509a;
 }
 
 .StripeElement--focus,
@@ -22,7 +26,8 @@
 }
 
 .stripe-style-input::placeholder {
-    color: #aab7c4;
+    color: #a9b7c4;
+    font-family: 'Raleway', sans-serif;
 }
 
 .fieldset-label {
@@ -31,29 +36,29 @@
 }
 
 #payment-form .form-control,
-#card-element {
+#card-element, #card-number, input {
     color: indigo;
     border: 1px solid #000;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Raleway', sans-serif;
 }
 
 #loading-overlay {
 	display: none;
 	position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(170, 151, 204, .85);
-    z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(170, 151, 204, .85);
+  z-index: 9999;
 }
 
 .loading-spinner {
 	display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    height: 100%;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  height: 100%;
 }
 
 select#id_country {
@@ -61,11 +66,13 @@ select#id_country {
   color: #a9b7c4;
 }
 
-#card-element {
-    border: 1px solid #000;
-    font-family: 'Roboto', sans-serif;
-}
-
 input {
   color: indigo;
+  font-family: 'Raleway', sans-serif;
+}
+
+input[type='text'],
+input[type='hidden'] {
+  color: #6a509a;
+  font-family: 'Raleway', sans-serif;
 }

@@ -9,7 +9,21 @@ var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 var clientSecret = $('#id_client_secret').text().slice(1, -1);
 var stripe = Stripe(stripePublicKey);
 var elements = stripe.elements();
-var card = elements.create('card');
+var style = {
+    base: {
+        color: '#3f3f3f',
+        fontSmoothing: 'antialiased',
+        fontSize: '16px',
+        '::placeholder': {
+            color: '#a9b7c4'
+        }
+    },
+    invalid: {
+        color: '#ff3939',
+        iconColor: '#ff3939',
+    }
+};
+var card = elements.create('card', {style: style});
 card.mount('#card-element');
 
 // Handle realtime validation errors on the card element

@@ -20,8 +20,9 @@
 <div class="container-fluid">
     <div class="row py-3 text-center">
         <div class="col-12">
-            <h2 class="display-font text-center py-2 px-4 px-lg-3">Checkout</h2>
-            <p class="text-center body-font mx-3 py-2">Here at Hue, we pride ourselves on delivering our high-quality artwork quickly and securely. <br> Please enter your payment details and checkout below.</p>
+            <h2 class="display-font text-center pt-5">Checkout</h2>
+            <p class="text-center body-font mx-3 py-2">Here at Hue, we pride ourselves on delivering our high-quality
+                artwork quickly and securely. <br> Please enter your payment details and checkout below.</p>
         </div>
     </div>
 </div>
@@ -46,7 +47,8 @@
                     <div class="col-6">
                         {% if item.product.image %}
                         <figure class="figure">
-                            <img class="figure-img img-fluid w-50" src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                            <img class="figure-img img-fluid w-50" src="{{ item.product.image.url }}"
+                                alt="{{ product.name }}">
                             <figcaption class="figure-caption body-font">{{ item.product.title }}</figcaption>
                         </figure>
                         {% else %}
@@ -70,14 +72,17 @@
                 <fieldset class="rounded px-3 mb-5">
                     <legend class="fieldset-label small text-dark px-2 w-auto">
                         <h4 class="align-items-center mb-3">
-                            <span>Your Info</span></h4></legend>
+                            <span>Your Info</span>
+                        </h4>
+                    </legend>
                     {{ order_form.user_full_name | as_crispy_field }}
                     {{ order_form.email | as_crispy_field }}
                 </fieldset>
                 <fieldset class="rounded px-3 mb-5">
                     <legend class="fieldset-label small text-dark px-2 w-auto">
                         <h4 class="align-items-center mb-3">
-                            <span>Billing Details</span></h4>
+                            <span>Billing Details</span>
+                        </h4>
                     </legend>
                     {{ order_form.phone_number | as_crispy_field }}
                     {{ order_form.town_or_city | as_crispy_field }}
@@ -88,8 +93,10 @@
                     {{ order_form.country | as_crispy_field }}
                     <div class="form-check form-check-inline float-right mr-0">
                         {% if user.is_authenticated %}
-                        <label class="form-check-label body-font" for="id-save-info">Save my billing address to my profile for use in future purchases</label>
-                        <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+                        <label class="form-check-label body-font" for="id-save-info">Save my billing address to my
+                            profile for use in future purchases</label>
+                        <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info"
+                            checked>
                         {% else %}
                         <label class="form-check-label" for="id-save-info">
                             <p class="body-font">
@@ -98,7 +105,9 @@
                                 </span>
                                 or
                                 <span>
-                                    <a class="link-font" href="{% url 'account_login' %}">login</a></span> to save this information</p>
+                                    <a class="link-font" href="{% url 'account_login' %}">login</a></span> to save this
+                                information
+                            </p>
                         </label>
                         {% endif %}
                     </div>
@@ -113,31 +122,31 @@
                     <!-- Pass client secret to the view to get payment intent id here -->
                     <input type="hidden" value="{{ client_secret }}" name="client_secret">
                 </fieldset>
-                    <!--Submit Button starts here -->
-                    <div class="submit-button text-center mt-5 mb-2">
-                        <a href="{% url 'view_cart' %}" class="btn link-font">
-                            <span class="icon">
-                                <i class="fas fa-chevron-circle-left"></i>
-                            </span>
-                            <span class="fw-bold">Update Cart</span>
-                        </a>
-                     <button id="submit-button" class="link-font">
-                            <span class="fw-bold">Complete Order</span>
-                            <span class="icon">
-                                <i class="fas fa-lock"></i>
-                            </span>
-                        </button>
-                        <p class="text-small text-danger my-0">
-                            <span class="icon">
-                                <i class="fas fa-exclamation-circle"></i>
-                            </span>
-                            <span class="body-font">Your card will be charged
-                                <strong>${{ grand_total|floatformat:2 }}
-                                </strong>
-                            </span>
-                        </p>
-                    </div>
-                    <!--./end-submit-button-->
+                <!--Submit Button starts here -->
+                <div class="submit-button text-center mt-5 mb-2">
+                    <a href="{% url 'view_cart' %}" class="btn link-font">
+                        <span class="icon">
+                            <i class="fas fa-chevron-circle-left"></i>
+                        </span>
+                        <span class="fw-bold">Update Cart</span>
+                    </a>
+                    <button id="submit-button" class="link-font">
+                        <span class="fw-bold">Complete Order</span>
+                        <span class="icon">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </button>
+                    <p class="text-small text-danger my-0">
+                        <span class="icon">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </span>
+                        <span class="body-font">Your card will be charged
+                            <strong>${{ grand_total|floatformat:2 }}
+                            </strong>
+                        </span>
+                    </p>
+                </div>
+                <!--./end-submit-button-->
             </form>
         </div>
     </div>
@@ -153,8 +162,22 @@
 {% endblock %}
 <!--./end-block-->
 {% block postloadjs %}
-    {{ block.super }}
-    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
-    {{ client_secret|json_script:"id_client_secret" }}
-    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+{{ block.super }}
+{{ stripe_public_key|json_script:"id_stripe_public_key" }}
+{{ client_secret|json_script:"id_client_secret" }}
+<script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+<script>
+    WebFont.load({
+        google: {
+            families: ['Raleway:300,400,500,600']
+        },
+        loading: function () {
+            console.log("Fonts are being loaded");
+        },
+        active: function () {
+            console.log("Fonts have been rendered")
+        }
+    });
+</script>
 {% endblock %}
