@@ -390,7 +390,7 @@ h1#title {
     font-weight: 300;
     color: #fafafa;
     letter-spacing: 2px;
-    text-shadow: 3px 3px 6px #000;
+    text-shadow: 3px 3px 6px #100324;
     margin-top: 80px;
 }
 
@@ -402,7 +402,7 @@ h2.lead.my-4.py-3.mx-auto {
     letter-spacing: 2.5px;
     text-align: center;
     color: #fafafa;
-    text-shadow: 3px 3px 6px #000;
+    text-shadow: 3px 3px 6px #100324;
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -432,7 +432,7 @@ button#hero-button {
     letter-spacing: 2px;
     background-color: rgba(132, 116, 161, 0.8);
     border: none;
-    box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #100324;
     text-decoration: none;
 }
 

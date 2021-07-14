@@ -63,8 +63,8 @@
                             <div class="accordion accordion-flush" id="user-settings">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header bg-light" id="headingOne">
-                                        <button class="accordion-button btn-none" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseOne" aria-expanded="true"
+                                        <button class="accordion-button btn-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
                                             aria-controls="collapseOne">
                                             Your Settings
                                         </button>
@@ -72,9 +72,11 @@
                                     <div id="collapseOne" class="accordion-collapse collapse"
                                         aria-labelledby="headingOne" data-bs-parent="#user-settings">
                                         <div class="accordion-body">
-                                            <form action="{% url 'profile' %}" method="POST" class="mt-3"id="update-profile-form">
-                                            {% csrf_token %}
-                                            {{ form|crispy }}
+                                            <form action="{% url 'profile' %}" method="POST" class="mt-3"
+                                                id="update-profile-form">
+                                                {% csrf_token %}
+                                                {{ form|crispy }}
+                                                <button class="btn btn-none rounded-0 text-uppercase float-right">Update Information</button>
                                             </form>
                                         </div>
                                     </div>
@@ -83,8 +85,8 @@
                                 <!--./end-accordion-item-->
                                 <div class="accordion-item">
                                     <h2 class="accordion-header bg-light" id="orderHistory">
-                                        <button class="accordion-button btn-none" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseTwo" aria-expanded="true"
+                                        <button class="accordion-button btn-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true"
                                             aria-controls="collapseTwo">
                                             Your Orders
                                         </button>
@@ -116,4 +118,9 @@
     <!--./end-row-->
 </div>
 <!--./end-container-->
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'profiles/js/profile.js' %}"></script>
 {% endblock %}

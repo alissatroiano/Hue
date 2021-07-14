@@ -38,7 +38,7 @@
 #payment-form .form-control,
 #card-element, #card-number, input {
     color: indigo;
-    border: 1px solid #000;
+    border: 1px solid #100324;
     font-family: 'Raleway', sans-serif;
 }
 
@@ -62,7 +62,7 @@
 }
 
 select#id_country {
-  border: 1px solid #000;
+  border: 1px solid #100324;
   color: #a9b7c4;
 }
 
