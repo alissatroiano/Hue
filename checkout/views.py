@@ -1,3 +1,4 @@
+from django.http import request
 from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from django.views.decorators.http import require_POST
 from django.contrib import messages
@@ -5,11 +6,17 @@ from django.conf import settings
 
 from .forms import OrderForm
 from .models import Order, OrderItem
+
 from shop.models import Product
+
+from profiles.models import Profile
+from profiles.forms import ProfileForm
+
 from cart.contexts import cart_components
 
 import json
 import stripe
+
 
 @require_POST
 def cache_checkout_data(request):
@@ -25,6 +32,7 @@ def cache_checkout_data(request):
     except Exception as e:
         messages.error(request, 'Sorry, your payment cannot be \ processed right now. Try again later.')
         return HttpResponse(content=2, status=400)        
+
 
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
@@ -44,6 +52,7 @@ def checkout(request):
             'street_address2': request.POST['street_address2'],
             'county': request.POST['county'],
         }
+        
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save(commit=False)
@@ -98,9 +107,26 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
             )
-        print(intent)
-
-        order_form = OrderForm()
+        
+        if request.user.is_authenticated:
+            try:
+                profile = Profile.objects.get(user=request.user)
+                order_form = OrderForm(initial={
+                    'user_full_name': profile.user.get_full_name(),
+                    'email': profile.user.email,
+                    'phone_number': profile.default_phone_number,
+                    'country': profile.default_country,
+                    'postcode': profile.default_postcode,
+                    'town_or_city': profile.default_town_or_city,
+                    'street_address1': profile.default_street_address1,
+                    'street_address2': profile.default_street_address2,
+                    'county': profile.default_county,
+                })
+                
+            except Profile.DoesNotExist:
+                order_form = OrderForm()
+        else:
+            order_form = OrderForm()
 
         if not stripe_public_key:
             messages.warning(request, 'Stripe public key is missing. \
@@ -122,6 +148,32 @@ def checkout_success(request, order_number):
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
+    
+    if request.user.is_authenticated: 
+        profile = Profile.objects.get(user=request.user)
+        # Bind user profile object to the order
+        order.profile = profile
+        order.save()
+    else:
+        profile = Profile.objects.get(user=request.user)
+        # Bind user profile object to the order
+        order.profile = profile
+        order.save() 
+    
+    if save_info:
+        profile_data = {
+            'default_phone_number': order.phone_number,
+            'default_town_or_city': order.town_or_city,
+            'default_street_address1': order.street_address1,
+            'default_street_address2': order.street_address2,
+            'default_county': order.county,
+            'default_postcode': order.postcode,
+            'default_country': order.country,
+        }
+        user_profile_form = ProfileForm(profile_data, instance=profile)
+        if user_profile_form.is_valid():
+            user_profile_form.save()
+    
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
