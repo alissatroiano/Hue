@@ -25,7 +25,7 @@
                             src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80"
                             class="img-fluid rounded-circle" width="150">
                         <div class="user-name mt-3">
-                            <h4 class="display-font">Your Stupid Name</h4>
+                            <h4 class="display-font">{{ user.profile }}</h4>
                         </div>
                         <!--./end-user-name-->
                     </div>
@@ -62,12 +62,13 @@
                         <div class="col-sm-12">
                             <div class="accordion accordion-flush" id="user-settings">
                                 <div class="accordion-item">
-                                    <h2 class="accordion-header bg-light" id="headingOne">
-                                        <button class="accordion-button btn-none" type="button"
+                                        <div class="accordion-header" id="headingOne" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
                                             aria-controls="collapseOne">
-                                            Your Settings
-                                        </button>
+                                          <h3 class="display-font">
+                                              Your Settings
+                                            </h3>
+                                </div>
                                     </h2>
                                     <div id="collapseOne" class="accordion-collapse collapse"
                                         aria-labelledby="headingOne" data-bs-parent="#user-settings">
@@ -76,13 +77,56 @@
                                                 id="update-profile-form">
                                                 {% csrf_token %}
                                                 {{ form|crispy }}
-                                                <button class="btn btn-none rounded-0 text-uppercase float-right">Update Information</button>
+                                                <button class="btn btn-none rounded-0 text-uppercase float-right">Update
+                                                    Information</button>
                                             </form>
                                         </div>
                                     </div>
 
                                 </div>
                                 <!--./end-accordion-item-->
+                                <div class="col-12 col-lg-6">
+                                    <p class="text-muted">Order History</p>
+                                    <div class="order-history table-responsive">
+                                        <table class="table table-sm table-borderless">
+                                            <thead>
+                                                <tr>
+                                                    <th>Order Number</th>
+                                                    <th>Date</th>
+                                                    <th>Items</th>
+                                                    <th>Order Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for order in orders %}
+                                                    <tr>
+                                                        <td>
+                                                            <a href="{% url 'order_history' order.order_number %}"
+                                                            title="{{ order.order_number }}">
+                                                                {{ order.order_number|truncatechars:6 }}
+                                                            </a>
+                                                        </td>
+                                                        <td>{{ order.date }}</td>
+                                                        <td>
+                                                            <ul class="list-unstyled">
+                                                                {% for item in order.orderitems.all %}
+                                                                    <li class="small">
+                                                                        {% if item.product.has_dimensions %}
+                                                                            File Size {{ item.product.dimension|upper }}
+                                                                        {% endif %}
+                                                                        {{ item.product.title }} x {{ item.quantity }}
+                                                                    </li>
+                                                                {% endfor %}
+                                                            </ul>
+                                                        </td>
+                                                        <td>${{ order.grand_total }}</td>
+                                                    </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                                 <div class="accordion-item">
                                     <h2 class="accordion-header bg-light" id="orderHistory">
                                         <button class="accordion-button btn-none" type="button"
@@ -95,11 +139,48 @@
                                         aria-labelledby="orderHistory" data-bs-parent="#order-history">
                                         <div class="accordion-body">
                                             <div class="row">
-                                                {{ orders }}
+                                                <div class="col-12 col-lg-6">
+                                                    <p class="text-muted">Order History</p>
+                                                    <div class="order-history table-resposive">
+                                                        <!--order history table-->
+                                                        <table class="table-sm table-borderless">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Order Number</th>
+                                                                    <th>Order Date</th>
+                                                                    <th>Order Items</th>
+                                                                    <th>Order Total</th>
+                                                                </tr>
+                                                            </thead>=
+                                                            <!--./end-thead-->
+                                                            <tbody>
+                                                                {% for order in orders %}
+                                                                <tr>
+                                                                    {% if from_profile %}
+                                                                    <td>
+                                                                        <a href="{% url 'order_history' order.order_number %}"
+                                                                            title="order.order_number"
+                                                                            class="link-font">
+                                                                            {{ order.order_number|truncatechars:6 }}
+                                                                        </a>
+                                                                    </td>
+                                                                    {% for item in order.orderitems.all %}
+                                                                    <td>{{ order.date }}</td>
+                                                                    <td>{{ order.items }}</td>
+                                                                    <td>{{ order.total }}</td>
+                                                                    <td>{{ order.grand_total }}</td>
+                                                                </tr>
+                                                                {% endfor %}
+                                                                     {% endif %}
+                                                                {% endfor %}
+                                                            </tbody>
+                                                        </table>
+                                                        <!--./end-order-history-table-->
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                                 <!--./end-accordion-item-->
                             </div>
@@ -121,6 +202,6 @@
 {% endblock %}
 
 {% block postloadjs %}
-    {{ block.super }}
-    <script type="text/javascript" src="{% static 'profiles/js/profile.js' %}"></script>
+{{ block.super }}
+<script type="text/javascript" src="{% static 'profiles/js/profile.js' %}"></script>
 {% endblock %}

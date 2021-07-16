@@ -3,6 +3,7 @@ from .models import Profile
 from .forms import ProfileForm
 
 from django.contrib import messages
+from checkout.models import Order, OrderItem
 
 
 # Create your views here.
@@ -25,6 +26,7 @@ def profile(request):
     context = {
         'form': form,
         'orders': orders,
+        'on_profile_page': True
     }
 
     return render(request, template, context)
@@ -41,6 +43,7 @@ def order_history(request, order_number):
     context = {
         'order': order,
         'from_profile': True,
+        'orderitems': 'orderitems',
     }
     
     return render(request, template, context)

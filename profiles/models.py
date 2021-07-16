@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 
 from django_countries.fields import CountryField
 
-
 class Profile(models.Model):
     """
     A user profile model for storing billing details & order history.
@@ -24,6 +23,7 @@ class Profile(models.Model):
     default_street_address2 = models.CharField(
         max_length=80, null=True, blank=True)
     default_county = models.CharField(max_length=80, null=True, blank=True)
+    
 
     def __str__(self):
         return self.user.username

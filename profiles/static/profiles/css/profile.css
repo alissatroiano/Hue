@@ -19,3 +19,11 @@
 #id_default_country option:first-child {
     color: #a9b7c4;
 }
+
+.accordion-header.collapsed {
+    background-color: #f7f7f7;
+    -webkit-transition: 0.25s ease-in-out;
+    -moz-transition: 0.25s ease-in-out;
+    transition: 0.25s ease-in-out;
+    font-family: 'Oswald', sans-serif;
+}
