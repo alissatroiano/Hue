@@ -1,14 +1,17 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@100;200;300;400;500;600;700&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 */
+
 @import url('https://fonts.googleapis.com/css2?family=Oswald&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 body {
     font-size: 16px;
     overflow: auto;
     margin: 0px auto;
-    cursor:url('../images/splatter.png'), cell;   
+    cursor: url('../images/splatter.png'), cell;
 }
 
+
 /* *************************** Headers & Special Text */
+
 h1,
 h3,
 h4,
@@ -32,7 +35,7 @@ a {
 }
 
 .text-dark {
-    color:  #100324;
+    color: #100324;
 }
 
 .bg-dark {
@@ -126,7 +129,7 @@ a {
 }
 
 .fc-main {
-    color: rgb(170 151 204);    
+    color: rgb(170 151 204);
 }
 
 .link-font {
@@ -145,11 +148,11 @@ a {
 }
 
 .icon-main {
-    color: rgb(170 151 204);    
+    color: rgb(170 151 204);
 }
 
 .icon-main:hover {
-     color: #6a509a;
+    color: #6a509a;
 }
 
 hr {
@@ -210,7 +213,7 @@ input {
     max-width: 100%;
 }
 
-.bg-primary {         
+.bg-primary {
     background-color: #6a509aa6!important;
 }
 
@@ -224,7 +227,9 @@ input {
     z-index: -1;
 }
 
+
 /* ***************************./end-headers-&-special-text*/
+
 
 /* ***************************./Icons */
 
@@ -242,10 +247,13 @@ input {
 .fas:hover {
     color: #6a509a;
 }
+
+
 /****************************./end-icons */
 
 
 /* *************************** Header & Navigation */
+
 ul.nav.col-12.col-lg-auto.my-2.justify-content-center.my-md-0.text-small {
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
@@ -254,7 +262,7 @@ ul.nav.col-12.col-lg-auto.my-2.justify-content-center.my-md-0.text-small {
 }
 
 #navbarSupportedContent {
-   color: rgb(132, 116, 161);
+    color: rgb(132, 116, 161);
 }
 
 #account-dropdown {
@@ -288,7 +296,6 @@ a#logo {
     color: #fafafa;
     text-shadow: 4px 4px 8px #033030;
 }
-
 
 a#logo:hover {
     color: rgb(132, 116, 161);
@@ -358,16 +365,25 @@ li {
     list-style: none;
     float: left;
 }
+
+
 /*.end-header-&-navigation */
 
+
 /* ************************** Mobile Nav & Shop Nav */
-.input-group-text, .input-group { 
-  background-color: transparent;    
-  border: none; 
+
+.input-group-text,
+.input-group {
+    background-color: transparent;
+    border: none;
 }
+
+
 /* ***************************.end-mobile-nav-&-shop-nav */
 
+
 /***************************** Homepage */
+
 .hero-container,
 #welcome {
     background: linear-gradient(rgb(0 0 0 / 80%), rgb(0 0 0 / 60%)), url(../../media/hue1.jpg) no-repeat center center fixed;
@@ -417,7 +433,6 @@ a#sale {
     text-shadow: -2px 4px 10px #666;
 }
 
-
 a#sale:hover {
     color: rgba(132, 116, 161, 0.8);
 }
@@ -442,9 +457,12 @@ button#hero-button-2:hover {
     color: #fafafa;
 }
 
+
 /* ***************************.end-hero */
 
+
 /********************************* Homepage Category Cards */
+
 div.card-image-overlay {
     width: 100%;
     padding-top: 10rem;
@@ -471,7 +489,9 @@ img.card-img-overlay {
     margin: 0px auto;
 }
 
+
 /* grayscale effect copied from https://codepen.io/mhhasan320/pen/BwqvLL */
+
 div#category-card1 {
     background-image: url('../../media/glitchart.jpg');
     background-position: center;
@@ -598,9 +618,12 @@ div#category-card6:hover {
     -webkit-filter: grayscale(0);
 }
 
+
 /* ***************************./end-homepage */
 
+
 /* *************************** User Authentication */
+
 .login,
 .signup {
     height: 100%;
@@ -658,7 +681,6 @@ i .login-auth-wrapper .login-auth-body {
 .signup-auth-body {
     background: #fafafa;
     display: flex;
-
 }
 
 #signup-page,
@@ -699,7 +721,7 @@ p#login-slug {
     height: 100vh;
 }
 
-.signup-background-lg, 
+.signup-background-lg,
 .hue-signup {
     background: url("../../media/categoryimage3.jpg");
     background-position: center;
@@ -735,10 +757,13 @@ button.btn.btn-primary.loginButton {
     height: 100vh;
     overflow: scroll;
 }
+
+
 /* ***************************./end-user-authentication */
 
 
 /* *************************** Shop */
+
 #regular-price {
     text-decoration: line-through;
 }
@@ -757,7 +782,9 @@ button.btn.btn-primary.loginButton {
     height: auto;
 }
 
+
 /* Shadow effect copied from https://codepen.io/team/sparkbox/pen/dRpZXj */
+
 #shop-card {
     box-shadow: 0 1.5em 2em -1em #999;
     position: relative;
@@ -822,6 +849,7 @@ button.btn.btn-primary.loginButton {
     text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
     box-shadow: -3px 5px 6px -5px rgba(0, 0, 0, 0.5);
 }
+
 .promo-ribbon {
     border-top-left-radius: 0%;
     border-bottom-left-radius: 0%;
@@ -829,9 +857,12 @@ button.btn.btn-primary.loginButton {
     border-bottom-left-radius: 0%;
 }
 
+
 /* ***************************./end-shop */
 
+
 /* *************************** Product Details */
+
 .product-details-wrapper {
     position: relative;
     overflow: hidden;
@@ -846,7 +877,9 @@ button.btn.btn-primary.loginButton {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.35);
 }
 
+
 /* Shadow effect copied from https://codepen.io/team/sparkbox/pen/dRpZXj */
+
 #shop-card {
     box-shadow: 0 1.5em 2em -1em #999;
     position: relative;
@@ -867,14 +900,17 @@ input.btn.btn-outline-dark.btn-dark.text-light.fw-bold.rounded-1.text-uppercase 
     letter-spacing: .5px;
     font-size: 11px;
     margin: 5px;
-    position:  relative;
+    position: relative;
     vertical-align: center;
     overflow: hidden;
 }
 
+
 /* ***************************./end-product-details*/
 
+
 /* **************************** Shopping Cart */
+
 #cart-total {
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
@@ -888,10 +924,48 @@ th {
     text-transform: uppercase;
 }
 
+
 /* ****************************./end-shopping-cart */
 
+
+/* *************************** 404 Error */
+
+main {
+    height: 100vh;
+    width: 100vw;
+    background: #fafafa;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#errorText {
+    font-size: 22px;
+    margin: 14px 0;
+}
+
+#errorLink {
+    font-size: 20px;
+    padding: 12px;
+    border: 1px solid #000;
+    background-color: transparent;
+    text-decoration: none;
+    transition: all 0.5s ease-in-out;
+}
+
+#errorLink:hover,
+#errorLink:active {
+    transform-origin: 85px 4px;
+    animation: 12s .5s infinite ease-out;
+}
+
+
 /* *************************** Media Queries */
+
+
 /* fixed top navbar only on medium and up */
+
 @media (min-width: 992px) {
     #main-nav {
         position: fixed;
@@ -905,15 +979,16 @@ th {
     }
 }
 
+
 /* pad the top a bit when navbar is collapsed on mobile */
+
 @media (max-width: 991px) {
     .header-container {
-        padding-top:  116px;
+        padding-top: 116px;
     }
 }
 
 @media only screen and (max-width: 768px) {
-
     nav.navbar.navbar-expand-lg.navbar-dark.bg-transparent,
     .bg-transparent {
         background-color: rgba(176, 186, 187);
@@ -921,15 +996,11 @@ th {
 }
 
 @media (max-width: 767.98px) {
-
     .login-auth-wrapper {
         width: 100%;
     }
-
     .login-background-col,
     .signup-background-col {
         display: none;
     }
 }
-
-/* *************************** .end-media-queries */

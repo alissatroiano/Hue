@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from .models import Order, OrderItem
 from shop.models import Product
+from profiles.models import Profile
 
 import json
 import time
@@ -35,6 +36,21 @@ class StripeWH_Handler:
         for field, value in billing_details.address.items():
             if value == "":
                 billing_details.address[field] = None
+                
+        # Save profile information if user selects
+        profile = None # set profile to none to allow guest checkout
+        username = intent.metadata.username
+        if username is 'guest':
+            profile = Profile.objects.get(user__username=username)
+            profile.default_phone_number = billing_details.phone
+            profile.default_street_address1 = billing_details.address_line1
+            profile.default_street_address2 = billing_details.address_line2
+            profile.default_town_or_city = billing_details.address.city
+            profile.default_county = billing_details.address.county
+            profile.default_country = billing_details.address.country
+            profile.default_postcode = billing_details.address.postal_code
+            profile.default_county = billing_details.address.state
+            profile.save()
 
         order_exists = False
         attempt = 1
@@ -67,6 +83,7 @@ class StripeWH_Handler:
             order = None
             try:
                 order = Order.objects.create(
+                    profile=profile,
                     user_full_name=billing_details.name,
                     email=billing_details.email,
                     phone_number=billing_details.phone,
