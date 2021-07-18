@@ -27,3 +27,9 @@
     transition: 0.25s ease-in-out;
     font-family: 'Oswald', sans-serif;
 }
+
+div#div_id_avatar,
+input#id_avatar,
+input#id_avatar input::placeholder {
+    font-family: 'Raleway', sans-serif;
+}

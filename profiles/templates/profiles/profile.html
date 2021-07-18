@@ -21,9 +21,9 @@
                 <div class="card-body">
                     <div class="d-flex flex-column align-items-center text-center">
                         <h4 class="card-title text-dark">{{ username }}</h4>
-                        <img src="{{ user.profile.avatar.url }}" alt='' class="img-fluid rounded-circle" width="150">
                         <div class="user-name mt-3">
                             <h4 class="display-font">{{ user.profile }}</h4>
+                            <img src="{{ user.profile.avatar.url }}" alt='' class="img-fluid rounded-circle my-3" style="width: 150px; height: 150px;">
                         </div>
                         <!--./end-user-name-->
                     </div>
@@ -105,6 +105,7 @@
                                                             </a>
                                                         </td>
                                                         <td>{{ order.date }}</td>
+                                                        <div class="col-12">
                                                         <td>
                                                             <ul class="list-unstyled">
                                                                 {% for item in order.orderitems.all %}

@@ -10,7 +10,6 @@ class Profile(models.Model):
     A user profile model for storing billing details & order history.
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    avatar = models.ImageField(upload_to='profile_pic', blank=True)
     default_phone_number = models.CharField(
         max_length=20, null=True, blank=True)
     default_country = CountryField(
@@ -23,10 +22,20 @@ class Profile(models.Model):
     default_street_address2 = models.CharField(
         max_length=80, null=True, blank=True)
     default_county = models.CharField(max_length=80, null=True, blank=True)
+    avatar = models.ImageField(upload_to ='avatars', default="avatar.jpg")
+
     
+    def create_default_avatar(self):
+       if not self.avatar_set.all():
+          avatar = profile.avatar_set.create(profile=self.__class__)
+          avatar.avatar = File(open('media/default_profile_picture.jpg'))
+          avatar.avatar_thumbnail = File(open('media/default_profile_picture_thumbnail.jpg'))
+          avatar.save()
 
     def __str__(self):
         return self.user.username
+    
+    
 
 
 @receiver(post_save, sender=User)
