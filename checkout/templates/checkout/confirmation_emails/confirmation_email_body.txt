@@ -5,13 +5,11 @@ Hey {{order.user_full_name }}
 This is a confirmation for your order:
 
 Order Number: {{ order.order_number }}
-Order Date: {{ order.order_date }}
+Order Date: {{ order.date }}
 
-{% for item in order.orderitems.all %}
-Product: {{ item.product.title }}
-  {% if item.product_dimension %}
-        {{ item.product_dimension|upper }}
-  {% endif %}
+Order Total: ${{ order.order_total }}
+Special Promotion: ${{ order.special_promotion }}
+Grand Total: ${{ order.grand_total }}
 
 Quantity: {{ item.quantity }}
 
@@ -21,6 +19,8 @@ Price: {{ item.product.price }}
 
 Grand Total: {{ item.subtotal }}
 {% endfor %}
+
+If you have any questions, feel free to contact us at {{ contact_email }}.
 
 Your digital order is attached.
 
