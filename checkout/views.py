@@ -1,4 +1,3 @@
-from django.http import request
 from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from django.views.decorators.http import require_POST
 from django.contrib import messages
@@ -26,7 +25,7 @@ def cache_checkout_data(request):
         stripe.PaymentIntent.modify(pid, metadata={
             'cart': json.dumps(request.session.get('cart', {})),
             'save_info': request.POST.get('save_info'),
-            'username': request.POST.get('username'),
+            'username': request.user,
         })
         return HttpResponse(status=200)
     except Exception as e:
@@ -86,10 +85,10 @@ def checkout(request):
                     )
                     order.delete()
                     return redirect(reverse('view_cart'))
-
+                
+            # Save user info to their profile if everything works
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success', args=[order.order_number]))
-
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
@@ -108,7 +107,7 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
             )
-        
+        # Prefill the form with saved user data 
         if request.user.is_authenticated:
             try:
                 profile = Profile.objects.get(user=request.user)
@@ -123,24 +122,23 @@ def checkout(request):
                     'street_address2': profile.default_street_address2,
                     'county': profile.default_county,
                 })
-                
             except Profile.DoesNotExist:
                 order_form = OrderForm()
         else:
             order_form = OrderForm()
 
-        if not stripe_public_key:
-            messages.warning(request, 'Stripe public key is missing. \
-                Did you forget to set it in your environment?')
+    if not stripe_public_key:
+        messages.warning(request, 'Stripe public key is missing. \
+            Did you forget to set it in your environment?')
 
-        template = 'checkout/checkout.html'
-        context = {
-            'order_form': order_form,
-            'stripe_public_key': 'pk_test_51J5BfyJuLUUDUAz9Rkhvu4bi7GFnV0T1E3ueMvoUlFvU6OCJOCWhYG3LFRmeTvTFyUvb0CyF6W8uALTdnuYhUSJD00AL9gibGI',
-            'client_secret': intent.client_secret,
-        }
+    template = 'checkout/checkout.html'
+    context = {
+        'order_form': order_form,
+        'stripe_public_key': 'pk_test_51J5BfyJuLUUDUAz9Rkhvu4bi7GFnV0T1E3ueMvoUlFvU6OCJOCWhYG3LFRmeTvTFyUvb0CyF6W8uALTdnuYhUSJD00AL9gibGI',
+        'client_secret': intent.client_secret,
+    }
 
-        return render(request, template, context)
+    return render(request, template, context)
 
 
 def checkout_success(request, order_number):
@@ -155,29 +153,24 @@ def checkout_success(request, order_number):
         # Bind user profile object to the order
         order.profile = profile
         order.save()
-    else:
-        profile = Profile.objects.get(user=request.user)
-        # Bind user profile object to the order
-        order.profile = profile
-        order.save() 
     
-    if save_info:
-        profile_data = {
-            'default_phone_number': order.phone_number,
-            'default_town_or_city': order.town_or_city,
-            'default_street_address1': order.street_address1,
-            'default_street_address2': order.street_address2,
-            'default_county': order.county,
-            'default_postcode': order.postcode,
-            'default_country': order.country,
-        }
-        user_profile_form = ProfileForm(profile_data, instance=profile)
-        if user_profile_form.is_valid():
-            user_profile_form.save()
+        if save_info:
+            profile_data = {
+                'default_phone_number': order.phone_number,
+                'default_town_or_city': order.town_or_city,
+                'default_street_address1': order.street_address1,
+                'default_street_address2': order.street_address2,
+                'default_county': order.county,
+                'default_postcode': order.postcode,
+                'default_country': order.country,
+            }
+            profile_form = ProfileForm(profile_data, instance=profile)
+            if profile_form.is_valid():
+                profile_form.save()
     
-    # messages.info(request, f'Order successfully processed! \
-    #     Your order number is {order_number}. A confirmation \
-    #     email will be sent to {order.email}.')
+    messages.success(request,f'Order successfully processed! \
+        Your order number is {order_number}. A confirmation \
+        email will be sent to {order.email}.')
 
     if 'cart' in request.session:
         del request.session['cart']

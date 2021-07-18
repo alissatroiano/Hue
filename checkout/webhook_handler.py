@@ -11,6 +11,7 @@ from django.conf import settings
 import json
 import time
 
+
 class StripeWH_Handler:
     """ These methods handle Stripe webhooks """
 
@@ -27,7 +28,7 @@ class StripeWH_Handler:
         
     def _send_confirmation_email(self, order):
         """Send the user a confirmation email"""
-        email = order.email
+        user_email = order.email
         subject = render_to_string(
             'checkout/confirmation_emails/confirmation_email_subject.txt',
             {'order': order})
@@ -39,7 +40,7 @@ class StripeWH_Handler:
             subject,
             body,
             settings.DEFAULT_FROM_EMAIL,
-            [email]
+            [user_email]
         )
         print(email)
 
@@ -146,7 +147,6 @@ class StripeWH_Handler:
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
-        self._send_confirmation_email(order)
         return HttpResponse(
             content=f'Webhook received: {event["type"]} | SUCCESS! Order was created in webhook!',
             status=200)
