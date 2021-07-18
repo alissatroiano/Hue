@@ -21,9 +21,7 @@
                 <div class="card-body">
                     <div class="d-flex flex-column align-items-center text-center">
                         <h4 class="card-title text-dark">{{ username }}</h4>
-                        <img alt='' id="profile"
-                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80"
-                            class="img-fluid rounded-circle" width="150">
+                        <img src="{{ user.profile.avatar.url }}" alt='' class="img-fluid rounded-circle" width="150">
                         <div class="user-name mt-3">
                             <h4 class="display-font">{{ user.profile }}</h4>
                         </div>
@@ -74,7 +72,7 @@
                                         aria-labelledby="headingOne" data-bs-parent="#user-settings">
                                         <div class="accordion-body">
                                             <form action="{% url 'profile' %}" method="POST" class="mt-3"
-                                                id="update-profile-form">
+                                                id="update-profile-form" enctype="multipart/form-data">
                                                 {% csrf_token %}
                                                 {{ form|crispy }}
                                                 <button class="btn btn-none rounded-0 text-uppercase float-right">Update
