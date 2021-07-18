@@ -10,7 +10,7 @@ class Profile(models.Model):
     A user profile model for storing billing details & order history.
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    # avatar = models.ImageField(default='default.jpg', upload_to='profile_pic')
+    avatar = models.ImageField(upload_to='profile_pic', blank=True)
     default_phone_number = models.CharField(
         max_length=20, null=True, blank=True)
     default_country = CountryField(

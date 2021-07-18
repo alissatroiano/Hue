@@ -21,6 +21,7 @@ class ProfileForm(forms.ModelForm):
             'default_street_address2': 'Street Address 2',
             'default_county': 'County, State or Locality',
             'default_country': 'Country',
+            'avatar': 'avatar',
         }
 
         self.fields['default_phone_number'].widget.attrs['autofocus'] = True
