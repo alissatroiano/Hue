@@ -1,0 +1,26 @@
+
+
+Hey {{order.user_full_name }}
+
+This is a confirmation for your order:
+
+Order Number: {{ order.order_number }}
+Order Date: {{ order.order_date }}
+
+{% for item in order.orderitems.all %}
+Product: {{ item.product.title }}
+  {% if item.product_dimension %}
+        {{ item.product_dimension|upper }}
+  {% endif %}
+
+Quantity: {{ item.quantity }}
+
+Price: {{ item.product.price }}
+
+{{ item.quantity }} @ ${{ item.product.price }} = ${{ item.subtotal }}
+
+Grand Total: {{ item.subtotal }}
+{% endfor %}
+
+Your digital order is attached.
+
