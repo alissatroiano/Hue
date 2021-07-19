@@ -786,10 +786,10 @@ button.btn.btn-primary.loginButton {
 /* Shadow effect copied from https://codepen.io/team/sparkbox/pen/dRpZXj */
 
 #shop-card {
-    box-shadow: 0 1.5em 2em -1em #999;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 4px 14px #100324;
+
 }
 
 .ribbon-wrapper {

@@ -1,4 +1,4 @@
-{% load static %} {% load socialaccount %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,8 +32,8 @@
         <div class="row bg-dark py-lg-3 d-none d-lg-flex">
             <div class="col-4 col-lg-auto navbar-brand me-auto my-auto py-3 py-lg-0 text-center text-lg-start">
                 <a href="{% url 'home' %}" class="nav-link navbar-brand" id="logo">
-                    <i class="bi me-2 fas fa-tint">
-                    </i> Hue
+                    <i class="bi me-2 fas fa-tint"></i>
+                    Hue
                 </a>
             </div>
             <div class="col-12 col-lg-auto my-0 mx-auto py-1 py-lg-0 float-end">
@@ -122,23 +122,7 @@
         </div>
     </header>
     <!--end header-->
-    {% if messages %}
-    <div class="container" id="messages">
-        {% for message in messages %} 
-            {% with message.level as level %}
-            {% if level == 40 %} 
-                {% include 'includes/popovers/popover_error.html' %} 
-            {% elif level == 30 %}
-                {% include 'includes/popovers/popover_warning.html' %}
-            {% elif level == 25 %}
-                {% include 'includes/popovers/popover_success.html'%}
-            {% else %}
-                {% include 'includes/popovers/popover_info.html' %} 
-            {% endif %} 
-            {% endwith %}
-        {% endfor %}
-    </div>
-    {% endif %} 
+
 {% block page_header %}
 {% endblock %} 
 
@@ -146,12 +130,7 @@
 {% endblock %}
 
 {% block postloadjs %}
-    <script>
-        var popover = new bootstrap.Popover(document.querySelector('.example-popover'), {
-            container: 'body'
-        })
-    </script>
-    {% endblock %}
+{% endblock %}
 </body>
 <!--./body-ends-here-->
 </html>

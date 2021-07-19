@@ -33,3 +33,6 @@ input#id_avatar,
 input#id_avatar input::placeholder {
     font-family: 'Raleway', sans-serif;
 }
+
+#profile-card {
+}

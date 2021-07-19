@@ -14,35 +14,21 @@
 {% endblock %}
 
 {% block content %}
-<div class="container pt-5">
+<div class="container-fluid pt-5">
     <div class="row">
         <div class="col-md-4 mb-3 py-2">
-            <div class="card">
+            <div class="card border-0 shadow-lg" id="profile-card">
                 <div class="card-body">
-                    <div class="d-flex flex-column align-items-center text-center">
-                        <h4 class="card-title text-dark">{{ username }}</h4>
-                        <div class="user-name mt-3">
-                            <h4 class="display-font">{{ user.profile }}</h4>
-                            <img src="{{ user.profile.avatar.url }}" alt='' class="img-fluid rounded-circle my-3" style="width: 150px; height: 150px;">
+                    <div class="d-flex flex-column align-items-center justify-content-between text-center">
+                            <h4 class="card-title text-dark"></h4>
+                            <div class="user-name mt-3">
+                                <h4 class="display-font heading-lg">alissa</h4>
+                                <img src="/media/avatars/photopaint.jpg" alt="" class="img-fluid rounded-circle my-3"
+                                    style="width: 150px; height: 150px;">
+                            </div>
+                            <!--./end-user-name-->
                         </div>
-                        <!--./end-user-name-->
-                    </div>
                     <!--./end-flex-column-->
-                </div>
-                <!--./end-card-body-->
-            </div>
-            <!--./end-card-->
-            <div class="card mt-3">
-                <div class="card-body">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                        </li>
-                    </ul>
-                    <!--./end-list-group-->
                 </div>
                 <!--./end-card-body-->
             </div>
@@ -57,16 +43,16 @@
                             {{ user.profile }}'s Profile
                         </div>
                         <!--./end-card-title-->
-                        <div class="col-sm-12">
+                        <div class="d-flex flex-column align-items-center justify-content-between text-center">
                             <div class="accordion accordion-flush my-4" id="user-settings">
                                 <div class="accordion-item">
-                                        <div class="accordion-header" id="headingOne" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
-                                            aria-controls="collapseOne">
-                                          <h3 class="display-font">
-                                              Your Settings
-                                            </h3>
-                                </div>
+                                    <div class="accordion-header" id="headingOne" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
+                                        aria-controls="collapseOne">
+                                        <h3 class="display-font">
+                                            Your Settings
+                                        </h3>
+                                    </div>
                                     <div id="collapseOne" class="accordion-collapse collapse"
                                         aria-labelledby="headingOne" data-bs-parent="#user-settings">
                                         <div class="accordion-body">
@@ -82,68 +68,75 @@
                                 </div>
                                 <!--./end-accordion-item-->
                                 <div class="accordion-item body-font">
-                                <div class="col-12">
-                                    <div class="accordion-header" id="headingTwo" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true"
-                                    aria-controls="collapseTwo">
-                                    <h3 class="display-font">Order History</h3>
+                                    <div class="col-12">
+                                        <div class="accordion-header" id="headingTwo" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true"
+                                            aria-controls="collapseTwo">
+                                            <h3 class="display-font">Order History</h3>
+                                        </div>
+                                        <div id="collapseTwo" class="accordion-collapse collapse"
+                                            aria-labelledby="headingOne" data-bs-parent="#order-history">
+                                            <div class="accordion-body">
+                                                <div class="order-history table-responsive">
+                                                    <table class="table table-sm table-borderless">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Order Number</th>
+                                                                <th>Date</th>
+                                                                <th>Items</th>
+                                                                <th>Order Total</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            {% for order in orders %}
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="{% url 'order_history' order.order_number %}"
+                                                                        title="{{ order.order_number }}">
+                                                                        {{ order.order_number|truncatechars:6 }}
+                                                                    </a>
+                                                                </td>
+                                                                <td>{{ order.date }}</td>
+                                                                <div class="col-12">
+                                                                    <td>
+                                                                        <ul class="list-unstyled">
+                                                                            {% for items in order.items.all %}
+                                                                            <li class="small">
+                                                                                {% if item.product_dimension %}
+                                                                                File Size: {{ item.product_dimension }}
+                                                                                 {{ item.product_dimension|upper }}
+                                                                                {% endif %}
+                                                                                {{ item.product.title }} x {{
+                                                                                item.quantity }}
+                                                                            </li>
+                                                                            {% endfor %}
+                                                                        </ul>
+                                                                    </td>
+                                                                    <td>${{ order.grand_total }}</td>
+                                                            </tr>
+                                                            {% endfor %}
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <!--./end-accordion-item-->
+                                        </div>
+                                        <!--./end-accordion-->
                                     </div>
-                                    <div id="collapseTwo" class="accordion-collapse collapse"
-                                    aria-labelledby="headingOne" data-bs-parent="#order-history">
-                                    <div class="accordion-body">
-                                    <div class="order-history table-responsive">
-                                        <table class="table table-sm table-borderless">
-                                            <thead>
-                                                <tr>
-                                                    <th>Order Number</th>
-                                                    <th>Date</th>
-                                                    <th>Items</th>
-                                                    <th>Order Total</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {% for order in orders %}
-                                                    <tr>
-                                                        <td>
-                                                            <a href="{% url 'order_history' order.order_number %}"
-                                                            title="{{ order.order_number }}">
-                                                                {{ order.order_number|truncatechars:6 }}
-                                                            </a>
-                                                        </td>
-                                                        <td>{{ order.date }}</td>
-                                                        <div class="col-12">
-                                                        <td>
-                                                            <ul class="list-unstyled">
-                                                                {% for item in order.orderitems.all %}
-                                                                    <li class="small">
-                                                                        {% if item.product.has_dimensions %}
-                                                                            File Size {{ item.product.dimension|upper }}
-                                                                        {% endif %}
-                                                                        {{ item.product.title }} x {{ item.quantity }}
-                                                                    </li>
-                                                                {% endfor %}
-                                                            </ul>
-                                                        </td>
-                                                        <td>${{ order.grand_total }}</td>
-                                                    </tr>
-                                                {% endfor %}
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                    <!--./end-d-flex-->
                                 </div>
-                                <!--./end-accordion-item-->
+                                <!--./end-row-card-row-->
                             </div>
-                            <!--./end-accordion-->
+                            <!--./end-card-body-->
                         </div>
-                        <!--./end-col-sm-12-->
+                        <!--./end-card-->
                     </div>
-                    <!--./end-row-card-row-->
+                    <!--./end-col-md-8-->
                 </div>
-                <!--./end-card-body-->
+                <!--./end-row-->
             </div>
-            <!--./end-card-->
         </div>
-        <!--./end-col-md-8-->
+        <!--./end-card-columns-->
     </div>
     <!--./end-row-->
 </div>

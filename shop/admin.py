@@ -15,16 +15,32 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['sku', 'title', 'category', 'price', 'display_final_price', 'active', 'image']
+    list_display = [
+        'sku', 
+        'title', 
+        'active',
+        'category', 
+        'price',   
+        'image']
     # Add list_selected_related so django will perform less queries on the database
     list_select_related = ['category']
-    list_filter = ['active', 'category', 'price', 'created_at', 'deleted_at', 'discount_price']
+    list_filter = ['active', 'category', 'price', 'created_at', 'deleted_at']
     # Add search_fields so autocomplete will work in product admin 
     search_fields = ['title']
     list_per_page = 50
-    fields = ['sku', 'active', 'medium', 'product_details', 'title', 'label', 'image', 'image_url', 'category', 'discount_price', 'price', 'display_final_price', 'orientation', 'has_dimensions']
+    fields = [
+        'sku',
+        'title',
+        'active', 
+        'medium', 
+        'image', 
+        'category', 
+        'price', 
+        'orientation', 
+        'has_dimensions'
+    ]
     autocomplete_fields = ['category']
    # Add display_final_price to readonly_fields because it is a function not a db field
-    readonly_fields = ['display_final_price']
+    readonly_fields = ['active']
 
     ordering = ('sku',)

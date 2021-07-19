@@ -15,11 +15,6 @@ ORIENTATIONS = (
         ('Landscape', 'Landscape'),
         ('Square', 'Square'),
 )
-LABEL = (
-        ('SL', 'Sale'),
-        ('CL', 'Clearance'),
-        ('NP', 'No Promotion'),
-)
 
     # https://github.com/Code-Institute-Solutions/Boutique-Ado/blob/master/06-Products-Setup/Adding-The-Products/products/models.py
 class Category(models.Model):
@@ -42,18 +37,14 @@ class Product(models.Model):
     sku = models.CharField(unique=True, max_length=254, null=True, blank=True)
     active = models.BooleanField(default=True)
     title = models.CharField(max_length=254, unique=True)
+    artist = models.CharField(max_length=254, blank=True, null=True)
     orientation = models.CharField(choices=ORIENTATIONS, max_length=254, default='Portrait')
     has_dimensions = models.BooleanField(default=False, null=True, blank=True)
-    label = models.CharField(choices=LABEL, max_length=2, default='NP')
     medium = models.CharField(max_length=254, blank=True)
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
     product_details = models.TextField()
     price = models.DecimalField(
-        default=0.00, decimal_places=2, max_digits=8)
-    discount_price = models.DecimalField(
-        default=0.00, decimal_places=2, max_digits=8)
-    final_price = models.DecimalField(
         default=0.00, decimal_places=2, max_digits=8)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True, )
@@ -78,18 +69,3 @@ class Product(models.Model):
 
     def __str__(self):
         return self.title
-
-    def display_final_price(self):
-        if self.label == "SL":
-            sale_discount = 0.75
-            self.discount_price = self.price * Decimal(sale_discount)
-            return '${:,.2f}'.format(self.discount_price)
-        elif self.label == 'CL':
-            clearance_discount = 0.25
-            self.discount_price = self.price * Decimal(clearance_discount)
-            return '${:,.2f}'.format(self.discount_price)
-        else:
-            self.price = self.price
-        return f'{CURRENCY} {self.discount_price}'
-    display_final_price.short_description = 'Display Final Price'
-
