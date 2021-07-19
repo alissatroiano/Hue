@@ -40,19 +40,13 @@ def shop_all(request):
             products = products.filter(category__title__in=categories)
             categories = Category.objects.filter(title__in=categories)
 
-        if 'label' in request.GET:
-            labels = request.GET['label'].split(',')
-            products = products.filter(label__in=labels)
-            for i,l in enumerate(labels):
-                labels[i] = Product.get_label(l)
-
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
                 messages.error(request, "You didn't enter any search criteria!")
                 return redirect(reverse('shop'))
             
-            queries = Q(title__icontains=query) | Q(product_details__icontains=query) | Q(label__icontains=query) |  Q(category__title__icontains=query)
+            queries = Q(title__icontains=query) | Q(product_details__icontains=query) |  Q(category__title__icontains=query)
             products = products.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
