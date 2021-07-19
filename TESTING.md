@@ -16,6 +16,9 @@
 - 9. Follow steps 1-7 for the following custom Django templates:
     - [x] [mobilenavbar.html](templates/includes/mobilenavbar.html)
     - [x] [shopnav.html](templates/includes/shopnav.html)
+    - [x] [checkout_success.html](checkout/templates/checkout/checkout_success.html)
+    - [x] 
+
 
 #### W3C Jigsaw Test
 **CSS Validation Testing**

@@ -36,6 +36,9 @@ class Category(models.Model):
 
 # https://christosstath10.medium.com/create-your-own-point-of-sale-c25f8b1ff93b
 class Product(models.Model):
+    """
+    The Product Model contains data for all shop products
+    """
     sku = models.CharField(unique=True, max_length=254, null=True, blank=True)
     active = models.BooleanField(default=True)
     title = models.CharField(max_length=254, unique=True)
