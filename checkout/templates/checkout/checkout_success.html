@@ -73,11 +73,11 @@
             </div>  
             <!--download-row-->
             <div class="row my-2 pt-3">
-                <div class="col-12 col-md-4">
-                    <small class="text-muted">Order Download:</small>
+                <div class="col">
+                    <p class="text-muted display-font">Order Download:</p>
                 </div>
             </div>
-            <div class="row">
+            <div class="row body-font">
                 <div class="col-12 col-md-4">
                     <p class="text-dark">Your Order</p>
                 </div>
@@ -92,52 +92,57 @@
                 </div>
             <!--./end-download-row-->
             {% endfor %}
-
-            <div class="row">
+            <!--digital-download-row-->
+            <div class="row my-2 pt-3">
                 <div class="col">
-                    <small class="text-muted">Your Information</small>
+                    <p class="text-muted display-font">Your Information</p>
                 </div>
             </div>
-
-            <div class="row">
+            <div class="row body-font">
                 <div class="col-12 col-md-4">
                     <p class="mb-0 text-black font-weight-bold">Full Name</p>
                 </div>
                 <div class="col-12 col-md-8 text-md-right">
-                    <p class="mb-0">{{ order.user_full_name }}</p>
+                    <strong class="mb-0">{{ order.user_full_name }}</strong>
                 </div>
+                </div>
+                <div class="row body-font">
+                <div class="col-12 col-md-4">
+                        <p class="mb-0 text-black font-weight-bold">Email:</p>
+                    </div>
                 <div class="col-12 col-md-8 text-md-right">
-                    <p class="mb-0">{{ order.email }}</p>
+                    <strong class="mb-0">{{ order.email }}</strong>
                 </div>
             </div>
-            <div class="row">
+            <!--./end-digital-download-row-->
+            <!--billing-details-row-->
+            <div class="row my-2 pt-3">
                 <div class="col">
-                    <small class="text-muted">Your Billing Details</small>
+                    <small class="text-muted display-font">Your Billing Details</small>
                 </div>
             </div>
-
-            <div class="row">
+            <div class="row body-font">
                 <div class="col-12 col-md-4">
                     <p class="mb-0 text-black font-weight-bold">Address 1</p>
                 </div>
                 <div class="col-12 col-md-8 text-md-right">
-                    <p class="mb-0">{{ order.street_address1 }}</p>
+                    <strong class="mb-0">{{ order.street_address1 }}</strong>
                 </div>
             </div>
-
+            <!--./end-billing-details-row-->
             {% if order.street_address2 %}
-            <div class="row">
+            <div class="row my-1 body-font">
                 <div class="col-12 col-md-4">
                     <p class="mb-0 text-black font-weight-bold">Address 2</p>
                 </div>
                 <div class="col-12 col-md-8 text-md-right">
-                    <p class="mb-0">{{ order.street_address1 }}</p>
+                    <strong class="mb-0">{{ order.street_address1 }}</strong>
                 </div>
             </div>
             {% endif %}
             <!--order-county-->
             {% if order.county %}
-            <div class="row">
+            <div class="row my-1 body-font">
                 <div class="col-12 col-md-4">
                     <p class="mb-0 text-black font-weight-bold">County</p>
                 </div>
@@ -148,7 +153,7 @@
             {% endif %}
             <!--./order-county-->
             <!--town-or-city-->
-            <div class="row">
+            <div class="row my-1 body-font">
                 <div class="col-12 col-md-4">
                     <p class="mb-0 text-black font-weight-bold">Town or City</p>
                 </div>
