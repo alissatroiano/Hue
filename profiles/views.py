@@ -34,6 +34,7 @@ def profile(request):
 
 def order_history(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
+    orderitems = get_object_or_404(OrderItem, order=order)
     
     messages.info(request, (
         f'Your confirmation for order number # {order_number} was sent to {order.email} on {order.created_at}.'
@@ -43,6 +44,7 @@ def order_history(request, order_number):
     context = {
         'order': order,
         'from_profile': True,
+        'orderitems': orderitems,
     }
     
     return render(request, template, context)
