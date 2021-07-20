@@ -44,7 +44,7 @@ input#id_avatar input::placeholder {
 }
 
 #profile-container {
-    background-image: url("../../../media/profiles/userprofilebackground.jpg");
+    background-image: url("../images/userprofilebackground.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
