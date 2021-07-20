@@ -39,13 +39,15 @@
                                 <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
                                 <option value="title_asc" {% if current_sorting == 'title_asc' %}selected{% endif %}>Title (A-Z)</option>
                                 <option value="title_desc" {% if current_sorting == 'title_desc' %}selected{% endif %}>Title (Z-A)</option>
+                                <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
                                 <option value="label_asc" {% if current_sorting == 'label="1"' %}selected{% endif %}>With People</option>
                                 <option value="label_desc" {% if current_sorting == 'label="2"' %}selected{% endif %}>Without People</option>
+                                <option value="orientation_asc" {% if current_sorting == 'orientation="3"' %}selected{% endif %}>Vertical</option>
+                                <option value="orientation_desc" {% if current_sorting == 'orientation="4"' %}selected{% endif %}>Horizontal</option>
+                                <option value="orientation_desc" {% if current_sorting == 'orientation="5"' %}selected{% endif %}>Square</option>
                             </select>
                         </div>
                     </div>
-
-
                 <div class="col-12 col-md-6 order-md-first body-font body-mds">
                     <p class="text-muted mt-3 text-center text-md-left">
                         {% if search_term or current_categories or current_sorting != 'None_None' %}
