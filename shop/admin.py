@@ -12,7 +12,6 @@ CURRENCY = settings.CURRENCY
 class CategoryAdmin(admin.ModelAdmin):
     search_fields = ['title']
 
-
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     list_display = [

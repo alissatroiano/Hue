@@ -36,6 +36,7 @@ input#id_avatar input::placeholder {
 .card {
     background: #fafafa;
     box-shadow: 5px 4px 14px #100324;
+    margin-top: 50px;
 }
 
 .card-header {
@@ -43,9 +44,20 @@ input#id_avatar input::placeholder {
 }
 
 #profile-container {
-    background-image: url("https://images.unsplash.com/photo-1561214115-f2f134cc4912?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=706&q=80");
+    background-image: url("../../../media/profiles/userprofilebackground.jpg");
     background-size: cover;
-    background-position: center center;
+    background-position: center;
     background-repeat: no-repeat;
-    min-height: 100vh;
+    max-width: 100%;
+    height: 100vh;
+    position: absolute;
+    overflow: scroll;
 }
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+ img.bg {
+   left: 50%;
+   margin-left: -512px;   /* 50% */
+ }
+}
+

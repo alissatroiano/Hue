@@ -14,18 +14,18 @@
 {% endblock %}
 
 {% block content %}
-<div class="container-fluid pt-5" id="profile-container">
+<div class="container-fluid pt-sm-2 pt-lg-5" id="profile-container">
     <div class="row">
-        <div class="col-sm-12 mb-3 py-2">
-            <div class="card border-0 py-5" id="profile-card">
+        <div class="col-sm-12">
+            <div class="card border-0 mx-sm-3 mx-lg-5" id="profile-card">
                 <div class="card-body">
                     <div class="card-header border-0">
                         <div class="d-flex flex-column align-items-center justify-content-center text-center">
                             <h4 class="card-title text-dark"></h4>
-                            <div class="card-header user-name mt-3">
-                                <h4 class="display-font heading-lg">alissa</h4>
+                            <div class="card-header user-name mb-1">
+                                <h4 class="display-font heading-md">alissa</h4>
                                 <img src="{{ user.profile.avatar.url }}" alt="{{ user.profile }}"
-                                    class="img-fluid rounded-circle my-3" style="width: 150px; height: 150px;">
+                                    class="img-fluid rounded-circle my-2" style="width: 100px; height: 100px;">
                             </div>
                             <!--./end-user-name-->
                         </div>
@@ -33,11 +33,11 @@
                     </div>
                     <!--./end-card-header-->
                     <!--card-body-->
-                    <div class="card-body mx-5">
-                        <div class="d-flex flex-column align-items-center justify-content-center text-center">
-                            <div class="accordion accordion-flush my-4" id="user-settings">
-                                <div class="accordion-item body-font">
-                                    <div class="accordion-header" id="headingOne" type="button"
+                    <div class="card-body">
+                        <div class="align-items-center justify-content-center text-center">
+                            <div class="accordion accordion-flush border-0 my-2" id="user-settings">
+                                <div class="accordion-item body-font border-0">
+                                    <div class="accordion-header border-0" id="headingOne" type="button"
                                         data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
                                         aria-controls="collapseOne">
                                         <h3 class="display-font">
@@ -58,9 +58,9 @@
                                     </div>
                                 </div>
                                 <!--./end-accordion-item-->
-                                <div class="accordion-item body-font">
+                                <div class="accordion-item body-font border-0 mt-4">
                                     <div class="col-12">
-                                        <div class="accordion-header" id="headingTwo" type="button"
+                                        <div class="accordion-header border-0" id="headingTwo" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true"
                                             aria-controls="collapseTwo">
                                             <h3 class="display-font">Order History</h3>

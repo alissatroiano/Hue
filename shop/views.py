@@ -3,7 +3,9 @@ from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
 
+
 from .models import Product, Category
+from .forms import ProductForm
 
 # Create your views here.
 def shop_all(request):
@@ -75,3 +77,9 @@ def product_detail(request, product_id):
     }
 
     return render(request, 'shop/product_detail.html', context)
+
+
+def add_product(request):
+    """
+    This method allows store owners to add new product to the store
+    """
