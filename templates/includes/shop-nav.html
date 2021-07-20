@@ -20,29 +20,36 @@
                     Art Prints</a>
                 <div class="dropdown-menu border-0 display-font" aria-labelledby="shopDropdown2">
                     <a href="{% url 'shop' %}?category=graffiti&direction=asc" class="dropdown-item">Graffiti</a>
-                    <a href="{% url 'shop' %}?category=paintings&direction=asc" class="dropdown-item">Canvas Art</a>
-                    <a href="{% url 'shop' %}?category=illustrations&direction=asc"
-                    class="dropdown-item">Illustrations</a>
-            </div>
-        </li>
-        <li class="nav-item">
-            <div class="dropdown">
-                <a class="btn btn-sm nav-link dropdown-toggle" href="#" role="button" id="shopDropdown3"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    Digital Art</a>
-                <div class="dropdown-menu border-0 p-0 m-0 display-font" aria-labelledby="shopDropdown3">
-                    <a href="{% url 'shop' %}?category=surrealism&direction=asc" class="dropdown-item">Surrealism</a>
-                    <a href="{% url 'shop' %}?category=illustrations&direction=asc" class="dropdown-item">Illustrations</a>
-                    <a href="{% url 'shop' %}?category=photo-paintings&direction=asc" class="dropdown-item">Photo-Paintings</a>
-                    <a href="{% url 'shop' %}?category=mixed-media&direction=asc" class="dropdown-item">Mixed Media</a>
+                    <a href="{% url 'shop' %}?category=paintings&direction=asc" class="dropdown-item">Abstract</a>
                 </div>
+        </li>
+
+        <li class="nav-item">
+            <a href="{% url 'shop' %}?category=surrealism&direction=asc" class="nav-link display-font">Surrealism</a>
+        </li>
+        <li class="nav-item">
+            <a href="{% url 'shop' %}?category=illustrations&direction=asc"
+                class="nav-link display-font">Illustrations</a>
+        </li>
+
+        <div class="dropdown">
+            <a class="btn btn-sm nav-link dropdown-toggle" href="#" role="button" id="shopDropdown3"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Digital Art</a>
+            <div class="dropdown-menu border-0 p-0 m-0 display-font" aria-labelledby="shopDropdown3">
+                <a href="{% url 'shop' %}?category=surrealism&direction=asc" class="dropdown-item">Surrealism</a>
+                <a href="{% url 'shop' %}?category=illustrations&direction=asc" class="dropdown-item">Illustrations</a>
+                <a href="{% url 'shop' %}?category=photo-paintings&direction=asc"
+                    class="dropdown-item">Photo-Paintings</a>
+                <a href="{% url 'shop' %}?category=mixed-media&direction=asc" class="dropdown-item">Mixed Media</a>
             </div>
+        </div>
         </li>
         <li class="nav-item">
             <div class="dropdown">
                 <a class="btn btn-sm nav-link dropdown-toggle" href="#" role="button" id="shopDropdown3"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                    Photography & Stock</a>
+                    Stock Photos</a>
                 <div class="dropdown-menu border-0 p-0 m-0 display-font" aria-labelledby="shopDropdown3">
                     <a href="{% url 'shop' %}?category=popart&direction=asc" class="dropdown-item">Pop Art</a>
                     <a href="{% url 'shop' %}?category=cities&direction=asc" class="dropdown-item">Cities</a>
@@ -51,18 +58,18 @@
             </div>
         </li>
     </ul>
-    
+
     <ul class="list-group list-group-horizontal text-end">
         <li class="nav-item">
             <div class="dropdown">
                 <a class="btn btn-sm nav-link dropdown-toggle" href="#" role="button" id="shopDropdown1"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                People</a>
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    People</a>
                 <div class="dropdown-menu border-0 p-0 m-0 display-font" aria-labelledby="shopDropdown3">
-            <a href="{% url 'shop' %}?label=1&direction=asc" class="dropdown-item">With People</a>
-            <a href="{% url 'shop' %}?label=2&direction=asc" class="dropdown-item">Without People</a>
-                    </div>
-                    </div>
+                    <a href="{% url 'shop' %}?label=1&direction=asc" class="dropdown-item">With People</a>
+                    <a href="{% url 'shop' %}?label=2&direction=asc" class="dropdown-item">Without People</a>
+                </div>
+            </div>
         </li>
     </ul>
 </div>

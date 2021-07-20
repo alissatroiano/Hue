@@ -123,6 +123,24 @@
     </header>
     <!--end header-->
 
+    {% if messages %}
+    <div class="message-container">
+        {% for message in messages %}
+        {% with message.level as level %}
+        {% if level == 40 %}
+        {% include 'includes/popovers/popover_error.html' %}
+        {% elif level == 30 %}
+        {% include 'includes/popovers/popover_warning.html' %}
+        {% elif level == 25 %}
+        {% include 'includes/popovers/popover_success.html' %}
+        {% else %}
+        {% include 'includes/popovers/popover_info.html' %}
+        {% endif %}
+        {% endwith %}
+        {% endfor %}
+    </div>
+    {% endif %}ƒ
+
 {% block page_header %}
 {% endblock %} 
 
@@ -130,6 +148,10 @@
 {% endblock %}
 
 {% block postloadjs %}
+<script type="text/javascript">
+var exampleTriggerEl = document.getElementById('example')
+var popover = bootstrap.Popover.getOrCreateInstance(exampleTriggerEl) // Returns a Bootstrap popover instance
+</script>
 {% endblock %}
 </body>
 <!--./body-ends-here-->
