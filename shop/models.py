@@ -19,7 +19,6 @@ ORIENTATION = (
 LABEL = (
         ('1','With People'),
         ('2', 'Without People'),
-        ('3', 'Room for Copy'),
 )
 
     # https://github.com/Code-Institute-Solutions/Boutique-Ado/blob/master/06-Products-Setup/Adding-The-Products/products/models.py
@@ -45,7 +44,7 @@ class Product(models.Model):
     title = models.CharField(max_length=254, unique=True)
     artist = models.CharField(max_length=254, blank=True, null=True)
     orientation = models.CharField(choices=ORIENTATION, max_length=254, default='Portrait')
-    label = models.CharField(max_length=254, choices=LABEL, default='Without People')
+    label = models.CharField(max_length=254, choices=LABEL, default='1')
     has_dimensions = models.BooleanField(default=False, null=True, blank=True)
     medium = models.CharField(max_length=254, blank=True)
     category = models.ForeignKey(

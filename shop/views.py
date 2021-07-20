@@ -13,6 +13,7 @@ def shop_all(request):
     query= None
     categories = None
     labels = None
+    orientations = None
     sort = None
     direction = None
 
@@ -28,7 +29,7 @@ def shop_all(request):
             if sortkey == 'category':
                 sortkey = 'category__title'
             if sortkey == 'orientation':
-                 sortkey = 'product__orientation'
+                 sortkey = 'orientation'
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
@@ -39,18 +40,18 @@ def shop_all(request):
             categories = request.GET['category'].split(',')
             products = products.filter(category__title__in=categories)
             categories = Category.objects.filter(title__in=categories)
-            
-        if 'people' in request.GET:
-            peoples = request.GET['people'].split(',')
-            categories = Category.filter(people__in=peoples)
-            for i,l in enumerate(labels):
-                [i] = Product.get_label(l)
 
         if 'label' in request.GET:
             labels = request.GET['label'].split(',')
             products = products.filter(label__in=labels)
             for i,l in enumerate(labels):
                 labels[i] = Product.get_label(l)
+                
+        if 'orientation' in request.GET:
+            orientations = request.GET['orientation'].split(',')
+            products = products.filter(orientation__in=orientations)
+            for i,o in enumerate(orientations):
+                orientations[i] = Product.get_orientation(o)
 
         if 'q' in request.GET:
             query = request.GET['q']
@@ -58,7 +59,7 @@ def shop_all(request):
                 messages.error(request, "You didn't enter any search criteria!")
                 return redirect(reverse('shop'))
             
-            queries = Q(title__icontains=query) | Q(product_details__icontains=query) |  Q(label__icontains=query) | Q(category__title__icontains=query)
+            queries = Q(title__icontains=query) | Q(product_details__icontains=query) |  Q(label__icontains=query) | Q(orientation__icontains=query) | Q(category__title__icontains=query)
             products = products.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
@@ -72,6 +73,7 @@ def shop_all(request):
         'current_categories': categories,
         'current_sorting': current_sorting,
         'current_labels': labels,
+        'current_orientation': orientations,
     }
 
     return render(request, 'shop/shop.html', context)
