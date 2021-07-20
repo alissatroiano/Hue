@@ -10,10 +10,16 @@ from decimal import Decimal
 now = timezone.now
 CURRENCY = settings.CURRENCY
 
-ORIENTATIONS = (
-        ('Portrait','Portrait'),
-        ('Landscape', 'Landscape'),
-        ('Square', 'Square'),
+ORIENTATION = (
+        ('P','Portrait'),
+        ('L', 'Landscape'),
+        ('S', 'Square'),
+)
+
+LABEL = (
+        ('1','With People'),
+        ('2', 'Without People'),
+        ('3', 'Room for Copy'),
 )
 
     # https://github.com/Code-Institute-Solutions/Boutique-Ado/blob/master/06-Products-Setup/Adding-The-Products/products/models.py
@@ -38,7 +44,8 @@ class Product(models.Model):
     active = models.BooleanField(default=True)
     title = models.CharField(max_length=254, unique=True)
     artist = models.CharField(max_length=254, blank=True, null=True)
-    orientation = models.CharField(choices=ORIENTATIONS, max_length=254, default='Portrait')
+    orientation = models.CharField(choices=ORIENTATION, max_length=254, default='Portrait')
+    label = models.CharField(max_length=254, choices=LABEL, default='Without People')
     has_dimensions = models.BooleanField(default=False, null=True, blank=True)
     medium = models.CharField(max_length=254, blank=True)
     category = models.ForeignKey(
@@ -53,18 +60,20 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     deleted_at = models.DateTimeField(auto_now=True)
-
+    
     objects = models.Manager()
     product_manager = ProductManager()
 
     def get_label(l):
         return dict(LABEL).get(l)
+    
+    def get_orientation(o):
+        return dict(ORIENTATION).get(o)
 
     class Meta:
         verbose_name_plural = 'Products'
 
     def save(self, *args, **kwargs):
-        self.discount_price = self.price if self.discount_price > 0 else self.price
         super().save(*args, **kwargs)
 
     def __str__(self):

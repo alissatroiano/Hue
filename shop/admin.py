@@ -10,6 +10,10 @@ CURRENCY = settings.CURRENCY
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
+    list_display = [
+        'title'
+        ]
+    
     search_fields = ['title']
 
 
@@ -37,7 +41,8 @@ class ProductAdmin(admin.ModelAdmin):
         'category', 
         'price', 
         'orientation', 
-        'has_dimensions'
+        'has_dimensions',
+        'label'
     ]
     autocomplete_fields = ['category']
    # Add display_final_price to readonly_fields because it is a function not a db field

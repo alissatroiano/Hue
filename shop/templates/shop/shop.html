@@ -20,6 +20,12 @@
                 {{ c.friendly_name }}</span>
             </a>
             {% endfor %}
+            {% for l in current_labels %}
+            <a class="label-badge text-decoration-none" href="{% url 'shop' %}?category={{ c.title }}">
+                <span class="p-2 mt-3 mb- badge bg-primary text-light rounded-0 border-0 border-dark">{{ l }}
+                </span>
+            </a>
+            {% endfor %}
         </div>
     </div>
     <div class="row my-0 mx-auto">
@@ -33,11 +39,15 @@
                                 <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
                                 <option value="title_asc" {% if current_sorting == 'title_asc' %}selected{% endif %}>Title (A-Z)</option>
                                 <option value="title_desc" {% if current_sorting == 'title_desc' %}selected{% endif %}>Title (Z-A)</option>
-                                <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category (A-Z)</option>
+                                <option value="label_asc" {% if current_sorting == 'label="1"' %}selected{% endif %}>With People</option>
+                                <option value="label_desc" {% if current_sorting == 'label="2"' %}selected{% endif %}>Without People</option>
+
                                 <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>Category (Z-A)</option>
                             </select>
                         </div>
-                </div>
+                    </div>
+
+
                 <div class="col-12 col-md-6 order-md-first body-font body-mds">
                     <p class="text-muted mt-3 text-center text-md-left">
                         {% if search_term or current_categories or current_sorting != 'None_None' %}
@@ -70,7 +80,6 @@
                                       <h6 class="p-price text-main body-sm mb-0 text-left fw-bold ms-2 my-2">
                                         ${{ product.price }}
                                     </h6>
-
                                     {% if product.category %}
                                     <p class="body-small body-font mt-1 mb-0">
                                         <a class="text-muted" href="{% url 'shop' %}?category={{ product.category.title }}">

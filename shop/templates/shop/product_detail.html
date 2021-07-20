@@ -40,22 +40,21 @@
             <div class="col-12 col-lg-5 pt-4 pt-lg-0 px-2 px-lg-5 my-0 mx-auto">
                 <div class="ms-auto pb-3">
                     <div class="d-flex justify-content-between align-items-center mb-2">
-                        <h3 class="fs-sm display-font text-main align-middle mt-1 ms-1">
-                            {{ product.title }}</h3>
+                            <div class="col-6 text-start">
+                                <h3 class="display-font heading-md">
+                                    {{ product.title }}</h3>
+                            </div>
+                            <div class="col-6 text-end">
+                                <span class="fw-normal heading-md">
+                                    <p class="lead mb-0 text-left fw-bold">
+                                        ${{ product.price }}</p>
+                                    </p>
+                                </span>
+                                </div>
+                        </div>
+                       
                     </div>
-                    <span class="fw-normal body-sm">
-                        {% if product.label != 'NP' %}
-                        <span class="body-font body-main my-0 text-left text-muted" id="regular-price">
-                            {{ product.price }} </span>
-                        <span class="p-price text-main body-main my-0 text-left fw-bold ms-2" style="text-decoration: none;">
-                            {{ product.display_final_price }}
-                        </span>
-                        {% else %}
-                        <p class="lead mb-0 text-left text-muted" id="discount-price">
-                            {{ product.display_final_price }}</p>
-                        {% endif %}
-                        </p>
-                    </span>
+                    
                     <div class="d-flex justify-content-between">
                         <div class="py-2">
                             <div class="fw-bold body-font">Details</div>
