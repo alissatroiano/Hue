@@ -10,16 +10,19 @@ from decimal import Decimal
 now = timezone.now
 CURRENCY = settings.CURRENCY
 
-ORIENTATION = (
-        ('P','Portrait'),
-        ('L', 'Landscape'),
-        ('S', 'Square'),
-)
-
 LABEL = (
         ('1','With People'),
         ('2', 'Without People'),
+        ('3', 'With People and Logo'),
+        ('4', 'Without People and Logo'),
 )
+
+ORIENTATION = (
+        ('5','Portrait'),
+        ('6', 'Landscape'),
+        ('7', 'Square'),
+)
+
 
     # https://github.com/Code-Institute-Solutions/Boutique-Ado/blob/master/06-Products-Setup/Adding-The-Products/products/models.py
 class Category(models.Model):
@@ -43,7 +46,7 @@ class Product(models.Model):
     active = models.BooleanField(default=True)
     title = models.CharField(max_length=254, unique=True)
     artist = models.CharField(max_length=254, blank=True, null=True)
-    orientation = models.CharField(choices=ORIENTATION, max_length=254, default='Portrait')
+    orientation = models.CharField(choices=ORIENTATION, max_length=254, default='5')
     label = models.CharField(max_length=254, choices=LABEL, default='1')
     has_dimensions = models.BooleanField(default=False, null=True, blank=True)
     medium = models.CharField(max_length=254, blank=True)
