@@ -22,7 +22,7 @@ def profile(request):
             messages.error(request, 'Update failed. Please try again!')
     else:
         form = ProfileForm(instance=profile)
-        orders = profile.orders.all()
+    orders = profile.orders.all()
     
     template = 'profiles/profile.html'
     context = {
