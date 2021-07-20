@@ -44,14 +44,14 @@
             </i>
             My Account
         </a>
-        <ul class="dropdown-menu" aria-labelledby="mobileAccountOptions">
+        <ul class="dropdown-menu display-font" aria-labelledby="mobileAccountOptions">
             {% if request.user.is_authenticated %}
-            <li class="list-item">
+            <li class="dropdown-item display-font">
                 <a href="{% url 'profile' %}" class="dropdown-item">Profile</a>
             </li>
             {% if request.user.is_superuser %}
             <li class="dropdown-item display-font">
-                <a href="{% url 'profile' %}" class="dropdown-item">Product Management</a>
+                <a href="{% url 'add_product' %}" class="dropdown-item">Shop Management</a>
             </li>
             {% endif %}
             <li class="dropdown-item display-font">

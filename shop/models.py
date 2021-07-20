@@ -52,7 +52,6 @@ class Product(models.Model):
     medium = models.CharField(max_length=254, blank=True)
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
-    product_details = models.TextField()
     price = models.DecimalField(
         default=0.00, decimal_places=2, max_digits=8)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
