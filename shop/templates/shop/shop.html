@@ -60,14 +60,16 @@
             <div class="row g-1">
                 {% for product in products %}
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 p-2 p-lg-4">
-                    <div class="card h-100 border-0" id=shop-card>
+                    <div class="card border-0" id=shop-card>
                         {% if product.image %}
+                        <div class="card-img-top">
                         <a href="{% url 'product_detail' product.id %}">
-                            <img class="card-img-top h-100 img-fluid" src="{{ product.image.url }}" alt="{{ product.title }}">
+                            <img class="img-fluid" src="{{ product.image.url }}" alt="{{ product.title }}">
                         </a>
+                    </div>
                         {% else %}
                         <a href="{% url 'product_detail' product.id %}">
-                            <img class="card-img-top img-fluid h-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.title }}">
+                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.title }}">
                         </a>
                         {% endif %}
                         <div class="card-body pb-0">
@@ -84,6 +86,13 @@
                                     <p class="body-small body-font mt-1 mb-0">
                                         <a class="text-muted" href="{% url 'shop' %}?category={{ product.category.title }}">
                                             <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                                        </a>
+                                    </p>
+                                    {% endif %}
+                                    {% if product.category.parent %}
+                                    <p class="body-small body-font mt-1 mb-0">
+                                        <a class="text-muted" href="{% url 'shop' %}?category={{ product.category.parent }}">
+                                            <i class="fas fa-tag mr-1"></i>{{ product.category.parent.friendly_name }}
                                         </a>
                                     </p>
                                     {% endif %}

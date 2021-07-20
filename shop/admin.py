@@ -1,21 +1,22 @@
 from django.contrib import admin
 from django.conf import settings
 from .models import Category, Product
-from django.utils import timezone
 
 # https://docs.djangoproject.com/en/3.2/topics/i18n/timezones/
-now = timezone.now
 CURRENCY = settings.CURRENCY
 
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = [
-        'title'
+        'title',
+        'friendly_name',
         ]
     
-    search_fields = ['title']
-
+    search_fields = [
+        'title',
+        'category', 
+        ]
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
@@ -26,11 +27,15 @@ class ProductAdmin(admin.ModelAdmin):
         'category', 
         'price',   
         'image']
+    
     # Add list_selected_related so django will perform less queries on the database
     list_select_related = ['category']
     list_filter = ['active', 'category', 'price', 'created_at', 'deleted_at']
     # Add search_fields so autocomplete will work in product admin 
-    search_fields = ['title']
+    search_fields = [
+        'title',
+        'category',
+        ]
     list_per_page = 50
     fields = [
         'sku',

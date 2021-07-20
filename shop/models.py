@@ -23,16 +23,20 @@ LABEL = (
 
     # https://github.com/Code-Institute-Solutions/Boutique-Ado/blob/master/06-Products-Setup/Adding-The-Products/products/models.py
 class Category(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'Categories'    
+    
     # parent solution copied from https://www.youtube.com/watch?v=QIoUJ1PutV0
     parent = models.ForeignKey('self', related_name='children', on_delete=models.CASCADE, blank=True, null=True)
     title = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
 
-    class Meta:
-        verbose_name_plural = 'Categories'
-
     def __str__(self):
         return self.title
+    
+    def get_friendly_name(self):
+        return self.friendly_name
 
 # https://christosstath10.medium.com/create-your-own-point-of-sale-c25f8b1ff93b
 class Product(models.Model):
