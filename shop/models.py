@@ -11,9 +11,9 @@ now = timezone.now
 CURRENCY = settings.CURRENCY
 
 ORIENTATION = (
-        ('P','Portrait'),
-        ('L', 'Landscape'),
-        ('S', 'Square'),
+        ('3','Portrait'),
+        ('4', 'Landscape'),
+        ('5', 'Square'),
 )
 
 LABEL = (
@@ -42,8 +42,7 @@ class Product(models.Model):
     sku = models.CharField(unique=True, max_length=254, null=True, blank=True)
     active = models.BooleanField(default=True)
     title = models.CharField(max_length=254, unique=True)
-    artist = models.CharField(max_length=254, blank=True, null=True)
-    orientation = models.CharField(choices=ORIENTATION, max_length=254, default='Portrait')
+    orientation = models.CharField(choices=ORIENTATION, max_length=254, default='3')
     label = models.CharField(max_length=254, choices=LABEL, default='1')
     has_dimensions = models.BooleanField(default=False, null=True, blank=True)
     medium = models.CharField(max_length=254, blank=True)

@@ -28,8 +28,6 @@ def shop_all(request):
                 products = products.annotate(lower_title=Lower('title'))
             if sortkey == 'category':
                 sortkey = 'category__title'
-            if sortkey == 'orientation':
-                 sortkey = 'orientation'
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
