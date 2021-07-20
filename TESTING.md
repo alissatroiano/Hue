@@ -15,10 +15,12 @@
 - 8. Repeat steps 1-4 to ensure all possible errors have been removed from the base template.
 - 9. Follow steps 1-7 for the following custom Django templates:
     - [x] [mobilenavbar.html](templates/includes/mobilenavbar.html)
+    - [ ] [shop.html](shop/templates/shop.html)
     - [x] [shopnav.html](templates/includes/shopnav.html)
     - [x] [checkout_success.html](checkout/templates/checkout/checkout_success.html)
-    - [x] 
-
+    - [x] [product_detail.html](shop/templates/shop/product_detail.html)
+    - [x] [add_product.html](shop/templates/shop/add_product.html)
+    - [] [edit_product.html](shop/templates/shop/edit_product.html)
 
 #### W3C Jigsaw Test
 **CSS Validation Testing**

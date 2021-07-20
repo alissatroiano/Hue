@@ -9,11 +9,13 @@ from .models import Product, Category
 from .forms import ProductForm
 
 # Create your views here.
+
+
 def shop_all(request):
     """ A view to show all products, including sorting and search queries """
 
     products = Product.objects.all()
-    query= None
+    query = None
     categories = None
     parent = None
     parents = None
@@ -23,7 +25,7 @@ def shop_all(request):
     direction = None
 
     # https://github.com/Code-Institute-Solutions/boutique_ado_v1/blob/673a36fdd4bb2c09f8843c6ad8cb6ae4a60dda01/templates/includes/main-nav.html
-    
+
     if request.GET:
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
@@ -38,7 +40,7 @@ def shop_all(request):
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
             products = products.order_by(sortkey)
-            
+
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
             products = products.filter(category__title__in=categories)
@@ -47,22 +49,24 @@ def shop_all(request):
         if 'label' in request.GET:
             labels = request.GET['label'].split(',')
             products = products.filter(label__in=labels)
-            for i,l in enumerate(labels):
+            for i, l in enumerate(labels):
                 labels[i] = Product.get_label(l)
-                
+
         if 'orientation' in request.GET:
             orientations = request.GET['orientation'].split(',')
-            products = products.filter(orientation__in=orientations)
-            for i,o in enumerate(orientations):
+            products = Product.objects.filter(orientation__in=orientations)
+            for i, o in enumerate(orientations):
                 orientations[i] = Product.get_orientation(o)
 
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(
+                    request, "You didn't enter any search criteria!")
                 return redirect(reverse('shop'))
-            
-            queries = Q(title__icontains=query) | Q(product_details__icontains=query) |  Q(label__icontains=query) | Q(orientation__icontains=query) | Q(category__title__icontains=query) | Q(category__parent__icontains=query)
+
+            queries = Q(title__icontains=query) | Q(product_details__icontains=query) | Q(label__icontains=query) | Q(
+                orientation__icontains=query) | Q(category__title__icontains=query) | Q(category__parent__icontains=query)
             products = products.filter(queries)
 
     current_sorting = f'{sort}_{direction}'

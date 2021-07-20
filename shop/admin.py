@@ -5,7 +5,6 @@ from .models import Category, Product
 # https://docs.djangoproject.com/en/3.2/topics/i18n/timezones/
 CURRENCY = settings.CURRENCY
 
-
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = [
