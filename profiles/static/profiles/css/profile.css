@@ -67,6 +67,6 @@ input#id_avatar input::placeholder {
 }
 
 img#profile-image {
-    height: 50px;
     max-width: 100%;
+    height: auto
 }
