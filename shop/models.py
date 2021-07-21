@@ -25,7 +25,8 @@ LABEL = (
 class Category(models.Model):
 
     class Meta:
-        verbose_name_plural = 'Categories'    
+        unique_together = ('title', 'parent',) 
+        verbose_name_plural = 'Categories'
     
     # parent solution copied from https://www.youtube.com/watch?v=QIoUJ1PutV0
     parent = models.ForeignKey('self', related_name='children', on_delete=models.CASCADE, blank=True, null=True)
@@ -33,7 +34,12 @@ class Category(models.Model):
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
 
     def __str__(self):
-        return self.title
+        full_path = [self.title]
+        k = self.parent
+        while k is not None:
+            full_path.append(k.title)
+            k = k.parent
+        return  ' -> ' .join(full_path[::-1])
     
     def get_friendly_name(self):
         return self.friendly_name
@@ -70,6 +76,13 @@ class Product(models.Model):
     
     def get_orientation(o):
         return dict(ORIENTATION).get(o)
+    
+    def get_category_list(self):
+        """
+        A method to fetch all sub/parent categories
+        """
+        k = self.category
+        
 
     class Meta:
         verbose_name_plural = 'Products'

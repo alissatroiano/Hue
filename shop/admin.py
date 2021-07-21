@@ -10,11 +10,13 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = [
         'title',
         'friendly_name',
+        'parent',
         ]
     
     search_fields = [
         'title',
         'category', 
+        'parent',
         ]
 
 @admin.register(Product)
@@ -46,7 +48,7 @@ class ProductAdmin(admin.ModelAdmin):
         'price', 
         'orientation', 
         'has_dimensions',
-        'label'
+        'label',
     ]
     autocomplete_fields = ['category']
    # Add display_final_price to readonly_fields because it is a function not a db field

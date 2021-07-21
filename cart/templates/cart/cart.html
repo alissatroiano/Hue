@@ -52,8 +52,12 @@
                     </thead>
                     {% for item in cart_items %}
                     <tr>
-                        <td class="my-0 mx-auto p-2">
-                            <img class="img-fluid" src="{{ item.product.image.url }}" width="80" height="auto">
+                        <td class="my-0 mx-auto p-2 w-25">
+                            {% if item.product.image %}
+                            <img class="img-fluid img-thumbnail rounded border-0 shadown-sm" src="{{ item.product.image.url }}" alt="{{ item.product.title }}">
+                            {% else %}
+                            <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.title }}">
+                            {% endif %}
                         </td>
                         <td class="py-3">
                             <p class="my-0">

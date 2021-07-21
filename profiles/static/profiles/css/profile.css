@@ -70,3 +70,13 @@ img#profile-image {
     max-width: 100%;
     height: auto
 }
+
+.card,
+.card-header,
+.accordion-header, 
+.accordion-header.collapsed, 
+.accordion .accordion-flush, 
+.accordion.collapsed .collapsed, 
+#collapseOne {
+    background: none;
+}
