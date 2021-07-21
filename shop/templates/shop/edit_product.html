@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+	<div class="row">
+		<div class="col"></div>
+	</div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container">
+	<div class="row py-3 text-center pt-5">
+		<div class="col-12">
+			<span class="icon pt-5">
+				<i class="fas fa-cart-plus fa-3x py-5 mt-5"></i>
+			</span>
+			<h2 class="display-font text-center pt-3">Add Products</h2>
+			<p class="text-center body-font mx-5 my-3 px-4">Hi, <strong>{{ user.profile|upper }}! </strong></p>
+			<hr class="my-2">
+			<p class="body-font mx-5">Use this tool to add new products to Hue's online shop!</p>
+		</div>
+	</div>
+</div>
+<!--edit product container starts here-->
+<div class="container">
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8 justify-content-center">
+			<div class="card p-5 my-0 mx-auto bg-main text-light body-font">
+				<!--edit product form starts here-->
+				<form method="POST" action="{% url 'add_product' %}" class="form mb-2" enctype="multipart/form-data">
+					{% csrf_token %}
+					{% for field in form %}
+					{% if field.name != 'image' %}
+					{{ field | as_crispy_field }}
+					{% else %}
+					{{ field }}
+					{% endif %}
+					{% endfor %}
+					<div class="text-right">
+						<button>
+							<a class="btn btn-dark rounded-0" href="{% url 'shop' %}">Cancel</a>
+							</button>
+						<button class="btn btn-dark rounded-0" type="submit">Add Product</button>
+					</div>
+				</form>
+				<!--./end-edit product-form-->
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript">
+	$('#new-image').change(function () {
+		var file = $('#new-image')[0].files[0];
+		$('#filename').text(`Image will be set to: ${file.name}`);
+	});
+</script>
+{% endblock %}

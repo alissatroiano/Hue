@@ -19,15 +19,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!--Stripe -->
     <script src="https://js.stripe.com/v3/"></script>
-    {% endblock %} {% block extra_js%} {% endblock %} {% block head_title %}
+    <!--Custom JS-->
+    <script src="{% static 'js/script.js' %}"></script>
+    {% endblock %} 
+    {% block extra_js%} {% endblock %} {% block head_title %}
     <title>Hue</title>
     {% endblock %}
     <!--Favicon -->
     <link rel="shortcut icon" type="image/ico" href="{% static 'images/favicon1.png' %}" />
 </head>
 <!--body starts here-->
-
-<body>
+    <!--set oncontextmenu to return false to disable right clicks-->
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
     <header class="container-fluid px-0 py-0 my-0 fixed-top">
         <div class="row bg-dark py-lg-3 d-none d-lg-flex">
             <div class="col-4 col-lg-auto navbar-brand me-auto my-auto py-3 py-lg-0 text-center text-lg-start">
@@ -121,24 +124,7 @@
             </nav>
         </div>
     </header>
-    <!--end header-->
-    <!-- {% if messages %}
-    <div class="message-container">
-        {% for message in messages %}
-        {% with message.level as level %}
-        {% if level == 40 %}
-        {% include 'includes/popovers/popover_error.html' %}
-        {% elif level == 30 %}
-        {% include 'includes/popovers/popover_warning.html' %}
-        {% elif level == 25 %}
-        {% include 'includes/popovers/popover_success.html' %}
-        {% else %}
-        {% include 'includes/popovers/popover_info.html' %}
-        {% endif %}
-        {% endwith %}
-        {% endfor %}
-    </div>
-    {% endif %} -->
+
 
 {% block page_header %}
 {% endblock %} 
@@ -147,10 +133,6 @@
 {% endblock %}
 
 {% block postloadjs %}
-<script type="text/javascript">
-var exampleTriggerEl = document.getElementById('example')
-var popover = bootstrap.Popover.getOrCreateInstance(exampleTriggerEl) // Returns a Bootstrap popover instance
-</script>
 {% endblock %}
 </body>
 <!--./body-ends-here-->

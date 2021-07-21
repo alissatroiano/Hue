@@ -147,7 +147,6 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 
     - [Pixabay](https://pixabay.com/illustrations/fractal-art-psychedelic-fantasy-2077883/)
 
-
 ## UX Design
 
 - I copied components from [Bootstrap's documentation](https://getbootstrap.com/docs/5.0/components/navs-tabs/) to make Hue's navigation intuitive and responsive.
@@ -158,7 +157,7 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 
  by copying the contents of this Bootstrap 5 Portal theme's login page (https://themes.3rdwavemedia.com/bootstrap-templates/startup/portal-free-bootstrap-admin-dashboard-template-for-developers/)
 
-### Media
+### Front End Snippets & Resources
 - I used this article from [CSS Tricks](https://css-tricks.com/perfect-full-page-background-image/) to style the background image on Hue's homepage.
 
 - Hue's images were copied from the following sources:
@@ -167,7 +166,7 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 
     - The favicon image was downloaded from [The Noun Project](https://thenounproject.com/term/tint/120414/) and is licensed by [Creative Commons]()
 
-- I learned how to configure a sitewide favicon in a Django project by following:
+- I learned how to configure a favicon in a Django project by following:
 
     - [W3](https://www.w3.org/2005/10/howto-favicon)
 
@@ -179,7 +178,9 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 
 - The code used to create a custom cursor was copied from [W3 Schools](https://www.w3schools.com/cssref/pr_class_cursor.asp)
 
-### Backend Functionality
+- I found the solution to disable right-clicking, dragging and selecting images so I could protect products that are delivered via digital-download and avoid giving them away for free from [Medium](https://medium.com/@marzouk/how-to-prevent-saving-image-as-or-dragging-image-to-download-it-in-a-web-page-f0ee4121b32f) 
+
+### Backend Snippets & Resources
 
 - Django timezones were learned by reading [Django's documentation](https://docs.djangoproject.com/en/3.2/topics/i18n/timezones/).
 
@@ -189,7 +190,7 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 
     - [Medium](https://christosstath10.medium.com/create-your-own-point-of-sale-c25f8b1ff93b)
 
-- The line of code for creating subcategories in Django (specifically the declaration of `parent` in `models.py`) was copied from ['Sub categories - How to build an Ecommerce website using Django 3 and Vue.js - Part 23'](https://www.youtube.com/watch?v=QIoUJ1PutV0)
+- The line of code for creating subcategories in Django (specifically the declaration of `parent` in `models.py`) was copied from ['Sub categories - How to build an Ecommerce website using Django 3 and Vue.js - Part 23'](https://www.youtube.com/watch?v=QIoUJ1PutV0).
 
 ## Version Control
 - [GitHowTo.com](https://githowto.com/getting_old_versions) for returning to the latest version in master branch after `git reset --hard <commitsha>.`
@@ -232,8 +233,6 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 - I copied the following settings(located in `settings.py`) from [Django's Documentation]()
 
     - [SECURE_SSL_REDIRECT](https://docs.djangoproject.com/en/3.2/ref/settings/#std:setting-SECURE_SSL_REDIRECT)
-
-    - 
 
 
 ## Acknowledgements

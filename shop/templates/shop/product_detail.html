@@ -27,8 +27,8 @@
             <div class="col-sm-12 col-lg-6 my-0 mx-auto">
                 {% if product.image %}
                 <div class="card my-0 align-items-center border-0 mx-auto">
-                    <a href="{{ product.image.url }}" target="_blank">
-                        <img id="productdetails1" class="img-fluid" src="{{ product.image.url }}"
+                    <a href="" disabled="true">
+                        <img id="productdetails1" class="img-fluid" onclick="return buttonClicked()" src="{{ product.image.url }}"
                             alt="{{ product.title }}">
                     </a>
                     {% else %}
@@ -155,4 +155,5 @@
 {% block postloadjs %}
 {{ block.super }}
 {% include 'shop/includes/qty-script.html' %}
-{% endblock %}
+<script src="{% static 'shop/js/shop.js' %}"></script>
+</script>{% endblock %}
