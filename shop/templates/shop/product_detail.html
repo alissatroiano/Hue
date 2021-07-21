@@ -152,8 +152,9 @@
     </div>
 </section>
 {% endblock %}
+
 {% block postloadjs %}
 {{ block.super }}
 {% include 'shop/includes/qty-script.html' %}
 <script src="{% static 'shop/js/shop.js' %}"></script>
-</script>{% endblock %}
+{% endblock %}
