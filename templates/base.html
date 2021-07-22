@@ -64,11 +64,11 @@
 
                         <ul class="dropdown-menu display-font" aria-labelledby="accountOptions">
                             <li class="list-item">
-                                <a href="{% url 'add_product' %}" class="dropdown-item">Profile</a>
+                                <a href="{% url 'profile' %}" class="dropdown-item">Profile</a>
                             </li>
                             {% if request.user.is_superuser %}
                             <li class="list-item"> 
-                                <a href="{% url 'profile' %}" class="dropdown-item">Product Management</a>
+                                <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
                             </li>
                             {% endif %}
                             <li class="list-item"> <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
@@ -124,8 +124,6 @@
             </nav>
         </div>
     </header>
-
-
 {% block page_header %}
 {% endblock %} 
 

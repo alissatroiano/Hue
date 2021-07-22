@@ -2,10 +2,10 @@
     <ul class="list-group list-group-horizontal-lg">
         <li class="nav-item">
             <div class="dropdown">
-                <button class="btn btn-sm dropdown-toggle" type="button" id="shopDropdown1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <a class="font-weight-bold nav-link text-black" href="#" id="shop-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        All Products</a></button>
-                <div class="dropdown-menu border-0 body-font" aria-labelledby="shopDropdown1" id="shopDropdown1">
+                <button class="btn btn-sm dropdown-toggle" type="button" id="shopDropdown1" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    All Products</button>
+                <div class="dropdown-menu border-0 body-font" aria-labelledby="shopDropdown1">
                     <a href="{% url 'shop' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
                     <a href="{% url 'shop' %}?sort=category&direction=asc" class="dropdown-item">By Category</a>
                     <a href="{% url 'shop' %}?sort=created_at&direction=desc" class="dropdown-item ">By Latest</a>
@@ -14,34 +14,22 @@
             </div>
         </li>
         <li class="nav-item">
-             <a href="{% url 'shop' %}?category=glitchart&direction=asc" class="nav-link">Glitch Art</a>
+            <a href="{% url 'shop' %}?category=glitchart&direction=asc" class="nav-link">Glitch Art</a>
         </li>
         <li class="nav-item">
-             <a href="{% url 'shop' %}?category=surrealism&direction=asc" class="nav-link">Surrealism</a>
+            <a href="{% url 'shop' %}?category=surrealism&direction=asc" class="nav-link">Surrealism</a>
         </li>
         <li class="nav-item">
-             <a href="{% url 'shop' %}?category=2d&direction=asc" class="nav-link">Photo-Paintings</a>
+            <a href="{% url 'shop' %}?category=2d&direction=asc" class="nav-link">Photo-Paintings</a>
         </li>
-         <li class="nav-item">
-               <a href="{% url 'shop' %}?category=data mosh&direction=asc" class="nav-link">Data Moshing</a>
+        <li class="nav-item">
+            <a href="{% url 'shop' %}?category=data mosh&direction=asc" class="nav-link">Data Moshing</a>
         </li>
-                 <li class="nav-item">
-               <a href="{% url 'shop' %}?category=data mosh&direction=asc" class="nav-link">Dynamic Paintings</a>
+        <li class="nav-item">
+            <a href="{% url 'shop' %}?category=data mosh&direction=asc" class="nav-link">Dynamic Paintings</a>
         </li>
-            <li class="nav-item">
-               <a href="{% url 'shop' %}?category=data mosh&direction=asc" class="nav-link">Algorithmic Art</a>
-        </li>
-
-        <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Deals & Discounts
-            </a>
-            <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                <a href="" class="dropdown-item">New Arrivals</a>
-                <a href="" class="dropdown-item">SALE!</a>
-                <a href="" class="dropdown-item">Clearance</a>
-                <a href="" class="dropdown-item">All Deals & Discounts</a>
-            </div>
+        <li class="nav-item">
+            <a href="{% url 'shop' %}?category=data mosh&direction=asc" class="nav-link">Algorithmic Art</a>
         </li>
     </ul>
 </div>

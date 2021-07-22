@@ -26,16 +26,12 @@
             <!-- product image card-->
             <div class="col-sm-12 col-lg-6 my-0 mx-auto">
                 {% if product.image %}
-                <div class="card my-0 align-items-center border-0 mx-auto">
-                    <a href="" disabled="true">
-                        <img id="productdetails1" class="img-fluid" onclick="return buttonClicked()" src="{{ product.image.url }}"
-                            alt="{{ product.title }}">
-                    </a>
+                <div class="card my-0 align-items-center border-0 mx-auto">>
+                    <img id="productdetails1" class="img-fluid" onclick="return buttonClicked()"
+                        src="{{ product.image.url }}" alt="{{ product.title }}">
                     {% else %}
-                    <a href="">
-                        <img id="productdetails2" class="img-fluid" src="{{ MEDIA_URL }}noimage.png"
-                            alt="{{ product.title }}">
-                    </a>
+                    <img id="productdetails2" class="img-fluid" src="{{ MEDIA_URL }}noimage.png"
+                        alt="{{ product.title }}">
                 </div>
                 {% endif %}
             </div>
@@ -51,8 +47,8 @@
                     </div>
                     <div class="col-6">
                         <p class="fw-normal heading-md lead mb-0 text-end fw-bold">
-                                ${{ product.price }}
-                            </p>
+                            ${{ product.price }}
+                        </p>
                     </div>
                 </div>
 
@@ -129,7 +125,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        <!-- Keep Shopping or Add to Cart-->
                         <div class="row">
                             <div class="col-6 text-start pt-5">
                                 <a href="{% url 'shop' %}" class="btn btn-outline-dark btn-dark rounded-1">
@@ -148,11 +144,10 @@
                 </form>
             </div>
         </div>
-    <!--./-end-product-details-->
+        <!--./-end-product-details-->
     </div>
 </section>
 {% endblock %}
-
 {% block postloadjs %}
 {{ block.super }}
 {% include 'shop/includes/qty-script.html' %}

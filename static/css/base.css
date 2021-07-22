@@ -1,7 +1,5 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@100;200;300;400;500;600;700&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
-*/
-
 @import url('https://fonts.googleapis.com/css2?family=Oswald&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 body {
     font-size: 16px;
     overflow: auto;
@@ -9,9 +7,7 @@ body {
     cursor: url('../images/splatter.png'), cell;
 }
 
-
 /* *************************** Headers & Special Text */
-
 h1,
 h3,
 h4,
@@ -252,13 +248,10 @@ input {
 .fas:hover {
     color: #6a509a;
 }
-
-
 /****************************./end-icons */
 
 
 /* *************************** Header & Navigation */
-
 ul.nav.col-12.col-lg-auto.my-2.justify-content-center.my-md-0.text-small {
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
@@ -370,25 +363,19 @@ li {
     list-style: none;
     float: left;
 }
-
-
 /*.end-header-&-navigation */
 
 
 /* ************************** Mobile Nav & Shop Nav */
-
 .input-group-text,
 .input-group {
     background-color: transparent;
     border: none;
 }
-
-
 /* ***************************.end-mobile-nav-&-shop-nav */
 
 
 /***************************** Homepage */
-
 .hero-container,
 #welcome {
     background: linear-gradient(rgb(0 0 0 / 80%), rgb(0 0 0 / 60%)), url(../../media/hue1.jpg) no-repeat center center fixed;
@@ -461,13 +448,10 @@ button#hero-button-2:hover {
     background-color: rgba(54 45 70 / 80%);
     color: #fafafa;
 }
-
-
 /* ***************************.end-hero */
 
 
 /********************************* Homepage Category Cards */
-
 div.card-image-overlay {
     width: 100%;
     padding-top: 10rem;
@@ -496,7 +480,6 @@ img.card-img-overlay {
 
 
 /* grayscale effect copied from https://codepen.io/mhhasan320/pen/BwqvLL */
-
 div#category-card1 {
     background-image: url('../../media/glitchart.jpg');
     background-position: center;
@@ -622,13 +605,10 @@ div#category-card6:hover {
     filter: grayscale(0);
     -webkit-filter: grayscale(0);
 }
-
-
 /* ***************************./end-homepage */
 
 
 /* *************************** User Authentication */
-
 .login,
 .signup {
     height: 100%;
@@ -762,13 +742,10 @@ button.btn.btn-primary.loginButton {
     height: 100vh;
     overflow: scroll;
 }
-
-
 /* ***************************./end-user-authentication */
 
 
 /* *************************** Shop */
-
 #regular-price {
     text-decoration: line-through;
 }
@@ -786,10 +763,7 @@ button.btn.btn-primary.loginButton {
     max-width: 100%;
     height: auto;
 }
-
-
 /* Shadow effect copied from https://codepen.io/team/sparkbox/pen/dRpZXj */
-
 #shop-card {
     position: relative;
     overflow: hidden;
@@ -860,13 +834,10 @@ button.btn.btn-primary.loginButton {
     border-top-right-radius: 10px;
     border-bottom-left-radius: 0%;
 }
-
-
 /* ***************************./end-shop */
 
 
 /* *************************** Product Details */
-
 .product-details-wrapper {
     position: relative;
     overflow: hidden;
@@ -882,8 +853,6 @@ img#productdetails2 {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.35);
     max-height: 500px;
 }
-
-
 /* Shadow effect copied from https://codepen.io/team/sparkbox/pen/dRpZXj */
 
 #shop-card {
@@ -925,13 +894,10 @@ img.img-fluid {
     height: auto;
     overflow: hidden;
 }
-
-
 /* ***************************./end-product-details*/
 
 
 /* **************************** Shopping Cart */
-
 #cart-total {
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
@@ -944,13 +910,10 @@ th {
     font-weight: 500;
     text-transform: uppercase;
 }
-
-
 /* ****************************./end-shopping-cart */
 
 
 /* *************************** 404 Error */
-
 main {
     height: 100vh;
     width: 100vw;
@@ -986,7 +949,6 @@ main {
 
 
 /* fixed top navbar only on medium and up */
-
 @media (min-width: 992px) {
     #main-nav {
         position: fixed;
@@ -1000,9 +962,7 @@ main {
     }
 }
 
-
 /* pad the top a bit when navbar is collapsed on mobile */
-
 @media (max-width: 991px) {
     .header-container {
         padding-top: 116px;
