@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block page_header %}
 <div class="container header-container">
@@ -11,5 +12,21 @@
 {% block content %}
 <div class="allauth-inner-content">
     {% block inner_content %}{% endblock %}
+</div>
+<div class="container">
+<div class="col-12 text-center">
+    <ul>
+      {% if user.is_authenticated %}
+      <li class="nav-item me-auto"><a class="link-font" href="{% url 'home' %}">Home</a></li>
+
+      <li class="nav-item me-auto"><a class="link-font" href="{% url 'account_email' %}"></a></li>
+
+      <li class="nav-item mx-5"><a class="link-font"href="{% url 'account_logout' %}"></a></li>
+      {% else %}
+      <li class="nav-item me-auto"><a class="link-font" href="{% url 'account_login' %}">Sign In</a></li>
+      <li class="nav-item mx-5"><a class="link-font" href="{% url 'account_signup' %}">Sign Up</a></li>
+      {% endif %}
+    </ul>
+</div>
 </div>
 {% endblock %}

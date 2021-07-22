@@ -60,19 +60,19 @@
                 <!--./end-login-utilities-->
                 {% get_providers as socialaccount_providers %}
                 {% if socialaccount_providers %}
+                <div class="social_account_providers">
                 <div class="d-flex flex-column align-content-center my-0 mx-auto text-center pt-2 socialaccount_ballot">
                     <p class="body-sm px-5 py-1 body-sm mx-auto my-0 text-wrap text-dark" id="login_slug">
-                        {% blocktrans %} 
-                        Login with your favorite social media provider!
-                        {% endblocktrans %}</p>
+                    Login with your favorite social media provider!
+                    </p>
                     <ul class="nav justify-content-center socialaccount_providers py-3">
                         <li>
                             <a title="Facebook" class="px-2 socialaccount_provider facebook"
-                                href="/accounts/facebook/login/?process=login"><i class="fab fa-facebook fa-2x"></i></a>
+                                href="{% provider_login_url "facebook" %}"><i class="fab fa-facebook fa-2x"></i></a>
                         </li>
                         <li>
                             <a title="Google" class="socialaccount_provider google px-2"
-                                href="/accounts/google/login/?process=login"><i class="fab fa-google fa-2x"></i></a>
+                                href="{% provider_login_url "google" %}"><i class="fab fa-google fa-2x"></i></a>
                         </li>
                         <li>
                             <a title="Pinterest" class="socialaccount_provider pinterest px-2"
@@ -87,6 +87,8 @@
         </div>
     <!--./end-d-flex-->
 </div>
+</div>
+<!--end-social-account-providers-->
 <!--./end-login-main-col-->
 <div class="col-12 col-md-5 col-lg-6 h-100 login-background-col">
     <div class="login-background-lg"> </div>

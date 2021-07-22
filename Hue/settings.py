@@ -52,7 +52,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     "allauth.socialaccount.providers.facebook",
     "allauth.socialaccount.providers.google",
-    "allauth.socialaccount.providers.pinterest", 
     "crispy_forms",
     'django_countries',
     "crispy_bootstrap5",
@@ -145,6 +144,8 @@ ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/accounts/login/'
+
 
 WSGI_APPLICATION = 'Hue.wsgi.application'
 

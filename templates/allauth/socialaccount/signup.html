@@ -4,19 +4,30 @@
 
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
-{% block content %}
+{% block inner_content %}
+<div class="container pt-5 my-2">
+  <div class="row">
+  <!--col-12-->
+  <div class="col-12 text-center">
     <h1>{% trans "Sign Up" %}</h1>
-
-<p>{% blocktrans with provider_name=account.get_provider.name site_name=site.name %}You are about to use your {{provider_name}} account to login to
-{{site_name}}. As a final step, please complete the following form:{% endblocktrans %}</p>
-
+    <hr class="my-4">
+      <p class="my-2">{% blocktrans with provider_name=account.get_provider.name site_name=site.name %}
+        You are about to use your {{provider_name}} account to login to
+        <strong>{{site_name}}.</strong>As a final step, please complete the following form:{% endblocktrans %}</p>
+      </div>
+      <!--./end-col-12-->
+    </div>
+      <div class="row">
+        <div class="col-12 text-center">
 <form class="signup" id="signup_form" method="post" action="{% url 'socialaccount_signup' %}">
   {% csrf_token %}
   {{ form.as_p }}
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
-  <button type="submit">{% trans "Sign Up" %} &raquo;</button>
+  <button type="submit" class="btn btn-main">{% trans "Sign Up" %} &raquo;</button>
 </form>
-
+</div>
+</div>
+</div>
 {% endblock %}
