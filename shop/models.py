@@ -1,13 +1,8 @@
 from django.db import models
 from django.conf import settings
 from .managers import ProductManager
-
-from model_utils import Choices
-
 from django.utils import timezone
-now = timezone.now()
-import datetime
-now = datetime.datetime.now()
+from model_utils import Choices
 
 
 # https://docs.djangoproject.com/en/3.2/topics/i18n/timezones/
@@ -24,8 +19,7 @@ LABEL = (
         ('1','With People'),
         ('2', 'Without People'),
 )
-
-    # https://github.com/Code-Institute-Solutions/Boutique-Ado/blob/master/06-Products-Setup/Adding-The-Products/products/models.py
+# https://github.com/Code-Institute-Solutions/Boutique-Ado/blob/master/06-Products-Setup/Adding-The-Products/products/models.py
 class Category(models.Model):
 
     class Meta:
@@ -45,6 +39,7 @@ class Category(models.Model):
     
     def get_subcategories(self):
         return self.parent
+
 
 # https://christosstath10.medium.com/create-your-own-point-of-sale-c25f8b1ff93b
 class Product(models.Model):
@@ -84,7 +79,7 @@ class Product(models.Model):
         """
         A method to fetch all sub/parent categories
         """
-        return dict(Product.objects.filter(parent=k).values_list('title', 'parent__title'))
+        return dict(Product.objects.filter(parent=k).values_list('category__parent', 'product__parent'))
 
     class Meta:
         verbose_name_plural = 'Products'
