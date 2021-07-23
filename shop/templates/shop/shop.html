@@ -29,7 +29,7 @@
         </div>
     </div>
     <div class="row my-0 mx-auto">
-        <div class="shop-container col-10 offset-1">
+        <div class="col-10 offset-1">
             <div class="row mt-1 mb-2">
                 <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center">
                     <div class="sort-select-wrapper justify-content-center w-auto body-font">
@@ -57,83 +57,86 @@
                     </p>
                 </div>
             </div>
-            <div class="row g-1">
-                {% for product in products %}
-                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 p-2 p-lg-4">
-                    <div class="card border-0" id=shop-card>
-                        {% if product.image %}
-                        <div class="card-img-top">
-                        <a href="{% url 'product_detail' product.id %}">
-                            <img class="img-fluid" src="{{ product.image.url }}" alt="{{ product.title }}">
-                        </a>
-                    </div>
-                        {% else %}
-                        <a href="{% url 'product_detail' product.id %}">
-                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.title }}">
-                        </a>
-                        {% endif %}
-                        <div class="card-body pb-0">
-                            <h4 class="mb-2 display-font heading-sm">{{ product.title }}</h4>
-                             <p class="body-small my-2 text-muted">{{ product.medium }}</p>
-                        </div>
-                        <div class="card-footer bg-white pt-0 border-0 text-left">
+        </div>
+    </div>
+    <div class="row g-1">
+        {% for product in products %}
+        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 p-2 p-lg-4">
+            <div class="card border-0" id=shop-card>
+                {% if product.image %}
+                <div class="card-img-top">
+                <a href="{% url 'product_detail' product.id %}">
+                    <img class="img-fluid" src="{{ product.image.url }}" alt="{{ product.title }}">
+                </a>
+                </div>
+                {% else %}
+                <a href="{% url 'product_detail' product.id %}">
+                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.title }}">
+                </a>
+                {% endif %}
+                <div class="card-body pb-0">
+                    <h4 class="mb-2 display-font heading-sm">{{ product.title }}</h4>
+                    <p class="body-small my-2 text-muted">{{ product.medium }}</p>
+                </div>
+                <div class="card-footer bg-white pt-0 border-0 text-left">
+                    <div class="row">
+                        <div class="col">
+                            <h6 class="p-price text-main body-sm mb-0 text-left fw-bold ms-2 my-2">
+                            ${{ product.price }}
+                            </h6>
+                            {% if product.category %}
+                            <p class="body-small body-font mt-1 mb-0">
+                                <a class="text-muted" href="{% url 'shop' %}?category={{ product.category.title }}">
+                                    <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                                </a>
+                            </p>
+                            {% endif %}
+                            {% if product.category.parent %}
+                            <p class="body-small body-font mt-1 mb-0">
+                                <a class="text-muted" href="{% url 'shop' %}?category={{ product.category.parent }}">
+                                    <i class="fas fa-tag mr-1"></i>{{ product.category.parent.friendly_name }}
+                                </a>
+                            </p>
+                            {% endif %}
+                            {% if request.user.is_superuser %}
                             <div class="row">
-                                <div class="col">
-                                      <h6 class="p-price text-main body-sm mb-0 text-left fw-bold ms-2 my-2">
-                                        ${{ product.price }}
-                                    </h6>
-                                    {% if product.category %}
-                                    <p class="body-small body-font mt-1 mb-0">
-                                        <a class="text-muted" href="{% url 'shop' %}?category={{ product.category.title }}">
-                                            <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
-                                        </a>
-                                    </p>
-                                    {% endif %}
-                                    {% if product.category.parent %}
-                                    <p class="body-small body-font mt-1 mb-0">
-                                        <a class="text-muted" href="{% url 'shop' %}?category={{ product.category.parent }}">
-                                            <i class="fas fa-tag mr-1"></i>{{ product.category.parent.friendly_name }}
-                                        </a>
-                                    </p>
-                                    {% endif %}
-                                    {% if request.user.is_superuser %}
-                                    <div class="row">
-                                        <div class="col-12 text-center">
-                                            <small class="ml-3">
-                                                <a href="{% url 'edit_product' product.id %}">Edit</a> | 
-                                                <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
-                                            </small>
-                                        {% endif %}
-                                        </div>
-                                    </div>
+                                <div class="col-12 text-center">
+                                    <small class="ml-3">
+                                        <a href="{% url 'edit_product' product.id %}">Edit</a> | 
+                                        <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                                    </small>
                                 </div>
                             </div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
-                {% if forloop.counter|divisibleby:1 %}
-                            <div class="col-12 d-sm-none mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}                        
-                        {% if forloop.counter|divisibleby:2 %}
-                            <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}
-                        {% if forloop.counter|divisibleby:3 %}
-                            <div class="col-12 d-none d-lg-block d-xl-none mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}
-                        {% if forloop.counter|divisibleby:4 %}
-                            <div class="col-12 d-none d-xl-block mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}
-                {% endfor %}
             </div>
         </div>
+        {% if forloop.counter|divisibleby:1 %}
+                    <div class="col-12 d-sm-none mb-5">
+                        <hr>
+                    </div>
+                {% endif %}                        
+                {% if forloop.counter|divisibleby:2 %}
+                    <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
+                        <hr>
+                    </div>
+                {% endif %}
+                {% if forloop.counter|divisibleby:3 %}
+                    <div class="col-12 d-none d-lg-block d-xl-none mb-5">
+                        <hr>
+                    </div>
+                {% endif %}
+                {% if forloop.counter|divisibleby:4 %}
+                    <div class="col-12 d-none d-xl-block mb-5">
+                        <hr>
+                    </div>
+                {% endif %}
+        {% endfor %}
+    </div>
+</div>
+<!--./end-container-fluid-->
  <div class="btt-button rounded-0">
         <a class="btn btn-none btt-link d-flex h-100">
             <i class="fas fa-chevron-up text-dark fa-2x text-end mx-auto my-auto"></i>

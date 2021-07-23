@@ -8,11 +8,11 @@ from django_countries.fields import CountryField
 
 from shop.models import Product
 from profiles.models import Profile
-import datetime
 
 from decimal import Decimal
 CURRENCY = settings.CURRENCY
 
+import datetime
 now = datetime.datetime.now()
 
 
