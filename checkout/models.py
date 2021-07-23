@@ -15,7 +15,6 @@ CURRENCY = settings.CURRENCY
 import datetime
 now = datetime.datetime.now()
 
-
 class Order(models.Model):
     order_number = models.CharField(
         max_length=32, null=False, editable=False, unique=True)
