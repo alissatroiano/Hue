@@ -25,7 +25,8 @@ class ProductAdmin(admin.ModelAdmin):
         'sku', 
         'title', 
         'active',
-        'category', 
+        'category',
+        'parent',
         'price',   
         'image']
     
@@ -45,6 +46,7 @@ class ProductAdmin(admin.ModelAdmin):
         'medium', 
         'image', 
         'category', 
+        'parent',
         'price', 
         'orientation', 
         'has_dimensions',

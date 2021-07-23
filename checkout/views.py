@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from django.views.decorators.http import require_POST
+
 from django.contrib import messages
 from django.conf import settings
 
@@ -7,7 +8,6 @@ from .forms import OrderForm
 from .models import Order, OrderItem
 
 from shop.models import Product
-
 from profiles.models import Profile
 from profiles.forms import ProfileForm
 
@@ -175,10 +175,9 @@ def checkout_success(request, order_number):
 
     if 'cart' in request.session:
         del request.session['cart']
-
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,
     }
 
-    return render(request, template, context)
+    return redirect(request, template, context)

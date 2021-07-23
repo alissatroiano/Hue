@@ -120,8 +120,9 @@ SOCIALACCOUNT_PROVIDERS = {
             'email',
         ],
         'AUTH_PARAMS': {
-            'access_type': 'offline',
+            'access_type': 'online',
         },
+        
         'APP': {
             'client_id': '303991007373-mr20m8gbbkbhtag3gvi49c8gtav00drv.apps.googleusercontent.com',
             'secret': '5g8OUjB29N5tL6Sh-_RtdBuL',
@@ -190,7 +191,7 @@ USE_I18N = True
 USE_L10N = True
 # Time zone support is enabled
 USE_TZ = True
-TIME_ZONE = 'America/New_York'
+TIME_ZONE = 'utc'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/

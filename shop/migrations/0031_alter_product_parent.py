@@ -9,6 +9,7 @@ class Migration(migrations.Migration):
     dependencies = [
         ('shop', '0030_auto_20210722_1203'),
     ]
+
     operations = [
         migrations.AlterField(
             model_name='product',

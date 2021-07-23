@@ -1,9 +1,13 @@
 from django.db import models
 from django.conf import settings
 from .managers import ProductManager
-from django.utils import timezone
+
 from model_utils import Choices
-from decimal import Decimal
+
+from django.utils import timezone
+now = timezone.now()
+import datetime
+now = datetime.datetime.now()
 
 
 # https://docs.djangoproject.com/en/3.2/topics/i18n/timezones/
@@ -38,6 +42,9 @@ class Category(models.Model):
     
     def get_friendly_name(self):
         return self.friendly_name
+    
+    def get_subcategories(self):
+        return self.parent
 
 # https://christosstath10.medium.com/create-your-own-point-of-sale-c25f8b1ff93b
 class Product(models.Model):
@@ -53,6 +60,7 @@ class Product(models.Model):
     medium = models.CharField(max_length=254, blank=True)
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
+    parent = models.ForeignKey('Category', related_name='parents', on_delete=models.CASCADE, blank=True, null=True)
     price = models.DecimalField(
         default=0.00, decimal_places=2, max_digits=8)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
@@ -72,12 +80,11 @@ class Product(models.Model):
     def get_orientation(o):
         return dict(ORIENTATION).get(o)
     
-    def get_category_list(self):
+    def get_category_list(k):
         """
         A method to fetch all sub/parent categories
         """
-        k = self.category
-        
+        return dict(Product.objects.filter(parent=k).values_list('title', 'parent__title'))
 
     class Meta:
         verbose_name_plural = 'Products'
