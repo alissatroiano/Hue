@@ -73,12 +73,14 @@
                         <strong class="mb-0"> {{ item.product.title }}</strong>
                     </div>
                 </div>
+                {% if user.is_authenticated %}
                 <!--download-row-->
                 <div class="row my-2 pt-3">
                     <div class="col">
                         <p class="text-muted display-font">Order Download:</p>
                     </div>
                 </div>
+                {% endif %}
                 <div class="row body-font">
                     <div class="col-12 col-md-4">
                         <p class="text-dark">Your Order</p>
