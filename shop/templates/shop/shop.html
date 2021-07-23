@@ -17,8 +17,9 @@
             {% for c in current_categories %}
             <a class="category-badge text-decoration-none" href="{% url 'shop' %}?category={{ c.title }}">
                 <span class="p-2 mt-3 mb-0 badge bg-primary text-light rounded-0 border-0 border-dark">
-                {{ c.friendly_name }}</span>
-            </a>
+                {{ c.friendly_name }}</span></a>
+                <span class="p-2 mt-3 mb-0 badge bg-primary text-light rounded-0 border-0 border-dark">
+                    {{ c.parent.friendly_name }}</span>
             {% endfor %}
             {% for l in current_labels %}
             <a class="label-badge text-decoration-none" href="{% url 'shop' %}?category={{ c.title }}">
@@ -60,6 +61,7 @@
         </div>
     </div>
 </div>
+<!--start shop-container-->
 <div class="container-fluid shop-container px-5 bg-light">
     <div class="row g-3">
         {% for product in products %}
@@ -95,7 +97,7 @@
                             {% endif %}
                             {% if product.category.parent %}
                             <p class="body-small body-font mt-1 mb-0">
-                                <a class="text-muted" href="{% url 'shop' %}?category={{ product.category.parent }}">
+                                <a class="text-muted" href="{% url 'shop' %}?parent={{ product.category.parent }}">
                                     <i class="fas fa-tag mr-1"></i>{{ product.category.parent.friendly_name }}
                                 </a>
                             </p>
@@ -138,7 +140,7 @@
         {% endfor %}
     </div>
 </div>
-<!--./end-container-fluid-->
+<!--./end-shop-container-->
  <div class="btt-button rounded-0">
         <a class="btn btn-none btt-link d-flex h-100">
             <i class="fas fa-chevron-up text-dark fa-2x text-end mx-auto my-auto"></i>
