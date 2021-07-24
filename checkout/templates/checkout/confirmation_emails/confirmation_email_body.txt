@@ -1,5 +1,4 @@
 
-
 Hey {{order.user_full_name }}
 
 This is a confirmation for your order:
@@ -18,7 +17,6 @@ Price: {{ item.product.price }}
 {{ item.quantity }} @ ${{ item.product.price }} = ${{ item.subtotal }}
 
 Grand Total: {{ item.subtotal }}
-{% endfor %}
 
 If you have any questions, feel free to contact us at {{ contact_email }}.
 

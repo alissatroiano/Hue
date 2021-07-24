@@ -42,7 +42,6 @@ class StripeWH_Handler:
             settings.DEFAULT_FROM_EMAIL,
             [user_email]
         )
-        print(email)
 
     def handle_payment_intent_succeeded(self, event):
         """

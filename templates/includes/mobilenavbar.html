@@ -1,3 +1,4 @@
+<!--ul-starts-here-->
 <ul class="nav list-group list-group-horizontal text-center my-0 mx-auto py-1">
     <li class="list-item">
         <a class="nav-link d-block d-lg-none" data-bs-toggle="collapse" href="#shopNavCollapse" role="button"
@@ -10,6 +11,7 @@
             </div>
         </a>
     </li>
+    <!--search-bar-starts-->
     <li class="list-item">
         <div class="col-12 col-lg-auto my-0 mx-auto w-auto">
             <a class="nav-link btn 
@@ -37,8 +39,10 @@
             </div>
         </div>
     </li>
-    <li class="list-inline-item dropdown d-lg-none">
-        <a class="dropdown-toggle nav-link link-dark text-small" href="" role="button" id="mobileAccountOptions"
+    <!--./search-bar-ends-->
+    <!--account-options-start-here-->
+    <li class="list-item dropdown d-lg-none">
+        <a class="nav-link btn d-lg-none me-auto float-none" href="" role="button" id="mobileAccountOptions"
             data-bs-toggle="dropdown" aria-expanded="false">
             <i class="bi d-block mx-auto text-center mb-1 fas fa-user">
             </i>
@@ -67,6 +71,7 @@
             {% endif %}
         </ul>
     </li>
+    <!--./account-options-end-here-->
     <li class="list-inline-item">
         <a class="nav-link d-block d-lg-none" href="{% url 'view_cart' %}">
             <div class="text-center">
@@ -82,3 +87,4 @@
         </a>
     </li>
 </ul>
+<!--ul-ends-here-->
