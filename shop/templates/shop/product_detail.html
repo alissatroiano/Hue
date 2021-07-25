@@ -9,10 +9,10 @@
 {% endblock %}
 {% block content %}
 <div class="overlay"></div>z
-<!--product-details-grid-->
-<section class="product-details-grid pt-lg-1">
+<!--product-details-wrapper-->
+<section class="product-details-wrapper pt-lg-1">
     <div class="container px-3 my-0 mx-auto">
-        <!-- row-->
+        <!--product-image-row-->
         <div class="row d-flex justify-content-between my-5 py-5 my-lg-5 pt-0 pt-lg-5">
             <!-- product image card-->
             <div class="col-sm-12 col-lg-6 my-0 mx-auto pt-sm-3">
@@ -28,7 +28,7 @@
             </div>
         </div>
         <!--./end-product-image-card-->
-        <!-- product details -->
+        <!--col-12-starts-here-->
         <div class="col-sm-12 col-lg-6 my-0 mx-auto pt-sm-3">
             <div class="me-lg-5 pb-3">
                 <div class="d-flex justify-content-between align-items-start mb-2">
@@ -85,58 +85,63 @@
                             <option value="xl">XL</option>
                         </select>
                     </div>
-                </form>
-                {% endif %}
-                {% endwith %}
-            </div>
-            <div class="d-flex justify-content-between border-bottom py-2 my-3">
-                <div class="py-2">
-                    <div class="fw-bold body-font text-dark">Quantity:</div>
-                </div>
-                    <div class="input-group my-0 mx-auto justify-content-end">
-                        <div class="bg-transparent border-0">
-                        <button class="decrement-qty my-0 mx-auto btn rounded-0" data-item_id="{{ product.id }}"
-                            id="decrement-qty_{{ product.id }}">
-                            <span class="icon">
-                                <i class="fas fa-minus fa-xs"></i>
-                            </span>
-                        </button>
+                    {% endif %}
+                    <!--quantity-input-->
+                    <div class=" d-flex justify-content-between border-0 py-2 my-3">
+                        <div class="py-2">
+                            <div class="fw-bold body-font text-dark">Quantity:</div>
                         </div>
-                        <input class="form-control-sm qty_input body-small" type="number" name="quantity" value="1"
-                            min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
-                        <div class="bg-transparent border-0">
-                            <button class="increment-qty btn rounded-0" data-item_id="{{ product.id }}"
-                                id="increment-qty_{{ product.id }}">
-                                <span class="icon">
-                                    <i class="fas fa-plus fa-xs"></i>
-                                </span>
-                            </button>
+                        <div class="input-group my-0 mx-auto justify-content-end">
+                            <div class="bg-transparent border-0">
+                                <button class="decrement-qty my-0 mx-auto btn rounded-0" data-item_id="{{ product.id }}"
+                                    id="decrement-qty_{{ product.id }}">
+                                    <span class="icon">
+                                        <i class="fas fa-minus fa-xs"></i>
+                                    </span>
+                                </button>
+                            </div>
+                            <input class="form-control-sm qty_input body-small" type="number" name="quantity" value="1"
+                                min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                            <div class="bg-transparent border-0">
+                                <button class="increment-qty btn rounded-0" data-item_id="{{ product.id }}"
+                                    id="increment-qty_{{ product.id }}">
+                                    <span class="icon">
+                                        <i class="fas fa-plus fa-xs"></i>
+                                    </span>
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Keep Shopping or Add to Cart-->
-                <div class="row">
-                    <div class="col-6 text-start pt-5">
-                        <a href="{% url 'shop' %}" class="btn btn-outline-dark btn-dark rounded-1">
-                            <span class="icon text-light">
-                                <i class="fas fa-chevron-left fa-sm"></i>
-                            </span>
-                            <span class="text-uppercase fw-bold text-light">Keep Shopping</span>
-                        </a>
+                    <!--./end-quantity-input-->
+            </div>
+            <!--buttons-row-->
+            <div class="row">
+                <div class="col-12 text-center pt-5 me-auto">
+                    <a href="{% url 'shop' %}" class="btn btn-outline-dark btn-dark rounded-1">
+                        <span class="icon text-light">
+                            <i class="fas fa-chevron-left fa-sm"></i>
+                        </span>
+                        <span class="text-uppercase fw-bold text-light">Keep Shopping</span>
+                    </a>
+                    <div class="btn btn-outline-dark btn-dark text-light fw-bold rounded-1">
                         <input type="submit"
-                            class="btn btn-outline-dark btn-dark text-light fw-bold rounded-1 text-uppercase"
-                            value="Add to Cart">
+                            class="bg-transparent body-small border-0 text-light text-uppercase fw-bold "
+                            value="Update Cart">
+                        <span class='icon text-center me-auto'>
+                            <i class="fas fa-sync"></i>
+                        </span>
                     </div>
-                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </div>
+                <input type="hidden" name="redirect_url" value="{{ request.path }}">
             </div>
+            <!--./end-buttons-row-->
+            {% endwith %}
             </form>
         </div>
-    </div>
-    <!--./-end-product-details-->
+        <!--./-end-product-details-->
     </div>
 </section>
-<!--./product-details-grid-->
+<!--./end-product-details-->
 {% endblock %}
 {% block postloadjs %}
 {{ block.super }}
