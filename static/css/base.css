@@ -846,7 +846,7 @@ button.btn.btn-primary.loginButton {
 .card-img-top,
 img#productdetails1,
 img#productdetails2 {
-    min-width: 50%;
+    max-width: 100%;
     /* height: 50vh; */
     overflow: hidden;
     box-shadow: 0 1.5em 2em -1em #999;
