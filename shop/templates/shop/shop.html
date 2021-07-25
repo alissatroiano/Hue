@@ -18,9 +18,8 @@
             <a class="category-badge text-decoration-none" href="{% url 'shop' %}?category={{ c.title }}">
                 <span class="p-2 mt-3 mb-0 badge bg-primary text-light rounded-0 border-0 border-dark">
                 {{ c.friendly_name }}</span></a>
-                <span class="p-2 mt-3 mb-0 badge bg-primary text-light rounded-0 border-0 border-dark">
-                    {{ c.parent.friendly_name }}</span>
             {% endfor %}
+
             {% for l in current_labels %}
             <a class="label-badge text-decoration-none" href="{% url 'shop' %}?category={{ c.title }}">
                 <span class="p-2 mt-3 mb- badge bg-primary text-light rounded-0 border-0 border-dark">{{ l }}
@@ -141,14 +140,16 @@
     </div>
 </div>
 <!--./end-shop-container-->
- <div class="btt-button rounded-0">
-        <a class="btn btn-none btt-link d-flex h-100">
-            <i class="fas fa-chevron-up text-dark fa-2x text-end mx-auto my-auto"></i>
-        </a>    
+
+<div class="btt-wrapper">
+    <!--start-back-to-top-button-->
+    <div class="btt-button rounded-0">
+            <a class="btn btn-none btt-link d-flex h-100">
+                <i class="fas fa-chevron-up text-dark fa-2x text-end mx-auto my-auto"></i>
+            </a>    
     </div>
 </div>
-    </div>
-
+<!--end-back-to-top-button-->
 {% endblock %}
 
 {% block postloadjs %}

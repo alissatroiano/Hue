@@ -14,14 +14,8 @@
             </div>
         </li>
         <li class="nav-item">
-            <div class="dropdown">
-                <a class="btn btn-sm nav-link dropdown-toggle" href="#" role="button" id="shopDropdown2"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    Art Prints</a>
-                <div class="dropdown-menu border-0 display-font" aria-labelledby="shopDropdown2">
-                    <a href="{% url 'shop' %}?category=graffiti&direction=asc" class="dropdown-item">Graffiti</a>
-                    <a href="{% url 'shop' %}?category=paintings&direction=asc" class="dropdown-item">Paintings</a>
-                </div>
+            <a href="{% url 'shop' %}?category=glitch-art&direction=asc"
+            class="nav-link display-font">Glitch Art</a>
         </li>
         <li class="nav-item">
             <a href="{% url 'shop' %}?parent=graphics&direction=asc" class="nav-link display-font">Graphics</a>
@@ -38,10 +32,6 @@
             class="nav-link display-font">Photo-Paintings</a>
         </li>
         <li class="nav-item">
-            <a href="{% url 'shop' %}?category=glitch-art&direction=asc"
-            class="nav-link display-font">Glitch Art</a>
-        </li>
-        <li class="nav-item">
             <a href="{% url 'shop' %}?category=popart&direction=asc"
             class="nav-link display-font">Pop Art</a>
         </li>
@@ -54,8 +44,8 @@
                     data-bs-toggle="dropdown" aria-expanded="false">
                     People</a>
                 <div class="dropdown-menu border-0 p-0 m-0 display-font" aria-labelledby="shopDropdown3">
-                    <a href="{% url 'shop' %}?label=1&direction=asc" class="dropdown-item">With People</a>
-                    <a href="{% url 'shop' %}?label=2&direction=asc" class="dropdown-item">Without People</a>
+                    <a href="{% url 'shop' %}?label=1" class="dropdown-item">With People</a>
+                    <a href="{% url 'shop' %}?label=2" class="dropdown-item">Without People</a>
                 </div>
             </div>
         </li>

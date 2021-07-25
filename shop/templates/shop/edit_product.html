@@ -31,7 +31,8 @@
 		<div class="col-md-8 justify-content-center">
 			<div class="card p-5 my-0 mx-auto bg-main text-light body-font">
 				<!--edit product form starts here-->
-				<form method="POST" action="{% url 'edit_product' product.id %}" class="form mb-2" enctype="multipart/form-data">
+				<form method="POST" action="{% url 'edit_product' product.id %}" class="form mb-2"
+					enctype="multipart/form-data">
 					{% csrf_token %}
 					{% for field in form %}
 					{% if field.name != 'image' %}
@@ -43,7 +44,7 @@
 					<div class="text-right">
 						<button>
 							<a class="btn btn-dark rounded-0" href="{% url 'shop' %}">Cancel</a>
-							</button>
+						</button>
 						<button class="btn btn-dark rounded-0" type="submit">Edit Product</button>
 					</div>
 				</form>
