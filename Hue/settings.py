@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 import dj_database_url
 
+import sys
+TESTING = sys.argv[1:2] == ['test']
+
 if os.path.exists("env.py"):
     import env
 
@@ -150,16 +153,20 @@ WSGI_APPLICATION = 'Hue.wsgi.application'
 
 # Database
 if 'DATABASE_URL' in os.environ:
-    DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    if TESTING==False:
+        DATABASES = {
+            'default': dj_database_url.parse(os.environ.get('DATABASE_URL')),
         }
-else:
-    DATABASES = {
-        'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    else:
+        DATABASES = {
+            'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+            'TEST': {
+                'MIRROR': 'default'
+            },
+        }
     }
-}
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 

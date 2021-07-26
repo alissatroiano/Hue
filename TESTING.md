@@ -1,6 +1,6 @@
 # TESTING.md
 
-## Front-End Tests
+## Manual Tests
 
 ### HTML
 
@@ -21,6 +21,7 @@
     - [x] [product_detail.html](shop/templates/shop/product_detail.html)
     - [x] [add_product.html](shop/templates/shop/add_product.html)
     - [x] [edit_product.html](shop/templates/shop/edit_product.html)
+    - [ ] 
 
 #### W3C Jigsaw Test
 **CSS Validation Testing**
@@ -35,7 +36,6 @@
 ![jigsaw](tests/jigsaw.png)
 - 7. Repeat test if/when any changes are made to the stylesheet.
 
-## Back-End Tests
 
 ### **Database Tests**
 **Database Conflict Test #1**
@@ -147,3 +147,6 @@
   - Notice that the keys in `settings.py` are improperly configured.
   - Repair key configurations.
   - Mark test, 'passed'.
+
+## Automated Testing With Django
+

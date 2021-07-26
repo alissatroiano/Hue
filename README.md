@@ -228,6 +228,9 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 
     - [Sublime Text](https://packagecontrol.io/docs)
 
+- I learned how to use Django's built-in testing software while deployed to Heroku from [Stack Overflow](https://stackoverflow.com/questions/14186055/django-test-app-error-got-an-error-creating-the-test-database-permission-deni). 
+
+
 ### Security
 
 - I copied the following settings(located in `settings.py`) from [Django's Documentation]()
