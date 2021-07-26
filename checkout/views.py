@@ -180,4 +180,4 @@ def checkout_success(request, order_number):
         'order': order,
     }
 
-    return redirect(request, template, context)
+    return render(request, template, context)
