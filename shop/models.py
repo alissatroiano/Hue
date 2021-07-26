@@ -57,7 +57,7 @@ class Product(models.Model):
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
     parent = models.ForeignKey('Category', related_name='parents', on_delete=models.CASCADE, blank=True, null=True)
     price = models.DecimalField(
-        default=0.00, decimal_places=2, max_digits=8)
+        decimal_places=2, max_digits=8, null=False, default=0)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True, )
     qty = models.PositiveIntegerField(default=0)
