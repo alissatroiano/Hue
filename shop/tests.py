@@ -9,7 +9,7 @@ class TestProductForm(TestCase):
             'title': 'Test Product',
             'price': '1.00',
             'qty': '1'})
-        self.assertFalse(form.is_valid())
+        self.assertTrue(form.is_valid())
         self.assertTrue(form.is_bound)
         self.assertEqual(form.cleaned_data['title'], 'Test Product')
 

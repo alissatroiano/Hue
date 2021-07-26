@@ -8,8 +8,6 @@ from django.db.models.functions import Lower
 from .models import Product, Category
 from .forms import ProductForm
 
-# Create your views here.
-
 
 def shop_all(request):
     """ A view to show all products, including sorting and search queries """
@@ -103,11 +101,16 @@ def add_product(request):
 
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
-        if form.is_valid():
+        if form.is_valid() == True:
             form.save()
             messages.success(request, 'Successfully added product!')
             return redirect(reverse('add_product'))
         else:
+            raise ValidationError(
+                _('Invalid value: %(value)s'),
+                code='invalid',
+                params={'value': '42'},
+)
             messages.error(request,
                            ('Failed to add product. '
                             'Please ensure the form is valid.'))

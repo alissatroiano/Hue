@@ -38,6 +38,12 @@
 					{% else %}
 					{{ field }}
 					{% endif %}
+					{% if field.name == field.label %}
+					{{ field.errors }}
+					{% endif %}
+					{% if field.name == 0.0 %}
+					{{ field.errors }}
+					{% endif %}
 					{% endfor %}
 					<div class="text-right">
 						<button>
