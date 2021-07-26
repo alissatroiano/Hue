@@ -13,9 +13,11 @@ from .forms import ProductForm
 
 def shop_all(request):
     """ A view to show all products, including sorting and search queries """
+
     products = Product.objects.all()
     query = None
     categories = None
+    parents = None
     labels = None
     orientations = None
     sort = None
@@ -32,6 +34,9 @@ def shop_all(request):
                 products = products.annotate(lower_title=Lower('title'))
             if sortkey == 'category':
                 sortkey = 'category__title'
+            if sortkey == 'parent':
+                sortkey == 'product__parent'
+                products = products.annotate(product_parent=Lower('parent'))
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
@@ -42,6 +47,11 @@ def shop_all(request):
             categories = request.GET['category'].split(',')
             products = products.filter(category__title__in=categories)
             categories = Category.objects.filter(title__in=categories)
+            
+        if 'parent' in request.GET:
+            parents = request.GET['parent'].split(',')
+            products = products.filter(parent__title__in=parents)
+            categories = Category.objects.filter(parents__title__in=parents)
 
         if 'label' in request.GET:
             labels = request.GET['label'].split(',')
@@ -74,9 +84,11 @@ def shop_all(request):
         'search_term': query,
         'search_term': query,
         'current_categories': categories,
+        'category_parents': parents,
         'current_sorting': current_sorting,
         'current_labels': labels,
         'current_orientation': orientations,
+        'get_category_list': parents,
     }
 
     return render(request, 'shop/shop.html', context)
