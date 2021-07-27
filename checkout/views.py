@@ -152,15 +152,19 @@ def checkout_success(request, order_number):
     Handle successful checkouts
     """
     order = get_object_or_404(Order, order_number=order_number)
-    template = render_to_string('checkout/confirmation_emails/order_email.html')
-
-    email = EmailMessage(
-        'Your order has been received',
-        template,
-        settings.EMAIL_HOST_USER,
-        [order.email],
-        )
-    email.fail_silently = False
+    img_data = get_object_or_404(Order, order_number=order_number).image
+    if img_data:
+        img_data = img_data.read()
+    context = {
+        'order': order,
+        'order_number': order_number,
+        'image': img_data,
+    }
+    subject = 'Your Hue digital order has been sent!'
+    message = render_to_string('checkout/confirmation_emails/order_email.txt', context)
+    email = EmailMessage(subject, message, to=[order.email])
+    email.content_subtype = "html"
+    message.attach(img_data)
     email.send()
     
     save_info = request.session.get('save_info')
