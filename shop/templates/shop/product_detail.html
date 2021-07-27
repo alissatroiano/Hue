@@ -18,8 +18,8 @@
             <div class="col-sm-12 col-lg-6 my-0 mx-auto pt-sm-3">
                 {% if product.image.url %}
                 <div class="card my-0 align-items-center border-0 mx-auto mb-4">
-                    <img id="productdetails1" class="img-fluid" onclick="return buttonClicked()"
-                        src="{{ product.image.url }}" alt="{{ product.title }}">
+                    <img id="productdetails1" class="img-fluid" oncontextmenu="return false" onselectstart="return false" ondragstart="return false""
+                        src="{{ product.image.url }}" alt="{{ product.title }}"> 
                     {% else %}
                     <img id="productdetails2" class="img-fluid" src="{{ MEDIA_URL }}noimage.png"
                         alt="{{ product.title }}">
@@ -100,7 +100,7 @@
                                     </span>
                                 </button>
                             </div>
-                            <input class="form-control-sm qty_input body-small" type="number" name="quantity" value="1"
+                            <input class="form-control-lg w-100 qty_input body-small" type="number" name="quantity" value="1"
                                 min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
                             <div class="bg-transparent border-0">
                                 <button class="increment-qty btn rounded-0" data-item_id="{{ product.id }}"
@@ -132,7 +132,7 @@
                         </span>
                     </div>
                 </div>
-                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                <input type="hidden" name="redirect_url" value="{% url 'checkout' %}">
             </div>
             <!--./end-buttons-row-->
             {% endwith %}

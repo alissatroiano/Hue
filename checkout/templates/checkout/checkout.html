@@ -53,7 +53,7 @@
                         {% if item.product.image %}
                         <figure class="figure">
                             <img class="figure-img img-fluid w-50" src="{{ item.product.image.url }}"
-                                alt="{{ product.name }}">
+                                alt="{{ product.name }}"  oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
                             <figcaption class="figure-caption body-font">{{ item.product.title }}</figcaption>
                         </figure>
                         {% else %}

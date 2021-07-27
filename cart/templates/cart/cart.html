@@ -54,7 +54,7 @@
                     <tr>
                         <td class="my-0 mx-auto p-2 w-25">
                             {% if item.product.image %}
-                            <img class="img-fluid img-thumbnail rounded border-0 shadown-sm" src="{{ item.product.image.url }}" alt="{{ item.product.title }}">
+                            <img class="img-fluid img-thumbnail rounded border-0 shadown-sm" src="{{ item.product.image.url }}" alt="{{ item.product.title }}"  oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
                             {% else %}
                             <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.title }}">
                             {% endif %}

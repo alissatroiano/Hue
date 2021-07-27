@@ -67,21 +67,22 @@
         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 p-2 p-lg-4">
             <div class="card border-0" id=shop-card>
                 {% if product.image %}
-                <div class="card-img-top">
                 <a href="{% url 'product_detail' product.id %}">
-                    <img class="img-fluid" src="{{ product.image.url }}" alt="{{ product.title }}">
+                <div class="card-img-top">
+                    <img class="img-fluid" src="{{ product.image.url }}" alt="{{ product.title }}"  oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
                 </a>
-                </div>
+
                 {% else %}
                 <a href="{% url 'product_detail' product.id %}">
-                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.title }}">
+                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.title }}" oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
                 </a>
                 {% endif %}
-                <div class="card-body pb-0">
+                </div>
+                <a class="card-body pb-0" href="{% url 'product_detail' product.id %}" class="display-font" style="text-decoration: none; color: #000;">
                     <h4 class="mb-2 display-font heading-sm">{{ product.title }}</h4>
                     <p class="body-small my-2 text-muted">{{ product.medium }}</p>
-                </div>
-                <div class="card-footer bg-white pt-0 border-0 text-left">
+                </a>
+                <div class="card-footer bg-white pt-0 border-0 text-left" href="{% url 'product_detail' product.id %}" class="display-font" style="text-decoration: none; color: #000;">
                     <div class="row">
                         <div class="col">
                             <h6 class="p-price text-main body-sm mb-0 text-left fw-bold ms-2 my-2">
@@ -91,13 +92,6 @@
                             <p class="body-small body-font mt-1 mb-0">
                                 <a class="text-muted" href="{% url 'shop' %}?category={{ product.category.title }}">
                                     <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
-                                </a>
-                            </p>
-                            {% endif %}
-                            {% if product.category.parent %}
-                            <p class="body-small body-font mt-1 mb-0">
-                                <a class="text-muted" href="{% url 'shop' %}?parent={{ product.category.parent }}">
-                                    <i class="fas fa-tag mr-1"></i>{{ product.category.parent.friendly_name }}
                                 </a>
                             </p>
                             {% endif %}
@@ -114,6 +108,7 @@
                         </div>
                     </div>
                 </div>
+                </a>
             </div>
         </div>
         {% if forloop.counter|divisibleby:1 %}
