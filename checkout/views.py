@@ -153,7 +153,7 @@ def checkout_success(request, order_number):
     """
     order = get_object_or_404(Order, order_number=order_number)
     template = render_to_string('checkout/confirmation_emails/order_email.html')
-    print('the template is ', template)
+
     email = EmailMessage(
         'Your order has been received',
         template,
@@ -162,7 +162,6 @@ def checkout_success(request, order_number):
         )
     email.fail_silently = False
     email.send()
-    print('THE ORDER EMAIL IS', order.email)
     
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
