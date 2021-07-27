@@ -1,5 +1,3 @@
-{% extends base.html %}
-
 Hey {{order.user_full_name }}!
 
 This is a confirmation for your order:
@@ -24,5 +22,7 @@ Grand Total: {{ item.subtotal }}
 If you have any questions, feel free to contact us at {{ contact_email }}.
 
 Your digital order is attached.
+
+{{ item.product.image.url }}
 
 {% endfor %}
