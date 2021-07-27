@@ -82,11 +82,9 @@ def shop_all(request):
         'search_term': query,
         'search_term': query,
         'current_categories': categories,
-        'category_parents': parents,
         'current_sorting': current_sorting,
         'current_labels': labels,
         'current_orientation': orientations,
-        'get_category_list': parents,
     }
 
     return render(request, 'shop/shop.html', context)
