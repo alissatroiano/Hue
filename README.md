@@ -147,6 +147,8 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 
     - [Pixabay](https://pixabay.com/illustrations/fractal-art-psychedelic-fantasy-2077883/)
 
+- I used [this Deviant Art article](https://www.deviantart.com/breeanns/journal/The-Digital-Art-Categories-Explained-532007328) to learn about types of digital art & enhance my project's overall strategy.
+
 ## UX Design
 
 - I copied components from [Bootstrap's documentation](https://getbootstrap.com/docs/5.0/components/navs-tabs/) to make Hue's navigation intuitive and responsive.
@@ -202,7 +204,7 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 ## Utilities & tools
 - [Diffchecker](https://www.diffchecker.com/#).
 
-- [Random Key Gen](https://randomkeygen.com/).
+- [Random Key Gen](https://randomkeygen.com/)
 
 - I learned how to set up Django project's in a virtual environemnt by reading these articles:
 
@@ -231,12 +233,9 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 - I learned how to use Django's built-in testing software while deployed to Heroku from [Stack Overflow](https://stackoverflow.com/questions/14186055/django-test-app-error-got-an-error-creating-the-test-database-permission-deni). 
 
 
-### Security
+### Testing
 
-- I copied the following settings(located in `settings.py`) from [Django's Documentation]()
-
-    - [SECURE_SSL_REDIRECT](https://docs.djangoproject.com/en/3.2/ref/settings/#std:setting-SECURE_SSL_REDIRECT)
-
+- [Stack Overflow](https://stackoverflow.com/questions/13705328/how-to-run-django-tests-on-heroku)
 
 ## Acknowledgements
 

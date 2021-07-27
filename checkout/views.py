@@ -16,6 +16,10 @@ from cart.contexts import cart_components
 import json
 import stripe
 
+from django.core.mail import EmailMessage
+from django.conf import settings
+from django.template.loader import render_to_string
+
 
 @require_POST
 def cache_checkout_data(request):
@@ -56,6 +60,7 @@ def checkout(request):
         if order_form.is_valid():
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
+            confirmation_email = request.POST.get('email')
             order.stripe_pid = pid
             order.original_cart = json.dumps(cart)
             order.save()
@@ -146,6 +151,16 @@ def checkout_success(request, order_number):
     """
     Handle successful checkouts
     """
+    template = render_to_string('checkout/confirmation_emails/order_email.html', {'name': request.user.get_full_name()})
+    email = EmailMessage(
+        'Your order has been received',
+        template,
+        settings.EMAIL_HOST_USER,
+        ['vagaj90600@britted.com'],
+        )
+    email.fail_silently = False
+    email.send()
+
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
     
@@ -154,7 +169,7 @@ def checkout_success(request, order_number):
         # Bind user profile object to the order
         order.profile = profile
         order.save()
-    
+
         if save_info:
             profile_data = {
                 'default_phone_number': order.phone_number,
@@ -175,9 +190,8 @@ def checkout_success(request, order_number):
 
     if 'cart' in request.session:
         del request.session['cart']
-    template = 'checkout/checkout_success.html'
     context = {
         'order': order,
     }
 
-    return redirect(request, template, context)
+    return render(request, 'checkout/checkout_success.html', context)

@@ -10,13 +10,11 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = [
         'title',
         'friendly_name',
-        'parent',
         ]
     
     search_fields = [
         'title',
         'category', 
-        'parent',
         ]
 
 @admin.register(Product)
@@ -26,7 +24,6 @@ class ProductAdmin(admin.ModelAdmin):
         'title', 
         'active',
         'category',
-        'parent',
         'price',   
         'image']
     
@@ -46,7 +43,6 @@ class ProductAdmin(admin.ModelAdmin):
         'medium', 
         'image', 
         'category', 
-        'parent',
         'price', 
         'orientation', 
         'has_dimensions',
