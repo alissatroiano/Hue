@@ -152,7 +152,8 @@ def checkout_success(request, order_number):
     Handle successful checkouts
     """
     order = get_object_or_404(Order, order_number=order_number)
-    template = render_to_string('checkout/confirmation_emails/order_email.html', {'name': request.user.get_full_name()})
+    template = render_to_string('checkout/confirmation_emails/order_email.html')
+    print('the template is ', template)
     email = EmailMessage(
         'Your order has been received',
         template,
