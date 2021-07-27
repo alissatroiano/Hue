@@ -1,1 +1,0 @@
-Confirmation for Hue Order Number {{ order.order_number }}

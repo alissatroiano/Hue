@@ -9,8 +9,6 @@ Order Total: ${{ order.order_total }}
 Special Promotion: ${{ order.special_promotion }}
 Grand Total: ${{ order.grand_total }}
 
-{% for item in order.orderitems.all %}
-
 Quantity: {{ item.quantity }}
 
 Price: {{ item.product.price }}
@@ -24,8 +22,3 @@ If you have any questions, feel free to contact us at {{ contact_email }}.
 Your digital order is attached.
 
 {{ item.product.image.url }}
-
- <a href="{{ item.product.image }}" download="{{ item.product.image }}"
-                            class="btn btn-primary btn-sm mt-2">Download</a>
-
-{% endfor %}
