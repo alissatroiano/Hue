@@ -161,6 +161,7 @@ def checkout_success(request, order_number):
         [order.email],
         )
     email.fail_silently = False
+    email.content_subtype = 'html'
     email.send()
     print('THE ORDER EMAIL IS', order.email)
     

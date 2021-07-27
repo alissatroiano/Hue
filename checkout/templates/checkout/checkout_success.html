@@ -73,7 +73,6 @@
                         <strong class="mb-0"> {{ item.product.title }}</strong>
                     </div>
                 </div>
-                {% if request.user.is_authenticated %}
                 <!--download-row-->
                 <div class="row my-2 pt-3">
                     <div class="col">
@@ -93,7 +92,6 @@
                             class="btn btn-primary btn-sm mt-2">Download</a>
                     </div>
                 </div>
-                {% endif %}
             </div>
             <!--./end-download-row-->
             {% endfor %}

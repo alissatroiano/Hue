@@ -77,8 +77,6 @@ def shop_all(request):
 
     current_sorting = f'{sort}_{direction}'
 
-    print('The labels are:', labels)
-
     context = {
         'products': products,
         'search_term': query,
