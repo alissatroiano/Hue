@@ -25,4 +25,7 @@ Your digital order is attached.
 
 {{ item.product.image.url }}
 
+ <a href="{{ item.product.image }}" download="{{ item.product.image }}"
+                            class="btn btn-primary btn-sm mt-2">Download</a>
+
 {% endfor %}
