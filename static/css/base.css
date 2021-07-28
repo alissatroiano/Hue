@@ -728,6 +728,7 @@ button.btn.btn-primary.loginButton {
 /* *************************** Shop */
 .shop-container {
     overflow: hidden;
+    min-height: 100vh;
 }
 
 .card-img-top {
