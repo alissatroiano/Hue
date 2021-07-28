@@ -14,22 +14,15 @@
 <div class="container-fluid">
     <div class="row d-flex justify-content-center">
         <div class="col-12 pt-5 px-3 my-0 mx-auto">
-            <!-- breadcrumb-->
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb display-font heading-xs">
-                    <li class="breadcrumb-item"><a href="{% url 'shop' %}">Shop</a></li>
-                    <li aria-current="page" class="breadcrumb-item active">Your Cart</li>
-                    <li class="breadcrumb-item active"><a href="{% url 'checkout' %}">Checkout</a></li>
-                </ol>
-            </nav>
         </div>
     </div>
 </div>
 <!--Page Heading-->
 <div class="container-fluid mx-1 mx-lg-4">
-    <div class="row justify-content-center">
-        <div class="col-12 col-lg-8 text-start px-3 py-4">
-            <h2 class="display-font ms-lg-4 ps-lg-2">YOUR CART</h2>
+    <div class="row pt-md-5 justify-content-center">
+        <div class="col-12 col-lg-8 text-center px-3 py-4">
+            <i class="fas fa-shopping-cart me-auto text-center fa-2x"></i>
+            <h2 class="display-font ms-lg-4 ps-lg-2 pt-3 text-center">YOUR CART</h2>
         </div>
     </div>
 </div>
@@ -52,57 +45,67 @@
                     </thead>
                     {% for item in cart_items %}
                     <tr>
-                            <td class="my-0 mx-auto p-2 w-25">
+                        <td class="my-0 mx-auto p-2 w-25">
                             {% if item.product.image %}
-                            <img class="img-fluid img-thumbnail rounded border-0 shadown-sm" src="{{ item.product.image.url }}" alt="{{ item.product.title }}"  oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+                            <img class="img-fluid img-thumbnail rounded border-0 shadown-sm"
+                                src="{{ item.product.image.url }}" alt="{{ item.product.title }}"
+                                oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
                             {% else %}
-                            <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.title }}">
+                            <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png"
+                                alt="{{ item.product.title }}">
                             {% endif %}
                         </td>
                         </a>
                         <td class="py-3">
                             <p class="my-0">
-                                <strong>{{ item.product.title }}</strong></p>
+                                <strong>{{ item.product.title }}</strong>
+                            </p>
                             <p class="my-0 body-small text-muted">SKU:
                                 {{ item.product.sku|upper }}
                             </p>
                         </td>
                         <td class="py-3 w-25">
                             <p class="my-0">
-                                <strong>${{ item.product.price }}</strong></p>
+                                <strong>${{ item.product.price }}</strong>
+                            </p>
                         </td>
                         <td class="py-3 w-25">
                             <p class="my-0">
-                                <strong>${{ item.product.price }}</strong></p>
+                                <strong>${{ item.product.price }}</strong>
+                            </p>
                         </td>
-                        <td class="py-3 my-0 w-auto text-center overflow-hidden">
+                        <td class="py-3 my-0 w-50 text-center">
                             <form class="form update-form" method="POST" action="{% url 'update_cart' item.item_id %}">
                                 {% csrf_token %}
                                 <div class="form-group">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <button class="decrement-qty btn btn-sm btn-black rounded-0" data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
-                                                <span>
-                                                    <i class="fas fa-minus fa-sm"></i>
-                                                </span>
-                                            </button>
-                                        </div>
-                                        <input class="form-control form-control-sm qty_input" type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
-                                        <button class="increment-qty btn btn-sm btn-black rounded-0" data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                    <div class="input-group-text flex-nowrap">
+                                        <button class="decrement-qty btn-sm btn-dark rounded-0"
+                                            data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
                                             <span>
-                                                <i class="fas fa-plus fa-sm"></i>
+                                                <i class="fas fa-minus fa-xs"></i>
+                                            </span>
+                                        </button>
+                                        <input class="form-control-sm qty_input body-small" type="number"
+                                            name="quantity" value="{{ item.quantity }}" min="1" max="99"
+                                            data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                                        <button class="increment-qty btn-sm btn-dark rounded-0"
+                                            data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                            <span>
+                                                <i class="fas fa-plus fa-xs"></i>
                                             </span>
                                         </button>
                                     </div>
                                 </div>
             </div>
             </form>
-            <a class="update-link" id="{{ item.item_id }}">
-                <i class="bi mx-2 fas fa-sync fa-sm"></i>
-            </a>
-            <a class="remove-item text-dark float-right" id="remove_{{ item.item_id }}">
-                <i class="fas fa-trash fa-sm"></i>
-            </a>
+            <div class="d-flex justify-content-center">
+                <a class="update-link" id="{{ item.item_id }}">
+                    <i class="bi mx-2 fas fa-sync fa-sm"></i>
+                </a>
+                <a class="remove-item text-dark float-right" id="remove_{{ item.item_id }}">
+                    <i class="fas fa-trash fa-sm"></i>
+                </a>
+            </div>
             </td>
             </tr>
             {% endfor %}
@@ -122,7 +125,7 @@
                     {% endif %}
                 </td>
             </tr>
-            <tr class="border-0">
+            <tr>
                 <td colspan="5" class="text-center my-0 mx-auto pt-4">
                     <a href="{% url 'shop' %}" class="btn btn-dark rounded-0 btn-lg">
                         <i class="fas fa-chevron-left fa-xs"></i>
@@ -149,19 +152,20 @@
         </p>
         {% endif %}
     </div>
-    {% endblock %}
-    {% block postloadjs %}
-    {{ block.super }}
-    {% include 'shop/includes/qty-script.html' %}
-    <script type="text/javascript">
+</div>
+{% endblock %}
+{% block postloadjs %}
+{{ block.super }}
+{% include 'shop/includes/qty-script.html' %}
+<script type="text/javascript">
     // Update quantity on click
-    $('.update-link').click(function(e) {
+    $('.update-link').click(function (e) {
         var form = $(this).prev('.update-form');
         form.submit();
     })
 
     // Remove item and reload on click
-    $('.remove-item').click(function(e) {
+    $('.remove-item').click(function (e) {
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove_')[1];
         var dimension = $(this).data('product_dimension');
@@ -169,9 +173,9 @@
         var data = { 'csrfmiddlewaretoken': csrfToken, 'product_dimension': dimension };
 
         $.post(url, data)
-            .done(function() {
+            .done(function () {
                 location.reload();
             });
     })
-    </script>
-    {% endblock %}
+</script>
+{% endblock %}
