@@ -112,28 +112,6 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
-# Provider specific settings
-SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-    'SCOPE': [
-            'profile',
-            'email',
-        ],
-        'AUTH_PARAMS': {
-            'access_type': 'online',
-        },
-        
-        'APP': {
-            'client_id': '303991007373-mr20m8gbbkbhtag3gvi49c8gtav00drv.apps.googleusercontent.com',
-            'secret': '5g8OUjB29N5tL6Sh-_RtdBuL',
-            'key': ''
-        }
-    },
-    'facebook': {
-        'LOCALE_FUNC': lambda request: 'en_US'
-    }
-}
-
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 3
