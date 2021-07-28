@@ -57,34 +57,7 @@
                         <a href="{{ signup_url }}" class="link-font">Sign Up!</a>{% endblocktrans %}
                     </p>
                 </div>
-                <!--./end-login-utilities-->
-                {% get_providers as socialaccount_providers %}
-                {% if socialaccount_providers %}
-                <div class="social_account_providers">
-                <div class="d-flex flex-column align-content-center my-0 mx-auto text-center pt-2 socialaccount_ballot">
-                    <p class="body-sm px-5 py-1 body-sm mx-auto my-0 text-wrap text-dark" id="login_slug">
-                    Login with your favorite social media provider!
-                    </p>
-                    <ul class="nav justify-content-center socialaccount_providers py-3">
-                        <li>
-                            <a title="Facebook" class="px-2 socialaccount_provider facebook"
-                                href="{% provider_login_url "facebook" %}"><i class="fab fa-facebook fa-2x"></i></a>
-                        </li>
-                        <li>
-                            <a title="Google" class="socialaccount_provider google px-2"
-                                href="{% provider_login_url "google" %}"><i class="fab fa-google fa-2x"></i></a>
-                        </li>
-                        <li>
-                            <a title="Pinterest" class="socialaccount_provider pinterest px-2"
-                                href="/accounts/pinterest/login/?process=login">
-                                <i class="fab fa-pinterest fa-2x"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    {% endif %}
-                </div>
-            </form>
-        </div>
+                <!--./end-login-utilities-->       
     <!--./end-d-flex-->
 </div>
 </div>
