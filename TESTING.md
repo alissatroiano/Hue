@@ -21,6 +21,7 @@
     - [x] [product_detail.html](shop/templates/shop/product_detail.html)
     - [x] [add_product.html](shop/templates/shop/add_product.html)
     - [x] [edit_product.html](shop/templates/shop/edit_product.html)
+    - [x] [index.html](home/templates/home/index.html)
 
 #### W3C Jigsaw Test
 **CSS Validation Testing**

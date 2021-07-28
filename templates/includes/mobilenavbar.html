@@ -1,5 +1,6 @@
 <!--ul-starts-here-->
 <ul class="nav list-group list-group-horizontal text-center my-0 mx-auto py-1">
+    <!--Shop starts here-->
     <li class="list-item">
         <a class="nav-link d-block d-lg-none" data-bs-toggle="collapse" href="#shopNavCollapse" role="button"
             aria-expanded="false" aria-controls="shopNavCollapse">
@@ -11,6 +12,19 @@
             </div>
         </a>
     </li>
+    <!--./shop-ends-here-->
+    <!--About starts here-->
+    <li class="list-item">
+        <a class="nav-link d-block d-lg-none" href="{% url 'home' %}#about">
+            <div class="text-center">
+                <div>
+                    <i class="fas fa-info fa-lg"></i>
+                </div>
+                <p class="my-0">About</p>
+            </div>
+        </a>
+    </li>
+    <!--./about-ends-here-->
     <!--search-bar-starts-->
     <li class="list-item">
         <div class="col-12 col-lg-auto my-0 mx-auto w-auto">
