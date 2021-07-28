@@ -78,34 +78,31 @@
                             <form class="form update-form" method="POST" action="{% url 'update_cart' item.item_id %}">
                                 {% csrf_token %}
                                 <div class="form-group">
-                                    <div class="input-group-text flex-nowrap">
-                                        <button class="decrement-qty btn-sm btn-dark rounded-0"
-                                            data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <button class="decrement-qty btn btn-sm btn-black rounded-0" data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                                <span>
+                                                    <i class="fas fa-minus fa-sm"></i>
+                                                </span>
+                                            </button>
+                                        </div>
+                                        
+                                        <input class="form-control form-control-sm qty_input" type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                                        <button class="increment-qty btn btn-sm btn-black rounded-0" data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
                                             <span>
-                                                <i class="fas fa-minus fa-xs"></i>
-                                            </span>
-                                        </button>
-                                        <input class="form-control-sm qty_input body-small" type="number"
-                                            name="quantity" value="{{ item.quantity }}" min="1" max="99"
-                                            data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
-                                        <button class="increment-qty btn-sm btn-dark rounded-0"
-                                            data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
-                                            <span>
-                                                <i class="fas fa-plus fa-xs"></i>
+                                                <i class="fas fa-plus fa-sm"></i>
                                             </span>
                                         </button>
                                     </div>
                                 </div>
             </div>
             </form>
-            <div class="d-flex justify-content-center">
                 <a class="update-link" id="{{ item.item_id }}">
                     <i class="bi mx-2 fas fa-sync fa-sm"></i>
                 </a>
                 <a class="remove-item text-dark float-right" id="remove_{{ item.item_id }}">
                     <i class="fas fa-trash fa-sm"></i>
                 </a>
-            </div>
             </td>
             </tr>
             {% endfor %}
