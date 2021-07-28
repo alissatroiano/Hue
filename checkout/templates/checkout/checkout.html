@@ -172,17 +172,4 @@
 {{ client_secret|json_script:"id_client_secret" }}
 <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
-<script>
-    WebFont.load({
-        google: {
-            families: ['Raleway:300,400,500,600']
-        },
-        loading: function () {
-            console.log("Fonts are being loaded");
-        },
-        active: function () {
-            console.log("Fonts have been rendered")
-        }
-    });
-</script>
 {% endblock %}
