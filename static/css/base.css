@@ -227,13 +227,10 @@ input {
     background: white;
     z-index: -1;
 }
-
-
 /* ***************************./end-headers-&-special-text*/
 
 
 /* ***************************./Icons */
-
 .fab {
     color: rgb(170 151 204 / 88%);
     /* multiple light source shadow effect https://designshack.net/articles/css/12-fun-css-text-shadows-you-can-copy-and-paste/ */
@@ -331,31 +328,8 @@ a.btn.btn-primary {
     font-size: 12px;
 }
 
-.alert-info,
-#nav-alert {
-    color: #070412;
-    background-color: #edcdff85;
-    border: none;
-    font-family: 'Raleway', sans-serif;
-    /* font-weight: 300; */
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-align: center;
-    box-shadow: 1px 1px 3px 1px #4f475b;
-}
-
 strong#nav-sale {
     font-family: 'Oswald', serif;
-}
-
-a#nav-alert-link {
-    color: rgb(165, 221, 224);
-    text-transform: uppercase;
-    text-decoration: none;
-}
-
-a#nav-alert-link:hover {
-    color: #033030;
 }
 
 ul,
@@ -381,7 +355,7 @@ li {
     background: linear-gradient(rgb(0 0 0 / 80%), rgb(0 0 0 / 60%)), url(../../media/hue1.jpg) no-repeat center center fixed;
     background-size: cover;
     max-width: 100%;
-    min-height: 50vh;
+    min-height: 100vh;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
@@ -400,6 +374,7 @@ h1#title {
     letter-spacing: 2px;
     text-shadow: 3px 3px 6px #100324;
     margin-top: 80px;
+    margin-bottom: 50px;
 }
 
 h2.lead.my-4.py-3.mx-auto {
@@ -423,6 +398,7 @@ a#sale {
     font-weight: 400;
     color: #fafafad9;
     text-shadow: -2px 4px 10px #666;
+    margin-top: 20px;
 }
 
 a#sale:hover {
@@ -447,6 +423,10 @@ button#hero-button:hover,
 button#hero-button-2:hover {
     background-color: rgba(54 45 70 / 80%);
     color: #fafafa;
+}
+
+p#about-text {
+    line-height: 2.5rem;
 }
 /* ***************************.end-hero */
 
@@ -746,16 +726,7 @@ button.btn.btn-primary.loginButton {
 
 
 /* *************************** Shop */
-#regular-price {
-    text-decoration: line-through;
-}
-
-#discount-price {
-    text-decoration: none;
-}
-
 .shop-container {
-    min-height: 100vh;
     overflow: hidden;
 }
 
@@ -770,6 +741,17 @@ button.btn.btn-primary.loginButton {
     box-shadow: 5px 4px 14px #100324;
 }
 
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btt-link, .update-link, .remove-item {
+    cursor: pointer;
+}
 /* ***************************./end-shop */
 
 

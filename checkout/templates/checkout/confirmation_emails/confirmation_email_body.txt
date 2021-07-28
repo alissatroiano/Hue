@@ -21,4 +21,3 @@ Grand Total: {{ item.subtotal }}
 If you have any questions, feel free to contact us at {{ contact_email }}.
 
 Your digital order is attached.
-

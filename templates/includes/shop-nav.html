@@ -14,11 +14,7 @@
             </div>
         </li>
         <li class="nav-item">
-            <a href="{% url 'shop' %}?category=glitch-art&direction=asc"
-            class="nav-link display-font">Glitch Art</a>
-        </li>
-        <li class="nav-item">
-            <a href="{% url 'shop' %}?parent=graphics&direction=asc" class="nav-link display-font">Graphics</a>
+            <a href="{% url 'shop' %}?category=glitch-art&direction=asc" class="nav-link display-font">Glitch Art</a>
         </li>
         <li class="nav-item">
             <a href="{% url 'shop' %}?category=surrealism&direction=asc" class="nav-link display-font">Surrealism</a>
@@ -29,14 +25,13 @@
         </li>
         <li class="nav-item">
             <a href="{% url 'shop' %}?category=photo-paintings&direction=asc"
-            class="nav-link display-font">Photo-Paintings</a>
+                class="nav-link display-font">Photo-Paintings</a>
         </li>
         <li class="nav-item">
-            <a href="{% url 'shop' %}?category=popart&direction=asc"
-            class="nav-link display-font">Pop Art</a>
+            <a href="{% url 'shop' %}?category=popart&direction=asc" class="nav-link display-font">Pop Art</a>
         </li>
     </ul>
-
+    <!--filters-->
     <ul class="list-group list-group-horizontal text-end">
         <li class="nav-item">
             <div class="dropdown">
@@ -50,4 +45,5 @@
             </div>
         </li>
     </ul>
+    <!--./end-filters-->
 </div>

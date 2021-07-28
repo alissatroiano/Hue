@@ -12,7 +12,7 @@
 <div class="container-fluid bg-light mt-3 pt-3 pb-2">
     <div class="row">
         <div class="col text-center mt-3 p-3">
-            <h2 class="display-font my-3">The Shop</h2>
+            <h2 class="display-font my-3 mt-4 pt-lg-5">The Shop</h2>
              <hr class="w-50 mb-1">
             {% for c in current_categories %}
             <a class="category-badge text-decoration-none" href="{% url 'shop' %}?category={{ c.title }}">
@@ -39,7 +39,6 @@
                                 <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
                                 <option value="title_asc" {% if current_sorting == 'title_asc' %}selected{% endif %}>Title (A-Z)</option>
                                 <option value="title_desc" {% if current_sorting == 'title_desc' %}selected{% endif %}>Title (Z-A)</option>
-                                <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
                                 <option value="label_asc" {% if current_sorting == 'label="1"' %}selected{% endif %}>With People</option>
                                 <option value="label_desc" {% if current_sorting == 'label="2"' %}selected{% endif %}>Without People</option>
                                 <option value="orientation_asc" {% if current_sorting == 'orientation="3"' %}selected{% endif %}>Vertical</option>
