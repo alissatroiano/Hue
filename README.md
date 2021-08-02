@@ -1,6 +1,6 @@
 # Hue
 
-This full-stack application was developed for Hue, an online art gallery and store where users can view and purchase artwork. The main goal of Hue's website is to display and sell their artwork to shoppers digitally. Hue is a fictional company that was created for the purpose of this project.
+This full-stack application was developed for Hue, an online art shop and store where users can view and purchase artwork. The main goal of Hue's website is to display and sell their artwork to shoppers digitally. Hue is a fictional company that was created for the purpose of this project.
 
 As the Milestone 4 Project for [Code Institute's](https://codeinstitute.net) [Full Stack Software Development Diploma Program](https://codeinstitute.net/full-stack-software-development-diploma/), Hue was built with HTML, CSS, Bootstrap 5, JavaScript, Python 3, and Django.
 
@@ -8,7 +8,7 @@ As the Milestone 4 Project for [Code Institute's](https://codeinstitute.net) [Fu
 
 ### Summary
 
-Hue, a fictional art gallery & store, needs to move their business online and sell their work to customers digitally. The business needs software that gives them the ability to:
+Hue, a fictional art shop & store, needs to move their business online and sell their work to customers digitally. The business needs software that gives them the ability to:
 
 - Add, edit and remove products from the shop
 
@@ -71,18 +71,18 @@ User stories were created by the [developer](https://www.github.com/alissatroian
 To meet all of Hue's goals and needs, this application will be built with the following features:
 
 ### Existing Features
-- Home - A
+- Home:
 
-- Gallery:
+  **Shopper**
 
-**Shopper**
+  - Allows *shoppers* to view, search, sort, and filter products, by having them visit the shop and utilized the built-in tools.
+ 
+- Shop:
 
-- Allows *shoppers* to view, search, sort, and filter products, by having them visit the gallery and utilized the built-in tools.
+  **Site Owner**
+  - Gives *site owner* the opportunity to view the shop page as a regular shopper/user would.
 
-**Site Owner**
-- Gives *site owner* the opportunity to view the gallery page as a regular shopper/user would.
-
-- Sign Up - Allows **all users** to create an account, by having them fill out a form that uses ``POST`` to send data.
+  - Sign Up - Allows **all users** to create an account, by having them fill out a form that uses `POST` to send data.
 
 - Login: 
 
@@ -90,8 +90,13 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 
 - Provides an opportunity for **shoppers** to persist their cart between visits, by logging in.
 
-**Site Owner**
+- Includes a form that uses HTTP POST request method and Django **csrf token** to send & receive data ***securely***.
+
+**Product Management**
+
 - Allows the *site owner* to access special product management tools hidden from other users, by filling out a secure form that sends data and logging in.
+
+**About**
 
 - About: Allows **all users** to view information and images related to the business, by having them visit the about page.
 
@@ -143,9 +148,33 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 
 - I used this [Stack Overflow](https://stackoverflow.com/questions/31456576/django-footer-and-header-on-each-page-with-extends) thread for header, footer and body content templating with Django.
 
-- The images used for this project were copied from:
+- The images used for the products in this project are all licensed under The Creative Commons license and were copied from:
 
-    - [Pixabay](https://pixabay.com/illustrations/fractal-art-psychedelic-fantasy-2077883/)
+**Glitch Art**
+
+Glitch Art Grunge:
+-[Pixabay](https://pixabay.com/illustrations/glitch-glitch-art-grunge-distortion-3219896/)
+
+-[Pixabay]
+
+**Pop Art**
+
+Pop Art Pug:
+- [Public Domain Pictures](https://www.publicdomainpictures.net/en/view-image.php?image=299473&picture=pug-pop-art)
+
+Pop Art Illustration of Woman
+- [Shutterstock](https://shutterstock.com)
+
+**Surrealism**
+
+Apple Fantasy:
+- [Max Pixel](https://www.maxpixel.net/Fantasy-Manipulation-Collage-Sky-Apple-Photoshop-5082570)
+
+Pop Out Photo Manipulation:
+- [pxfuel](https://www.pxfuel.com/en/free-photo-ojudf)
+
+Just Keep Fishing
+- [pxfuel](https://www.pxfuel.com/)
 
 ## UX Design
 
