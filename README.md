@@ -20,7 +20,7 @@ Hue, a fictional team of graphic designers, need one central place where they ca
 
 Because they have been working freelance for a few years now, Hue's target market of loyal buyers already exists and is comprised of:
 
-- Male & Female clients, ages 24 - 39, that want to preview and purchase artwork online. 
+- Independent clients (male and female business owners, ages 24 - 39) that want to preview and purchase graphic art & digital assets online. 
 
 - Small businesses that want to preview, purchase and license graphic designs for branding needs.
 
@@ -49,6 +49,7 @@ To meet the needs of the target market(s), Hue's website should:
 
 During the research & planning phase of this milestone project, the developer completed the following exercise to decide which features would be the most viable and the most important.
 
+![tradeoff](wireframes/tradeoff.png)
 
 #### Users
 
@@ -118,7 +119,7 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 
 **About**
 
-- About: Allows **all users** to view information and images related to the business, by having them visit the about page.
+- About: Gives users pertinent information and details about Hue, by providing an 'about' section the homepage and linking to it in the main navigation menu.
 
 
 ### Features Left to Implement
@@ -135,22 +136,43 @@ To meet all of Hue's goals and needs, this application will be built with the fo
  - [sqlite3](https://docs.python.org/3/library/sqlite3.html)
  - This application is using ***sqlite3*** for internal data storage during local development.
 
- - [Pillow]() 
+ - [Pillow](https://pypi.org/project/Pillow/) 
     - This project will use **the Python Imaging Library, Pillow** to add image processing capabilities to the Python interpreter.
 
 - [Virtual Environment Wrapper](https://virtualenvwrapper.readthedocs.io/en/latest/index.html)
     - This project makes use of virtualenvwrapper extensions for creating and deleting virtual environments and managing local development.
 
 - [Homebrew](https://brew.sh/)
+    - The developer used Homebrew to simplify software and package installations on MacOS and in local development.
 
-    - This project uses Homebrew to simplify software and package installations in MacOS.
+- [Amazon S3](https://aws.amazon.com/s3/?nc=sn&loc=0)
+    - This project uses the Amazon AWS S3 service to store media and static files.
 
-- [Bootstrap 5]
+- [Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)
+    - This project relies on boto3 to create, configure, and manage AWS services, specifically S3. 
 
-- Django form plugins:
-    - [Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/)
-    - [Crispy-Bootstrap5](https://pypi.org/project/crispy-bootstrap5/) 
-        - This project uses crispy filters & tags to control the rendering behavior of Django forms in a consistent, visually appealing and *DRY* manner.
+- [Botocore](https://pypi.org/project/botocore/)
+    - This project uses the botocore package to connect to Amazon AWS services, as well as boto3.
+
+- [Bootstrap 5](https://getbootstrap.com)
+    - This project uses Bootstrap 5 to improve navigation, layout and responsiveness.
+
+- [Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/)
+
+- [Crispy-Bootstrap5](https://pypi.org/project/crispy-bootstrap5/) 
+    - This project uses crispy filters & tags to control the rendering behavior of Django forms in a consistent, visually appealing and *DRY* manner.
+
+- [Django-Countries](https://pypi.org/project/django-countries/)
+    This project uses the django-countries package for country model fields and to give users country choices in forms..
+
+- [psycopg2-binary](https://pypi.org/project/psycopg2-binary/)
+    - This project uses Psycopg for secure, effective PostgreSQL database adaption.
+
+- [Gunicorn](https://gunicorn.org/)
+    - This project uses Gunicorn to implement the  PEP3333 WSGI server standard specification for running Python web applications that implement the application interface.
+
+- [Stripe](https://stripe.com/docs)
+    - This project uses Stripe test development tools to handle credit card transactions, accept payments and simulate a real E-commerce store. 
 
 ## Testing
 
@@ -202,9 +224,7 @@ Just Keep Fishing
 
 - The 'multiple light sources' text-shadow effect used for all social media font-awesome icons (`fab`) was copied from [CSS Tricks](https://designshack.net/articles/css/12-fun-css-text-shadows-you-can-copy-and-paste/).
 
-- The layout and structure for the login (`login.html`) and signup (`signup.html`) pages were copied from this Bootstrap 5 Portal theme's login page (https://themes.3rdwavemedia.com/bootstrap-templates/startup/portal-free-bootstrap-admin-dashboard-template-for-developers/).
-
- by copying the contents of this Bootstrap 5 Portal theme's login page (https://themes.3rdwavemedia.com/bootstrap-templates/startup/portal-free-bootstrap-admin-dashboard-template-for-developers/)
+- The layout and structure for the login (`login.html`) and signup (`signup.html`) pages were copied from this Bootstrap 5 Portal theme (https://themes.3rdwavemedia.com/bootstrap-templates/startup/portal-free-bootstrap-admin-dashboard-template-for-developers/) and rearranged by the developer.
 
 ### Front End Snippets & Resources
 - I used this article from [CSS Tricks](https://css-tricks.com/perfect-full-page-background-image/) to style the background image on Hue's homepage.
