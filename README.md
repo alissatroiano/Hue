@@ -1,39 +1,58 @@
 # Hue
 
-This full-stack application was developed for Hue, an online art shop and store where users can view and purchase artwork. The main goal of Hue's website is to display and sell their artwork to shoppers digitally. Hue is a fictional company that was created for the purpose of this project.
+This full-stack application was developed for Hue, an online art shop where users can view and purchase artwork. The main goal of this web application is to provide a digital space where Hue can display & sell their artwork to customers. Please note: Hue is a fictional company that was created for the purpose of this project.
 
-As the Milestone 4 Project for [Code Institute's](https://codeinstitute.net) [Full Stack Software Development Diploma Program](https://codeinstitute.net/full-stack-software-development-diploma/), Hue was built with HTML, CSS, Bootstrap 5, JavaScript, Python 3, and Django.
+As the Milestone 4 Project for [Code Institute's](https://codeinstitute.net) [Full Stack Software Development Diploma Program](https://codeinstitute.net/full-stack-software-development-diploma/), Hue was built with HTML5, CSS, Bootstrap 5, JavaScript, jQuery, Python 3 and Django, a popular high-level Python web framework.
 
 ## UX
 
 ### Summary
 
-Hue, a fictional art shop & store, needs to move their business online and sell their work to customers digitally. The business needs software that gives them the ability to:
+#### Background
+
+Hue, a fictional team of graphic designers, need one central place where they can manage, display & sell products to customeres. The team at Hue is in need of software that will give them the ability to:
 
 - Add, edit and remove products from the shop
 
-- Receive payments upon purchases
+- Display products with details to customers
 
-- Sell and send products to customers
+- Receive payments when products are purchased
 
-Hue's niche target market is comprised of male & female luxury art enthusiasts, ages 24 - 39, that want to preview and purchase art online. To meet the needs of these shoppers, Hue's website should allow them to:
+Because they have been working freelance for a few years now, Hue's target market of loyal buyers already exists and is comprised of:
 
-- View art products
+- Male & Female clients, ages 24 - 39, that want to preview and purchase artwork online. 
 
-- Add selected products to a shopping cart
+- Small businesses that want to preview, purchase and license graphic designs for branding needs.
 
-- Purchase items (via online Stripe payment)
+- Hobbyists that admire, collect and purchase digital artwork.
 
-- Sign up and become a member
+To meet the needs of the target market(s), Hue's website should:
+
+- Provide a list of digital products for users to view
+
+- Include a functioning shopping cart that users can add, edit & remove items to & from.
+
+- Allow users to fill out a form with credit card details and checkout successfully (via online Stripe payment)
+
+- Deliver products to buyers after they are purchased (confirmation email & confirmation success page)
+
+- Sign up and become members ***optional***
 
 - Login to persist shopping cart between visits
+
+- Checkout as guest, if desired
 
 
 ### Research & Planning
 
+#### Strategy Plane Trade Off Activity
+
+During the research & planning phase of this milestone project, the developer completed the following exercise to decide which features would be the most viable and the most important.
+
+
 #### Users
 
-During the research & planning phase of this milestone project, the developer completed the below flowchart activity, titled "Django Multiple User Types". This activity was conducted to determine how to properly build and implement the Django user model.
+Once the trade off exercise was completed, the developer considered customizing the user model in Django and completed the below flowchart activity, titled "Django Multiple User Types". This activity was conducted to help the developer determine how to properly build and implement the Django user model.
 
 ![Django Multiple User Types](wireframes/djangomultipleusertypes.png)
 [djangomultipleusertypes](wireframes/djangomultipleusertypes.pdf)
@@ -50,7 +69,8 @@ As can be seen in the image above, the activity led the developer to make the fo
 
     2) The Shopper
     - Digital art buyers that want to:
-        - Purchase digital artwork from Hue online.   
+        - Purchase digital artwork from Hue online.
+
 
 #### User Stories
 
