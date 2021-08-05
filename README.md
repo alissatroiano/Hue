@@ -190,7 +190,32 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 
 - I used this [Stack Overflow](https://stackoverflow.com/questions/31456576/django-footer-and-header-on-each-page-with-extends) thread for header, footer and body content templating with Django.
 
+### Media
+
 - The images used for the products in this project are all licensed under The Creative Commons license and were copied from:
+
+#### Home page
+
+- Hue's images (`/home/index.html`) were copied from the following sources:
+
+- **Hero** background image: Pexels](https://www.pexels.com/photo/abstract-painting-2156881/)
+
+- The favicon image was downloaded from [The Noun Project](https://thenounproject.com/term/tint/120414/) and is licensed by [Creative Commons](https://creativecommons.org)
+
+- The background image for the **Surrealism** category card was copied from [Shutterstock](https://www.shutterstock.com/image-photo/goldfish-shark-fin-swim-fish-bowl-1339322579)
+
+- The background image for the **Photo-Painting** category card was copied from [Shutterstock](https://www.shutterstock.com/image-illustration/oil-painting-conceptual-abstract-picture-eye-1445018480)
+
+- The background image for the **Glitch Art** category card was copied from [Shutterstock](https://www.shutterstock.com/image-photo/goldfish-shark-fin-swim-fish-bowl-1339322579)
+
+#### User Authentication
+
+- The background image (medium+ screens only) on the **Login** page was copied from [Shutterstock](https://www.shutterstock.com/image-photo/pink-color-paint-splash-isolated-on-44525089)
+
+- The background image (medium+ screens only) on the **Signup** page was copied from [Shutterstock](https://www.shutterstock.com/image-illustration/isolated-splash-paint-3d-illustration-rendering-520435762)
+
+
+#### Shop Products
 
 **Glitch Art**
 
@@ -227,13 +252,8 @@ Just Keep Fishing
 - The layout and structure for the login (`login.html`) and signup (`signup.html`) pages were copied from this Bootstrap 5 Portal theme (https://themes.3rdwavemedia.com/bootstrap-templates/startup/portal-free-bootstrap-admin-dashboard-template-for-developers/) and rearranged by the developer.
 
 ### Front End Snippets & Resources
+
 - I used this article from [CSS Tricks](https://css-tricks.com/perfect-full-page-background-image/) to style the background image on Hue's homepage.
-
-- Hue's images were copied from the following sources:
-
-    - **Hero** background image: Pexels](https://www.pexels.com/photo/abstract-painting-2156881/)
-
-    - The favicon image was downloaded from [The Noun Project](https://thenounproject.com/term/tint/120414/) and is licensed by [Creative Commons]()
 
 - I learned how to configure a favicon in a Django project by following:
 
