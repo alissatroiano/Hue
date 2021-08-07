@@ -208,12 +208,13 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 
 - The background image for the **Glitch Art** category card was copied from [Shutterstock](https://www.shutterstock.com/image-photo/goldfish-shark-fin-swim-fish-bowl-1339322579)
 
+- The background image for the **Pop Art** category card was copied from [Shutterstock](https://www.shutterstock.com/image-illustration/holy-spirit-digital-paintings-782864887)
+
 #### User Authentication
 
 - The background image (medium+ screens only) on the **Login** page was copied from [Shutterstock](https://www.shutterstock.com/image-photo/pink-color-paint-splash-isolated-on-44525089)
 
 - The background image (medium+ screens only) on the **Signup** page was copied from [Shutterstock](https://www.shutterstock.com/image-illustration/isolated-splash-paint-3d-illustration-rendering-520435762)
-
 
 #### Shop Products
 
@@ -242,6 +243,12 @@ Pop Out Photo Manipulation:
 
 Just Keep Fishing
 - [pxfuel](https://www.pxfuel.com/)
+
+**Photo-Painting**
+
+- [shutterstock](https://www.shutterstock.com/image-illustration/curlyhaired-cutie-tender-blue-eyes-oil-1764380549)
+
+- []()
 
 ## UX Design
 
