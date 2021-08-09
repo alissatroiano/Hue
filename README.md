@@ -89,41 +89,43 @@ User stories were created by the [developer](https://www.github.com/alissatroian
 To meet all of Hue's goals and needs, this application will be built with the following features:
 
 ### Existing Features
-**Home:**
+[**Home:**](https://hue-alissa.herokuapp.com/)
 
-  **Shopper**
+  *Shopper*
 
   - Lets the user read the, 'About' section and choose from popular shop categories,  by including the 'about' section in the homepage and linking to it in the main navigation menu.
 
- **Shop Manager**
+ *Shop Manager*
   - Provides a place to link back to, by including links in the navbar.
  
-**Shop:**
+[**Shop:**](https://hue-alissa.herokuapp.com/shop/)
 
-  **Shopper**
+  *Shopper*
 
   - Allows *shoppers* to view, search, sort, and filter products, by having them visit the shop and utilized the built-in tools.
 
-  **Shop Manager**
+  *Shop Manager*
   - Gives the *shop manager* the opportunity to view the shop page as a regular shopper/user would.
 
-  - Sign Up - Allows **all users** to create an account, by having them fill out a form that uses `POST` to send data.
+[**Sign Up**](https://hue-alissa.herokuapp.com/accounts/signup/)
 
-**Login:**
+  - Provides a place for users to create an account, by having them fill out a form that uses `POST` to send data.
 
-  **Shoppers**
+[**Login:**](https://hue-alissa.herokuapp.com/accounts/login/)
+
+  *Shoppers*
 
   - Provides an opportunity for **shoppers** to persist their cart between visits, by logging in.
+  
+  *Shop Manager*
 
-  - **Shop Manager**
   - Allows *shop managers* to access shop management tools, by filling out a secure form and accessing a user profile with special site permissions.
 
-**Product Management**
+[**Shop Management**](https://hue-alissa.herokuapp.com/shop/add/)
 
-- Allows the *shop manager* to access special product management tools hidden from other users, by filling out a secure form that sends data and logging in.
+- Allows the *shop manager* to access special product management tools hidden from other users, by logging in and clicking the, 'Shop Management' link in the, 'Profile' dropdown.
 
-**About**
-
+[**About**](https://hue-alissa.herokuapp.com/#about)
 - About: Gives users pertinent information and details about Hue, by providing an 'about' section the homepage and linking to it in the main navigation menu.
 
 
