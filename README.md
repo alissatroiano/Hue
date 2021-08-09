@@ -10,7 +10,7 @@ As the Milestone 4 Project for [Code Institute's](https://codeinstitute.net) [Fu
 
 #### Background
 
-Hue, a fictional team of graphic designers, need one central place where they can manage, display & sell products to customeres. The team at Hue is in need of software that will give them the ability to:
+Hue, a fictional team of graphic designers, needs one central application that they can use to manage, display & sell their products to customers. The team at Hue is in need of software that will give them the ability to:
 
 - Add, edit and remove products from the shop
 
@@ -20,7 +20,7 @@ Hue, a fictional team of graphic designers, need one central place where they ca
 
 Because they have been working freelance for a few years now, Hue's target market of loyal buyers already exists and is comprised of:
 
-- Independent clients (male and female business owners, ages 24 - 39) that want to preview and purchase graphic art & digital assets online. 
+- Independent clients (male and female shop manager owners, ages 24 - 39) that want to preview and purchase graphic art & digital assets online. 
 
 - Small businesses that want to preview, purchase and license graphic designs for branding needs.
 
@@ -34,22 +34,24 @@ To meet the needs of the target market(s), Hue's website should:
 
 - Allow users to fill out a form with credit card details and checkout successfully (via online Stripe payment)
 
-- Deliver products to buyers after they are purchased (confirmation email & confirmation success page)
+- Automatically send ordered products to buyers after they are purchased (confirmation email & confirmation success page)
 
-- Sign up and become members ***optional***
+- Include a **Sign Up** page, where users can register and become members ***optional***
 
-- Login to persist shopping cart between visits
+- Include a **Login** portal, so users may visit their profile, access order items & persist shopping carts between visits
 
-- Checkout as guest, if desired
+- Include functionality that allows users to check out as guest, if desired
 
 
 ### Research & Planning
 
 #### Strategy Plane Trade Off Activity
 
-During the research & planning phase of this milestone project, the developer completed the following exercise to decide which features would be the most viable and the most important.
+During the research & planning phase of this milestone project, the developer completed the following exercise to decide which features would be most viable & important.
 
 ![tradeoff](wireframes/tradeoff.png)
+
+After completing this exercise, it was determined by the developer that certain more, 'advanced' features (like third-party logins) are not essential or crucial to the core functionality or main shop manager goals of this application, and would not be included in this build.
 
 #### Users
 
@@ -64,58 +66,61 @@ As can be seen in the image above, the activity led the developer to make the fo
 
 - Hue should be built for **two** different types of users:
 
-  1) The Site Owner
+  1) Shop Manager
     - Hue, the company, that wants to:
         - Sell digital artwork.
 
-    2) The Shopper
-    - Digital art buyers that want to:
-        - Purchase digital artwork from Hue online.
-
+    1) Customer/Shopper
+    - Digital art buyers (individuals & companies) that want to:
+        - Find & purchase digital artwork from Hue online.
 
 #### User Stories
 
-User stories were created by the [developer](https://www.github.com/alissatroiano) during the planning phase of this project. As practiced in agile development, each user story coincides with a feature of the Hue application and will be accomplished in one sprint.
+User stories were created by the [developer](https://www.github.com/alissatroiano) during the planning phase of this project. As practiced in agile development, each user story coincides with a feature of the Hue application that was programmed by the developer during a sprint.
 
 #### The following user stories were created for the **shopper**:
 
 ![Shopper](wireframes/userstories-shopper.png)
 
-![Site Owner](wireframes/siteownerstories.png)
-
-### Database
-
-#### Local Development
+![Business](wireframes/siteownerstories.png)
 
 ## Features
 
 To meet all of Hue's goals and needs, this application will be built with the following features:
 
 ### Existing Features
-- Home:
+**Home:**
+
+  **Shopper**
+
+  - Lets the user read the, 'About' section and choose from popular shop categories,  by including the 'about' section in the homepage and linking to it in the main navigation menu.
+
+ **Shop Manager**
+  - Provides a place to link back to, by including links in the navbar.
+ 
+**Shop:**
 
   **Shopper**
 
   - Allows *shoppers* to view, search, sort, and filter products, by having them visit the shop and utilized the built-in tools.
- 
-- Shop:
 
-  **Site Owner**
-  - Gives *site owner* the opportunity to view the shop page as a regular shopper/user would.
+  **Shop Manager**
+  - Gives the *shop manager* the opportunity to view the shop page as a regular shopper/user would.
 
   - Sign Up - Allows **all users** to create an account, by having them fill out a form that uses `POST` to send data.
 
-- Login: 
+**Login:**
 
-**Shoppers**
+  **Shoppers**
 
-- Provides an opportunity for **shoppers** to persist their cart between visits, by logging in.
+  - Provides an opportunity for **shoppers** to persist their cart between visits, by logging in.
 
-- Includes a form that uses HTTP POST request method and Django **csrf token** to send & receive data ***securely***.
+  - **Shop Manager**
+  - Allows *shop managers* to access shop management tools, by filling out a secure form and accessing a user profile with special site permissions.
 
 **Product Management**
 
-- Allows the *site owner* to access special product management tools hidden from other users, by filling out a secure form that sends data and logging in.
+- Allows the *shop manager* to access special product management tools hidden from other users, by filling out a secure form that sends data and logging in.
 
 **About**
 
