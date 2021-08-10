@@ -20,15 +20,15 @@ Hue, a fictional team of graphic designers, needs one central application that t
 
 Because they have been working freelance for a few years now, Hue's target market of loyal buyers already exists and is comprised of:
 
-- Independent clients (male and female shop manager owners, ages 24 - 39) that want to preview and purchase graphic art & digital assets online. 
+- Independent clients (male and female, ages 24 - 39) that want to preview and purchase graphic art & digital assets online. 
 
 - Small businesses that want to preview, purchase and license graphic designs for branding needs.
 
-- Hobbyists that admire, collect and purchase digital artwork.
+- Digital art consumers, that wish to purchase & print digital art products.
 
 To meet the needs of the target market(s), Hue's website should:
 
-- Provide a list of digital products for users to view
+- Provide a list of products for users to view
 
 - Include a functioning shopping cart that users can add, edit & remove items to & from.
 
@@ -41,7 +41,6 @@ To meet the needs of the target market(s), Hue's website should:
 - Include a **Login** portal, so users may visit their profile, access order items & persist shopping carts between visits
 
 - Include functionality that allows users to check out as guest, if desired
-
 
 ### Research & Planning
 
@@ -109,7 +108,7 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 
 [**Sign Up**](https://hue-alissa.herokuapp.com/accounts/signup/)
 
-  - Provides a place for users to create an account, by having them fill out a form that uses `POST` to send data.
+  - Provides a place for users to create an account, by having them fill out a form that uses HTTP `POST` requests to send data.
 
 [**Login:**](https://hue-alissa.herokuapp.com/accounts/login/)
 
@@ -121,42 +120,50 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 
   - Allows *shop managers* to access shop management tools, by filling out a secure form and accessing a user profile with special site permissions.
 
+[**Profile:**](https://hue-alissa.herokuapp.com/accounts/login/)
+
+  - Lets users edit their profile, by filling out a form with profile details and submitting it.
+
+  - Allows users to review order details & re-download order items, by listing orders that are linked to confirmation success pages and including digital downloads.
+
 [**Shop Management**](https://hue-alissa.herokuapp.com/shop/add/)
 
 - Allows the *shop manager* to access special product management tools hidden from other users, by logging in and clicking the, 'Shop Management' link in the, 'Profile' dropdown.
 
 [**About**](https://hue-alissa.herokuapp.com/#about)
-- About: Gives users pertinent information and details about Hue, by providing an 'about' section the homepage and linking to it in the main navigation menu.
-
-
-### Features Left to Implement
-
-
+- Gives users information & details so they can learn about the business, by reading the 'about' section on the homepage.
+  
 ## Technologies Used
 
 - [Django](https://www.djangoproject.com/)
- - The project uses **Django** to simplify development and scalability.
+  - The project uses **Django** to simplify development and scalability.
 
 - [django-allauth](https://django-allauth.readthedocs.io/en/latest/installation.html)
- - This project will uses **Allauth** to simplify user authentication, registration, account management and 3rd party (social media) login.
+  - This project will uses **Allauth** to simplify user authentication, registration, account management and 3rd party (social media) login.
 
- - [sqlite3](https://docs.python.org/3/library/sqlite3.html)
- - This application is using ***sqlite3*** for internal data storage during local development.
+- [SQLite3](https://docs.python.org/3/library/sqlite3.html)
+  - This application is using ***SQLite3*** for internal data storage during local development.
 
- - [Pillow](https://pypi.org/project/Pillow/) 
-    - This project will use **the Python Imaging Library, Pillow** to add image processing capabilities to the Python interpreter.
+- [PostgreSQL](https://www.postgresql.org/)
+  - This application is using ***PostgreSQL*** for internal data storage while deployed on Heroku's live development server.
+
+- [Heroku](https://www.heroku.com/)
+  - This application uses ***Heroku*** for domain hosting & deployment.
+
+- [Pillow](https://pypi.org/project/Pillow/) 
+  - This project will use **the Python Imaging Library, Pillow** to add image processing capabilities to the Python interpreter.
 
 - [Virtual Environment Wrapper](https://virtualenvwrapper.readthedocs.io/en/latest/index.html)
-    - This project makes use of virtualenvwrapper extensions for creating and deleting virtual environments and managing local development.
+  - This project makes use of virtualenvwrapper extensions for creating and deleting virtual environments and managing local development.
 
 - [Homebrew](https://brew.sh/)
-    - The developer used Homebrew to simplify software and package installations on MacOS and in local development.
+  - The developer used Homebrew to simplify software and package installations on MacOS and in local development.
 
 - [Amazon S3](https://aws.amazon.com/s3/?nc=sn&loc=0)
-    - This project uses the Amazon AWS S3 service to store media and static files.
+  - This project uses the Amazon AWS S3 service to store media and static files.
 
 - [Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)
-    - This project relies on boto3 to create, configure, and manage AWS services, specifically S3. 
+  - This project relies on boto3 to create, configure, and manage AWS services, specifically S3. 
 
 - [Botocore](https://pypi.org/project/botocore/)
     - This project uses the botocore package to connect to Amazon AWS services, as well as boto3.
@@ -165,25 +172,32 @@ To meet all of Hue's goals and needs, this application will be built with the fo
     - This project uses Bootstrap 5 to improve navigation, layout and responsiveness.
 
 - [Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/)
+  - This project uses crispy filters & tags to control the rendering behavior of Django forms in a consistent, visually appealing and *DRY* manner.
 
 - [Crispy-Bootstrap5](https://pypi.org/project/crispy-bootstrap5/) 
-    - This project uses crispy filters & tags to control the rendering behavior of Django forms in a consistent, visually appealing and *DRY* manner.
+  - This project uses **Crispy-Bootstrap-5** to make the rendering of crispy Django forms compatible with Bootstrap 5.
 
 - [Django-Countries](https://pypi.org/project/django-countries/)
-    This project uses the django-countries package for country model fields and to give users country choices in forms..
+  - This project uses the django-countries package for country model fields and to give users country choices in forms..
 
 - [psycopg2-binary](https://pypi.org/project/psycopg2-binary/)
-    - This project uses Psycopg for secure, effective PostgreSQL database adaption.
+  - This project uses Psycopg for secure, effective PostgreSQL database adaption.
 
 - [Gunicorn](https://gunicorn.org/)
-    - This project uses Gunicorn to implement the  PEP3333 WSGI server standard specification for running Python web applications that implement the application interface.
+  - This project uses Gunicorn to implement the PEP3333 WSGI server standard specification for running Python web applications that implement the application interface.
 
 - [Stripe](https://stripe.com/docs)
-    - This project uses Stripe test development tools to handle credit card transactions, accept payments and simulate a real E-commerce store. 
+  - This project uses Stripe test development tools to handle credit card transactions, accept payments and simulate a real E-commerce store. 
 
 ## Testing
 
+Manual & automated testing was conducted by the developer to ensure the functionality of this full-stack application. To learn more about these tests, please review the contents of [TESTING.md](TESTING.md)
+
 ## Deployment
+
+This project uses ***Heroku*** for live deployment. In order to ensure the application was successfully deployed, the developer followed these steps:
+
+1) Load the data from 
 
 ## Credits
 
