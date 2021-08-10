@@ -31,5 +31,7 @@ class ProfileForm(forms.ModelForm):
                 else:
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
+       
             self.fields[field].widget.attrs['class'] = 'border-1 rounded shadow-sm'
             self.fields[field].label = False
+            

@@ -15,134 +15,122 @@
 
 {% block content %}
 <div class="overlay"></div>
-<div class="profile-wrapper pt-5">
-    <div class="container-fluid p-5 my-0 mx-auto">
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8 justify-content-center">
-                <div class="card p-5 bg-main my-0 mx-auto bg-main text-dark body-font">
-                    <div class="card-body">
-                        <div class="card-header border-0">
-                            <div class="d-flex align-items-center justify-content-center text-center">
-                                <h4 class="card-title text-dark"></h4>
-                                <div class="card-header user-name mb-1">
-                                    <h4 class="display-font heading-md">alissa</h4>
-                                    <div class="image-circle" style="width: 100px; height: 100px;">
-                                        <img src="{{ user.profile.avatar.url }}" alt="{{ user.profile }}"
-                                            class="img-fluid img-thumbnail rounded-circle my-2">
-                                    </div>
-                                </div>
-                                <!--./end-user-name-->
+<div class="container-fluid">
+    <div class="row text-center">
+        <div class="col-md-4">
+            <div class="hue-account-page-left h-100 mt-3 pt-3 mt-lg-5 pt-lg-5">
+                <div class="border-0 p-4">
+                    <div class="hue-user text-center">
+                        <!--avatar image starts here-->
+                        <div class="hue-user-media">
+                            <img class="mb-3 rounded-circle border-0 my-3" src="{{ user.profile.avatar.url }}"
+                                alt='{{ user.profile.avatar.url }}' style="width: 100px; height: 100px;">
+                            <!--avatar image ends here-->
+                            <div class="hue-user-media-body my-3">
+                                <h3 class="heading-md">{{ user.profile }}</h3>
+                                <p>{{ user.email }}</p>
                             </div>
-                            <!--./end-flex-column-->
                         </div>
-                        <!--./end-card-header-->
-                        <!--card-body-->
-                        <div class="card-body" id="profile-card-body">
-                            <div class="align-items-center justify-content-center text-center">
-                                <div class="accordion accordion-flush border-0 my-2" id="user-settings">
-                                    <div class="accordion-item body-font border-0">
-                                        <div class="accordion-header border-0" id="headingOne" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
-                                            aria-controls="collapseOne">
-                                            <h3 class="display-font">
-                                                Your Settings
-                                            </h3>
-                                        </div>
-                                        <div id="collapseOne" class="accordion-collapse collapse"
-                                            aria-labelledby="headingOne" data-bs-parent="#user-settings">
-                                            <div class="accordion-body">
-                                                <form action="{% url 'profile' %}" method="POST" class="mt-3 mx-0 px-0"
-                                                    id="update-profile-form" enctype="multipart/form-data">
-                                                    {% csrf_token %}
-                                                    {{ form|crispy }}
-                                                    <button
-                                                        class="btn btn-none rounded-0 text-uppercase float-right">Update
-                                                        Information</button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--./end-accordion-item-->
-                                    <div class="accordion-item body-font border-0 mt-4">
-                                        <div class="col-12">
-                                            <div class="accordion-header border-0" id="headingTwo" type="button"
-                                                data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                                                aria-expanded="true" aria-controls="collapseTwo">
-                                                <h3 class="display-font">Order History</h3>
-                                            </div>
-                                            <div id="collapseTwo" class="accordion-collapse collapse"
-                                                aria-labelledby="headingOne" data-bs-parent="#order-history">
-                                                <div class="col-12">
-
-                                                    <div class="accordion-body px-0 mx-0">
-                                                        <div class="order-history table-responsive">
-                                                            <table class="table table-sm table-borderless">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>Order Number</th>
-                                                                        <th>Date</th>
-                                                                        <th>Items</th>
-                                                                        <th>Order Total</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    {% for order in orders %}
-                                                                    <tr>
-                                                                        <td>
-                                                                            <a href="{% url 'order_history' order.order_number %}"
-                                                                                title="{{ order.order_number }}">
-                                                                                {{ order.order_number|truncatechars:6 }}
-                                                                            </a>
-                                                                        </td>
-                                                                        <td>{{ order.date }}</td>
-                                                                        <div class="col-12 text-center">
-                                                                            <td>
-                                                                                {% for item in order.orderitems.all %}
-
-                                                                                {{ item.product.title }}
-
-                                                                                {% endfor %}
-                                                                            </td>
-                                                                            <td>${{ order.grand_total }}</td>
-                                                                    </tr>
-                                                                    {% endfor %}
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                    <!--./end-accordion-item-->
-                                                </div>
-                                                <!--./end-accordion-->
-                                            </div>
-                                            <!--./end-d-flex-->
-                                        </div>
-                                        <!--./end-row-card-row-->
-                                    </div>
-                                    <!--./end-card-body-->
-                                </div>
-                            </div>
-                            <!--./end-card-body-->
+                        <div class="row">
+                            <!--nav tabs start here-->
+                            <ul class="nav nav-tabs flex-md-column flex-md-row justify-content-center mt-3" id="myTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" id="profile-form" data-bs-toggle="tab" data-bs-target="#profile"
+                                        type="button" role="tab" aria-controls="profile">Profile
+                                        <span><i class="fas fa-user-edit"></i>
+                                        </span></a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" id="orders-tab" data-bs-toggle="tab" data-bs-target="#orders"
+                                        type="button" role="tab" aria-controls="orders" aria-selected="true">Orders
+                                    <span><i class="fas fa-shopping-cart me-auto"></i>
+                                    </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!--./end-nav-tabs-->
                         </div>
-                        <!--./end-card-->
                     </div>
-                    <!--./end-col-md-4-->
-                    <!--./end-card-columns-->
-                </div>
-                <!--./end-row-->
+         
+               
             </div>
-            <div class="col-md-2"></div>
-
-            <!--./end-container-->
         </div>
-        <!--./end-profile-card-row-->
+        </div>
+        <div class="col-md-8">
+            <div class="tab-content pt-md-3 mt-lg-5">
+                <div class="tab-pane fade my-0 mx-auto px-3 px-lg-5" id="profile" role="tabpanel" aria-labelledby="profile-form">
+                    <h3 class="display-font my-3 mt-md-4 pt-md-5">
+                        Your Settings
+                    </h3>
+                    <form action="{% url 'profile' %}" method="POST" class="mt-3" id="update-profile-form"
+                        enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <button class="btn btn-none rounded-0 text-uppercase float-right">Update
+                            Information</button>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">
+                    <h3 class="display-font my-3 mt-md-4 pt-md-5">
+                        Your Orders
+                    </h3>
+                    <div class="order-history table-responsive">
+                        <table class="table table-sm table-borderless mt-3">
+                            <thead>
+                                <tr>
+                                    <th><strong>Order Number</strong></th>
+                                    <th><strong>Date</strong></th>
+                                    <th><strong>Items</strong></th>
+                                    <th><strong>Order Total</strong></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for order in orders %}
+                                <tr>
+                                    <td>
+                                        <a href="{% url 'order_history' order.order_number %}"
+                                            title="{{ order.order_number }}">
+                                            {{ order.order_number|truncatechars:6 }}
+                                        </a>
+                                    </td>
+                                    <td>{{ order.date }}</td>
+                                    <div class="col-12 text-center">
+                                        <td>
+                                            {% for item in order.orderitems.all %}
+
+                                            {{ item.product.title }}
+
+                                            {% endfor %}
+                                        </td>
+                                        <td>${{ order.grand_total }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!--./end-row-->
     </div>
     <!--./end-container-->
-    <!--./end-profile-wrapper-->
 </div>
 {% endblock %}
 
 {% block postloadjs %}
 {{ block.super }}
 <script type="text/javascript" src="{% static 'profiles/js/profile.js' %}"></script>
+<script>
+    var tabEl = document.querySelector('button[data-bs-toggle="tab"]')
+tabEl.addEventListener('shown.bs.tab', function (event) {
+  event.target // newly activated tab
+  event.relatedTarget // previous active tab
+})
+
+</script>
 {% endblock %}
