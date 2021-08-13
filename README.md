@@ -197,7 +197,7 @@ Manual & automated testing was conducted by the developer to ensure the function
 
 This project uses ***Heroku*** for live deployment. In order to ensure the application was successfully deployed, the developer followed these steps:
 
-1) Load the data from 
+1) Load the data from SQLite3 local database via, `python3 manage.py loaddata`
 
 ## Credits
 
@@ -217,7 +217,7 @@ This project uses ***Heroku*** for live deployment. In order to ensure the appli
 
 #### Home page
 
-- Hue's images (`/home/index.html`) were copied from the following sources:
+- Hue's [homepage images]() were copied from the following sources:
 
 - **Hero** background image: Pexels](https://www.pexels.com/photo/abstract-painting-2156881/)
 
