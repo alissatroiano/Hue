@@ -2,7 +2,7 @@
 
 This full-stack application was developed for Hue, an online art shop where users can view and purchase graphic designs & digital assets. The main goal of this web application is to provide a digital space where Hue can display & sell products to customers. ***Please note: Hue is a fictional company that was created for the purpose of this project.***
 
-As the Milestone 4 Project for [Code Institute's](https://codeinstitute.net) [Full Stack Software Development Diploma Program](https://codeinstitute.net/full-stack-software-development-diploma/), Hue was built with HTML5, CSS, Bootstrap 5, JavaScript, jQuery, Python 3 and Django, a popular high-level Python web framework.
+As the Milestone 4 Project for [Code Institute's](https://codeinstitute.net) [Full Stack Software Development Diploma Program](https://codeinstitute.net/full-stack-software-development-diploma/), Hue was built with HTML5, CSS, Bootstrap 5, JavaScript, jQuery, Python 3 and Django, the popular high-level Python web framework.
 
 ## UX
 
