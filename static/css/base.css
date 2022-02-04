@@ -632,7 +632,6 @@ i .login-auth-wrapper .login-auth-body {
 .signup-background-col {
     position: relative;
     min-height: 100vh;
-    overflow: hidden;
 }
 
 .form-login,
