@@ -9,19 +9,13 @@
 {% endblock %}
 {% block content %}
 <!--hero starts here-->
-<section class="hero-container py-5" id="welcome">
+<section class="hero-container pt-5 mt-5" id="welcome">
     <div class="container-fluid py-5 mt-5">
         <div class="row d-flex align-items-center text-center py-3">
             <!--call to action-->
             <div class="col-12">
-                <h1 class="text-center py-2 py-lg-3 lh-1 mb-4" id="title">HUE</h1>
-                <div>
-                    <!-- <button class="btn-none">
-                        <a id="sale" class="typewrite btn-link py-5" href="{% url 'shop' %}"
-                            data-type='["Where digital art lives"]'>
-                        </a> -->
-                    </button>
-                </div class="mx-2">
+                <h1 class="text-center py-2 py-lg-3 lh-1 my-4" id="title">HUE</h1>
+                <h2 class="body-intro text-light">DIGITAL ART MARKETPLACE</h2>
                 <button role="button" class="btn btn-link my-4 rounded mx-2" id="hero-button">
                     <a href="{% url 'shop' %}" class="text-light btn text-decoration-none">Sell</a></button>
                 <button role="button" class="btn btn-link my-4 rounded" id="hero-button">
@@ -30,11 +24,13 @@
         </div>
         <!--./call-to-action-->
     </div>
+    </div>
 </section>
 <!--./end-hero-->
+
 <!--About Starts Here-->
-<section class="container-fluid about-section px-4 py-5" id="about">
-    <div class="row py-5 p-lg-5">
+<section class="container-fluid about-section px-4 py-5 my-5" id="about">
+    <div class="row p-lg-5">
         <div class="col-12">
             <div class="text-center">
                 <i class="bi me-2 fas fa-tint fa-3x my-3"></i>
@@ -45,7 +41,8 @@
                     <p class="body-font px-lg-5 mx-lg-5 my-3" id="about-text">
                         Hue is an online marketplace where digital artists can sell their assets to companies,
                         freelancers and individual clients.
-                        Hue allows digital artists to display fresh, unique products that you can purchase, license and
+                        Hue allows digital artists to display fresh, unique products that customers, businesses &
+                        art-lovers can purchase, license and
                         use for
                         personal and commercial purposes alike.
                     </p>
@@ -53,50 +50,62 @@
             </div>
         </div>
     </div>
-    <div class="container px-4s text-center" id="featured-3">
-        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-            <div class="feature col">
-                <div>
-                    <i class="fas fa-user"></i>
+    <div class="row d-flex g-4 p-3 p-lg-4">
+        <div class="px-4 text-center" id="featured-3">
+
+            <div class="row g-4 row-cols-1 row-cols-lg-3">
+                <div class="feature col">
+                    <div>
+                        <i class="fas fa-user fa-2x"></i>
+                    </div>
+                    <h4 class="my-4">Sign Up</h4>
+                    <p>
+                        If you're an artist, create an account with Hue so you can share your work with our online
+                        community.
+                        Customers may create an account to purchase your work.
+                    </p>
+                    <a href="#" class="icon-link">
+                        Sign Up
+                    </a>
+
                 </div>
-                <h2>Featured title</h2>
-                <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence
-                    and probably just keep going until we run out of words.</p>
-                <a href="#" class="icon-link">
-                    Call to action
-                </a>
-            </div>
-            <div class="feature col">
-                <div>
-                    <i class="fas fa-paint-brush"></i>
+                <div class="feature col">
+                    <div>
+                        <i class="fas fa-paint-brush fa-2x"></i>
+                    </div>
+                    <h4 class="my-4">DISPLAY Artwork</h4>
+                    <p>Once you're registered, you can post your artwork to the shop. Customers can visit the shop
+                        to
+                        search & find graphic designs that suite their needs.</p>
+                    <a href="#" class="icon-link">
+                        Call to action
+                    </a>
                 </div>
-                <h2>Post Your Artwork</h2>
-                <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence
-                    and probably just keep going until we run out of words.</p>
-                <a href="#" class="icon-link">
-                    Call to action
-                </a>
-            </div>
-            <div class="feature col">
-                <div>
-                    <i class="fas fa-money-bill"></i>
+                <div class="feature col">
+                    <div>
+                        <i class="fas fa-money-bill fa-2x"></i>
+                    </div>
+                    <h4 class="my-4">Get Paid</h4>
+                    <p>Here at Hue, we believe artists should be compensated for their craft! That's why our software is
+                        specially crafted
+                        so artists can receive instant payments
+                        once their
+                        products are sold.</p>
+                    <a href="#" class="icon-link">
+                        Call to action
+                        <svg class="bi" width="1em" height="1em">
+                            <use xlink:href="#chevron-right"></use>
+                        </svg>
+                    </a>
                 </div>
-                <h2>Get Paid</h2>
-                <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence
-                    and probably just keep going until we run out of words.</p>
-                <a href="#" class="icon-link">
-                    Call to action
-                    <svg class="bi" width="1em" height="1em">
-                        <use xlink:href="#chevron-right"></use>
-                    </svg>
-                </a>
             </div>
         </div>
     </div>
 </section>
 <!--./end-about-->
+
 <!--Category Display https://codepen.io/mhhasan320/pen/BwqvLL -->
-<section class="category-cta container-fluid bg-dark text-light">
+<section class="category-cta container-fluid bg-dark text-light mt-5 pt-5">
     <div class="row d-flex text-white g-4 p-5">
         <div class="col-xs-8 col-sm-4">
             <div class="card h-100 overflow-hidden rounded-5 img-fluid" id="category-card1">

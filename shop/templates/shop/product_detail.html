@@ -18,8 +18,9 @@
             <div class="col-sm-12 col-lg-6 my-0 mx-auto pt-sm-3">
                 {% if product.image.url %}
                 <div class="card my-0 align-items-center border-0 mx-auto mb-4">
-                    <img id="productdetails1" class="img-fluid" oncontextmenu="return false" onselectstart="return false" ondragstart="return false""
-                        src="{{ product.image.url }}" alt="{{ product.title }}">                        </a>
+                    <img id="productdetails1" class="img-fluid" oncontextmenu="return false"
+                        onselectstart="return false" ondragstart="return false""
+                        src=" {{ product.image.url }}" alt="{{ product.title }}"> </a>
                     {% else %}
                     <img id="productdetails2" class="img-fluid" src="{{ MEDIA_URL }}noimage.png"
                         alt="{{ product.title }}">
@@ -41,12 +42,6 @@
                             ${{ product.price }}
                         </p>
                     </div>
-                </div>
-            </div>
-            <div class="d-flex justify-content-between border-bottom py-2 my-3">
-                <div class="py-2">
-                    <div class="fw-bold body-font">Details</div>
-                    <div class="body-font text-break body-sm text-muted mb-2">{{ product.product_details }}</div>
                 </div>
             </div>
             <div class="d-flex justify-content-between border-bottom py-2 my-3">

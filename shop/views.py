@@ -47,7 +47,7 @@ def shop_all(request):
             categories = request.GET['category'].split(',')
             products = products.filter(category__title__in=categories)
             categories = Category.objects.filter(title__in=categories)
-            
+
         if 'parent' in request.GET:
             parents = request.GET['parent'].split(',')
             products = products.filter(parent__title__in=parents)
@@ -72,7 +72,8 @@ def shop_all(request):
                     request, "You didn't enter any search criteria!")
                 return redirect(reverse('shop'))
 
-            queries = Q(title__icontains=query) | Q(product_details__icontains=query) | Q(label__icontains=query) | Q(orientation__icontains=query) | Q(category__title__icontains=query) | Q(product__parent__icontains=query)
+            queries = Q(title__icontains=query) | Q(label__icontains=query) | Q(orientation__icontains=query) | Q(
+                category__title__icontains=query) | Q(parent__title__icontains=query) | Q(medium__icontains=query)
             products = products.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
@@ -128,6 +129,7 @@ def add_product(request):
     }
 
     return render(request, template, context)
+
 
 @login_required
 def edit_product(request, product_id):
