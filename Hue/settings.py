@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'cart',
     'storages',
     'checkout',
-    # 3rd party 
+    # 3rd party
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -56,9 +56,10 @@ INSTALLED_APPS = [
     'django_countries',
     "crispy_bootstrap5",
     "profiles",
+    "artists",
 ]
 
-CURRENCY = '$' # Default currency is US Dollar
+CURRENCY = '$'  # Default currency is US Dollar
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -130,14 +131,14 @@ WSGI_APPLICATION = 'Hue.wsgi.application'
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-        }
+    }
 else:
     DATABASES = {
         'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
     }
-}
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 

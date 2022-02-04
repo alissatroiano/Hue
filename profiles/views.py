@@ -14,7 +14,7 @@ def profile(request):
     Display the user's profile 
     """
     profile = get_object_or_404(Profile, user=request.user)
-    
+
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
@@ -25,7 +25,7 @@ def profile(request):
     else:
         form = ProfileForm(instance=profile)
     orders = profile.orders.all()
-    
+
     template = 'profiles/profile.html'
     context = {
         'form': form,
@@ -39,16 +39,16 @@ def profile(request):
 def order_history(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
     orderitems = get_object_or_404(OrderItem, order=order)
-    
+
     messages.info(request, (
         f'Your confirmation for order number # {order_number} was sent to {order.email} on {order.created_at}.'
     ))
-    
+
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,
         'from_profile': True,
         'orderitems': orderitems,
     }
-    
+
     return render(request, template, context)
