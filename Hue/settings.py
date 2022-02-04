@@ -123,6 +123,10 @@ ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/accounts/login/'
+# Specify the model to use for authentication
+# AUTH_USER_MODEL = 'profiles.CustomUser'
+# Specify the adapter to save the information from signup in customusermodel
+# ACCOUNT_ADAPTER = 'profiles.adapter.AccountAdapter'
 
 
 WSGI_APPLICATION = 'Hue.wsgi.application'
