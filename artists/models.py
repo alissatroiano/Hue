@@ -1,4 +1,7 @@
+from nntplib import ArticleInfo
 from django.db import models
+from django.dispatch import receiver
+
 from django.contrib.auth.models import User
 
 # Create your models here.
@@ -30,6 +33,6 @@ class ArtistInfo(models.Model):
 # def create_or_update_artist_profile(sender, instance, created, **kwargs):
 #     """ Creates a ArtistProfile instance for each User instance."""
 #     if created:
-#         ArtistProfile.objects.create(user=instance)
+#         ArticleInfo.objects.create(user=instance)
 #         # Current users can simply save the profile.
 #     instance.artistprofile.save()
