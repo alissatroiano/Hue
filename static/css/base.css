@@ -38,6 +38,10 @@ a {
     background-color: #100324;
 }
 
+.bg-index {
+    background-color: rgba(170, 151, 204, 0.548);
+}
+
 .bg-main {
     background-color: rgb(170, 151, 204);
 }
@@ -140,7 +144,7 @@ a {
     color: rgb(170 151 204);
 }
 
-a,
+a.icon-link,
 .link-font {
     font-family: 'Raleway', sans-serif;
     text-decoration: none;
@@ -148,7 +152,7 @@ a,
     color: #6a509a;
 }
 
-a:hover,
+a.icon-link:hover,
 .link-font:hover {
     background-color: rgb(170 151 204);
     opacity: 1;
