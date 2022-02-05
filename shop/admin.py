@@ -1,9 +1,10 @@
 from django.contrib import admin
 from django.conf import settings
-from .models import Category, Product
+from .models import Category, Product, NewProduct
 
 # https://docs.djangoproject.com/en/3.2/topics/i18n/timezones/
 CURRENCY = settings.CURRENCY
+
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
@@ -11,44 +12,51 @@ class CategoryAdmin(admin.ModelAdmin):
         'title',
         'friendly_name',
         'parent',
-        ]
-    
+    ]
+
     search_fields = [
         'title',
-        'category', 
+        'category',
         'parent',
-        ]
+    ]
+
+    fields = [
+        'parent',
+        'title',
+        'friendly_name',
+    ]
+
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     list_display = [
-        'sku', 
-        'title', 
+        'sku',
+        'title',
         'active',
         'category',
         'parent',
-        'price',   
+        'price',
         'image']
-    
+
     # Add list_selected_related so django will perform less queries on the database
     list_select_related = ['category']
     list_filter = ['active', 'category', 'price', 'created_at', 'deleted_at']
-    # Add search_fields so autocomplete will work in product admin 
+    # Add search_fields so autocomplete will work in product admin
     search_fields = [
         'title',
         'category',
-        ]
+    ]
     list_per_page = 50
     fields = [
         'sku',
         'title',
-        'active', 
-        'medium', 
-        'image', 
-        'category', 
+        'active',
+        'medium',
+        'image',
+        'category',
         'parent',
-        'price', 
-        'orientation', 
+        'price',
+        'orientation',
         'has_dimensions',
         'label',
     ]
@@ -57,3 +65,21 @@ class ProductAdmin(admin.ModelAdmin):
     readonly_fields = ['active']
 
     ordering = ('sku',)
+
+
+@admin.register(NewProduct)
+class NewProductAdmin(admin.ModelAdmin):
+    fields = [
+        'sku',
+        'title',
+        'active',
+        'medium',
+        'image',
+        'category',
+        'parent',
+        'price',
+        'orientation',
+        'has_dimensions',
+        'label',
+        'user',
+    ]
