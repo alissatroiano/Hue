@@ -34,6 +34,16 @@ a {
     color: #100324;
 }
 
+::-moz-selection { /* Code for Firefox */
+    color: #fafafa;
+    background: rgb(170, 151, 204);
+  }
+  
+  ::selection {
+      color: #fafafa;
+    background: rgb(170, 151, 204);
+  }
+
 .bg-dark {
     background-color: #100324;
 }
