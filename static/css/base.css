@@ -39,7 +39,9 @@ a {
 }
 
 .bg-index {
-    background-color: rgba(170, 151, 204, 0.548);
+    /* background-color: rgba(170, 151, 204, 0.548); */
+    /* background-color: #22094998; */
+    background-color: #2c1b319f;
 }
 
 .bg-main {
@@ -71,6 +73,8 @@ a {
     letter-spacing: 1px;
     font-size: 1.4rem;
     background-color: transparent;
+    text-shadow: 0px 15px 5px rgba(0, 0, 0, 0.1);;
+
 }
 
 .heading-lg {
@@ -78,6 +82,7 @@ a {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 2.5rem;
+    text-shadow: 0px 15px 5px rgba(0, 0, 0, 0.1);;
 }
 
 .heading-xl {
@@ -244,6 +249,11 @@ input {
 
 
 /* ***************************./Icons */
+
+i {
+    text-shadow: 0px 15px 5px rgba(0, 0, 0, 0.1);
+}
+
 .fab {
     color: rgb(170 151 204 / 88%);
     /* multiple light source shadow effect https://designshack.net/articles/css/12-fun-css-text-shadows-you-can-copy-and-paste/ */
@@ -598,6 +608,11 @@ div#category-card6:hover {
     filter: grayscale(0);
     -webkit-filter: grayscale(0);
 }
+
+#categories {
+    /* text-shadow: 1px 3px 1px #07040e; */
+    text-shadow: 0px 15px 5px rgba(0, 0, 0, 0.1);;
+}
 /* ***************************./end-homepage */
 
 
@@ -632,7 +647,6 @@ i .login-auth-wrapper .login-auth-body {
 .signup-background-col {
     position: relative;
     min-height: 100vh;
-    overflow: hidden;
 }
 
 .form-login,
