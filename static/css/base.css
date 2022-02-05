@@ -369,6 +369,19 @@ li {
     background-color: transparent;
     border: none;
 }
+
+.dropdown-menu {
+    background-color: #212529!important;
+    color: #fafafa;
+}
+
+a.dropdown-item {
+    color: #fafafa;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 12px;
+}
 /* ***************************.end-mobile-nav-&-shop-nav */
 
 
