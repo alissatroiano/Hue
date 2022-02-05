@@ -69,17 +69,42 @@ class ProductAdmin(admin.ModelAdmin):
 
 @admin.register(NewProduct)
 class NewProductAdmin(admin.ModelAdmin):
-    fields = [
+    list_display = [
         'sku',
         'title',
         'active',
-        'medium',
-        'image',
         'category',
         'parent',
         'price',
-        'orientation',
-        'has_dimensions',
-        'label',
-        'user',
-    ]
+        'image']
+
+
+# Add list_selected_related so django will perform less queries on the database
+list_select_related = ['category']
+list_filter = ['active', 'category', 'price', 'created_at', 'deleted_at']
+# Add search_fields so autocomplete will work in product admin
+search_fields = [
+    'title',
+    'category',
+]
+list_per_page = 50
+fields = [
+    'sku',
+    'title',
+    'active',
+    'medium',
+    'image',
+    'category',
+    'parent',
+    'price',
+    'orientation',
+    'has_dimensions',
+    'label',
+    'user',
+]
+
+autocomplete_fields = ['category']
+# Add display_final_price to readonly_fields because it is a function not a db field
+readonly_fields = ['active']
+
+ordering = ('sku', 'created_at')
