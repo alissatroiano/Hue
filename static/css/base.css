@@ -38,6 +38,12 @@ a {
     background-color: #100324;
 }
 
+.bg-index {
+    /* background-color: rgba(170, 151, 204, 0.548); */
+    /* background-color: #22094998; */
+    background-color: #2c1b319f;
+}
+
 .bg-main {
     background-color: rgb(170, 151, 204);
 }
@@ -67,6 +73,8 @@ a {
     letter-spacing: 1px;
     font-size: 1.4rem;
     background-color: transparent;
+    text-shadow: 0px 15px 5px rgba(0, 0, 0, 0.1);;
+
 }
 
 .heading-lg {
@@ -74,6 +82,7 @@ a {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 2.5rem;
+    text-shadow: 0px 15px 5px rgba(0, 0, 0, 0.1);;
 }
 
 .heading-xl {
@@ -113,6 +122,13 @@ a {
     font-size: 1.3rem;
 }
 
+.body-intro {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
 .body-md {
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
@@ -133,6 +149,7 @@ a {
     color: rgb(170 151 204);
 }
 
+a.icon-link,
 .link-font {
     font-family: 'Raleway', sans-serif;
     text-decoration: none;
@@ -140,6 +157,7 @@ a {
     color: #6a509a;
 }
 
+a.icon-link:hover,
 .link-font:hover {
     background-color: rgb(170 151 204);
     opacity: 1;
@@ -231,6 +249,11 @@ input {
 
 
 /* ***************************./Icons */
+
+i {
+    text-shadow: 0px 15px 5px rgba(0, 0, 0, 0.1);
+}
+
 .fab {
     color: rgb(170 151 204 / 88%);
     /* multiple light source shadow effect https://designshack.net/articles/css/12-fun-css-text-shadows-you-can-copy-and-paste/ */
@@ -346,6 +369,34 @@ li {
     background-color: transparent;
     border: none;
 }
+
+.dropdown-menu {
+    background-color: #212529!important;
+    color: #fafafa;
+}
+
+a.dropdown-item {
+    color: #fafafa;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 12px;
+}
+
+a.dropdown-item:hover {
+    background-color: #212529;
+    color: rgb(170 151 204);
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 12px;
+}
+
+.dropdown-item:focus, .dropdown-item:hover,
+li:hover {
+    background-color: #212529;
+}
+
 /* ***************************.end-mobile-nav-&-shop-nav */
 
 
@@ -585,6 +636,11 @@ div#category-card6:hover {
     filter: grayscale(0);
     -webkit-filter: grayscale(0);
 }
+
+#categories {
+    /* text-shadow: 1px 3px 1px #07040e; */
+    text-shadow: 0px 15px 5px rgba(0, 0, 0, 0.1);;
+}
 /* ***************************./end-homepage */
 
 
@@ -619,7 +675,6 @@ i .login-auth-wrapper .login-auth-body {
 .signup-background-col {
     position: relative;
     min-height: 100vh;
-    overflow: hidden;
 }
 
 .form-login,
