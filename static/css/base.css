@@ -803,6 +803,11 @@ button.btn.btn-primary.loginButton {
 .btt-link, .update-link, .remove-item {
     cursor: pointer;
 }
+
+#sort-selector{
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+}
 /* ***************************./end-shop */
 
 

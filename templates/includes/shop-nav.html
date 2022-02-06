@@ -1,49 +1,25 @@
 <div class="display-font text-dark collapse navbar-collapse" id="shopNavCollapse">
     <ul class="list-group list-group-horizontal-lg">
-        <li class="nav-item">
-            <div class="dropdown">
-                <a class="btn btn-sm nav-link dropdown-toggle" href="#" role="button" id="shopDropdown1"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    All Products </a>
-                <div class="dropdown-menu border-0 display-font" aria-labelledby="shopDropdown1">
-                    <a href="{% url 'shop' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
-                    <a href="{% url 'shop' %}?sort=category&direction=asc" class="dropdown-item">By Category</a>
-                    <a href="{% url 'shop' %}?sort=created_at&direction=desc" class="dropdown-item ">New Arrivals</a>
-                    <a href="{% url 'shop' %}" class="dropdown-item">All Products</a>
-                </div>
-            </div>
+        <li class="list-item">
+            <a href="{% url 'shop' %}" class="nav-link display-font">All Products</a>
         </li>
-        <li class="nav-item">
+        <li class="list-item">
             <a href="{% url 'shop' %}?category=glitch-art&direction=asc" class="nav-link display-font">Glitch Art</a>
         </li>
-        <li class="nav-item">
+        <li class="list-item">
             <a href="{% url 'shop' %}?category=surrealism&direction=asc" class="nav-link display-font">Surrealism</a>
         </li>
-        <li class="nav-item">
+        <li class="list-item">
             <a href="{% url 'shop' %}?category=illustrations&direction=asc"
                 class="nav-link display-font">Illustrations</a>
         </li>
-        <li class="nav-item">
+        <li class="list-item">
             <a href="{% url 'shop' %}?category=photo-paintings&direction=asc"
                 class="nav-link display-font">Photo-Paintings</a>
         </li>
-        <li class="nav-item">
+        <li class="list-item">
             <a href="{% url 'shop' %}?category=popart&direction=asc" class="nav-link display-font">Pop Art</a>
         </li>
     </ul>
-    <!--filters-->
-    <ul class="list-group list-group-horizontal text-end">
-        <li class="nav-item">
-            <div class="dropdown">
-                <a class="btn btn-sm nav-link dropdown-toggle" href="#" role="button" id="shopDropdown1"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    People</a>
-                <div class="dropdown-menu border-0 p-0 m-0 display-font" aria-labelledby="shopDropdown3">
-                    <a href="{% url 'shop' %}?label=1" class="dropdown-item">With People</a>
-                    <a href="{% url 'shop' %}?label=2" class="dropdown-item">Without People</a>
-                </div>
-            </div>
-        </li>
-    </ul>
-    <!--./end-filters-->
+
 </div>
