@@ -380,7 +380,7 @@ li {
     border: none;
 }
 
-.dropdown-menu {
+/* .dropdown-menu {
     background-color: #212529!important;
     color: #fafafa;
 }
@@ -391,7 +391,7 @@ a.dropdown-item {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 12px;
-}
+} */
 /* ***************************.end-mobile-nav-&-shop-nav */
 
 
@@ -776,6 +776,12 @@ button.btn.btn-primary.loginButton {
 
 
 /* *************************** Shop */
+
+#dropdownMenuButton1, #sort-selector {
+    font-family: 'Oswald', sans-serif;
+}
+
+
 .shop-container {
     overflow: hidden;
     min-height: 100vh;

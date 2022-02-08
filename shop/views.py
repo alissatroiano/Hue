@@ -17,6 +17,7 @@ def shop_all(request):
     products = Product.objects.all()
     query = None
     categories = None
+    current_sorting = None
     parents = None
     labels = None
     orientations = None
@@ -29,9 +30,8 @@ def shop_all(request):
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
             sort = sortkey
-            if sortkey == 'title':
-                sortkey = 'lower_title'
-                products = products.annotate(lower_title=Lower('title'))
+            sortkey = 'lower_title'
+            products = products.annotate(lower_title=Lower('title'))
             if sortkey == 'category':
                 sortkey = 'category__title'
             if sortkey == 'parent':
@@ -41,6 +41,9 @@ def shop_all(request):
                 direction = request.GET['direction']
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
+                else:
+                    sortkey = f'{sortkey}'
+            current_sorting = f'{sort}_{direction}'
             products = products.order_by(sortkey)
 
         if 'category' in request.GET:
@@ -75,8 +78,6 @@ def shop_all(request):
             queries = Q(title__icontains=query) | Q(label__icontains=query) | Q(orientation__icontains=query) | Q(
                 category__title__icontains=query) | Q(parent__title__icontains=query) | Q(medium__icontains=query)
             products = products.filter(queries)
-
-    current_sorting = f'{sort}_{direction}'
 
     context = {
         'products': products,

@@ -28,10 +28,8 @@
             {% endfor %}
         </div>
     </div>
-    <div class="row my-0 mx-auto">
-        <div class="col-10 offset-1">
-            <div class="row mt-1 mb-2">
-                <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center">
+    <div class="row d-flex justify-content-center justify-content-lg-between my-0 mx-auto px-3 px-lg-5 py-3">
+        <div class="col-auto d-flex justify-content-center justify-content-lg-start">
                     <div class="sort-select-wrapper justify-content-center w-auto body-font">
                         <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
                                 <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
@@ -46,19 +44,45 @@
                                 <option value="orientation_desc" {% if current_sorting == 'orientation="5"' %}selected{% endif %}>Square</option>
                             </select>
                         </div>
-                    </div>
-                <div class="col-12 col-md-6 order-md-first body-font body-mds">
-                    <p class="text-muted mt-3 text-center text-md-left">
-                        {% if search_term or current_categories or current_sorting != 'None_None' %}
-                        <span class="small"><a href="{% url 'shop' %}">Back to Shop</a> | </span>
-                        {% endif %}
-                        {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
-                    </p>
-                </div>
+        </div>
+        <div class="col-auto d-lg-none">
+            <div class="dropdown">
+                <button class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Filters
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a href="{% url 'shop' %}" class="dropdown-item display-font">All Products</a></li>
+                    <li><a href="{% url 'shop' %}?category=glitch-art&direction=asc" class="dropdown-item display-font">Glitch
+                            Art</a></li>
+                    <li>
+                        <a href="{% url 'shop' %}?category=surrealism&direction=asc"
+                            class="dropdown-item display-font">Surrealism</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'shop' %}?category=illustrations&direction=asc"
+                            class="dropdown-item display-font">Illustrations</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'shop' %}?category=photo-paintings&direction=asc"
+                            class="dropdown-item display-font">Photo-Paintings</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'shop' %}?category=popart&direction=asc" class="dropdown-item display-font">Pop Art</a>
+                    </li>
+                </ul>
             </div>
         </div>
+        <div class="col-auto my-sm-3 justify-content-lg-end display-font">
+            <p class="text-muted text-center text-md-end">
+                {% if search_term or current_categories or current_sorting == 'None_None' %}
+                <span class="small"><a href="{% url 'shop' %}">All Products</a> | </span>
+                {% endif %}
+                {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+            </p>
+        </div>
     </div>
-</div>
+
 <!--start shop-container-->
 <div class="container-fluid shop-container px-5 bg-light">
     <div class="row g-3">
