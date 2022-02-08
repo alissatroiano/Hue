@@ -28,7 +28,7 @@
             {% endfor %}
         </div>
     </div>
-    <div class="row d-flex justify-content-center justify-content-lg-between my-0 mx-auto px-3 px-lg-5 py-3">
+    <div class="row d-flex g-4 justify-content-center justify-content-lg-between my-0 mx-auto px-3 px-lg-5 pb-3">
         <div class="col-auto d-flex justify-content-center justify-content-lg-start">
                     <div class="sort-select-wrapper justify-content-center w-auto body-font">
                         <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
@@ -73,10 +73,12 @@
                 </ul>
             </div>
         </div>
-        <div class="col-auto my-sm-3 justify-content-lg-end display-font">
+        <div class="col-auto justify-content-lg-end display-font">
             <p class="text-muted text-center text-md-end">
                 {% if search_term or current_categories or current_sorting == 'None_None' %}
-                <span class="small"><a href="{% url 'shop' %}">All Products</a> | </span>
+                <span class="display-font"><a href="{% url 'shop' %}" class="display-font text-purple" style="text-decoration: none;">
+                    <i class="fas fa-chevron-left"></i>
+                   Shop All </a> | </span>
                 {% endif %}
                 {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
             </p>
