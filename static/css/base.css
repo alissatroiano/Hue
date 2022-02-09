@@ -34,24 +34,6 @@ a {
     color: #100324;
 }
 
-.text-purple {
-    color: #6a509a;
-}
-
-.text-purple:hover {
-    color: rgb(170, 151, 204);
-}
-
-::-moz-selection { /* Code for Firefox */
-    color: #fafafa;
-    background: rgb(170, 151, 204);
-  }
-  
-  ::selection {
-      color: #fafafa;
-    background: rgb(170, 151, 204);
-  }
-
 .bg-dark {
     background-color: #100324;
 }
@@ -388,7 +370,7 @@ li {
     border: none;
 }
 
-/* .dropdown-menu {
+.dropdown-menu {
     background-color: #212529!important;
     color: #fafafa;
 }
@@ -399,7 +381,22 @@ a.dropdown-item {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 12px;
-} */
+}
+
+a.dropdown-item:hover {
+    background-color: #212529;
+    color: rgb(170 151 204);
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 12px;
+}
+
+.dropdown-item:focus, .dropdown-item:hover,
+li:hover {
+    background-color: #212529;
+}
+
 /* ***************************.end-mobile-nav-&-shop-nav */
 
 
@@ -784,12 +781,6 @@ button.btn.btn-primary.loginButton {
 
 
 /* *************************** Shop */
-
-#dropdownMenuButton1, #sort-selector {
-    font-family: 'Oswald', sans-serif;
-}
-
-
 .shop-container {
     overflow: hidden;
     min-height: 100vh;
@@ -949,10 +940,6 @@ main {
     .header-container {
         padding-top: 100px;
     }
-}
-
-a#signup-button, a#login-button {
-    height: fit-content;
 }
 
 /* pad the top a bit when navbar is collapsed on mobile */
