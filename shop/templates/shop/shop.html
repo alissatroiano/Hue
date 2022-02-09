@@ -121,7 +121,7 @@
                                 </a>
                             </p>
                             {% endif %}
-                            {% if request.user %}
+                            {% if request.user == product.user %}
                             <div class="row">
                                 <div class="col-12 text-center">
                                     <small class="ml-3">

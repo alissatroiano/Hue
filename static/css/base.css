@@ -4,7 +4,7 @@ body {
     font-size: 16px;
     overflow: auto;
     margin: 0px auto;
-    cursor: url('../images/splatter.png'), cell;
+    /* cursor: url('../images/splatter.png'), cell; */
 }
 
 /* *************************** Headers & Special Text */
