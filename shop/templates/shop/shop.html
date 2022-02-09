@@ -103,8 +103,9 @@
                 </a>
                 {% endif %}
                 </div>
-                <a class="card-body pb-0" href="{% url 'product_detail' product.id %}" class="display-font" style="text-decoration: none; color: #000;">
-                    <h4 class="mb-2 display-font heading-sm">{{ product.title }}</h4>
+                <a class="card-body text-center pb-0" href="{% url 'product_detail' product.id %}" class="display-font" style="text-decoration: none; color: #000;">
+                    <h2 class="mb-2 display-font heading-sm">{{ product.title }}</h2>
+                    <h3 class="body-font text-center">By {{ product.user }}</h3>
                     <p class="body-small my-2 text-muted">{{ product.medium }}</p>
                 </a>
                 <div class="card-footer bg-white pt-0 border-0 text-left" href="{% url 'product_detail' product.id %}" class="display-font" style="text-decoration: none; color: #000;">
@@ -120,7 +121,7 @@
                                 </a>
                             </p>
                             {% endif %}
-                            {% if request.user.is_superuser %}
+                            {% if request.user %}
                             <div class="row">
                                 <div class="col-12 text-center">
                                     <small class="ml-3">

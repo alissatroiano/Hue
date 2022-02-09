@@ -36,7 +36,9 @@ class ProductAdmin(admin.ModelAdmin):
         'category',
         'parent',
         'price',
-        'image']
+        'image',
+        'user',
+        ]
 
     # Add list_selected_related so django will perform less queries on the database
     list_select_related = ['category']
@@ -59,6 +61,7 @@ class ProductAdmin(admin.ModelAdmin):
         'orientation',
         'has_dimensions',
         'label',
+        'user',
     ]
     autocomplete_fields = ['category']
    # Add display_final_price to readonly_fields because it is a function not a db field
