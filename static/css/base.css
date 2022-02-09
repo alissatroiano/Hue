@@ -34,6 +34,14 @@ a {
     color: #100324;
 }
 
+.text-purple {
+    color: #6a509a;
+}
+
+.text-purple:hover {
+    color: rgb(170, 151, 204);
+}
+
 .bg-dark {
     background-color: #100324;
 }
