@@ -107,10 +107,6 @@ def product_detail(request, product_id):
 @login_required
 def add_product(request):
     """ A view so shop manager can add new products """
-    if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
-        return redirect(reverse('shop'))
-
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
