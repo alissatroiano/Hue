@@ -34,6 +34,10 @@ a {
     color: #100324;
 }
 
+.text-purple {
+    color: rgb(170 151 204);
+}
+
 .bg-dark {
     background-color: #100324;
 }
@@ -392,8 +396,7 @@ a.dropdown-item:hover {
     font-size: 12px;
 }
 
-.dropdown-item:focus, .dropdown-item:hover,
-li:hover {
+.dropdown-item:focus, .dropdown-item:hover {
     background-color: #212529;
 }
 
@@ -801,7 +804,7 @@ button.btn.btn-primary.loginButton {
     height: 42px;
     width: 42px;
     position: fixed;
-    bottom: 10px;
+    bottom: 20px;
     right: 10px;
 }
 
