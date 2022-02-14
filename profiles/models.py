@@ -26,7 +26,7 @@ class Profile(models.Model):
 
     def create_default_avatar(self):
        if not self.avatar_set.all():
-          avatar = profile.avatar_set.create(profile=self.__class__)
+          avatar = self.avatar_set.create(profile=self.__class__)
           avatar.avatar = File(open('media/avatar.jpg'))
           avatar.avatar_thumbnail = File(open('media/avatar.jpg'))
           avatar.save()

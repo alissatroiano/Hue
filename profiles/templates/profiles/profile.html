@@ -14,7 +14,92 @@
 {% endblock %}
 
 {% block content %}
-<div class="overlay"></div>
+<div class="overlay"></div>\
+<div class="container-fluid rounded bg-white mt-5 mb-5">
+    <div class="row d-flex">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                <img src="{{ user.profile.avatar.url }}" alt="{{ user.profile }}" width="150px"  class="img-fluid img-thumbnail rounded-circle my-2">
+                <span class="font-weight-bold">{{ user.username }}</span>
+                <span class="text-dark-50">{{ user.email }}</span><span> </span></div>
+                <span class="text-center"><button><a href="#user-settings">Settings</a></button></span>
+        </div>
+        <div class="col-md-4 border-right" id="user-settings">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Profile Settings</h4>
+                </div>
+                <div class="row mt-2">
+                    <form action="{% url 'profile' %}" method="POST" class="mt-3 mx-0 px-0"
+                    id="update-profile-form" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
+                </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3 order-history body-sm">
+                        <div class="accordion-item body-font border-0">
+                        <div class="accordion-header border-0" id="headingTwo" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                            aria-expanded="true" aria-controls="collapseTwo">
+                            <h3 class="display-font">Order History</h3>
+                        </div>
+                        <div id="collapseTwo" class="accordion-collapse collapse"
+                            aria-labelledby="headingOne" data-bs-parent="#order-history">
+                                <div class="accordion-body px-0 mx-0">
+                                    <div class="order-history table-responsive">
+                                        <table class="table table-sm table-borderless">
+                                            <thead>
+                                                <tr>
+                                                    <th>Order Number</th>
+                                                    <th>Date</th>
+                                                    <th>Items</th>
+                                                    <th>Order Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for order in orders %}
+                                                <tr>
+                                                    <td>
+                                                        <a href="{% url 'order_history' order.order_number %}"
+                                                            title="{{ order.order_number }}">
+                                                            {{ order.order_number|truncatechars:6 }}
+                                                        </a>
+                                                    </td>
+                                                    <td>{{ order.date }}</td>
+                                                    <div class="col-12 text-center">
+                                                        <td>
+                                                            {% for item in order.orderitems.all %}
+
+                                                            {{ item.product.title }}
+
+                                                            {% endfor %}
+                                                        </td>
+                                                        <td>${{ order.grand_total }}</td>
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!--./end-accordion-item-->
+                            </div>
+                            <!--./end-accordion-->
+                        </div>
+                        <!--./end-d-flex-->
+                    </div>
+                    <!--./end-row-card-row-->
+                </div></div> <br>
+                <div class="col-md-12"><label class="labels">Additional Details</label><input type="text" class="form-control" placeholder="additional details" value=""></div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="profile-wrapper pt-5">
     <div class="container-fluid p-5 my-0 mx-auto">
         <div class="row">
