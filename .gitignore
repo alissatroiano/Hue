@@ -18,3 +18,4 @@ db.json
 .vscode/
 .vscode/settings.json
 venv/
+db.sqlite3
