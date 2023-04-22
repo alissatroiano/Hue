@@ -12,13 +12,14 @@ from django.conf import settings
 import mindsdb_sdk
 import openai
 
-# server = mindsdb_sdk.connect('https://cloud.mindsdb.com', settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
-# print(settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
-# project = server.get_project('mindsdb')
-# model = project.get_model('btcusd_predictor')
-# print(model)
-# query = project.query('SELECT close_price FROM mindsdb.btcusd_prediction_mod WHERE date="2019-01-05"')
-# print(query.fetch())
+server = mindsdb_sdk.connect('https://cloud.mindsdb.com', settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
+print(settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
+project = server.get_project('mindsdb')
+model = project.get_model('test_openai_art_3')
+print(model)
+
+query = project.query('SELECT * FROM mindsdb.test_openai_art_3 WHERE artwork_description="Cherry blossoms on a summer day";')
+print(query.fetch())
 openai_api_key = settings.OPENAI_API_KEY
 print(openai_api_key)
 
