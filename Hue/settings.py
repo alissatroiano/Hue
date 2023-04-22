@@ -25,6 +25,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
+# MINDSDB CREDENTIALS DEFINED HERE
+MINDSDB_EMAIL = os.environ.get('MINDSDB_EMAIL', '')
+MINDSDB_PASSWORD = os.environ.get('MINDSDB_PASSWORD', '')
+MINDSDB_HOST = os.environ.get('MINDSDB_HOST', '')
+OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY', '')
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
 
@@ -230,4 +236,5 @@ if 'USE_AWS' in os.environ:
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
+# MINDSDB SDK SETUP HERE
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

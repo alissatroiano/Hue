@@ -7,8 +7,23 @@ from django.db.models.functions import Lower
 
 from .models import Product, Category
 from .forms import ProductForm
+# import mindsdb config from settings.py
+from django.conf import settings
+import mindsdb_sdk
+import openai
 
-# Create your views here.
+# server = mindsdb_sdk.connect('https://cloud.mindsdb.com', settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
+# print(settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
+# project = server.get_project('mindsdb')
+# model = project.get_model('btcusd_predictor')
+# print(model)
+# query = project.query('SELECT close_price FROM mindsdb.btcusd_prediction_mod WHERE date="2019-01-05"')
+# print(query.fetch())
+openai_api_key = settings.OPENAI_API_KEY
+print(openai_api_key)
+
+response = openai.Completion.create(model="text-davinci-003", prompt="Say this is a test", temperature=0, max_tokens=7)
+
 
 
 def shop_all(request):

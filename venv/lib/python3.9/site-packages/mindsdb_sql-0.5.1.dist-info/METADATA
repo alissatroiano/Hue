@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: mindsdb-sql
+Version: 0.5.1
+Summary: Pure python SQL parser
+Home-page: https://github.com/mindsdb/mindsdb_sql
+Author: MindsDB Inc
+Author-email: jorge@mindsdb.com
+License: GPL-3.0
+Download-URL: https://pypi.org/project/mindsdb_sql
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.6
+Requires-Dist: sly (>=0.4)
+Requires-Dist: pytest (>=5.4.3)
+Requires-Dist: sqlalchemy (<2.0.0,>=1.4.29)
+
+UNKNOWN
+
+
