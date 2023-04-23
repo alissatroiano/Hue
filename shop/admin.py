@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.conf import settings
-from .models import Category, Product, NewProduct
+from .models import Category, Product
 
 # https://docs.djangoproject.com/en/3.2/topics/i18n/timezones/
 CURRENCY = settings.CURRENCY
@@ -68,46 +68,3 @@ class ProductAdmin(admin.ModelAdmin):
     readonly_fields = ['active']
 
     ordering = ('sku',)
-
-
-@admin.register(NewProduct)
-class NewProductAdmin(admin.ModelAdmin):
-    list_display = [
-        'sku',
-        'title',
-        'active',
-        'category',
-        'parent',
-        'price',
-        'image']
-
-
-# Add list_selected_related so django will perform less queries on the database
-list_select_related = ['category']
-list_filter = ['active', 'category', 'price', 'created_at', 'deleted_at']
-# Add search_fields so autocomplete will work in product admin
-search_fields = [
-    'title',
-    'category',
-]
-list_per_page = 50
-fields = [
-    'sku',
-    'title',
-    'active',
-    'medium',
-    'image',
-    'category',
-    'parent',
-    'price',
-    'orientation',
-    'has_dimensions',
-    'label',
-    'user',
-]
-
-autocomplete_fields = ['category']
-# Add display_final_price to readonly_fields because it is a function not a db field
-readonly_fields = ['active']
-
-ordering = ('sku', 'created_at')

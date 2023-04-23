@@ -7,6 +7,12 @@ body {
     /* cursor: url('../images/splatter.png'), cell; */
 }
 
+.hidden-field,
+div#div_id_active {
+    display: none;
+  }
+  
+
 /* *************************** Headers & Special Text */
 h1,
 h3,

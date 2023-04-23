@@ -33,11 +33,11 @@
 				<form method="POST" action="{% url 'add_product' %}" class="form mb-2" enctype="multipart/form-data">
 					{% csrf_token %}
 					{% for field in form %}
-					{% if field.name != 'image' %}
-					{{ field | as_crispy_field }}
-					{% else %}
-					{{ field }}
-					{% endif %}
+						{% if field.name == 'image' %}
+						  {{ field }}
+						{% else %}
+						  {{ field | as_crispy_field }}
+						{% endif %}
 					{% endfor %}
 					<div class="text-right">
 						<button>
@@ -53,6 +53,8 @@
 </div>
 {% endblock %}
 
+
+
 {% block postloadjs %}
 {{ block.super }}
 <script type="text/javascript">
@@ -62,3 +64,4 @@
 	});
 </script>
 {% endblock %}
+

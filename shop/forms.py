@@ -3,29 +3,32 @@ from django import forms
 from .models import Category, Product
 
 
+from django import forms
+from .models import Category, Product
+
+
 class ProductForm(forms.ModelForm):
+    artwork_description = forms.CharField(
+        max_length=200,
+        required=False,
+        label='Artwork Description',
+        widget=forms.Textarea(attrs={'rows': 3}),
+    )
 
     class Meta:
         model = Product
-        fields = '__all__'
-
-        # image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
+        fields = ('sku', 'title', 'category', 'artwork_description', 'price', 'image', 'qty')
+        labels = {
+            'sku': 'SKU',
+            'title': 'Title',
+            'category': 'Category',
+            'artwork_description': 'Artwork Description',
+            'price': 'Price',
+            'image': 'Image',
+            'qty': 'Quantity'
+        }
 
     def __init__(self, *args, **kwargs):
-        """
-        Add placeholders and classes, remove auto-generated
-        labels and set autofocus on first field
-        """
         super().__init__(*args, **kwargs)
-        categories = Category.objects.all()
-        friendly_names = [(c.id, c.get_friendly_name()) for c in categories]
-
+        friendly_names = [(c.id, c.get_friendly_name()) for c in Category.objects.all()]
         self.fields['category'].choices = friendly_names
-        for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'border-1 rounded shadow-sm'
-            if field_name == 'image_url':
-                field.widget.attrs['required'] = False
-            elif field_name == 'image':
-                field.widget.attrs['required'] = False
-            else:
-                field.widget.attrs['required'] = True
