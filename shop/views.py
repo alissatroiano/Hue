@@ -11,15 +11,16 @@ from .forms import ProductForm
 # import mindsdb config from settings.py
 from django.conf import settings
 import mindsdb_sdk
-import openai
+import json
+from django.shortcuts import render
 
-# server = mindsdb_sdk.connect('https://cloud.mindsdb.com', settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
-# print(settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
-# project = server.get_project('mindsdb')
-# model = project.get_model('test_openai_art_3')
-# print(model)
+server = mindsdb_sdk.connect('https://cloud.mindsdb.com', settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
+print(settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
+project = server.get_project('mindsdb')
+model = project.get_model('test_openai_art_3')
+print(model)
 
-# query = project.query('SELECT * FROM mindsdb.test_openai_art_3 WHERE artwork_description="Cherry blossoms on a summer day";')
+query = project.query('SELECT * FROM mindsdb.test_openai_art_3 WHERE artwork_description="Cherry blossoms on a summer day";')
 # print(query.fetch())
 # openai_api_key = settings.OPENAI_API_KEY
 # print(openai_api_key)
@@ -27,6 +28,10 @@ import openai
 # response = openai.Completion.create(model="text-davinci-003", prompt="Say this is a test", temperature=0, max_tokens=7)
 
 def predict(request):
+    server = mindsdb_sdk.connect('https://cloud.mindsdb.com', settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
+    project = server.get_project('mindsdb')
+    model = project.get_model('test_openai_art_3')
+
     if request.method == 'GET':
         # Retrieve the text from the request
         text = request.GET.get('text')
