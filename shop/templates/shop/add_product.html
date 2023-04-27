@@ -23,23 +23,32 @@
 			<hr class="my-2">
 			<p class="body-font mx-5">Use this tool to add new products to Hue's online shop!</p>
 		</div>
+		<div class="col-12">
+			<textarea name="artwork_description" id="artwork_description" oninput="predict()"></textarea>
+			<!-- Add the title_suggestions datalist -->
+<input list="title_suggestions" name="title" id="title_suggestions">
+<datalist></datalist>
+		</div>
 	</div>
-	<div class="row d-flex justify-content-center">
-		<div class="col-md-6">
-			<form class="row">
-				
-				<div class="col-6">
-				  <label for="artistDescription" class="visually-hidden">Describe your artwork here</label>
-				  <input type="text" class="form-control" id="inputPassword2" placeholder="Describe your artwork here">
+
+
+		<!-- <div class="col-12 text-center">
+				<h6>
+				<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+				New!
+				</button>
+				</h6>
 				</div>
-				<div class="col-6">
+				<div class="collapse row text-center justify-content-center" id="collapseExample">
+				<div class="col-md-8">
+					<form method="POST" class="form mb-2">
+				  <label for="artworkDescription" class="visually-hidden">Describe your artwork here</label>
+				  <input type="text" class="form-control" id="artworkDescription" placeholder="Describe your artwork & find the perfect title">
+				</div>
+				<div class="col-md-4">
 				  <button type="submit" class="btn btn-primary mb-3">Generate</button>
 				</div>
-			  </form>
-			<!-- <div class="form-floating">
-				<textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-				<label for="floatingTextarea">New! Let AI name your latest creation</label>
-			  </div> -->
+				</div> -->
 		</div>
 	</div>
 	<div class="row d-flex justify-content-center">
@@ -79,6 +88,25 @@
 		var file = $('#new-image')[0].files[0];
 		$('#filename').text(`Image will be set to: ${file.name}`);
 	});
+</script>
+<script type="text/javascript">
+function predict() {
+    const text = document.getElementById('artwork_description').value;
+    const url = `/predict/?text=${encodeURIComponent(text)}`;
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            const predictions = data.predictions;
+            const datalist = document.getElementById('title_suggestions');
+            datalist.innerHTML = '';
+            predictions.forEach(prediction => {
+                const option = document.createElement('option');
+                option.value = prediction;
+                datalist.appendChild(option);
+            });
+        })
+        .catch(error => console.error(error));
+}
 </script>
 {% endblock %}
 

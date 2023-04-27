@@ -42,3 +42,7 @@ class ProductForm(forms.ModelForm):
                 field.widget.attrs['required'] = False
             else:
                 field.widget.attrs['required'] = True
+
+class ArtworkForm(forms.Form):
+    description = forms.CharField(label='Describe your artwork', widget=forms.Textarea)
+    
