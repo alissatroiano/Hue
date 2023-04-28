@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import os
+import mindsdb_sdk
 import dj_database_url
 
 if os.path.exists("env.py"):
@@ -30,6 +31,8 @@ MINDSDB_EMAIL = os.environ.get('MINDSDB_EMAIL', '')
 MINDSDB_PASSWORD = os.environ.get('MINDSDB_PASSWORD', '')
 MINDSDB_HOST = os.environ.get('MINDSDB_HOST', '')
 OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY', '')
+MINDSDB_SERVER = os.environ.get('MDB_SERVER', '')
+MINDSDB_PROJECT = os.environ.get('MINDBS_PROJECT', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ

@@ -24,15 +24,19 @@
 			<p class="body-font mx-5">Use this tool to add new products to Hue's online shop!</p>
 		</div>
 		<div class="col-12">
-			<textarea name="artwork_description" id="artwork_description" oninput="predict()"></textarea>
-			<!-- Add the title_suggestions datalist -->
+			<form method='POST' action="{% url 'get_title_suggestions' %}" class="form mb-2" enctype="multipart/form-data">
+				{% csrf_token %}
+
+			<input type="text" name="artwork_description" id="artwork_description">
+			<button type="submit" onsubmit="predict()"">Generate</button>
+		</form>
 <input list="title_suggestions" name="title" id="title_suggestions">
 <datalist></datalist>
 		</div>
 	</div>
 
 
-		<!-- <div class="col-12 text-center">
+		<div class="col-12 text-center">
 				<h6>
 				<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
 				New!
@@ -48,7 +52,7 @@
 				<div class="col-md-4">
 				  <button type="submit" class="btn btn-primary mb-3">Generate</button>
 				</div>
-				</div> -->
+				</div>
 		</div>
 	</div>
 	<div class="row d-flex justify-content-center">

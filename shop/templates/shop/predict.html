@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+	<div class="row">
+		<div class="col"></div>
+	</div>
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="row">
+    <div class="col-sm-6">
+{% csrf_token %}
+{% for field in form %}
+{{ field | as_crispy_field }}
+{% endfor %}
+</div>
+    <div class="col-sm-6">
+
+        {% if predictions %}
+        <ul>
+        {% for prediction in predictions %}
+            <li>{{ prediction }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No predictions found.</p>
+    {% endif %}
+    </div>
+</div>
+
+
+<script>
+    // Retrieve predictions from local storage
+    var predictions = JSON.parse(localStorage.getItem('predictions'));
+    
+    // Store predictions in a variable
+    var predictionList = document.getElementById('prediction-list');
+    
+    // Display the predictions
+    if (predictions) {
+        for (var i = 0; i < predictions.length; i++) {
+            var li = document.createElement('li');
+            li.innerHTML = predictions[i];
+            predictionList.appendChild(li);
+        }
+    }
+</script>
+
+{% endblock %}
+
+

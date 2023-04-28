@@ -52,7 +52,6 @@ class Product(models.Model):
     sku = models.CharField(unique=True, max_length=254, null=True, blank=True)
     active = models.BooleanField(default=True)
     artwork_description = models.TextField(null=True, blank=True)
-    art_description = models.TextField()
     predicted_titles = models.JSONField(blank=True, null=True)
     title = models.CharField(max_length=254, unique=True)
     orientation = models.CharField(

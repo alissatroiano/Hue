@@ -7,17 +7,24 @@ from django.db.models import Q
 from django.db.models.functions import Lower
 
 from .models import Product, Category
-from .forms import ProductForm
+from .forms import ProductForm, ArtworkForm
 # import mindsdb config from settings.py
 from django.conf import settings
 import mindsdb_sdk
+import openai
 import json
 from django.shortcuts import render
 
-server = mindsdb_sdk.connect('https://cloud.mindsdb.com', settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
+mdb_server = mindsdb_sdk.connect(settings.MINDSDB_HOST, settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
+project = mdb_server.get_project('mindsdb')
 
-
-# response = openai.Completion.create(model="text-davinci-003", prompt="Say this is a test", temperature=0, max_tokens=7)
+response = openai.Image.create(
+  prompt="a purple siamese cat cartoon with a yellow background",
+  n=1,
+  size="1024x1024"
+)
+image_url = response['data'][0]['url']
+print(image_url)
 
 def shop_all(request):
     """ A view to show all products, including sorting and search queries """
@@ -112,32 +119,13 @@ def product_detail(request, product_id):
     return render(request, 'shop/product_detail.html', context)
 
 
-def predict(request):
-    if request.method == 'GET':
-        # Retrieve the text from the request
-        text = request.GET.get('text')
-
-        # Call your MindsDB/ChatGPT model to get the predictions
-        server = mindsdb_sdk.connect('https://cloud.mindsdb.com', settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
-        project = server.get_project('mindsdb')
-        model = project.get_model('test_openai_art_3')
-        query = project.query(f'SELECT * FROM mindsdb.test_openai_art_3 WHERE artwork_description="{text}";')
-        result = query.get()['predicted_title']
-        print(result)
-        # Return the predictions as a JSON response
-        return JsonResponse({'predictions': result})
-
 @login_required
 def add_product(request):
     """ A view so shop manager can add new products """
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
-            # Save the form
-            product = form.save(commit=False)
-            product.shop = request.user.shop
-            product.save()
-
+            form.save()
             messages.success(request, 'Successfully added product!')
             return redirect(reverse('add_product'))
         else:
@@ -153,6 +141,38 @@ def add_product(request):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def get_title_suggestions(request):
+    if request.method == 'POST':
+        # Retrieve the artwork description from the POST request
+        text = request.POST.get('text')
+
+        # Call your MindsDB/ChatGPT model to get the predictions
+        # mdb_server = mindsdb_sdk.connect('https://cloud.mindsdb.com', settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
+        project = mdb_server.get_project('mindsdb')
+ 
+        query = project.query(f'SELECT * FROM mindsdb.test_openai_art_3 WHERE artwork_description="{text}";')
+        
+        result = query.fetch()['predictions']
+        print(result)
+        predicted_titles = ['Title 1', 'Title 2', 'Title 3']
+
+        # Build the updated form HTML that includes the predicted titles
+        title_suggestions_html = '<datalist id="title-suggestions">'
+        for predicted_title in predicted_titles:
+            title_suggestions_html += f'<option value="{predicted_title}">'
+        title_suggestions_html += '</datalist>'
+
+        # Return the form HTML and a flag indicating whether the form is valid
+        return JsonResponse({
+            'valid': True,
+            'form_html': title_suggestions_html
+        })
+    
+    return redirect(reverse('add_product'))
+
 
 @login_required
 def edit_product(request, product_id):
