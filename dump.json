@@ -1,0 +1,913 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$260000$oB1Sn9V5oIhat692ZrEii6$0VkJhjws8L3jKlvBgzYKtCpPmRkow0jcbNcfAejEIz4=",
+    "last_login": "2023-04-30T02:11:04.261Z",
+    "is_superuser": true,
+    "username": "alissa",
+    "first_name": "",
+    "last_name": "",
+    "email": "alissatroianonyc@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-03-01T21:31:55.504Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$260000$Qx2wlgnAkZPC22psX5a06c$4kVyToQ0UNIKI8pbF/1tNJ45QVflgl7jkwBlirwL1uY=",
+    "last_login": "2023-04-19T20:41:49.645Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "troianoali@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-04-19T20:41:25.725Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$260000$GMGqXbuZzehYx7MP7oAOTu$u9FvGGlnqE7CS0TBr09+W9elqWxis5JlW0Z8P00iws8=",
+    "last_login": "2023-04-24T21:32:04.312Z",
+    "is_superuser": true,
+    "username": "new_user",
+    "first_name": "",
+    "last_name": "",
+    "email": "theb3tafish@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-04-22T01:31:09Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$260000$Llf8Rg3E9MIRuesb7s76R7$HGnN7COUmPPz0NfOL3d3Fbvyz9+DgK9kem13UFRDig8=",
+    "last_login": "2023-04-27T20:36:27.437Z",
+    "is_superuser": false,
+    "username": "test_user",
+    "first_name": "",
+    "last_name": "",
+    "email": "alissatroiano@outlook.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-04-22T20:33:41.535Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "2xw4n3ngjju352ociqw0fyvwex5mq5co",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSHlUUCX7vsNZGYYpGogKe3K-O_apAvd3nPOfYkI21ri1nmJcxIXocTpd0OgB9cdpDvUW5PU6rrMKHdFHrTLqSV-Xg_376BAL9-akybL2kM2TrEK1uusTLIBLTAFwJEoOELjHZ1x0Fp5azWj86NLA2fx_gD0lTgt:1pXU5T:fphd2WWqUGhJLfmCIWBLzhB_2sRtNimIkwQAc7qbGfo",
+    "expire_date": "2023-03-15T21:34:11.035Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "8dapwsekmsahkjrs3vqxa8rawya55e7y",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGlmbjT9xSnrOYHn9IQZkoziRQIi7Q6Q0ad_MvA-zLbaWa7Hx9czzm40dglEAJ2bdukx2bXG2ObCRSXbYyPl7LBsIN1eulftaljkT3xS-08YvNcTHeXcPB5Nr079WHegeMRDoQIg6ycH3ne6lkCR6JRCSBlIS1UAgkojS-AENGmmEpgTs-wPMYT6Z:1ps8Lr:QXURv3hqCPqToyer4_N-ZesOPpIC5JF5mNcdcuEojoY",
+    "expire_date": "2023-05-11T20:36:27.447Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "fpg81wwes23vi71gwpq5d65fv338kzz0",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAUBf_lrglpC6WFpXu_oenjVqq1NRSMxvjvgiExbmfmnBeogqWEnBQ-bmF6wkAq0NbmJc3qjlPwAZ3Cqw4RhrTE-LNLwQkGYFCB0ss8foEKbmXNPzPaXjBtwp11OuXa5jRPwdRbUu-21MfsMB729u9g1GVc177hjKMwppfUtLaVUvQEpem9Js42FL2QyFvWeUOpYJw4FJ0knZeEIrMa3h__dlCB:1ppEcf:UZX0ZQJkj7szOcMt03zk7yjappXNkLJNacmPUj1KyCM",
+    "expire_date": "2023-05-03T20:41:49.653Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "i17xfk166f151u79vtlw3jqjyw7ouizq",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pBCKWCX7j0DmRkGWzWQQOvGeHfbpAvd_vf-e4sA6zKFtXENcxSjUOL0uyHQg_MO4h3yrUgqeakzyl2RB23yWiI_L4f7F5igTduboybD2kHqrWLljdNJ9dF4NMDkAQcibwl7Z-mMndbKGaMZrRts7Dht0QYvDnNORYxLXfnzBeIfPlE:1pXtUI:Qne_CP1LknyGS9bnLnxRXw3XEWkIxgdio_C_EMiJfL0",
+    "expire_date": "2023-03-17T00:41:30.674Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "wmhj65ado5n0tir3dgt7cay79icfh6bg",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQBf-FsyGwpUB79O43EFi2FjVgoE00xn_XJr30-mbmfZhr1Foq2dHrmeqbjRLEoIU4MefXZXZro-pSZCOT7LAFj3fKG4g3n6-FY8lLTYFvCt9p45cS6XHe3cPB7Nv8rykCKgLjp05LklYZmGQXlQ3KE1ofekSrMXRG4xAEgDRKAQVteh0FTez7Axt8QJw:1pswWm:Q8Q9whvWSOwoHc0qY5y1_xxrlNSRak3KQ0jRGbgouIw",
+    "expire_date": "2023-05-14T02:11:04.273Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "xcyzg88te2g9uh8cgla53ojahy3iymss",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGln-yl5Kes5grXdtHECOFCcV4u4QKQW0b2beSyTc1pa2UZY0sTgLJ06_W0Z6lL4DvmO_zZLmvi5TlrsiDzrkdebyvBzu30HD0b51rECoK3LmwN6SyraygVAoWFMYvIvFR608KsfsCMBYb4MCjxgcavH-AAjGOAo:1pr3n2:z1CvYIEg5Sdlq-FkqKqPUK18vdZ9SY8HE-HUTzf-aQ8",
+    "expire_date": "2023-05-08T21:32:04.318Z"
+  }
+},
+{
+  "model": "sites.site",
+  "fields": {
+    "domain": "example.com",
+    "name": "example.com"
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 1,
+  "fields": {
+    "parent": null,
+    "title": "fine-art",
+    "friendly_name": "Fine Art"
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 2,
+  "fields": {
+    "parent": 1,
+    "title": "painting",
+    "friendly_name": "Painting"
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 3,
+  "fields": {
+    "parent": null,
+    "title": "pop art",
+    "friendly_name": "Pop Art"
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 4,
+  "fields": {
+    "parent": null,
+    "title": "graphic design",
+    "friendly_name": "Graphic Design"
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 5,
+  "fields": {
+    "parent": null,
+    "title": "glitch art",
+    "friendly_name": "Glitch Art"
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 6,
+  "fields": {
+    "parent": null,
+    "title": "surrealism",
+    "friendly_name": "Surrealism"
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 7,
+  "fields": {
+    "parent": null,
+    "title": "photo-painting",
+    "friendly_name": "Photo-Painting"
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 8,
+  "fields": {
+    "parent": null,
+    "title": "photography",
+    "friendly_name": "Photography"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 1,
+  "fields": {
+    "sku": "0000019923",
+    "active": true,
+    "artwork_description": null,
+    "predicted_titles": null,
+    "title": "Drip Drop",
+    "orientation": "4",
+    "label": "2",
+    "has_dimensions": false,
+    "medium": "Paint, Canvas",
+    "category": 2,
+    "parent": 1,
+    "price": "250.00",
+    "image_url": null,
+    "image": "fineart_EpL8k6M.jpg",
+    "qty": 0,
+    "created_at": "2023-03-03T00:36:46.746Z",
+    "updated_at": "2023-04-24T21:34:57.363Z",
+    "deleted_at": "2023-04-24T21:34:57.363Z",
+    "user": [
+      "alissa"
+    ]
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 2,
+  "fields": {
+    "sku": "sk00012545621sa1",
+    "active": true,
+    "artwork_description": null,
+    "predicted_titles": null,
+    "title": "Shucks Can't Think of a Name",
+    "orientation": "3",
+    "label": "2",
+    "has_dimensions": false,
+    "medium": "Adobe Photoshop, Adobe Illustrator",
+    "category": 6,
+    "parent": 4,
+    "price": "150.00",
+    "image_url": null,
+    "image": "mixedmedia_2V5bT0l.jpg",
+    "qty": 1,
+    "created_at": "2023-04-22T01:35:09.500Z",
+    "updated_at": "2023-04-22T01:35:09.500Z",
+    "deleted_at": "2023-04-22T01:35:09.500Z",
+    "user": [
+      "new_user"
+    ]
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 3,
+  "fields": {
+    "sku": "sk00012545621sa122",
+    "active": true,
+    "artwork_description": null,
+    "predicted_titles": null,
+    "title": "Summer's Day",
+    "orientation": "3",
+    "label": "2",
+    "has_dimensions": false,
+    "medium": "Paint, Canvas",
+    "category": 1,
+    "parent": null,
+    "price": "350.00",
+    "image_url": null,
+    "image": "newhorizons_vkayy7d.jpg",
+    "qty": 1,
+    "created_at": "2023-04-22T03:04:51.635Z",
+    "updated_at": "2023-04-22T03:04:51.635Z",
+    "deleted_at": "2023-04-22T03:04:51.635Z",
+    "user": null
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 4,
+  "fields": {
+    "sku": "sk00012545621sa124",
+    "active": true,
+    "artwork_description": null,
+    "predicted_titles": null,
+    "title": "Color Splash",
+    "orientation": "3",
+    "label": "2",
+    "has_dimensions": false,
+    "medium": "Paint, Canvas",
+    "category": 2,
+    "parent": null,
+    "price": "460.00",
+    "image_url": null,
+    "image": "hue6_FyqcPYh_T42iSIi.jpg",
+    "qty": 0,
+    "created_at": "2023-04-24T21:29:26.111Z",
+    "updated_at": "2023-04-24T21:33:06.198Z",
+    "deleted_at": "2023-04-24T21:33:06.198Z",
+    "user": [
+      "test_user"
+    ]
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 5,
+  "fields": {
+    "sku": "sk00012545621sa100",
+    "active": true,
+    "artwork_description": null,
+    "predicted_titles": null,
+    "title": "Behind the Curtain",
+    "orientation": "3",
+    "label": "1",
+    "has_dimensions": false,
+    "medium": "Spray paint",
+    "category": 1,
+    "parent": null,
+    "price": "400.00",
+    "image_url": null,
+    "image": "mural-boy_yyqujhW.jpeg",
+    "qty": 0,
+    "created_at": "2023-04-24T21:29:48.693Z",
+    "updated_at": "2023-04-24T21:34:04.029Z",
+    "deleted_at": "2023-04-24T21:34:04.029Z",
+    "user": [
+      "alissa"
+    ]
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 6,
+  "fields": {
+    "sku": null,
+    "active": true,
+    "artwork_description": null,
+    "predicted_titles": null,
+    "title": "Hands Up",
+    "orientation": "3",
+    "label": "1",
+    "has_dimensions": false,
+    "medium": "Camera, Adobe Photoshop",
+    "category": 1,
+    "parent": null,
+    "price": "220.00",
+    "image_url": null,
+    "image": "hue2_oJvG8bJ.jpg",
+    "qty": 0,
+    "created_at": "2023-04-24T21:31:32.714Z",
+    "updated_at": "2023-04-24T21:31:32.714Z",
+    "deleted_at": "2023-04-24T21:31:32.714Z",
+    "user": [
+      "alissa"
+    ]
+  }
+},
+{
+  "model": "checkout.order",
+  "pk": 1,
+  "fields": {
+    "order_number": "426AF6B468F3420FAA9A5687871447BA",
+    "profile": 1,
+    "user_full_name": "Alissa Troiano",
+    "town_or_city": "Yonkers",
+    "street_address1": "59 Dorchester Drive",
+    "street_address2": "Apartment 2",
+    "state": "",
+    "country": "US",
+    "county": "NY",
+    "postcode": "10710",
+    "email": "alissatroiano@alissatroiano.com",
+    "phone_number": "9145620119",
+    "created_at": "2023-03-03T00:41:30.531Z",
+    "updated_at": "2023-03-03T00:41:30.599Z",
+    "deleted_at": "2023-03-03T00:41:30.599Z",
+    "special_discount": "62.50",
+    "date": "2023-03-03T00:41:30.531Z",
+    "order_total": "250.00",
+    "grand_total": "187.50",
+    "original_cart": "{\"1\": 1}",
+    "stripe_pid": "pi_3MhMgAJuLUUDUAz912EwALVr"
+  }
+},
+{
+  "model": "checkout.order",
+  "pk": 2,
+  "fields": {
+    "order_number": "FEE5ED99DDD240C49D4ACA0A270AE4E4",
+    "profile": 4,
+    "user_full_name": "Test testt",
+    "town_or_city": "Fixtion",
+    "street_address1": "999 was dsdas",
+    "street_address2": "saas sadas",
+    "state": "",
+    "country": "US",
+    "county": "Westchester",
+    "postcode": null,
+    "email": "btech373@gmail.com",
+    "phone_number": "9145620119",
+    "created_at": "2023-04-22T01:36:14.857Z",
+    "updated_at": "2023-04-22T01:36:15.030Z",
+    "deleted_at": "2023-04-22T01:36:15.030Z",
+    "special_discount": "62.50",
+    "date": "2023-04-22T01:36:14.857Z",
+    "order_total": "250.00",
+    "grand_total": "187.50",
+    "original_cart": "{\"1\": 1}",
+    "stripe_pid": "pi_3MzVMLJuLUUDUAz9157gQy92"
+  }
+},
+{
+  "model": "checkout.orderitem",
+  "pk": 1,
+  "fields": {
+    "order": 1,
+    "product": 1,
+    "timestamp": "2023-03-03",
+    "product_dimension": null,
+    "quantity": 1,
+    "orderitem_total": "250.00"
+  }
+},
+{
+  "model": "checkout.orderitem",
+  "pk": 2,
+  "fields": {
+    "order": 2,
+    "product": 1,
+    "timestamp": "2023-04-22",
+    "product_dimension": null,
+    "quantity": 1,
+    "orderitem_total": "250.00"
+  }
+},
+{
+  "model": "account.emailaddress",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "alissa"
+    ],
+    "email": "alissatroianonyc@gmail.com",
+    "verified": true,
+    "primary": true
+  }
+},
+{
+  "model": "account.emailaddress",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "test_user"
+    ],
+    "email": "alissatroiano@outlook.com",
+    "verified": true,
+    "primary": true
+  }
+},
+{
+  "model": "account.emailaddress",
+  "pk": 4,
+  "fields": {
+    "user": [
+      "new_user"
+    ],
+    "email": "theb3tafish@gmail.com",
+    "verified": true,
+    "primary": true
+  }
+},
+{
+  "model": "profiles.profile",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "alissa"
+    ],
+    "default_phone_number": "9145620119",
+    "default_country": "US",
+    "default_postcode": "10710",
+    "default_town_or_city": "Yonkers",
+    "default_street_address1": "59 Dorchester Drive",
+    "default_street_address2": "Apartment 2",
+    "default_county": "NY",
+    "avatar": "avatar.jpg"
+  }
+},
+{
+  "model": "profiles.profile",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "default_phone_number": null,
+    "default_country": null,
+    "default_postcode": null,
+    "default_town_or_city": null,
+    "default_street_address1": null,
+    "default_street_address2": null,
+    "default_county": null,
+    "avatar": "avatar.jpg"
+  }
+},
+{
+  "model": "profiles.profile",
+  "pk": 4,
+  "fields": {
+    "user": [
+      "new_user"
+    ],
+    "default_phone_number": "9145620119",
+    "default_country": "US",
+    "default_postcode": null,
+    "default_town_or_city": "Fixtion",
+    "default_street_address1": "999 was dsdas",
+    "default_street_address2": "saas sadas",
+    "default_county": "Westchester",
+    "avatar": "avatar.jpg"
+  }
+},
+{
+  "model": "profiles.profile",
+  "pk": 5,
+  "fields": {
+    "user": [
+      "test_user"
+    ],
+    "default_phone_number": null,
+    "default_country": null,
+    "default_postcode": null,
+    "default_town_or_city": null,
+    "default_street_address1": null,
+    "default_street_address2": null,
+    "default_county": null,
+    "avatar": "avatar.jpg"
+  }
+},
+{
+  "model": "artists.artistinfo",
+  "pk": 1,
+  "fields": {
+    "artist": [
+      "admin"
+    ],
+    "artist_twitter_handle": null,
+    "artist_behance_handle": null,
+    "artist_instagram_handle": null,
+    "artist_email": null,
+    "photo": "avatars/alissa.png"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2023-03-01T21:34:37.453Z",
+    "user": [
+      "alissa"
+    ],
+    "content_type": [
+      "shop",
+      "category"
+    ],
+    "object_id": "1",
+    "object_repr": "paint",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2023-03-01T21:34:59.523Z",
+    "user": [
+      "alissa"
+    ],
+    "content_type": [
+      "shop",
+      "category"
+    ],
+    "object_id": "1",
+    "object_repr": "fine-art",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Friendly name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2023-03-01T21:35:05.755Z",
+    "user": [
+      "alissa"
+    ],
+    "content_type": [
+      "shop",
+      "category"
+    ],
+    "object_id": "2",
+    "object_repr": "painting",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2023-03-01T21:37:15.860Z",
+    "user": [
+      "alissa"
+    ],
+    "content_type": [
+      "shop",
+      "category"
+    ],
+    "object_id": "3",
+    "object_repr": "pop art",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2023-03-03T00:36:32.792Z",
+    "user": [
+      "alissa"
+    ],
+    "content_type": [
+      "shop",
+      "category"
+    ],
+    "object_id": "4",
+    "object_repr": "graphic design",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2023-03-03T00:36:46.747Z",
+    "user": [
+      "alissa"
+    ],
+    "content_type": [
+      "shop",
+      "product"
+    ],
+    "object_id": "1",
+    "object_repr": "Buy Me",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2023-03-03T01:26:07.872Z",
+    "user": [
+      "alissa"
+    ],
+    "content_type": [
+      "shop",
+      "category"
+    ],
+    "object_id": "5",
+    "object_repr": "glitch art",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2023-03-03T01:26:16.450Z",
+    "user": [
+      "alissa"
+    ],
+    "content_type": [
+      "shop",
+      "category"
+    ],
+    "object_id": "6",
+    "object_repr": "surrealism",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2023-03-03T01:26:31.158Z",
+    "user": [
+      "alissa"
+    ],
+    "content_type": [
+      "shop",
+      "category"
+    ],
+    "object_id": "7",
+    "object_repr": "photo-painting",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2023-03-03T01:27:04.141Z",
+    "user": [
+      "alissa"
+    ],
+    "content_type": [
+      "shop",
+      "category"
+    ],
+    "object_id": "8",
+    "object_repr": "photography",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2023-04-19T20:42:10.523Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "account",
+      "emailaddress"
+    ],
+    "object_id": "1",
+    "object_repr": "alissatroianonyc@gmail.com",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Verified\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2023-04-19T20:42:19.486Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "account",
+      "emailaddress"
+    ],
+    "object_id": "2",
+    "object_repr": "btech373@gmail.com",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Verified\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2023-04-19T20:42:22.870Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "account",
+      "emailaddress"
+    ],
+    "object_id": "1",
+    "object_repr": "alissatroianonyc@gmail.com",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Primary\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2023-04-22T01:32:22.269Z",
+    "user": [
+      "new_user"
+    ],
+    "content_type": [
+      "artists",
+      "artistinfo"
+    ],
+    "object_id": "1",
+    "object_repr": "admin",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2023-04-22T20:31:09.831Z",
+    "user": [
+      "new_user"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "4",
+    "object_repr": "new_user",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Email address\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2023-04-22T20:32:41.042Z",
+    "user": [
+      "new_user"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "2",
+    "object_repr": "user",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2023-04-22T20:46:23.555Z",
+    "user": [
+      "new_user"
+    ],
+    "content_type": [
+      "account",
+      "emailaddress"
+    ],
+    "object_id": "3",
+    "object_repr": "alissatroiano@outlook.com",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Verified\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2023-04-24T21:33:06.201Z",
+    "user": [
+      "new_user"
+    ],
+    "content_type": [
+      "shop",
+      "product"
+    ],
+    "object_id": "4",
+    "object_repr": "Color Splash",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Sku\", \"Image\", \"Label\", \"User\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2023-04-24T21:34:04.031Z",
+    "user": [
+      "new_user"
+    ],
+    "content_type": [
+      "shop",
+      "product"
+    ],
+    "object_id": "5",
+    "object_repr": "Behind the Curtain",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Sku\", \"Title\", \"Medium\", \"Image\", \"User\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2023-04-24T21:34:57.364Z",
+    "user": [
+      "new_user"
+    ],
+    "content_type": [
+      "shop",
+      "product"
+    ],
+    "object_id": "1",
+    "object_repr": "Drip Drop",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Medium\", \"Image\", \"Category\", \"Parent\", \"Orientation\", \"Label\", \"User\"]}}]"
+  }
+}
+]
