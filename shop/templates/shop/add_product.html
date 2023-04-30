@@ -26,12 +26,18 @@
 		<div class="col-12">
 			<form method='POST' action="{% url 'get_title_suggestions' %}" class="form mb-2" enctype="multipart/form-data">
 				{% csrf_token %}
-
 			<input type="text" name="artwork_description" id="artwork_description">
 			<button type="submit" onsubmit="predict()"">Generate</button>
 		</form>
 <input list="title_suggestions" name="title" id="title_suggestions">
-<datalist></datalist>
+		<datalist id="title-suggestions"><p>
+			<datalist id="title-suggestions">'
+				{% for predictions in query.fetch() %}
+				<option value="{predictions}">
+                    </datalist>
+		</p></datalist>
+{{ predictions }}
+{% endfor %}
 		</div>
 	</div>
 

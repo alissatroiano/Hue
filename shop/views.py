@@ -1,4 +1,6 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import (
+    render, redirect, reverse, get_object_or_404, HttpResponse)
+
 from django.http import JsonResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -18,13 +20,13 @@ from django.shortcuts import render
 mdb_server = mindsdb_sdk.connect(settings.MINDSDB_HOST, settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
 project = mdb_server.get_project('mindsdb')
 
-response = openai.Image.create(
-  prompt="a purple siamese cat cartoon with a yellow background",
-  n=1,
-  size="1024x1024"
-)
-image_url = response['data'][0]['url']
-print(image_url)
+# response = openai.Image.create(
+#   prompt="a purple siamese cat cartoon with a yellow background",
+#   n=1,
+#   size="1024x1024"
+# )
+# image_url = response['data'][0]['url']
+# print(image_url)
 
 def shop_all(request):
     """ A view to show all products, including sorting and search queries """
@@ -148,30 +150,23 @@ def get_title_suggestions(request):
     if request.method == 'POST':
         # Retrieve the artwork description from the POST request
         text = request.POST.get('text')
-
         # Call your MindsDB/ChatGPT model to get the predictions
-        # mdb_server = mindsdb_sdk.connect('https://cloud.mindsdb.com', settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
         project = mdb_server.get_project('mindsdb')
- 
-        query = project.query(f'SELECT * FROM mindsdb.test_openai_art_3 WHERE artwork_description="{text}";')
-        
-        result = query.fetch()['predictions']
-        print(result)
-        predicted_titles = ['Title 1', 'Title 2', 'Title 3']
-
-        # Build the updated form HTML that includes the predicted titles
-        title_suggestions_html = '<datalist id="title-suggestions">'
-        for predicted_title in predicted_titles:
-            title_suggestions_html += f'<option value="{predicted_title}">'
-        title_suggestions_html += '</datalist>'
-
-        # Return the form HTML and a flag indicating whether the form is valid
-        return JsonResponse({
-            'valid': True,
-            'form_html': title_suggestions_html
-        })
-    
-    return redirect(reverse('add_product'))
+        if 'q' in request.GET and request.GET['q']:
+            q = request.GET['q']
+            try:
+                query = project.query(f'SELECT * FROM mindsdb.test_openai_art_3 WHERE artwork_description="{text}";')
+                print(query.fetch()['predictions'])
+                title_suggestions_html = '<datalist id="title-suggestions">'
+                for predictions in query.fetch()['predictions']:
+                    title_suggestions_html += f'<option value="{predictions}">'
+                    return title_suggestions_html + '</datalist>'
+            except:
+                print('No title suggestions found.')
+        else:
+            print('No title suggestions found.')
+    return HttpResponse()
+    # return render(request, 'shop/add_product.html', context)
 
 
 @login_required
