@@ -28,14 +28,10 @@
 				{% csrf_token %}
 			<input type="text" name="text" id="text">
 			<button type="submit" action="{% url 'get_title_suggestions' %}">Generate</button>
-		</form>
+		</form>`
 		<div class="d flex">
-			<datalist id="title-suggestions">
-				{% for predicted_title in predicted_titles %}
-					<option value="{predicted_title}"></option>
-					{% endfor %}
-				</datalist>
-				
+			{{ titles | safe }}
+
 		</div>
 	</div>
 

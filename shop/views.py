@@ -11,20 +11,22 @@ from .forms import ProductForm, ArtworkForm
 # import mindsdb config from settings.py
 from django.conf import settings
 import mindsdb_sdk
-import openai
-import json
+import pandas as pd
+from pandas import DataFrame
+
+
 from django.shortcuts import render
 
 mdb_server = mindsdb_sdk.connect(settings.MINDSDB_HOST, settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
 project = mdb_server.get_project('mindsdb')
 
-response = openai.Image.create(
-  prompt="a purple siamese cat cartoon with a yellow background",
-  n=1,
-  size="1024x1024"
-)
-image_url = response['data'][0]['url']
-print(image_url)
+# response = openai.Image.create(
+#   prompt="a purple siamese cat cartoon with a yellow background",
+#   n=1,
+#   size="1024x1024"
+# )
+# image_url = response['data'][0]['url']
+# print(image_url)
 
 def shop_all(request):
     """ A view to show all products, including sorting and search queries """
@@ -158,18 +160,8 @@ def get_title_suggestions(request):
         predicted_titles = query.fetch()
         print(predicted_titles)
         
-        title_suggestions_html = '<datalist id="title-suggestions">'
-        for predicted_title in predicted_titles:
-            title_suggestions_html += f'<option value="{predicted_title}">'
-        title_suggestions_html += '</datalist>'
-
-        # Return the form HTML and a flag indicating whether the form is valid
-        return JsonResponse({
-            'valid': True,
-            'form_html': title_suggestions_html
-        })
     
-    return redirect(reverse('add_product'), predicted_titles=title_suggestions_html)
+    return redirect(reverse('add_product'))
 
 
 @login_required
