@@ -24,72 +24,48 @@
 			<p class="body-font mx-5">Use this tool to add new products to Hue's online shop!</p>
 		</div>
 		<div class="col-12">
-			<form method='POST' action="{% url 'get_title_suggestions' %}" class="form mb-2"
-				enctype="multipart/form-data">
+			<form method='POST' action="{% url 'get_title_suggestions' %}" class="form mb-2" enctype="multipart/form-data">
 				{% csrf_token %}
-				<input type="text" name="artwork_description" id="artwork_description">
-				<button type="submit" onsubmit="predict()"">Generate</button>
+			<input type="text" name="text" id="text">
+			<button type="submit" action="{% url 'get_title_suggestions' %}">Generate</button>
 		</form>
-<input list=" title_suggestions" name="title" id="title_suggestions">
-					<datalist id="title-suggestions">
-						<p>
-							<datalist id="title-suggestions">'
-								{% for predictions in query.predictions %}
-								<option value="{prediction}">
-							</datalist>
-						</p>
-					</datalist>
+		<div class="d flex">
+			<datalist id="title-suggestions">
+				{% for predicted_title in predicted_titles %}
+					<option value="{predicted_title}"></option>
 					{% endfor %}
+				</datalist>
+				
 		</div>
 	</div>
 
 
-	<div class="col-12 text-center">
-		<h6>
-			<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-				aria-expanded="false" aria-controls="collapseExample">
-				New!
-			</button>
-		</h6>
 	</div>
-	<div class="collapse row text-center justify-content-center" id="collapseExample">
-		<div class="col-md-8">
-			<form method="POST" class="form mb-2">
-				<label for="artworkDescription" class="visually-hidden">Describe your artwork here</label>
-				<input type="text" class="form-control" id="artworkDescription"
-					placeholder="Describe your artwork & find the perfect title">
+	<div class="row d-flex justify-content-center">
+		<div class="col-md-8 justify-content-center">
+			<div class="card p-5 my-0 mx-auto bg-main text-light body-font">
+				<form method="POST" action="{% url 'add_product' %}" class="form mb-2" enctype="multipart/form-data">
+					{% csrf_token %}
+					{% for field in form %}
+						{% if field.name == 'image' %}
+						  {{ field }}
+						{% else %}
+						  {{ field | as_crispy_field }}
+						{% endif %}
+					{% endfor %}
+					<div class="text-right">
+						<button>
+							<a class="btn btn-dark rounded-0" href="{% url 'shop' %}">Cancel</a>
+							</button>
+						<button class="btn btn-dark rounded-0" type="submit">Add Product</button>
+					</div>
+				</form>
+			</div>
+			<div class="col-md-2"></div>
 		</div>
-		<div class="col-md-4">
-			<button type="submit" class="btn btn-primary mb-3">Generate</button>
-		</div>
-	</div>
-</div>
-</div>
-<div class="row d-flex justify-content-center">
-	<div class="col-md-8 justify-content-center">
-		<div class="card p-5 my-0 mx-auto bg-main text-light body-font">
-			<form method="POST" action="{% url 'add_product' %}" class="form mb-2" enctype="multipart/form-data">
-				{% csrf_token %}
-				{% for field in form %}
-				{% if field.name == 'image' %}
-				{{ field }}
-				{% else %}
-				{{ field | as_crispy_field }}
-				{% endif %}
-				{% endfor %}
-				<div class="text-right">
-					<button>
-						<a class="btn btn-dark rounded-0" href="{% url 'shop' %}">Cancel</a>
-					</button>
-					<button class="btn btn-dark rounded-0" type="submit">Add Product</button>
-				</div>
-			</form>
-		</div>
-		<div class="col-md-2"></div>
-	</div>
 
 
-</div>
+	</div>
 </div>
 {% endblock %}
 
@@ -104,22 +80,23 @@
 	});
 </script>
 <script type="text/javascript">
-	function predict() {
-		const text = document.getElementById('artwork_description').value;
-		const url = `/predict/?text=${encodeURIComponent(text)}`;
-		fetch(url)
-			.then(response => response.json())
-			.then(data => {
-				const predictions = data.predictions;
-				const datalist = document.getElementById('title_suggestions');
-				datalist.innerHTML = '';
-				predictions.forEach(prediction => {
-					const option = document.createElement('option');
-					option.value = prediction;
-					datalist.appendChild(option);
-				});
-			})
-			.catch(error => console.error(error));
-	}
+function predict() {
+    const text = document.getElementById('artwork_description').value;
+    const url = `/predict/?text=${encodeURIComponent(text)}`;
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            const predictions = data.predictions;
+            const datalist = document.getElementById('title_suggestions');
+            datalist.innerHTML = '';
+            predictions.forEach(prediction => {
+                const option = document.createElement('option');
+                option.value = prediction;
+                datalist.appendChild(option);
+            });
+        })
+        .catch(error => console.error(error));
+}
 </script>
 {% endblock %}
+
