@@ -148,6 +148,7 @@ def add_product(request):
 @login_required
 def get_title_suggestions(request):
     form = ArtworkForm()
+    predicted_titles = []
     if request.method == 'POST':
         # Retrieve the artwork description from the POST request
         text = request.POST.get('text')
@@ -157,11 +158,9 @@ def get_title_suggestions(request):
         project = mdb_server.get_project('open_ai')
         query = project.query(f'SELECT * FROM open_ai.art WHERE artwork_description="{text}";')
 
-        predicted_titles = query.fetch()
-        print(predicted_titles)
-        
+        predicted_titles = query.fetch().to_dict(orient='records')
     
-    return redirect(reverse('add_product'))
+    return render(request, 'shop/get_title_suggestions.html', {'predicted_titles': predicted_titles})
 
 
 @login_required
