@@ -158,7 +158,7 @@ def get_title_suggestions(request):
         project = mdb_server.get_project('open_ai')
         query = project.query(f'SELECT * FROM open_ai.art WHERE artwork_description="{text}";')
 
-        predicted_titles = query.fetch().to_dict(orient='records')
+        predicted_titles = DataFrame.to_dict(query.fetch(), orient='records')
     
     return render(request, 'shop/get_title_suggestions.html', {'predicted_titles': predicted_titles})
 
