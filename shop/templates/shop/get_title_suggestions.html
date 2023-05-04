@@ -56,16 +56,17 @@
 
 	</div>
 	</div>
-	<div class="row d-flex justify-content-center">
-		<div class="col-12">
-		<div class="d-flex justify-content-center">
-			<div class="btn btn-main">
+	<div class="row d-flex justify-content-between text-center align-items-center">
+		<div class="col-12 col-sm-6">
 				<a class="btn btn-primary" href="{% url 'add_product' %}">
 					<i class="fas fa-chevron-left"></i>
 					Add Product</a>
-			</div>
 		</div>
+		<div class="col-12 col-sm-6">
+				<a class="btn btn-primary" href="{% url 'add_product' %}">
+					Back to Shop
+					<i class="fas fa-chevron-right"></i>
+				</a>
 		</div>
-	</div>
 	</div>
 {% endblock %}
