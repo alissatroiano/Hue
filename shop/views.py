@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.http import JsonResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
@@ -6,10 +7,26 @@ from django.db.models import Q
 from django.db.models.functions import Lower
 
 from .models import Product, Category
-from .forms import ProductForm
+from .forms import ProductForm, ArtworkForm
+# import mindsdb config from settings.py
+from django.conf import settings
+import mindsdb_sdk
+import pandas as pd
+from pandas import DataFrame
 
-# Create your views here.
 
+from django.shortcuts import render
+
+mdb_server = mindsdb_sdk.connect(settings.MINDSDB_HOST, settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
+project = mdb_server.get_project('mindsdb')
+
+# response = openai.Image.create(
+#   prompt="a purple siamese cat cartoon with a yellow background",
+#   n=1,
+#   size="1024x1024"
+# )
+# image_url = response['data'][0]['url']
+# print(image_url)
 
 def shop_all(request):
     """ A view to show all products, including sorting and search queries """
@@ -17,6 +34,7 @@ def shop_all(request):
     products = Product.objects.all()
     query = None
     categories = None
+    current_sorting = None
     parents = None
     labels = None
     orientations = None
@@ -29,9 +47,8 @@ def shop_all(request):
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
             sort = sortkey
-            if sortkey == 'title':
-                sortkey = 'lower_title'
-                products = products.annotate(lower_title=Lower('title'))
+            sortkey = 'lower_title'
+            products = products.annotate(lower_title=Lower('title'))
             if sortkey == 'category':
                 sortkey = 'category__title'
             if sortkey == 'parent':
@@ -41,6 +58,9 @@ def shop_all(request):
                 direction = request.GET['direction']
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
+                else:
+                    sortkey = f'{sortkey}'
+            current_sorting = f'{sort}_{direction}'
             products = products.order_by(sortkey)
 
         if 'category' in request.GET:
@@ -76,8 +96,6 @@ def shop_all(request):
                 category__title__icontains=query) | Q(parent__title__icontains=query) | Q(medium__icontains=query)
             products = products.filter(queries)
 
-    current_sorting = f'{sort}_{direction}'
-
     context = {
         'products': products,
         'search_term': query,
@@ -106,16 +124,12 @@ def product_detail(request, product_id):
 @login_required
 def add_product(request):
     """ A view so shop manager can add new products """
-    if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
-        return redirect(reverse('shop'))
-
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully added product!')
-            return redirect(reverse('add_product'))
+            return redirect(reverse('shop'))
         else:
             messages.error(request,
                            ('Failed to add product. '
@@ -129,6 +143,24 @@ def add_product(request):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def get_title_suggestions(request):
+    form = ArtworkForm()
+    predicted_titles = []
+    if request.method == 'POST':
+        # Retrieve the artwork description from the POST request
+        text = request.POST.get('text')
+
+        # Call your MindsDB/ChatGPT model to get the predictions
+        mdb_server = mindsdb_sdk.connect('https://cloud.mindsdb.com', settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
+        project = mdb_server.get_project('open_ai')
+        query = project.query(f'SELECT * FROM open_ai.art WHERE artwork_description="{text}";')
+
+        predicted_titles = DataFrame.to_dict(query.fetch(), orient='records')
+    
+    return render(request, 'shop/get_title_suggestions.html', {'predicted_titles': predicted_titles})
 
 
 @login_required

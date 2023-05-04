@@ -170,6 +170,14 @@ USE_L10N = True
 USE_TZ = True
 TIME_ZONE = 'UTC'
 
+# MINDSDB CREDENTIALS DEFINED HERE
+MINDSDB_EMAIL = os.environ.get('MINDSDB_EMAIL', '')
+MINDSDB_PASSWORD = os.environ.get('MINDSDB_PASSWORD', '')
+MINDSDB_HOST = os.environ.get('MINDSDB_HOST', '')
+OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY', '')
+MINDSDB_SERVER = os.environ.get('MDB_SERVER', '')
+MINDSDB_PROJECT = os.environ.get('MINDBS_PROJECT', '')
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))

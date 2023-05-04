@@ -29,3 +29,9 @@ class ProductForm(forms.ModelForm):
                 field.widget.attrs['required'] = False
             else:
                 field.widget.attrs['required'] = True
+
+
+class ArtworkForm(forms.Form):
+    description = forms.CharField(label='Describe your artwork', widget=forms.Textarea)
+    artwork_description = forms.CharField(label='Artwork Description', widget=forms.Textarea)
+    predicted_titles = forms.JSONField(label='Predicted Titles', widget=forms.HiddenInput, required=False)
