@@ -41,7 +41,7 @@
                     <i class="bi ms-2 me-2 fas fa-tint"></i>
                     Hue
                 </a>
-            </div>
+             </div>
             <div class="col-12 col-lg-auto my-0 mx-auto py-1 py-lg-0 float-end">
                 <form method="GET" action="{% url 'shop' %}">
                     <div class="input-group w-100">
@@ -112,6 +112,16 @@
                                 <p class="my-0">
                                     {% if grand_total %} ${{ grand_total|floatformat:2 }} {% else %} $0.00 {% endif %}
                                 </p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a class="nav-link {% if grand_total %} text-info {% else %}{% endif %}"
+                            href="{% url 'get_title_suggestions' %}">
+                            <div class="text-center">
+                                <div>
+                                    <i class="bi d-block mx-auto mb-1 fas fa-robot"></i>HUGO
+                                </div>
                             </div>
                         </a>
                     </li>

@@ -159,6 +159,47 @@ a {
     font-size: 12px;
 }
 
+
+/* CTA Button copied from (http://www.matrebel.co.uk/) */
+a.cta_button, a.cta_button:active {
+    position: absolute;
+    top: 1.5rem;
+    right: 6rem;
+    background: #011826;
+    width: 5.2rem;
+    height: 5.2rem;
+    border-radius: 50%;
+    font-family: 'Futura-PT', sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    text-align: center;
+    -webkit-transform: rotate(-7deg);
+    -ms-transform: rotate(-7deg);
+    transform: rotate(-7deg);
+    color: #fafafa;
+    z-index: 1;
+    border: none;
+    outline: none;
+    -webkit-animation: fadein 2.5s ease-in;
+    animation: fadein 2.5s ease-in;
+    padding-top: 29px;
+    padding-left: 5px;
+    padding-right: 5px;
+    letter-spacing: 1px;
+}
+  
+  a.cta_button:hover {
+    cursor: pointer;
+    -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+            transform: scale(1.05);
+    background: #69A8A9;
+    color: #fafafa;
+}
+    /* end cta button */
+/* end header */
+
+
 .fc-main {
     color: rgb(170 151 204);
 }
@@ -957,6 +998,57 @@ main {
 }
 
 /* pad the top a bit when navbar is collapsed on mobile */
+@media only screen and (max-width: 575px) {
+    a.cta_button, a.cta_button:active {
+        display: inline-block;
+        padding-left: .5rem;
+        position: absolute;
+        top: 2rem;
+        right: 5rem;
+        background: #011826;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        font-family: 'Futura-PT', sans-serif;
+        font-size: 12px;
+        text-transform: uppercase;
+        transform: rotate(-7deg);
+        color: #fafafa;
+        margin: 0 auto;
+        border: none;
+        outline: none;
+        animation: fadein 2.5s ease-in;
+        vertical-align: middle;
+        text-align: center;
+        margin-bottom: 2rem;
+        padding-top: 22px;
+    } .cta_button:hover {
+        display: inline-block;
+        padding-left: .5rem;
+        position: absolute;
+        top: 2rem;
+        right: 5rem;
+        background: #011826;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        font-family: 'Futura-PT', sans-serif;
+        font-size: 12px;
+        text-transform: uppercase;
+        transform: rotate(-7deg);
+        margin: 0 auto;
+        border: none;
+        outline: none;
+        animation: fadein 2.5s ease-in;
+        vertical-align: middle;
+        text-align: center;
+        margin-bottom: 2rem;
+        padding-top: 22px;
+        background: #69A8A9;
+        color: #fafafa;
+    } 
+}
+
 @media (max-width: 991px) {
     .header-container {
         padding-top: 116px;
