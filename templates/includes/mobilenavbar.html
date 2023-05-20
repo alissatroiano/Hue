@@ -53,6 +53,16 @@
         </div>
     </li>
     <!--./search-bar-ends-->
+    <!--Hugo-->
+            <li class="list-item">
+            <a class="nav-link d-block d-lg-none">
+                <div class="text-center">
+                    <div>
+                        <i class="bi d-block mx-auto mb-1 fas fa-robot"></i>HUGO
+                    </div>
+                </div>
+            </a>
+        </li>
     <!--account-options-start-here-->
     <li class="list-item dropdown d-lg-none">
         <a class="nav-link btn d-lg-none me-auto float-none" href="" role="button" id="mobileAccountOptions"
@@ -69,9 +79,11 @@
             <li class="dropdown-item display-font">
                 <a href="{% url 'add_product' %}" class="dropdown-item">Shop Management</a>
             </li>
+            
             <li class="dropdown-item display-font">
                 <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
             </li>
+      
             {% else %}
             <li>
                 <a class="dropdown-item display-font" href="{% url 'account_signup' %}">Sign Up</a>
@@ -81,9 +93,10 @@
             </li>
             {% endif %}
         </ul>
+
     </li>
     <!--./account-options-end-here-->
-    <li class="list-inline-item">
+    <li class="list-item">
         <a class="nav-link d-block d-lg-none" href="{% url 'view_cart' %}">
             <div class="text-center">
                 <div><i class="fas fa-shopping-cart fa-lg"></i></div>
