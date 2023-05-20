@@ -46,34 +46,6 @@
                             </select>
                         </div>
         </div>
-        <div class="col-auto d-lg-none">
-            <div class="dropdown">
-                <button class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    Filters
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a href="{% url 'shop' %}" class="dropdown-item display-font">All Products</a></li>
-                    <li><a href="{% url 'shop' %}?category=glitch-art&direction=asc" class="dropdown-item display-font">Glitch
-                            Art</a></li>
-                    <li>
-                        <a href="{% url 'shop' %}?category=surrealism&direction=asc"
-                            class="dropdown-item display-font">Surrealism</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'shop' %}?category=illustrations&direction=asc"
-                            class="dropdown-item display-font">Illustrations</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'shop' %}?category=photo-paintings&direction=asc"
-                            class="dropdown-item display-font">Photo-Paintings</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'shop' %}?category=popart&direction=asc" class="dropdown-item display-font">Pop Art</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
         <div class="col-auto justify-content-lg-end display-font">
             <p class="text-muted text-center text-md-end">
                 {% if search_term or current_categories or current_sorting == 'None_None' %}
@@ -205,12 +177,6 @@
                 window.location.replace(currentUrl);
             }
         })
-    </script>
-    <script>
-        let styleSelector = document.getElementById('sort-selector');
-        styleSelector.style.backgroundColor = 'rgb(170, 151, 204)';
-        styleSelector.style.fontFamily = 'Oswald';
-        
     </script>
 
 {% endblock %}
