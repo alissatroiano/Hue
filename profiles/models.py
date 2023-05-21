@@ -24,7 +24,6 @@ class Profile(models.Model):
         max_length=80, null=True, blank=True)
     default_county = models.CharField(max_length=80, null=True, blank=True)
     avatar = models.ImageField(upload_to='avatars', default="avatar.jpg")
-    artwork = models.ImageField(upload_to='artworks', blank=True, null=True)
 
     def create_default_avatar(self):
         if not self.avatar_set.all():

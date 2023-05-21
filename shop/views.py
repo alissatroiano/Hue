@@ -21,13 +21,13 @@ from django.shortcuts import render
 mdb_server = mindsdb_sdk.connect(settings.MINDSDB_HOST, settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
 project = mdb_server.get_project('mindsdb')
 
-response = openai.Image.create(
-  prompt="a purple siamese cat cartoon with a yellow background",
-  n=1,
-  size="1024x1024"
-)
-image_url = response['data'][0]['url']
-print(image_url)
+# response = openai.Image.create(
+#   prompt="a purple siamese cat cartoon with a yellow background",
+#   n=1,
+#   size="1024x1024"
+# )
+# image_url = response['data'][0]['url']
+# print(image_url)
 
 def shop_all(request):
     """ A view to show all products, including sorting and search queries """

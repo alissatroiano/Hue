@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
     "profiles",
     "artists",
+    "hugo",
 ]
 
 CURRENCY = '$'  # Default currency is US Dollar
