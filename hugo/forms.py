@@ -1,2 +1,7 @@
 from django import forms
-from .models import userArtwork
+from .models import Hugo
+
+class HugoForm(forms.ModelForm):
+    class Meta:
+        model = Hugo
+        fields = ['artwork_description']

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_header %}
+<div class="header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+{% block content %}
+
+<div class="row">
+    <div class="col-12">
+  <h2>Add Hugo</h2>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+  <form method="POST" enctype="multipart/form-data" action="{% url 'add_hugo' %}" >
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="text" name="artwork_description" id="artwork_description">
+    <button type="submit" action="{% url 'add_hugo' %}">Generate</button>
+</form>
+  </div>
+  </div>
+
+
+<div class="row">
+    {% for hugo in hugos %}
+    <div class="col-xs-8 col-sm-4">
+    <img src="{{ image_url }}" alt="Artwork" class="img-fluid">
+</div>
+    {% endfor %}
+</div>
+
+{% endblock %}

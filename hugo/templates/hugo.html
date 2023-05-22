@@ -9,9 +9,22 @@
 {% endblock %}
 {% block content %}
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 mt-4 mt-sm-5 pt-3 pt-sm-5 text-center">
+            <i class="fas fa-robot fa-2x my-3"></i>  
 <h1>Hugo</h1>
-
-<img src="{{ image_url }}" alt="Artwork" class="img-fluid">
-
+</div>
+</div>
+<div class="row">
+    {% if hugo %}
+    {% for hugo in hugos %}
+    <div class="col-xs-8 col-sm-4">
+    <img src="{{ image_url }}" alt="Artwork" class="img-fluid">
+</div>
+    {% endfor %}
+{% endif %}
+</div>
+</div>
 
 {% endblock %}
