@@ -1,5 +1,5 @@
 import os
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .forms import HugoForm
 from .models import Hugo
@@ -16,9 +16,15 @@ def hugo(request):
     """ A view to show all a user's hugos """
 
     hugos = Hugo.objects.all()
+    image_url = None
+
+    if request.GET:
+        hugos = hugos.order_by('-created_at')
+        image_url = request.GET['image_url']
 
     context = {
         'hugos': hugos,
+        'image_url': image_url,
     }
 
     return render(request, 'hugo.html', context)
@@ -27,24 +33,33 @@ def hugo(request):
 @login_required
 def add_hugo(request):
     form = HugoForm()
-    files = os.listdir('artworks')
-    full_path = [os.path.join('artworks', i) for i in files]
-    hugo = Hugo.objects.all()
     artwork = []
     if request.method == 'POST':
-        form = HugoForm(request.POST)
-        artwork_description = request.POST.get('artwork_description')
+        text = request.POST.get('artwork_description')
+        response = openai.Image.create(
+            prompt=text,
+            n=1,
+            size="1024x1024"
+        )
+        artwork = response['data'][0]['url']
+        print(artwork)
+        form = HugoForm(request.POST, request.FILES)
         if form.is_valid():
-            artwork_description = request.POST.get('artwork_description')
-            response = openai.Image.create(
-                prompt=artwork_description,
-                n=1,
-                size="1024x1024"
+            hugo = Hugo.objects.create(
+                name=request.POST.get('name'),
+                user=request.user,
+                artwork_description=request.POST.get('artwork_description'),
+                artwork=request.POST.get('artwork'),
+                image_url=artwork,
+                titles=request.POST.get('titles'),
+                predicted_titles=request.POST.get('predicted_titles'),
             )
-            image_url = response['data'][0]['url']
-            print(image_url)
+            hugo.user = request.user
+            hugo.save()
+            messages.success(request, 'Successfully added Hugo!')
+            return redirect('add_hugo')
 
-    return render(request, 'add_hugo.html', {'form': form})
+    return render(request, 'add_hugo.html', {'form': form, 'artwork': artwork})
 
 
 # @login_required

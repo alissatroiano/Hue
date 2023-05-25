@@ -17,13 +17,18 @@
   </div>
   <div class="row text-center justify-content-center d-flex">
     <div class="col-12 mt-3 py-3">
+      {% if request.user %}
   <form class="col-12" method="POST" enctype="multipart/form-data" action="{% url 'add_hugo' %}" >
     {% csrf_token %}
+    {% for field in form %}
+						  {{ field | as_crispy_field }}
+					{% endfor %}
     <input class="col-10" type="text" name="artwork_description" id="artwork_description">
     <div class="my-3">
     <button class="btn btn-primary" type="submit" action="{% url 'add_hugo' %}">Generate</button>
     </div>
 </form>
+{% endif %}
   </div>
   </div>
   <div class="row">

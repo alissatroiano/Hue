@@ -11,4 +11,4 @@ class userArtworkAdmin(admin.ModelAdmin):
 
 @admin.register(Hugo)
 class HugoAdmin(admin.ModelAdmin):
-    fields = ('name', 'user', 'artwork_description', 'artwork', 'titles', 'predicted_titles')
+    fields = ('name', 'user', 'artwork_description', 'artwork', 'image_url', 'genArt', 'titles', 'predicted_titles')

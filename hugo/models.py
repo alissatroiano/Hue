@@ -18,8 +18,15 @@ class Hugo(models.Model):
     name = models.CharField(max_length=254, default='')
     artwork_description = models.TextField(blank=True)
     artwork = models.ImageField(upload_to='artworks', blank=True, null=True)
+    genArt = models.ImageField(upload_to='artworks', default="banana.png")
     titles = models.TextField(blank=True)
     predicted_titles = models.JSONField(blank=True, null=True)
+    image_url = models.URLField(max_length=1024, null=True, blank=True)
+    class Meta:
+            verbose_name_plural = 'Hugos'
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
 
     def __str__(self):
-        return self.artwork.name
+        return self.name
