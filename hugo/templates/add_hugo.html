@@ -10,20 +10,32 @@
 {% block content %}
 
 <div class="row">
-    <div class="col-12">
-  <h2>Add Hugo</h2>
+    <div class="col-12 mt-3 mt-sm-5 py-3 text-center">
+<i class="fas fa-robot fa-3x my-3"></i>
+  <h2 class="display-font display-2">Add Hugo</h2>
   </div>
   </div>
-  <div class="row">
-    <div class="col-12">
-  <form method="POST" enctype="multipart/form-data" action="{% url 'add_hugo' %}" >
+  <div class="row text-center justify-content-center d-flex">
+    <div class="col-12 mt-3 py-3">
+  <form class="col-12" method="POST" enctype="multipart/form-data" action="{% url 'add_hugo' %}" >
     {% csrf_token %}
-    <input type="text" name="artwork_description" id="artwork_description">
-    <button type="submit" action="{% url 'add_hugo' %}">Generate</button>
+    <input class="col-10" type="text" name="artwork_description" id="artwork_description">
+    <div class="my-3">
+    <a class="btn btn-primary" type="submit" action="{% url 'add_hugo' %}">Generate</a>
+    </div>
 </form>
   </div>
   </div>
+  <div class="row">
 
+    {% if artwork_description %} 
+        {% if image_url %}
+    <div class="col-xs-8 col-sm-4">
     <img src="{{ image_url }}" alt="Artwork" class="img-fluid">
+</div>
+{{ artwork_description }}
+{% endif %}
+{% endif %}
+</div>
 
 {% endblock %}
