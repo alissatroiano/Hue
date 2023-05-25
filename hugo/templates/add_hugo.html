@@ -18,20 +18,12 @@
     <div class="col-12">
   <form method="POST" enctype="multipart/form-data" action="{% url 'add_hugo' %}" >
     {% csrf_token %}
-    {{ form.as_p }}
     <input type="text" name="artwork_description" id="artwork_description">
     <button type="submit" action="{% url 'add_hugo' %}">Generate</button>
 </form>
   </div>
   </div>
 
-
-<div class="row">
-    {% for hugo in hugos %}
-    <div class="col-xs-8 col-sm-4">
     <img src="{{ image_url }}" alt="Artwork" class="img-fluid">
-</div>
-    {% endfor %}
-</div>
 
 {% endblock %}

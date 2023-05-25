@@ -6,6 +6,7 @@ from .models import Hugo
 import openai
 # import mindsdb config from settings.py
 from django.conf import settings
+from django.contrib import messages
 # import mindsdb_sdk
 import pandas as pd
 from pandas import DataFrame
@@ -28,7 +29,7 @@ def add_hugo(request):
     form = HugoForm()
     files = os.listdir('artworks')
     full_path = [os.path.join('artworks', i) for i in files]
-    hugo = Hugo()
+    hugo = Hugo.objects.all()
     artwork = []
     if request.method == 'POST':
         form = HugoForm(request.POST)
@@ -41,24 +42,7 @@ def add_hugo(request):
                 size="1024x1024"
             )
             image_url = response['data'][0]['url']
-            Hugo.artwork.append(image_url)
-            print(image_url)
-            for img in files:
-                imgpath = full_path + "/" + img
-                with open(imgpath, 'rb') as f:
-                    artwork.append(f.read())
-            hugo = form.save(commit=False)
-            hugo.user = request.user
-            hugo.artwork_description = artwork_description
-            hugo.artwork = artwork
-            hugo.save()
-
-        else:
-            messages.error(request, 'Failed to add hugo. Please ensure the form is valid.')
-        
-        return redirect('hugo')
-    else:
-        form = HugoForm()
+            return image_url
 
     return render(request, 'add_hugo.html', {'form': form})
 
