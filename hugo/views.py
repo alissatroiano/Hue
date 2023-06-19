@@ -4,17 +4,17 @@ from django.contrib.auth.decorators import login_required
 from .forms import HugoForm
 from .models import Hugo
 import openai
-# import mindsdb config from settings.py
 from django.conf import settings
 from django.contrib import messages
-# import mindsdb_sdk
+import mindsdb_sdk
 import pandas as pd
 from pandas import DataFrame
+email = os.environ["MINDSDB_EMAIL"]
+password = os.environ["MINDSDB_PASSWORD"]
 
 
 def hugo(request):
     """ A view to show all a user's hugos """
-
     hugos = Hugo.objects.all()
     image_url = None
 
@@ -35,32 +35,17 @@ def add_hugo(request):
     form = HugoForm()
     artwork = []
     if request.method == 'POST':
+        # Retrieve the artwork description from the POST request
         text = request.POST.get('artwork_description')
-        response = openai.Image.create(
-            prompt=text,
-            n=1,
-            size="1024x1024"
-        )
-        artwork = response['data'][0]['url']
+
+        # Call your MindsDB/ChatGPT model to get the predictions
+        mdb_server = mindsdb_sdk.connect('https://cloud.mindsdb.com', settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
+        project = mdb_server.get_project('open_ai')
+        query = project.query(f'SELECT * FROM open_ai.art_model WHERE text="{text}";')
+        print(query.fetch())
+        artwork = DataFrame.to_dict(query.fetch(), orient='records')
         print(artwork)
-        form = HugoForm(request.POST, request.FILES)
-        if form.is_valid():
-            hugo = Hugo.objects.create(
-                name=request.POST.get('name'),
-                user=request.user,
-                artwork_description=request.POST.get('artwork_description'),
-                artwork=request.POST.get('artwork'),
-                image_url=artwork,
-                titles=request.POST.get('titles'),
-                predicted_titles=request.POST.get('predicted_titles'),
-            )
-            hugo.user = request.user
-            hugo.save()
-            messages.success(request, 'Successfully added Hugo!')
-            return redirect('add_hugo')
-
     return render(request, 'add_hugo.html', {'form': form, 'artwork': artwork})
-
 
 # @login_required
 # def get_title_suggestions(request):
