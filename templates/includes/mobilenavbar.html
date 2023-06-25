@@ -54,15 +54,25 @@
     </li>
     <!--./search-bar-ends-->
     <!--Hugo-->
+    <li class="list-item dropdown text-light bg-dark">
+        <a class="dropdown-toggle nav-link display-font" href="{% url 'hugo' %}" role="button"
+            id="hugoOptions" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi d-block mx-auto text-center mb-1 fas fa-robot">
+            </i> Hugo
+        </a>
+        <!--account-dropdown-starts-here-->
+        <ul class="dropdown-menu display-font" aria-labelledby="hugoOptions">
             <li class="list-item">
-            <a class="nav-link d-block d-lg-none" href="{% url 'hugo' %}">
-                <div class="text-center">
-                    <div>
-                        <i class="bi d-block mx-auto mb-1 fas fa-robot"></i>HUGO
-                    </div>
-                </div>
-            </a>
-        </li>
+                <a href="{% url 'hugo' %}" class="dropdown-item">Profile</a>
+            </li>
+            <li class="list-item">
+                <a href="{% url 'add_hugo' %}" class="dropdown-item">Create Artwork</a>
+            </li>
+            <li class="list-item"> <a href="{% url 'get_title_suggestions' %}" class="dropdown-item">Title Generator</a>
+            </li>
+        </ul>
+      
+    </li>
     <!--account-options-start-here-->
     <li class="list-item dropdown d-lg-none">
         <a class="nav-link btn d-lg-none me-auto float-none" href="" role="button" id="mobileAccountOptions"
