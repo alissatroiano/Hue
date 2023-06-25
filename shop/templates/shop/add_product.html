@@ -23,43 +23,6 @@
 			<hr class="my-2">
 			<p class="body-font mx-5">Use this tool to add new products to Hue's online shop!</p>
 		</div>
-
-		<div class="col-12">
-		<button class="btn btn-primary my-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
-			New!
-		<span class="body-small">Use AI to title your work!</span>
-		</button>
-
-		<div class="collapse collapse-horizontal" id="collapseWidthExample">
-			<form method='POST' action="{% url 'get_title_suggestions' %}" class="form mb-2" enctype="multipart/form-data">
-				{% csrf_token %}
-				<input type="text" name="text" id="text">
-				<button type="submit" action="{% url 'get_title_suggestions' %}">Generate</button>
-			</form>
-			{% if predicted_titles %}
-    <div class="d-flex">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for product in predicted_titles %}
-                <tr>
-                    <td>{{ product.title }}</td>
-                    <td>{{ product.artwork_description }}</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    </div>
-{% endif %}
-
-		
-	</div>
-</div>
 	</div>
 	</div>
 
@@ -91,8 +54,6 @@
 	</div>
 </div>
 {% endblock %}
-
-
 
 {% block postloadjs %}
 {{ block.super }}
