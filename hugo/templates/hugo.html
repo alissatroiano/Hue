@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'hugo/css/style.css' %}">
+{% endblock %}
+
 {% block page_header %}
 <div class="header-container">
     <div class="row">
@@ -9,13 +14,15 @@
 {% endblock %}
 {% block content %}
 
-<div class="container-fluid">
+<div class="container">
     <div class="row">
         <div class="col-12 mt-4 mt-sm-5 pt-3 pt-sm-5 text-center">
             <i class="fas fa-robot fa-2x my-3"></i>  
-<h1 class="display-font">Hugo</h1>
+<h1 class="display-font">Community Collection</h1>
+<h4 class="body-font my-3">Artwork created with <strong>Hugo</strong>, Hue's AI Tool</h4>
+        </div>
 </div>
-
+<!-- 
 <div class="row mt-3 py-3 d-flex justify-content-around align-items-center text-center">
     <div class="col-12 col-sm-6">
         <a class="btn btn-primary" href="{% url 'add_hugo' %}">Create Art</a>
@@ -23,18 +30,33 @@
     <div class="col-12 col-sm-6">
         <a class="btn btn-primary" href="{% url 'get_title_suggestions' %}">Name Art</a>
     </div>
-</div>
+</div> -->
 
-
+<div class="text-center align-items-center">
+<hr>
 </div>
-<div class="row g-4 p-3">
-    <div class="col-xs-8 col-sm-4">
-        <img src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-8DejguCpnvm8EsVXB76F5GJe/user-AkL4Fu608DkzB7IcfnSzPqgA/img-YZ1nWwjA1MRhFOKujjH2cCoH.png?st=2023-05-25T12%3A20%3A05Z&se=2023-05-25T14%3A20%3A05Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-05-25T01%3A46%3A10Z&ske=2023-05-26T01%3A46%3A10Z&sks=b&skv=2021-08-06&sig=IzP%2B3wzp7hwOsSKpIO9Bcu2buoW5BSTMxbtG0SFfHys%3D" alt="Artwork" class="img-fluid">
+</div> 
+
+<div class="container my-4 p-3">
+<div class="row g-4" data-masonry='{"percentPosition": true }' >
+    {% for artwork in artworks %}
+    <div class="col-xs-8 col-sm-4 mb-4">
+        <div class="card border-0" id="artwork-card">
+            {% if artwork.image %}
+            <img class="img-fluid" src="{{ artwork.image.url }}" alt="Card image cap">
+            {% endif %}
+           <div class="card-footer">
+            <h6 class="display-font"> {{ artwork.title }}</h6>
+            <p class="body-font"> by {{ artwork.user }}</p>
+           </div>
+            </div>
+        </div>
+        {% endfor %}
+
     </div>
-    <div class="col-xs-8 col-sm-4">
-        <img src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-8DejguCpnvm8EsVXB76F5GJe/user-AkL4Fu608DkzB7IcfnSzPqgA/img-40jGb3h9nX0HO7menpeQLuJ8.png?st=2023-05-25T12%3A22%3A54Z&se=2023-05-25T14%3A22%3A54Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-05-25T07%3A02%3A50Z&ske=2023-05-26T07%3A02%3A50Z&sks=b&skv=2021-08-06&sig=4if5vb7aOgNFDj37s3wnfA7b/f7eoVHbwZPy5lkCJGg%3D" alt="Artwork" class="img-fluid">
-    </div>
 </div>
-</div>
+{% endblock %}
 
+{% block postloadjs %}
+<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
 {% endblock %}

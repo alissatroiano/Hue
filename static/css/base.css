@@ -927,10 +927,7 @@ main {
     animation: 12s .5s infinite ease-out;
 }
 
-
 /* *************************** Media Queries */
-
-
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
     #main-nav {
