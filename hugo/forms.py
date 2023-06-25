@@ -1,10 +1,10 @@
 from django import forms
-from .models import Hugo
+from .models import Hugo, Artwork
 
-class HugoForm(forms.ModelForm):
+class ArtworkForm(forms.ModelForm):
     class Meta:
-        model = Hugo
-        fields = ['artwork_description', 'name']
+        model = Artwork
+        fields = ['artwork_description', 'title']
 
     def __init__(self, *args, **kwargs):
             """
