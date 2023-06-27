@@ -1,0 +1,82 @@
+.order-history {
+    max-height: 416px; /* height of profile form + submit button */
+    overflow-y: auto;
+}
+
+#update-profile-form .form-control {
+    color: #100324;
+}
+
+#update-profile-form input::placeholder {
+    color: #a9b7c4;
+}
+
+#id_default_country,
+#id_default_country option:not(:first-child) {
+    color: #100324;
+}
+
+#id_default_country option:first-child {
+    color: #a9b7c4;
+}
+
+.accordion-header.collapsed {
+    -webkit-transition: 0.25s ease-in-out;
+    -moz-transition: 0.25s ease-in-out;
+    transition: 0.25s ease-in-out;
+    font-family: 'Oswald', sans-serif;
+}
+
+div#div_id_avatar,
+input#id_avatar,
+input#id_avatar input::placeholder {
+    font-family: 'Raleway', sans-serif;
+}
+
+.card {
+    background: #fafafa;
+    box-shadow: 5px 4px 14px #100324;
+    margin-top: 50px;
+}
+
+.card-header {
+    background: #fafafa;
+}
+
+#profile-container {
+    background-image: url("../images/userprofilebackground.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    max-width: 100%;
+    height: 100vh;
+    position: absolute;
+    overflow: scroll;
+}
+
+.accordion-header,
+.accordion-header.collapsed,
+.accordion .accordion-flush,
+.accordion.collapsed .collapsed ,
+#collapseOne {
+    background-color: #fafafa;
+}
+
+.card-header {
+    border: none;
+}
+
+img#profile-image {
+    max-width: 100%;
+    height: auto
+}
+
+.card,
+.card-header,
+.accordion-header, 
+.accordion-header.collapsed, 
+.accordion .accordion-flush, 
+.accordion.collapsed .collapsed, 
+#collapseOne {
+    background: none;
+}

@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<!--artwork-details-wrapper-->
+<section class="container product-details-wrapper pt-lg-1">
+    <div class="row p-3 my-0 mx-auto">
+            <div class="col-12 mt-5">
+                <h1 class="display-font text-center">{{ artwork.title }}</h1>
+                <h2 class="text-center body-font">By: {{ artwork.user }}</h2>
+            </div>
+        <!--artwork-image-row-->
+        <div class="row d-flex justify-content-between">
+            <!-- product image card-->
+            <div class="col-12 col-sm-8 my-0 mx-auto pt-sm-3">
+                {% if artwork.image.url %}
+                <div class="card my-0 align-items-center border-0 mx-auto mb-4 p-3">
+                    <img id="artworkDetails" class="img-fluid" oncontextmenu="return false"
+                        onselectstart="return false" ondragstart="return false""
+                        src=" {{ artwork.image.url }}" alt="{{ artwork.title }}"> </a>
+                    {% else %}
+                    <img id="artworkDetails2" class="img-fluid" src="{{ MEDIA_URL }}noimage.png"
+                        alt="{{ artwork.title }}">
+                </div>
+                {% endif %}
+            </div>
+            <div class="col-12 col-sm-4 ">
+                <h1 class="display-font text-center">{{ artwork.title }}</h1>
+                <h2 class="text-center body-font">By: {{ artwork.user }}</h2>
+            </div>
+        </div>
+        <!--./end-shop-image-card-->
+        <!--col-12-starts-here-->
+        <div class="col-sm-12 col-lg-6 my-0 mx-auto p-5 mt-sm-2">
+            <div class="me-lg-5 pb-3">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                    <div class="col-6 text-start">
+                        <h3 class="display-font heading-md">
+                            {{ artwork.title }}</h3>
+                    </div>
+                    <div class="col-6 text-start">
+                        <p class="fw-normal heading-md lead mb-0 text-end fw-bold">
+                            {{ artwork.user }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!--buttons-row-->
+        <div class="row">
+            <div class="col-12 text-center pt-5 me-auto">
+                <a href="{% url 'hugo' %}" class="btn btn-outline-dark btn-dark rounded-1">
+                    <span class="icon text-light">
+                        <i class="fas fa-chevron-left fa-sm"></i>
+                    </span>
+                    <span class="text-uppercase fw-bold text-light">Community Collection</span>
+                </a>
+            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+        </div>
+        <!--./end-buttons-row-->
+        </form>
+    </div>
+    <!--./-end-artwork-details-->
+    </div>
+</section>
+{% endblock %}

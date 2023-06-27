@@ -38,11 +38,15 @@
     <div class="col-xs-8 col-sm-4 mb-4">
         <div class="card border-0" id="artwork-card">
             {% if artwork.image %}
+            <div class="card-body">
+            <a class="stretched-link" href="{% url 'artwork_detail' artwork.id %}">
             <img class="img-fluid" src="{{ artwork.image.url }}" alt="Card image cap">
+        </a>
             {% endif %}
            <div class="card-footer">
             <h6 class="display-font"> {{ artwork.title }}</h6>
             <p class="body-font"> by {{ artwork.user }}</p>
+           </div>
            </div>
             </div>
         </div>
@@ -52,6 +56,3 @@
 </div>
 {% endblock %}
 
-{% block postloadjs %}
-<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
-{% endblock %}
