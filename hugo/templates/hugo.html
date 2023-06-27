@@ -33,9 +33,9 @@
 </div>
 
 <div class="container my-4 p-3">
-<div class="row g-4" data-masonry='{"percentPosition": true }' >
+    <div class="row" data-masonry="{&quot;percentPosition&quot;: true }" style="position: relative; height: 1160px;">
     {% for artwork in artworks %}
-    <div class="col-xs-8 col-sm-4 mb-4">
+    <div class="col-sm-6 col-lg-4 mb-4 my-1">
         <div class="card border-0" id="artwork-card">
             {% if artwork.image %}
             <div class="card-body">
@@ -56,3 +56,6 @@
 </div>
 {% endblock %}
 
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
+{% endblock %}

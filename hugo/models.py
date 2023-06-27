@@ -1,26 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
-class Hugo(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=254, unique=True)
-    artwork_description = models.TextField(null=True, blank=True)
-    img_url = models.URLField(max_length=1024, null=True, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    deleted_at = models.DateTimeField(auto_now=True)
-
-    class Meta:
-            verbose_name_plural = 'hugos'
-
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
-
-    def __str__(self):
-        return self.name
-    
-
 class Artwork(models.Model):
     id = models.AutoField(primary_key=True)
     artwork_description = models.TextField(null=True, blank=True)

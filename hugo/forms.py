@@ -1,5 +1,5 @@
 from django import forms
-from .models import Hugo, Artwork
+from .models import Artwork
 
 class ArtworkForm(forms.ModelForm):
     class Meta:
