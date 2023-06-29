@@ -22,9 +22,13 @@ def hugo(request):
     artworks = Artwork.objects.all()
     image_url = None
 
+    artworks = artworks.order_by('-created_at')
     context = {
         'artworks': artworks,
     }
+
+    # Sot by most recent
+
 
     return render(request, 'hugo.html', context)
 
@@ -75,7 +79,7 @@ def add_hugo(request):
                 # Assign the downloaded image to the artwork model
                 artwork.image_url = image_url
                 artwork.image.save(f'image.jpg', files.File(img_temp))
-
+            form.instance.user = request.user
             artwork.save()
             form.save()
 
