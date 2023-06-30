@@ -18,7 +18,7 @@
                 <h2 class="body-intro text-light">DIGITAL ART MARKETPLACE</h2>
                 <button role="button" class="btn btn-link my-4 rounded mx-2" id="hero-button">
                     {% if request.user.is_authenticated %}
-                    <a href="{% url 'hugo' %}" class="text-light btn text-center text-decoration-none" id="createArt">AI Art </a></button>
+                    <a href="{% url 'hugo' %}" class="text-light btn text-center text-decoration-none" id="createArt">AI Art</a></button>
                     {% else %}
                     <a href="{% url 'account_login' %}" class="text-light btn text-decoration-none text-center" id="createArt1">Login </a></button>
                     {% endif %}
@@ -43,12 +43,7 @@
             <div class="row d-flex align-items-center justify-content-center mx-auto px-lg-5 pt-3 text-center">
                 <div class="col-8">
                     <p class="body-font mx-lg-5 px-md-3" id="about-text">
-                        Hue is an online marketplace where digital artists can sell their assets to companies,
-                        freelancers and individual clients.
-                        Hue allows digital artists to display fresh, unique products that customers, businesses &
-                        art-lovers can purchase, license and
-                        use for
-                        personal and commercial purposes alike.
+                        Hue is an online art community where you can create and sell amazing digitak artwork. Hugo, Hue's new AI image generator tool powered by MindsDB & OpenAI, gives anyone with an eye for design the power to create stunning digital pieces! Coming soon: add your creations to Hue's shop and get paid when customers purchase your work!
                     </p>
                 </div>
             </div>
@@ -76,11 +71,8 @@
                     <div>
                         <i class="fas fa-paint-brush fa-2x"></i>
                     </div>
-                    <h4 class="my-4 heading-md">DISPLAY Artwork</h4>
-                    <p class="body-font">Once you're registered, you can post your artwork to the shop. Customers can
-                        visit the shop
-                        to
-                        search & find graphic designs that suite their needs.</p>
+                    <h4 class="my-4 heading-md">CREATE Artwork</h4>
+                    <p class="body-font">Once you're registered, you can use Hugo, Hue's AI image generator, to create stunning artwork for the shop. </p>
                     <a href="{% url 'add_product' %}" class="icon-link">
                         Add Product
                     </a>
@@ -89,7 +81,7 @@
                     <div>
                         <i class="fas fa-money-bill fa-2x"></i>
                     </div>
-                    <h4 class="my-4 heading-md">Get Paid</h4>
+                    <h4 class="my-4 heading-md">Sell Artwork</h4>
                     <p class="body-font">We believe artists should be compensated for their craft!
                         That's why our site lets artists get paid out in full when customers purchase their work!</p>
                     <a href="{% url 'shop' %}" class="icon-link">
@@ -103,7 +95,7 @@
 <!--./end-about-->
 
 <!--Category Display https://codepen.io/mhhasan320/pen/BwqvLL -->
-<section class="category-cta container-fluid bg-index text-light mt-5 p-5">
+<section class="category-cta container-fluid bg-dark text-light mt-5 p-5">
     <div class="row">
         <div class="col-12 mt-3">
             <h2 class="pb-2 text-center display-font text-light heading-lg my-3" id="categories">Featured Categories
@@ -178,7 +170,6 @@
     </div>
     <!--Socials-->
     <ul class="nav col-md-4 justify-content-end list-unstyled d-flex me-5">
-<<<<<<< HEAD
         <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
                     <use xlink:href="#twitter"></use>
                 </svg></a></li>
@@ -189,16 +180,6 @@
                 <i class="fab fa-facebook"></i>
             </a></li>
         <li class="ms-3"><a class="text-muted" href="#">
-=======
-        <li class="ms-3">
-            <a class="text-muted" href="https://twitter.com/" target="_blank">
-                <i class="fab fa-twitter"></i>
-            </a></li>
-        <li class="ms-3"><a class="text-muted" href="https://facebook.com/" target="_blank">
-                <i class="fab fa-facebook"></i>
-            </a></li>
-        <li class="ms-3"><a class="text-muted" href="https://instagram.com/" target="_blank">
->>>>>>> a673e81294f96654f6e621cb2d15ca1b683c1e46
                 <i class="fab fa-instagram"></i>
             </a></li>
     </ul>
