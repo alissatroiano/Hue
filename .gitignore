@@ -14,3 +14,6 @@ env_hue/
 .DS_Store
 .vscode/
 .vscode/settings.json
+venv/
+db.sqlite3
+github/

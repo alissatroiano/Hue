@@ -168,6 +168,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -180,13 +181,24 @@ USE_L10N = True
 USE_TZ = True
 TIME_ZONE = 'UTC'
 
+# MINDSDB CREDENTIALS DEFINED HERE
+MINDSDB_EMAIL = os.environ.get('MINDSDB_EMAIL', '')
+MINDSDB_PASSWORD = os.environ.get('MINDSDB_PASSWORD', '')
+MINDSDB_HOST = os.environ.get('MINDSDB_HOST', '')
+OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY', '')
+MINDSDB_SERVER = os.environ.get('MDB_SERVER', '')
+MINDSDB_PROJECT = os.environ.get('MINDBS_PROJECT', '')
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 STATIC_URL = '/static/'
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
 # Media
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

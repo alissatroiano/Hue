@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.http import JsonResponse
-import json
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
@@ -12,7 +11,6 @@ from .forms import ProductForm, ArtworkForm
 # import mindsdb config from settings.py
 from django.conf import settings
 import mindsdb_sdk
-import openai
 import pandas as pd
 from pandas import DataFrame
 
@@ -159,8 +157,8 @@ def get_title_suggestions(request):
         mdb_server = mindsdb_sdk.connect('https://cloud.mindsdb.com', settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
         project = mdb_server.get_project('open_ai')
         query = project.query(f'SELECT * FROM open_ai.art WHERE artwork_description="{text}";')
-        print(DataFrame.to_json(query.fetch()))
-        # predicted_titles = DataFrame.to_json(query.fetch(), orient='records')
+
+        predicted_titles = DataFrame.to_dict(query.fetch(), orient='records')
     
     return render(request, 'shop/get_title_suggestions.html', {'predicted_titles': predicted_titles})
 
