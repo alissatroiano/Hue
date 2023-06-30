@@ -37,7 +37,7 @@ class ProductAdmin(admin.ModelAdmin):
         'parent',
         'price',
         'image',
-        'user',
+   
         'artwork_description',
         ]
 
@@ -62,7 +62,6 @@ class ProductAdmin(admin.ModelAdmin):
         'orientation',
         'has_dimensions',
         'label',
-        'user',
         'predicted_titles',
         'artwork_description',
     ]

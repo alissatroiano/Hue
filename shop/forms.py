@@ -20,7 +20,7 @@ class ProductForm(forms.ModelForm):
 
     class Meta:
         model = Product
-        fields = 'sku', 'title', 'category', 'image', 'medium', 'price', 'user', 'artwork_description', 'image_url'
+        fields = 'sku', 'title', 'category', 'image', 'medium', 'price','artwork_description', 'image_url'
 
         # image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
 
@@ -42,3 +42,8 @@ class ProductForm(forms.ModelForm):
                 field.widget.attrs['required'] = False
             else:
                 field.widget.attrs['required'] = True
+
+class ArtworkForm(forms.Form):
+    description = forms.CharField(label='Describe your artwork', widget=forms.Textarea)
+    artwork_description = forms.CharField(label='Artwork Description', widget=forms.Textarea)
+    predicted_titles = forms.JSONField(label='Predicted Titles', widget=forms.HiddenInput, required=False)

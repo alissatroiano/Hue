@@ -3,7 +3,6 @@ from django.conf import settings
 from .managers import ProductManager
 from django.utils import timezone
 from model_utils import Choices
-from django.contrib.auth.models import User
 
 # https://docs.djangoproject.com/en/3.2/topics/i18n/timezones/
 now = timezone.now
