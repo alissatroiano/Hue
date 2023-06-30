@@ -15,10 +15,11 @@
             <div class="col-12 col-sm-4 mt-5">
                 <h1 class="display-font text-center">{{ artwork.title }}</h1>
                 <h2 class="text-center body-font">By: {{ artwork.user }}</h2>
+                <h3 class="text-center body-font">Prompt: {{ artwork.artwork_description }}</h3>
             </div>
    
         <!--artwork-image-row-->
-            <!-- product image card-->
+            <!-- art image card-->
             <div class="col-12 col-sm-8 my-0 mx-auto pt-sm-3">
                 {% if artwork.image.url %}
                 <div class="card h-100 my-0 align-items-center border-0 ">
@@ -34,7 +35,7 @@
             </div>
             </div>
         </div>
-        <!--./end-shop-image-card-->
+        <!--./end-artwork-image-card-->
 
         <!--buttons-row-->
         <div class="row">

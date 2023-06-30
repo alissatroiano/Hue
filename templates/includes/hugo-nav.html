@@ -1,0 +1,16 @@
+<div class="display-font text-dark collapse navbar-collapse" id="hugoNavCollapse">
+    <ul class="list-group list-group-horizontal-lg">
+        <li class="list-item">
+            <a href="{% url 'hugo' %}" class="nav-link display-font">All Artwork</a>
+        </li>
+        <li class="list-item">
+            <a href="{% url 'hugo' %}?style=pop%20art&direction=asc" class="nav-link display-font">Pop Art</a>
+        </li>
+      <li class="list-item">
+            <a href="{% url 'hugo' %}?style=surrealism&direction=asc" class="nav-link display-font">Surrealism</a>
+        </li>
+        <li class="list-item">
+            <a href="{% url 'hugo' %}?style=manipulation&direction=asc" class="nav-link display-font">Photo-Manipulation</a>
+        </li>
+    </ul>
+</div>

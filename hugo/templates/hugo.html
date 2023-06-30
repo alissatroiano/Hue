@@ -17,40 +17,67 @@
 <div class="container">
     <div class="row">
         <div class="col-12 mt-4 mt-sm-5 pt-3 pt-sm-5 text-center">
-            <i class="fas fa-robot fa-2x my-3"></i>  
-<h1 class="display-font">Community Collection</h1>
-<h4 class="body-font my-3">Artwork created with <strong>Hugo</strong>, Hue's AI Tool</h4>
+            <i class="fas fa-robot fa-2x my-3"></i>
+            <h1 class="display-font">Community Collection</h1>
+            <h4 class="body-font my-3">Artwork created with <strong>Hugo</strong>, Hue's AI Tool</h4>
         </div>
-</div>
+    </div>
 
-<div class="row mt-3 py-3 d-flex justify-content-around align-items-center text-center">
-    <div class="col-12 col-sm-6">
-        <a class="btn btn-primary" href="{% url 'add_hugo' %}">Create Art</a>
+    <div class="row mt-3 py-3 d-flex justify-content-around align-items-center text-center">
+        <div class="col-12 col-sm-6">
+            <a class="btn btn-primary" href="{% url 'add_hugo' %}">Create Art</a>
+        </div>
+        <div class="col-12 col-sm-6">
+            <a class="btn btn-primary" href="{% url 'get_title_suggestions' %}">Name Art</a>
+        </div>
     </div>
-    <div class="col-12 col-sm-6">
-        <a class="btn btn-primary" href="{% url 'get_title_suggestions' %}">Name Art</a>
-    </div>
-</div>
 </div>
 
 <div class="container p-3">
     <div class="row" data-masonry="{&quot;percentPosition&quot;: true }" style="position: relative; height: 1160px;">
-    {% for artwork in artworks %}
-    <div class="col-sm-6 col-lg-4 mb-4" style="position: absolute; left: 0%; top: 0px;">
-        <div class="card border-0" id="artwork-card">
-            {% if artwork.image %}
-            <div class="card-body">
-            <a class="stretched-link" href="{% url 'artwork_detail' artwork.id %}">
-            <img class="img-fluid" src="{{ artwork.image.url }}" alt="Card image cap">
-        </a>
-            {% endif %}
-           <div class="card-footer">
-            <h6 class="display-font"> {{ artwork.title }}</h6>
-            <p class="body-font"> by {{ artwork.user }}</p>
-           </div>
-           </div>
+        {% for artwork in artworks %}
+        <div class="col-sm-6 col-lg-4 mb-4" style="position: absolute; left: 0%; top: 0px;">
+            <div class="card border-0" id="artwork-card">
+                {% if artwork.image %}
+                <div class="card-body">
+                    <a class="" href="{% url 'artwork_detail' artwork.id %}">
+                        <img class="img-fluid" src="{{ artwork.image.url }}" alt="Card image cap">
+                    </a>
+                    {% endif %}
+                    <div class="card-footer">
+                        <div class="d-flex">
+                        <div class="col-6">
+                            <h6 class="display-font text-start"> {{ artwork.title }}</h6>
+                        </div>
+                        <div class="col-6">
+                            <h6 class="display-font text-end">
+                                by {{ artwork.user }}</h6>
+                        </div>
+                    </div>
+                    {% if artwork.style %}
+                    <div class="d-flex">
+                        <div class="col">
+                        <a class="text-muted" href="{% url 'hugo' %}?style={{ artwork.style.name }}">
+                       <p class="body-small body-font mt-1 mb-0">
+                                <i class="fas fa-hashtag me-1"></i>
+                                {{ artwork.style.friendly_name }}
+                        </p>
+                        </a>
+                    </div>
+                    </div>
+                    {% endif %}
+                    {% if artwork.artwork_description %}
+                    <hr class="my-3">
+                    <div class="prompt">
+                        <p class="body-small"><strong>prompt: </strong>
+                            {{ artwork.artwork_description }}</p>
+                    </div>
+                    {% endif %}
+                  </div>
+                    </div>
+                </div>
             </div>
-        </div>
+          
         {% endfor %}
 
     </div>
@@ -58,6 +85,8 @@
 {% endblock %}
 
 {% block postloadjs %}
-    {{ block.super }}
-    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
+{{ block.super }}
+<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
+    integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"
+    async></script>
 {% endblock %}

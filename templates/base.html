@@ -155,7 +155,14 @@
                         </i> Hue
                     </a>
                 </div>
-                {% include 'includes/mobilenavbar.html' %} {% include 'includes/shop-nav.html' %}
+                {% include 'includes/mobilenavbar.html' %} 
+                <!-- Create an if statement to only display the shop nav on the shop page-->
+                {% if request.path == '/shop/' %}
+                {% include 'includes/shop-nav.html' %}
+                {% endif %}
+                {% if request.path == '/hugo/' %}
+                {% include 'includes/hugo-nav.html' %}
+                {% endif %}
             </nav>
         </div>
     </header>

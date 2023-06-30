@@ -3,8 +3,9 @@ import re
 from django.core import files
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.db.models.functions import Lower
 from .forms import ArtworkForm
-from .models import Artwork
+from .models import Artwork, Style
 from django.conf import settings
 from django.contrib import messages
 import mindsdb_sdk
@@ -18,24 +19,28 @@ password = os.environ["MINDSDB_PASSWORD"]
 
 
 def hugo(request):
-    """ A view to show all a user's hugos """
     artworks = Artwork.objects.all()
-    image_url = None
+    styles = None
 
+    # sort artwork by style if the user has selected that style
+    if request.GET:
+        if 'style' in request.GET:
+            styles = request.GET['style'].split(',')
+            artworks = artworks.filter(style__name__in=styles)
+            styles = Style.objects.filter(name__in=styles)
+    # display artwork from newest to oldest whe visiting the page
     artworks = artworks.order_by('-created_at')
     context = {
         'artworks': artworks,
+        'styles': styles,
+        # 'sort_dir': sort_dir,
     }
-
-    # Sot by most recent
-
 
     return render(request, 'hugo.html', context)
 
 
 def artwork_detail(request, artwork_id):
-    """ A view to show individual product details """
-
+    """ A view to render a page for individual artwork and artwork details """
     artwork = get_object_or_404(Artwork, pk=artwork_id)
 
     context = {
@@ -53,7 +58,7 @@ def add_hugo(request):
         
         mdb_server = mindsdb_sdk.connect('https://cloud.mindsdb.com', settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
         project = mdb_server.get_project('open_ai')
-        query = project.query(f'SELECT * FROM open_ai.beta_test WHERE text="{text}";')
+        query = project.query(f'SELECT * FROM open_ai.retro WHERE text="{text}";')
         ai_img = DataFrame.to_string(query.fetch())
 
         # Extract the image URL from ai_img using regular expressions
