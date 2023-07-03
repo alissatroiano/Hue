@@ -1,7 +1,34 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Sacramento');
+
+/* create root styles here */
+:root {
+--spacing-medium: 1.6rem;
+--spacing-small: $spacing-medium*0.5;
+--spacing-smedium: $spacing-medium*0.707;
+--spacing-large: $spacing-medium*2;
+--spacing-xlarge: $spacing-medium*4;
+--spacing-xxlarge: $spacing-medium*8;
+--box-size: $spacing-xxlarge;
+--color-text: #404646;
+}
+
 img.card-img-top {
     max-width: 100%;
     height: auto;
 }
 
-.card {
-}
+
+.main-container {
+    margin: var(--spacing-small);
+  }
+  
+  .grid-container {
+    margin: auto;
+    display: grid;
+    grid-gap: var(--spacing-smedium);
+    grid-template-columns: repeat(auto-fit, --box-size);
+    grid-auto-rows: var(--box-size);
+    grid-auto-flow: dense;
+    justify-content: center;
+    max-width: 75em;
+  }
