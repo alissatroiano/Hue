@@ -926,6 +926,15 @@ main {
     animation: 12s .5s infinite ease-out;
 }
 
+/* ------------------------------ AI Art */
+
+div#artwork-card {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    
+
+}
+
+
 /* *************************** Media Queries */
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
