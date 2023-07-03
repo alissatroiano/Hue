@@ -17,18 +17,3 @@ img.card-img-top {
     height: auto;
 }
 
-
-.main-container {
-    margin: var(--spacing-small);
-  }
-  
-  .grid-container {
-    margin: auto;
-    display: grid;
-    grid-gap: var(--spacing-smedium);
-    grid-template-columns: repeat(auto-fit, --box-size);
-    grid-auto-rows: var(--box-size);
-    grid-auto-flow: dense;
-    justify-content: center;
-    max-width: 75em;
-  }
