@@ -13,7 +13,7 @@
     </li>
     <!--./shop-ends-here-->
     <!--About starts here-->
-    <li class="list-item">
+    <!-- <li class="list-item">
         <a class="nav-link d-block d-lg-none" href="{% url 'home' %}#about">
             <div class="text-center">
                 <div>
@@ -22,7 +22,7 @@
                 <p class="my-0">About</p>
             </div>
         </a>
-    </li>
+    </li> -->
     <!--./about-ends-here-->
     <!--search-bar-starts-->
     <li class="list-item">
@@ -68,7 +68,7 @@
             data-bs-toggle="dropdown" aria-expanded="false">
             <i class="bi d-block mx-auto text-center mb-1 fas fa-user">
             </i>
-            My Account
+            Profile
         </a>
         <ul class="dropdown-menu display-font" aria-labelledby="mobileAccountOptions">
             {% if request.user.is_authenticated %}
