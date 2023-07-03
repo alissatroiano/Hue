@@ -66,8 +66,7 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
     "profiles",
     "artists",
-    "hugo",
-    "whitenoise.runserver_nostatic"
+    "hugo"
 ]
 
 CURRENCY = '$'  # Default currency is US Dollar
@@ -79,9 +78,8 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-]
+    'django.middleware.clickjacking.XFrameOptionsMiddleware'
+    ]
 
 ROOT_URLCONF = 'Hue.urls'
 
