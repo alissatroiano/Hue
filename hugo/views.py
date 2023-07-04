@@ -52,48 +52,64 @@ def artwork_detail(request, artwork_id):
 
     return render(request, 'artwork_detail.html', context)
 
-
 @login_required
 def add_hugo(request):
     if request.method == 'POST':
         form = ArtworkForm(request.POST, request.FILES)
-        text = request.POST.get('artwork_description')
-
-        mdb_server = mindsdb_sdk.connect('https://cloud.mindsdb.com', settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
-        project = mdb_server.get_project('open_ai')
-        query = project.query(f'SELECT * FROM open_ai.retro WHERE text="{text}";')
-        ai_img = DataFrame.to_string(query.fetch())
-        # Extract the image URL from ai_img using regular expressions
-        url_pattern = r'(https?://\S+)'
-        match = re.search(url_pattern, ai_img)
-        if match:
-            image_url = match.group(1)
-        else:
-            # Handle the case where no valid URL is found
-            image_url = None
-
-        # Save the image_url from the query to the Artwork model as image_url
-        if form.is_valid() and image_url:
+        if form.is_valid():
             artwork = form.save(commit=False)
-
-            # Download the image from the URL
-            response = requests.get(image_url)
-            if response.status_code == 200:
-                img_temp = NamedTemporaryFile(delete=True)
-                img_temp.write(response.content)
-                img_temp.flush()
-
-                # Generate a random name for the image file
-                timestamp = str(int(time.time()))  # Get the current timestamp
-                random_str = ''.join(random.choices(string.ascii_lowercase, k=6))  # Generate a random string of length 6
-                image_filename = f'image_{timestamp}_{random_str}.jpg'
-
-                # Assign the downloaded image to the artwork model with the random name
-                artwork.image_url = image_url
-                artwork.image.save(image_filename, files.File(img_temp))
-            form.instance.user = request.user
+            artwork.user = request.user
             artwork.save()
-            form.save()
+            
+            style = artwork.style  # Get the selected style from the artwork object
+            text = artwork.artwork_description
+            
+            mdb_server = mindsdb_sdk.connect('https://cloud.mindsdb.com', settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
+            project = mdb_server.get_project('open_ai')
+            
+            # Query the respective model based on the selected style
+            if style.name == 'pop-art':
+                query = project.query(f'SELECT * FROM open_ai.retro WHERE text="{text}";')
+            elif style.name == 'digital-art':
+                query = project.query(f'SELECT * FROM open_ai.digital_only WHERE text="{text}";')
+            elif style.name == 'fine-art':
+                query = project.query(f'SELECT * FROM open_ai.fine_art WHERE text="{text}";')
+            else:
+                # Defaul to digital only if the selected style is not recognized
+                query = project.query(f'SELECT * FROM open_ai.digital_only WHERE text="{text}";')
+
+            
+            if query is not None:
+                ai_img = DataFrame.to_string(query.fetch())
+                # Extract the image URL from ai_img using regular expressions
+                url_pattern = r'(https?://\S+)'
+                match = re.search(url_pattern, ai_img)
+                if match:
+                    image_url = match.group(1)
+                else:
+                    # Handle the case where no valid URL is found
+                    image_url = None
+            else:
+                # Handle the case where the selected style is not recognized
+                image_url = None
+            
+            if image_url:
+                # Download the image from the URL
+                response = requests.get(image_url)
+                if response.status_code == 200:
+                    img_temp = NamedTemporaryFile(delete=True)
+                    img_temp.write(response.content)
+                    img_temp.flush()
+
+                    # Generate a random name for the image file
+                    timestamp = str(int(time.time()))  # Get the current timestamp
+                    random_str = ''.join(random.choices(string.ascii_lowercase, k=6))  # Generate a random string of length 6
+                    image_filename = f'image_{timestamp}_{random_str}.jpg'
+
+                    # Assign the downloaded image to the artwork model with the random name
+                    artwork.image_url = image_url
+                    artwork.image.save(image_filename, files.File(img_temp))
+                    artwork.save()  # Save the artwork model again to update the image field
 
             return redirect(reverse('hugo'))
     else:
