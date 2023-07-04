@@ -37,7 +37,7 @@
     <div class="row g-3 p-3 p-md-4 p-lg-5">
         {% for artwork in artworks %}
         <div class="col-xs-8 col-sm-4 my-0 mx-auto p-2 px-sm-2 px-lg-4">
-            <div class="card h-100 border-0 mb-3" id="artwork-card">
+            <div class="card h-100 border-0 my-3" id="artwork-card">
                 {% if artwork.image %}
                 <div class="card-body">
                     <a class="" href="{% url 'artwork_detail' artwork.id %}">
