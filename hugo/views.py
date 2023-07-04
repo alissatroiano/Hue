@@ -68,16 +68,15 @@ def add_hugo(request):
             project = mdb_server.get_project('open_ai')
             
             # Query the respective model based on the selected style
-            if style.name == 'pop-art':
+            if style.name == 'pop art':
                 query = project.query(f'SELECT * FROM open_ai.retro WHERE text="{text}";')
             elif style.name == 'digital-art':
                 query = project.query(f'SELECT * FROM open_ai.digital_only WHERE text="{text}";')
             elif style.name == 'fine-art':
                 query = project.query(f'SELECT * FROM open_ai.fine_art WHERE text="{text}";')
             else:
-                # Defaul to digital only if the selected style is not recognized
-                query = project.query(f'SELECT * FROM open_ai.digital_only WHERE text="{text}";')
-
+                # Handle the case where the selected style is not recognized
+                query = None
             
             if query is not None:
                 ai_img = DataFrame.to_string(query.fetch())
