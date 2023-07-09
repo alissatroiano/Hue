@@ -928,12 +928,82 @@ main {
 
 /* ------------------------------ AI Art */
 
-div#artwork-card {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+.image{
+    max-width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    transition: all 0.3s ease-in-out;
+    z-index: 20;
+    box-shadow: 10px 10px 53px 0px rgba(0,0,0,0.49);
     
-
-}
-
+  }
+  .card-wrapper{
+    position: relative;
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    &:hover{
+      .image{
+         filter: blur(1.4px);
+         transform: scale(1.5);
+         overflow: hidden;
+         transition: all 0.3s linear;
+         box-shadow: inset -6px -1px 32px 0px rgba(0,0,0,0.75);
+      }
+      .card-bottom{
+        transform: translate(0%, -50%);
+        transition: all 0.8s ease;
+        background-color: linear-gradient(to right, rgba(74, 31, 111, 0.748)rgba(29, 12, 56, 0.501), rgba(74, 31, 111, 0.748));
+         /* background-color:rgba(31, 6, 55, 0.722); */
+      }
+    }
+    box-shadow: 10px 10px 53px 0px rgba(67, 67, 67, 0.837);
+  }
+  
+  .card-top{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  
+  .card-bottom{
+    width: 100%;
+    position: absolute;
+    z-index: 20;
+    display: nonee;
+    top: 50%;
+    background-color:rgba(64, 15, 104, 0.629);
+    padding: 100px 20px;
+    color: #ffffff;
+     transform: translate(100%, -50%);
+  }
+  
+  .top-text{
+  font-size: 25px;
+  line-height: 40px;
+    font-weight: bold;
+    letter-spacing: 1px
+  }
+  
+  .bottom-text{
+   font-size: 15px;
+  }
+  
+  .button{
+    position: relative;
+    display: block;
+    outline: none;
+    cursor: pointer;
+    margin-top: 25px;
+    border: none;
+    border-radius: 3px;
+    background-color:rgb(194, 152, 236);
+    color: #ffffff;
+    padding: 5px 20px
+  }
 
 /* *************************** Media Queries */
 /* fixed top navbar only on medium and up */
