@@ -936,6 +936,10 @@ main {
     font-size: 2rem;
 }
 
+.style-text {
+    line-height: 2;
+}
+
 /* *************************** Media Queries */
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
