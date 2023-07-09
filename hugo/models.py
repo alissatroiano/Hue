@@ -26,8 +26,15 @@ class Artwork(models.Model):
     user = models.ForeignKey(User, related_name='userz', on_delete=models.CASCADE, blank=True, null=True)
     style = models.ForeignKey('Style', null=True, blank=True, on_delete=models.SET_NULL)
 
-    def get_style(l):
-        return dict(Style.objects.filter).get(l)
+    def get_style(s):
+        """
+        Return artworks that have a style
+        """
+        return dict((artwork.id, artwork) for artwork in Artwork.objects.filter(style=s)
+                    .order_by('title'))
+    
+    def get_style_artworks(x):
+         return dict(Artwork.objects.filter(style=x).order_by('title'))
 
     class Meta:
         verbose_name_plural = 'artworks'

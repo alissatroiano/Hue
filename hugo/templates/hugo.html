@@ -13,24 +13,52 @@
 </div>
 {% endblock %}
 {% block content %}
-
+<div class="overlay"></div>
 <div class="container">
     <div class="row">
-        <div class="col-12 mt-4 mt-sm-5 pt-3 pt-sm-5 text-center">
-            <i class="fas fa-robot fa-2x my-3"></i>
-            <h1 class="display-font">Community Collection</h1>
-            <h4 class="body-font my-3">Artwork created with <strong>Hugo</strong>, Hue's AI Tool</h4>
+        <div class="col-12 text-center mt-3 p-1">
+            <!-- hide the below text when on a style page-->
+            {% if not current_styles %}
+            <h1 class="display-font display-3 my-3 mt-4 pt-lg-5">AI Art</h1>
+            <hr class="w-50 mb-1">
+            <h4 class="body-font my-3">artwork created by our community</h4>
+            <h4 class="body-font my-3"> with <strong>Hugo</strong>, Hue's new AI Tool</h4>
+            {% endif %}
         </div>
     </div>
+    {% for s in current_styles %}
+    <div class="text-center mt-5">
+        <h1 class="p-2 mt-3 mb-0 display-3 text-purple display-font">
+        {{ s.friendly_name }}</h1>
+        </div>
+        {% if s.friendly_name == 'Pop Art' %}
+        <hr class="w-50 mb-1">
+        <div class="text-center my-3 mx-3 mx-md-4 mx-lg-5 px-3 px-md-4 px-md-lg"> 
+        <h4 class="body-font style-text mx-3 mx-md-5 px-md-5">The pop art model was trained to generate images that mimic the retro, comic-book, pop-art style of digital illustrations by <a class="link-font" href="https://www.behance.net/butcherbilly" target="_blank">Butcher Billy.</a></h4>
+    </div>
+        {% endif %}
+        {% if s.friendly_name == 'Digital Art' %}
+        <hr class="w-50 mb-1">
+        <div class="text-center my-3 mx-3 mx-md-4 mx-lg-5 px-3 px-md-4 px-md-lg"> 
+        <h4 class="body-font style-text mx-3 mx-md-5 px-md-5">The digital art model was trained to generate images that mimic the highly detailed, digital, pop-art style of graphic designer,  <a class="link-font" href="https://www.beeple-crap.com/" target="_blank">Beeple</a></h4>
+    </div>
+        {% endif %}
+        {% if s.friendly_name == 'Fine Art' %}
+        <hr class="w-50 mb-1">
+        <div class="text-center my-3 mx-3 mx-md-4 mx-lg-5 px-3 px-md-4 px-md-lg"> 
+        <h4 class="body-font style-text mx-3 mx-md-5 px-md-5">The fine art model was trained to create highly detailed contemporary, fantasy style oil paintings based on the user's input.</h4>
+    </div>
+        {% endif %}
+    {% endfor %}
 
-    <div class="row my-0 mx-auto py-3 d-flex justify-content-around align-items-center text-center">
+    <!-- <div class="row my-0 mx-auto py-3 d-flex justify-content-around align-items-center text-center">
         <div class="col-12 col-sm-6">
             <a class="btn btn-primary" href="{% url 'add_hugo' %}">Create Art</a>
         </div>
         <div class="col-12 col-sm-6">
             <a class="btn btn-primary" href="{% url 'get_title_suggestions' %}">Name Art</a>
         </div>
-    </div>
+    </div> -->
 </div>
 
 <div class="container-fluid p-2">
