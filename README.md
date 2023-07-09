@@ -95,6 +95,8 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 
 - About: Allows **all users** to view information and images related to the business, by having them visit the about page.
 
+**Hugo**
+- Allows users to create custom artwork via MindsDB/OpenAI image generation models. 
 
 ### Features Left to Implement
 
