@@ -35,7 +35,7 @@ def hugo(request):
     artworks = artworks.order_by('-created_at')
     context = {
         'artworks': artworks,
-        'styles': styles,
+        'current_styles': styles,
         # 'sort_dir': sort_dir,
     }
 
