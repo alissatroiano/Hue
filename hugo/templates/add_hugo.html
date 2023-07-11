@@ -2,14 +2,14 @@
 {% load static %}
 {% block page_header %}
 <div class="header-container">
-    <div class="row">
-        <div class="col"></div>
-    </div>
+	<div class="row">
+		<div class="col"></div>
+	</div>
 </div>
 {% endblock %}
-{% block content %}
 
-<div class="container-fluid pt-5">
+{% block content %}
+<div class="container-fluid">
 	<div class="row py-3 text-center pt-5 justify-content-center">
 		<div class="col-12">
 			<span class="icon pt-3 pt-mt-5">
@@ -18,25 +18,25 @@
 			<h2 class="display-font text-center pt-3">AI Art Generator</h2>
 			<p class="text-center body-font mx-5 my-3 px-4">Hi, <strong>{{ user.profile|upper }}! </strong></p>
 			<hr class="my-2">
-			<p class="body-font mx-5">Use this tool to generate unique artwork for our Community Collection</p>
+			<p class="body-font mx-5">Use our new AI tool to generate unique artwork!</p>
 		</div>
 	</div>
-	</div>
+</div>
 
-	<div class="container-fluid">
+<div class="container-fluid">
 	<div class="row d-flex justify-content-center">
 		<div class="col-md-8 justify-content-center">
 			<div class="card p-5 my-0 mx-auto bg-main text-light body-font">
 				<form method="POST" action="{% url 'add_hugo' %}" class="form mb-2" enctype="multipart/form-data">
 					{% csrf_token %}
-          {% for field in form %}
-					
-						  {{ field | as_crispy_field }}
+					{% for field in form %}
+
+					{{ field | as_crispy_field }}
 					{% endfor %}
 					<div class="text-right">
 						<button>
 							<a class="btn btn-dark rounded-0" href="{% url 'hugo' %}">Cancel</a>
-							</button>
+						</button>
 						<button class="btn btn-dark rounded-0" type="submit">Create Art</button>
 					</div>
 				</form>

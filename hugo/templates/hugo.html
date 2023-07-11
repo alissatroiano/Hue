@@ -20,9 +20,14 @@
             <!-- hide the below text when on a style page-->
             {% if not current_styles %}
             <h1 class="display-font display-3 my-3 mt-4 pt-lg-5">AI Art</h1>
-            <hr class="w-50 mb-1">
-            <h4 class="body-font my-3">artwork created by our community</h4>
-            <h4 class="body-font my-3"> with <strong>Hugo</strong>, Hue's new AI Tool</h4>
+            </div>
+            <div class="col-8 offset-2 text-center">
+            <hr class="w-50 mb-1 mb-md-3">
+            <h4 class="body-font my-1">artwork created by our community 
+           with <strong>Hugo</strong>, Hue's new AI tool. 
+           </h4>
+           <h4 class="body-font my-1">click on an image to see the prompt used to create it.</h4>
+        </div>
             {% endif %}
         </div>
     </div>
@@ -50,18 +55,9 @@
     </div>
         {% endif %}
     {% endfor %}
-<!-- 
-    <div class="row my-0 mx-auto py-3 d-flex justify-content-around align-items-center text-center">
-        <div class="col-12 col-sm-6">
-            <a class="btn btn-primary" href="{% url 'add_hugo' %}">Create Art</a>
-        </div>
-        <div class="col-12 col-sm-6">
-            <a class="btn btn-primary" href="{% url 'get_title_suggestions' %}">Name Art</a>
-        </div>
-    </div> -->
 </div>
 
-<div class="container-fluid p-2">
+<div class="container-fluid">
     <div class="row g-3 p-3 p-md-4 p-lg-5">
         {% for artwork in artworks %}
         <div class="col-xs-8 col-sm-4 my-0 mx-auto p-2 px-sm-2 px-lg-4">
@@ -106,6 +102,15 @@
                 </div>
             </div>    
         {% endfor %}
+    </div>
+</div>
+
+<div class="btt-wrapper">
+    <!--start-back-to-top-button-->
+    <div class="btt-button rounded-0">
+            <a class="btn btt-link d-flex h-100" href="{% url 'add_hugo' %}">
+                <i class="fas fa-plus text-purple fa-2x text-end mx-auto my-auto"></i>
+            </a>    
     </div>
 </div>
 {% endblock %}
