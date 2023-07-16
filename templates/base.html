@@ -42,8 +42,8 @@
                     Hue
                 </a>
              </div>
-            <div class="col-12 col-lg-auto my-0 mx-auto py-1 py-lg-0 float-end">
-                <form method="GET" action="{% url 'shop' %}">
+            <!-- <div class="col-12 col-lg-auto my-0 mx-auto py-1 py-lg-0 float-end">
+                <form method="GET" action="{% url 'shop' %}" class="my-3">
                     <div class="input-group w-100">
                         <input class="form-control-sm border border-black rounded-0" type="text" name="q"
                             placeholder="Search our site">
@@ -56,9 +56,33 @@
                         </div>
                     </div>
                 </form>
-            </div>
+            </div> -->
             <div class="col-4 col-lg-auto my-0 mx-auto py-3 py-lg-0 text-lg-end">
-                <ul class="list-group list-group-horizontal pt-2 border-bottom-1 text-center text-lg-end my-0 mx-auto">
+                <ul class="list-group list-group-horizontal py-2 border-bottom-1 text-center text-lg-end my-0 mx-auto">
+                    <li class="list-item">
+                        <a href="{% url 'home' %}" class="nav-link">
+                            <i class="bi d-block mx-auto mb-1 fas fa-house text-center">
+                            </i> Home
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a href="{% url 'home' %}#about" class="nav-link">
+                            <i class="bi d-block mx-auto mb-1 fas fa-info text-center">
+                            </i> About
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a class="nav-link display-font" href="{% url 'hugo' %}">
+                        <i class="bi d-block mx-auto text-center mb-1 fas fa-paint-brush">
+                        </i> AI Art
+                    </a>
+                    </li>
+                    <li class="list-item">
+                        <a href="{% url 'shop' %}" class="nav-link">
+                            <i class="bi d-block mx-auto mb-1 fas fa-shopping-bag text-center">
+                            </i> Shop
+                        </a>
+                    </li>
                     <li class="list-item dropdown text-light bg-dark">
                         {% if request.user.is_authenticated %}
                         <a class="dropdown-toggle nav-link display-font" href="{% url 'profile' %}" role="button"
@@ -89,45 +113,7 @@
                             href="{% url 'account_signup' %}">Sign Up</a>
                         {% endif %}
                     </li>
-                    <li class="list-item">
-                        <a href="{% url 'home' %}" class="nav-link">
-                            <i class="bi d-block mx-auto mb-1 fas fa-home text-center">
-                            </i> Home
-                        </a>
-                    </li>
-                    <li class="list-item">
-                        <a href="{% url 'home' %}#about" class="nav-link">
-                            <i class="bi d-block mx-auto mb-1 fas fa-info text-center">
-                            </i> About
-                        </a>
-                    </li>
-                    <li class="list-item dropdown">
-                        <a class="dropdown-toggle nav-link display-font" href="{% url 'hugo' %}" role="button"
-                        id="hugoOptions" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="bi d-block mx-auto text-center mb-1 fas fa-user">
-                        </i> Hugo
-                    </a>
-                        <!--hugo-dropdown-starts-here-->
-                        <ul class="dropdown-menu display-font" aria-labelledby="hugoOptions">
-                            <li class="list-item">
-                                <li class="list-item">
-                                    <a href="{% url 'hugo' %}" class="dropdown-item">Community Collection</a>
-                                </li>
-                            </li>
-                            <li class="list-item">
-                                <a href="{% url 'add_hugo' %}" class="dropdown-item">Create Artwork</a>
-                            </li>
-                            <li class="list-item"> <a href="{% url 'get_title_suggestions' %}" class="dropdown-item">Title Generator</a>
-                            </li>
-                        </ul>
-                      
-                    </li>
-                    <li class="list-item">
-                        <a href="{% url 'shop' %}" class="nav-link">
-                            <i class="bi d-block mx-auto mb-1 fas fa-shopping-bag text-center">
-                            </i> Shop
-                        </a>
-                    </li>
+                    {% if grand_total > 0 %}
                     <li class="list-item">
                         <a class="nav-link {% if grand_total %} text-info {% else %}{% endif %}"
                             href="{% url 'view_cart' %}">
@@ -141,19 +127,20 @@
                             </div>
                         </a>
                     </li>
-           
+                    {% endif %}
                     </ul>
+                
             </div>
         </div>
         </div>
         <div class="row bg-dark">
             <nav class="navbar navbar-expand-lg navbar-dark py-1 w-auto me-auto my-0 mx-auto">
                 <div class="col-4 col-lg-auto w-100 navbar-brand me-auto my-auto d-lg-none py-3 py-lg-0 text-center">
-                    <a href="{% url 'home' %}"
+                    <!-- <a href="{% url 'home' %}"
                         class="nav-link navbar-brand my-0 me-auto d-lg-none justify-content-center" id="logo">
                         <i class="bi me-2 fas fa-tint">
                         </i> Hue
-                    </a>
+                    </a> -->
                 </div>
                 {% include 'includes/mobilenavbar.html' %} 
                 <!-- Create an if statement to only display the shop nav on the shop page-->

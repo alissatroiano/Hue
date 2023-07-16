@@ -364,6 +364,47 @@ li {
     list-style: none;
     float: left;
 }
+
+
+
+/* CTA Button copied from (http://www.matrebel.co.uk/) */
+a.cta_button, a.cta_button:active {
+    position: absolute;
+    top: 1.5rem;
+    right: 6rem;
+    background: #011826;
+    width: 5.2rem;
+    height: 5.2rem;
+    border-radius: 50%;
+    font-family: 'Futura-PT', sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    text-align: center;
+    -webkit-transform: rotate(-7deg);
+    -ms-transform: rotate(-7deg);
+    transform: rotate(-7deg);
+    color: #fafafa;
+    z-index: 1;
+    border: none;
+    outline: none;
+    -webkit-animation: fadein 2.5s ease-in;
+    animation: fadein 2.5s ease-in;
+    padding-top: 29px;
+    padding-left: 5px;
+    padding-right: 5px;
+    letter-spacing: 1px;
+}
+  
+  a.cta_button:hover {
+    cursor: pointer;
+    -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+            transform: scale(1.05);
+    background: #69A8A9;
+    color: #fafafa;
+}
+    /* end cta button */
+/* end header */
 /*.end-header-&-navigation */
 
 
@@ -940,6 +981,242 @@ main {
     line-height: 2;
 }
 
+/*------------------------------New CTA for AI Art */
+.about {
+    --cubic: cubic-bezier(0.64, 0.01, 0.07, 1.65);
+    --transition: 0.6s var(--cubic);
+    --size: 40px;
+    position: fixed;
+    z-index: 10;
+    bottom: 10px;
+    right: 10px;
+    width: var(--size);
+    height: var(--size);
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    transition: all 0.2s ease;
+ 
+    .bg_links {
+       width: var(--size);
+       height: var(--size);
+       border-radius: 100%;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       background-color: rgba(0, 0, 0, 0.2);
+       border-radius: 100%;
+       backdrop-filter: blur(5px);
+       position: absolute;
+    }
+ 
+    .logo {
+       width: var(--size);
+       height: var(--size);
+       z-index: 9;
+       background-image: url(https://rafaelalucas91.github.io/assets/codepen/logo_white.svg);
+       background-size: 50%;
+       background-repeat: no-repeat;
+       background-position: 10px 7px;
+       opacity: 0.9;
+       transition: all 1s 0.2s ease;
+       bottom: 0;
+       right: 0;
+    }
+ 
+    .social {
+       opacity: 0;
+       right: 0;
+       bottom: 0;
+ 
+       .icon {
+          width: 100%;
+          height: 100%;
+          background-size: 20px;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-color: transparent;
+          display: flex;
+          transition: all 0.2s ease, background-color 0.4s ease;
+          opacity: 0;
+          border-radius: 100%;
+       }
+ 
+       &.portfolio {
+          transition: all 0.8s ease;
+ 
+          .icon {
+             background-image: url(https://rafaelalucas91.github.io/assets/codepen/link.svg);
+          }
+       }
+ 
+       &.dribbble {
+          transition: all 0.3s ease;
+          .icon {
+             background-image: url(https://rafaelalucas91.github.io/assets/codepen/dribbble.svg);
+          }
+       }
+ 
+       &.linkedin {
+          transition: all 0.8s ease;
+          .icon {
+             background-image: url(https://rafaelalucas91.github.io/assets/codepen/linkedin.svg);
+          }
+       }
+    }
+ 
+    &:hover {
+       width: 105px;
+       height: 105px;
+       transition: all var(--transition);
+ 
+       .logo {
+          opacity: 1;
+          transition: all 0.6s ease;
+       }
+ 
+       .social {
+          opacity: 1;
+ 
+          .icon {
+             opacity: 0.9;
+          }
+ 
+          &:hover {
+             background-size: 28px;
+             .icon {
+                background-size: 65%;
+                opacity: 1;
+             }
+          }
+ 
+          &.portfolio {
+             right: 0;
+             bottom: calc(100% - 40px);
+             transition: all 0.3s 0s var(--cubic);
+             .icon {
+                &:hover {
+                   background-color: #698fb7;
+                }
+             }
+          }
+ 
+          &.dribbble {
+             bottom: 45%;
+             right: 45%;
+             transition: all 0.3s 0.15s var(--cubic);
+             .icon {
+                &:hover {
+                   background-color: #ea4c89;
+                }
+             }
+          }
+ 
+          &.linkedin {
+             bottom: 0;
+             right: calc(100% - 40px);
+             transition: all 0.3s 0.25s var(--cubic);
+             .icon {
+                &:hover {
+                   background-color: #0077b5;
+                }
+             }
+          }
+       }
+    }
+ }
+ 
+ .gen-art-btn {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    position: relative;
+    cursor: pointer;
+ 
+    /* button */
+ 
+    .link {
+       font-family: "Rubik", sans-serif;
+       background-color: transparent;
+       font-size: 28px;
+       letter-spacing: 2px;
+       color: #4c6082;
+       position: relative;
+       transition: all 0.3s ease-in-out;
+       cursor: pointer;
+       border: 0;
+       padding-left: 20px;
+       left: 0;
+       line-height: auto;
+       overflow: hidden;
+ 
+       /*line*/
+       &:before {
+          content: "";
+          background-color: #f38181;
+          width: 3px;
+          height: 100%;
+          position: absolute;
+          z-index: 2;
+          left: 0px;
+          top: 0px;
+          border-radius: 50px;
+          transition: all 0.3s ease-in-out;
+       }
+       /*arrow*/
+       &:after {
+          content: "";
+          width: 15px;
+          height: 15px;
+          display: flex;
+          align-items: center;
+          background-color: transparent;
+          position: absolute;
+          border: solid 3px #f38181;
+          border-left: 0;
+          border-bottom: 0;
+          top: calc(50% - 9px);
+          border-radius: 2px;
+          transform: translateX(-42px) rotate(45deg);
+          transition: all 0.3s 0.2s ease-in-out;
+       }
+    }
+    /* bg button */
+    &:before {
+       content: "";
+       background-color: white;
+       width: 0;
+       height: 100%;
+       position: absolute;
+       right: 0;
+       top: 0px;
+       border-radius: 3px;
+       transition: all 0.4s 0.3s ease-in-out;
+    }
+    &:hover {
+       &:before {
+          width: 100%;
+          height: 100%;
+          left: 0;
+          bottom: 0px;
+       }
+ 
+       .link {
+          padding-left: 50px;
+ 
+          &:before {
+             left: 17px;
+ 
+             transform: rotate(90deg);
+          }
+ 
+          &:after {
+             transform: translate(-33px) rotate(45deg);
+          }
+       }
+    }
+ } 
+
 /* *************************** Media Queries */
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
@@ -978,3 +1255,108 @@ main {
         display: none;
     }
 }
+
+@media only screen and (max-width: 768px) {
+    a.cta_button, a.cta_button:active {
+        display: inline-block;
+        padding-left: .5rem;
+        position: absolute;
+        top: 2rem;
+        right: 5rem;
+        background: #011826;
+        width: 4.5rem;
+        height: 4.5rem;
+        border-radius: 50%;
+        font-family: 'Futura-PT', sans-serif;
+        font-size: 12px;
+        text-transform: uppercase;
+        transform: rotate(-7deg);
+        color: #fafafa;
+        margin: 0 auto;
+        border: none;
+        outline: none;
+        animation: fadein 2.5s ease-in;
+        vertical-align: middle;
+        text-align: center;
+        margin-bottom: 2rem;
+        padding-top: 25px;
+        font-size: 14px;
+    } .cta_button:hover {
+        display: inline-block;
+        padding-left: .5rem;
+        position: absolute;
+        top: 2rem;
+        right: 5rem;
+        background: #011826;
+        width: 4.5rem;
+        height: 4.5rem;
+        border-radius: 50%;
+        font-family: 'Futura-PT', sans-serif;
+        font-size: 12px;
+        text-transform: uppercase;
+        transform: rotate(-7deg);
+        margin: 0 auto;
+        border: none;
+        outline: none;
+        animation: fadein 2.5s ease-in;
+        vertical-align: middle;
+        text-align: center;
+        margin-bottom: 2rem;
+        padding-top: 25px;
+        font-size: 14px;
+        background: #69A8A9;
+        color: #fafafa;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    a.cta_button, a.cta_button:active {
+        display: inline-block;
+        padding-left: .5rem;
+        position: absolute;
+        top: 2rem;
+        right: 5rem;
+        background: #011826;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        font-family: 'Futura-PT', sans-serif;
+        font-size: 12px;
+        text-transform: uppercase;
+        transform: rotate(-7deg);
+        color: #fafafa;
+        margin: 0 auto;
+        border: none;
+        outline: none;
+        animation: fadein 2.5s ease-in;
+        vertical-align: middle;
+        text-align: center;
+        margin-bottom: 2rem;
+        padding-top: 22px;
+    } .cta_button:hover {
+        display: inline-block;
+        padding-left: .5rem;
+        position: absolute;
+        top: 2rem;
+        right: 5rem;
+        background: #011826;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        font-family: 'Futura-PT', sans-serif;
+        font-size: 12px;
+        text-transform: uppercase;
+        transform: rotate(-7deg);
+        margin: 0 auto;
+        border: none;
+        outline: none;
+        animation: fadein 2.5s ease-in;
+        vertical-align: middle;
+        text-align: center;
+        margin-bottom: 2rem;
+        padding-top: 22px;
+        background: #69A8A9;
+        color: #fafafa;
+    }
+}
+
