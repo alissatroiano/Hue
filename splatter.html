@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  
+  .paint-splatter {
+  max-width: 100%;
+  width: 165px;
+  height: 175px;
+  background-image: url('pngwing.com.png');
+  background-size: cover;
+  position: absolute;
+  filter: grayscale(40%);
+}
+
+
+.paint-splatter:hover {
+  max-width: 100%;
+  width: 165px;
+  height: 175px;
+  background-image: url('pngwing.com.png');
+  background-size: cover;
+  position: relative;
+  opacity: .975;
+  filter: grayscale(0);
+}
+
+.text {
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+  </style>
+</head>
+<body>
+  <div class="paint-splatter">
+    <span class="text">create art</span>
+  </div>
+</body>
+</html>
