@@ -75,10 +75,7 @@ def add_hugo(request):
             elif style.name == 'fine-art':
                 query = project.query(f'SELECT * FROM open_ai.fine_art WHERE text="{text}";')
             else:
-                # Defaul to digital only if the selected style is not recognized
-                query = project.query(f'SELECT * FROM open_ai.digital_only WHERE text="{text}";')
-
-            
+                query = None
             if query is not None:
                 ai_img = DataFrame.to_string(query.fetch())
                 # Extract the image URL from ai_img using regular expressions
