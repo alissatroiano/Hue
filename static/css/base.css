@@ -366,7 +366,6 @@ li {
 }
 
 
-
 /* CTA Button copied from (http://www.matrebel.co.uk/) */
 a.cta_button, a.cta_button:active {
     position: absolute;
@@ -1136,13 +1135,15 @@ main {
     /* button */
  
     .link {
-       font-family: "Rubik", sans-serif;
+       font-family: "Oswald", sans-serif;
        background-color: transparent;
-       font-size: 28px;
+       font-size: 1.2rem;
+       font-weight: 300;
        letter-spacing: 2px;
-       color: #4c6082;
+       color: #eeedec;
        position: relative;
        transition: all 0.3s ease-in-out;
+       text-decoration: none;
        cursor: pointer;
        border: 0;
        padding-left: 20px;
@@ -1153,7 +1154,7 @@ main {
        /*line*/
        &:before {
           content: "";
-          background-color: #f38181;
+          background-color: #b096e0;
           width: 3px;
           height: 100%;
           position: absolute;
@@ -1172,7 +1173,7 @@ main {
           align-items: center;
           background-color: transparent;
           position: absolute;
-          border: solid 3px #f38181;
+          border: solid 3px #b096e0;
           border-left: 0;
           border-bottom: 0;
           top: calc(50% - 9px);
@@ -1181,10 +1182,13 @@ main {
           transition: all 0.3s 0.2s ease-in-out;
        }
     }
+    .link:hover {
+       color: #a67af8;
+    }
     /* bg button */
     &:before {
        content: "";
-       background-color: white;
+       background-color: ;
        width: 0;
        height: 100%;
        position: absolute;

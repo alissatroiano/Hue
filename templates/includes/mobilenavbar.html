@@ -1,19 +1,40 @@
 <!--ul-starts-here-->
 <ul class="nav list-group list-group-horizontal text-center my-0 mx-auto py-1">
-    <!--Shop starts here-->
-    <li class="list-item d-lg-none">
-        <a class="nav-link"  href="{% url 'shop' %}">
-            <div class="text-center">
-                <div>
-                    <i class="fas fa-shopping-bag fa-lg"></i>
-                </div>
-                <p class="my-0">SHOP</p>
-            </div>
-        </a>
-    </li>
-    <!--./shop-ends-here-->
+        <!--account-options-start-here-->
+        <li class="list-item dropdown d-lg-none">
+            <a class="nav-link btn d-lg-none me-auto float-none" href="" role="button" id="mobileAccountOptions"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi d-block mx-auto text-center mb-1 fas fa-user">
+                </i>
+                Profile
+            </a>
+            <ul class="dropdown-menu display-font" aria-labelledby="mobileAccountOptions">
+                {% if request.user.is_authenticated %}
+                <li class="dropdown-item display-font">
+                    <a href="{% url 'profile' %}" class="dropdown-item">Profile</a>
+                </li>
+                <li class="dropdown-item display-font">
+                    <a href="{% url 'add_product' %}" class="dropdown-item">Shop Management</a>
+                </li>
+                
+                <li class="dropdown-item display-font">
+                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                </li>
+          
+                {% else %}
+                <li>
+                    <a class="dropdown-item display-font" href="{% url 'account_signup' %}">Sign Up</a>
+                </li>
+                <li>
+                    <a class="dropdown-item display-font" href="{% url 'account_login' %}">Login</a>
+                </li>
+                {% endif %}
+            </ul>
+    
+        </li>
+        <!--./account-options-end-here-->
     <!--About starts here-->
-    <!-- <li class="list-item">
+    <li class="list-item">
         <a class="nav-link d-block d-lg-none" href="{% url 'home' %}#about">
             <div class="text-center">
                 <div>
@@ -22,9 +43,22 @@
                 <p class="my-0">About</p>
             </div>
         </a>
-    </li> -->
+    </li>
     <!--./about-ends-here-->
+        <!--Shop starts here-->
+        <li class="list-item d-lg-none">
+            <a class="nav-link"  href="{% url 'shop' %}">
+                <div class="text-center">
+                    <div>
+                        <i class="fas fa-shopping-bag fa-lg"></i>
+                    </div>
+                    <p class="my-0">SHOP</p>
+                </div>
+            </a>
+        </li>
+        <!--./shop-ends-here-->
     <!--search-bar-starts-->
+    {% if request.path == '/shop/' %}
     <li class="list-item">
         <div class="col-12 col-lg-auto my-0 mx-auto w-auto">
             <a class="nav-link btn 
@@ -52,61 +86,10 @@
             </div>
         </div>
     </li>
-    <!--./search-bar-ends-->
-    <!--Hugo-->
-    <li class="list-item d-lg-none">
-        <a class="nav-link display-font" href="{% url 'hugo' %}">
-        <i class="bi d-block mx-auto text-center mb-1 fas fa-paint-brush">
-        </i> AI Art
-    </a>
-        <!--hugo-dropdown-starts-here-->
-        <ul class="dropdown-menu display-font" aria-labelledby="hugoOptions">
-            <li class="list-item">
-                <li class="list-item">
-                    <a href="{% url 'hugo' %}" class="dropdown-item">Community Collection</a>
-                </li>
-            </li>
-            <li class="list-item">
-                <a href="{% url 'add_hugo' %}" class="dropdown-item">Create Artwork</a>
-            </li>
-            <li class="list-item"> <a href="{% url 'get_title_suggestions' %}" class="dropdown-item">Title Generator</a>
-            </li>
-        </ul>
-      
-    </li>
-    <!--account-options-start-here-->
-    <li class="list-item dropdown d-lg-none">
-        <a class="nav-link btn d-lg-none me-auto float-none" href="" role="button" id="mobileAccountOptions"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="bi d-block mx-auto text-center mb-1 fas fa-user">
-            </i>
-            Profile
-        </a>
-        <ul class="dropdown-menu display-font" aria-labelledby="mobileAccountOptions">
-            {% if request.user.is_authenticated %}
-            <li class="dropdown-item display-font">
-                <a href="{% url 'profile' %}" class="dropdown-item">Profile</a>
-            </li>
-            <li class="dropdown-item display-font">
-                <a href="{% url 'add_product' %}" class="dropdown-item">Shop Management</a>
-            </li>
-            
-            <li class="dropdown-item display-font">
-                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-            </li>
-      
-            {% else %}
-            <li>
-                <a class="dropdown-item display-font" href="{% url 'account_signup' %}">Sign Up</a>
-            </li>
-            <li>
-                <a class="dropdown-item display-font" href="{% url 'account_login' %}">Login</a>
-            </li>
-            {% endif %}
-        </ul>
+    {% endif %}
+    <!--./search-bar-ends-->  
 
-    </li>
-    <!--./account-options-end-here-->
+    {% if grand_total > 0 %}
     <li class="list-item">
         <a class="nav-link d-block d-lg-none" href="{% url 'view_cart' %}">
             <div class="text-center">
@@ -121,5 +104,26 @@
             </div>
         </a>
     </li>
+    {% endif %}
+
+        <!--Hugo-->
+        <li class="list-item d-lg-none">
+            <a class="nav-link display-font" href="{% url 'hugo' %}">
+            <i class="bi d-block mx-auto text-center mb-1 fas fa-robot">
+            </i> AI Art
+        </a>          
+        </li>
+        <li class="list-item d-lg-none" id="createCta">
+            <a class="nav-link display-font" href="{% url 'add_hugo' %}">
+            <i class="bi d-block mx-auto text-center mb-1 fas fa-paint-brush">
+            </i> Create
+        </a>          
+        </li>
+        
+        <!-- <li class="list-item">
+            <div class="gen-art-btn">
+                <a class="link"  href="{% url 'add_hugo' %}" >create art</a>
+             </div>
+    </li>    -->
 </ul>
 <!--ul-ends-here-->
