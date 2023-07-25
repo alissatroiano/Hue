@@ -42,8 +42,7 @@
                     Hue
                 </a>
              </div>
-   
-            <div class="col-4 col-lg-auto py-3 py-lg-0 align-items-end justify-content-end text-lg-end ms-auto">
+            <div class="col-4 col-lg-auto py-3 py-lg-0 align-items-center justify-content-center text-lg-center ms-auto">
                 <ul class="list-group list-group-horizontal py-2 border-bottom-1 text-end text-lg-end my-0 ms-auto">
                     <li class="list-item">
                         <a href="{% url 'home' %}" class="nav-link">
@@ -70,7 +69,6 @@
                         </a>
                     </li>
                     <li class="list-item dropdown text-light bg-dark me-2">
-                        {% if request.user.is_authenticated %}
                         <a class="dropdown-toggle nav-link display-font" href="{% url 'profile' %}" role="button"
                             id="acccountOptions" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="bi d-block mx-auto text-center mb-1 fas fa-user">
@@ -78,32 +76,33 @@
                         </a>
                         <!--account-dropdown-starts-here-->
                         <ul class="dropdown-menu display-font" aria-labelledby="accountOptions">
-                            <li class="list-item">
+                            {% if request.user.is_authenticated %}
+                            <li class="dropdown-item">
                                 <a href="{% url 'profile' %}" class="dropdown-item">Profile</a>
                             </li>
-                            <li class="list-item">
-                                <a href="{% url 'add_hugo' %}" class="dropdown-item">Create Artwork</a>
+                            <li class="dropdown-item"> 
+                                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                             </li>
                             {% if request.user.is_superuser %}
-                            <li class="list-item">
-                                <a href="{% url 'add_product' %}" class="dropdown-item">Add Product</a>
+                            <li class="dropdown-item display-font">
+                                <a href="/shop/add/" class="dropdown-item">Shop Management</a>
                             </li>
                             {% endif %}
-                            <li class="list-item"> <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                            {% else %}
+                            <li class="dropdown-item">
+                                <a class="dropdown-item" href="{% url 'account_login' %}">Login</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a class="dropdown-item" href="{% url 'account_login' %}">Signup</a>
                             </li>
                         </ul>
-                        {% else %}
-                        <a type="button" id="login-button" class="btn btn-primary me-2"
-                            href="{% url 'account_login' %}">Login</a>
-                        <a type="button" id="signup-button" class="btn btn-primary"
-                            href="{% url 'account_signup' %}">Sign Up</a>
                         {% endif %}
                     </li>
-                    <li class="list-item">
+                    <!-- <li class="list-item">
                         <div class="gen-art-btn">
                             <a href="{% url 'add_hugo' %}" class="link">create art</a>
                          </div>
-</li>                         
+</li>                          -->
                     {% if grand_total > 0 %}
                     <li class="list-item me-2">
                         <a class="nav-link {% if grand_total %} text-info {% else %}{% endif %}"
@@ -122,8 +121,13 @@
                     </ul>
                     <!-- <a href="#contact" class="cta_button">Sign Up</a> -->
             </div>
+            <div class="col-4">
+                <div class="paint-splatter">
+                    <span class="text">create art</span>
+                  </div>
+            </div>
         </div>
-        </div>
+ 
         <div class="row bg-dark">
             <nav class="navbar navbar-expand-lg navbar-dark py-1 w-auto me-auto my-0 mx-auto">
                 <div class="col-4 col-lg-auto w-100 navbar-brand me-auto my-auto d-lg-none py-3 py-lg-0 text-center">

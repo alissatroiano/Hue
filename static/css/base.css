@@ -1,5 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+:root {
+    --purple-darkest: #10002b;
+    --purple-darker: #240046;
+    --purple-dark: #3c096c;
+    --purple-med: #5a189a;
+    --purple-prime: #7b2cbf;
+    --purple-light: #9d4edd;
+    --purple-lighter: #c77dff;
+    --purple-lightest: #e0aaff;
+    --light: #fafafa;
+    --dark: #060011;
+    --grey: #666;
+}
+
+
 body {
     font-size: 16px;
     overflow: auto;
@@ -31,30 +46,39 @@ a {
 }
 
 .text-dark {
-    color: #100324;
+    color: var(--dark);
 }
 
 .text-purple {
-    color: rgb(170 151 204);
+    color: var(--purple-prime);
 }
 
 .bg-dark {
-    background-color: #100324;
+    background-color: var(--dark);
 }
 
 .bg-index {
     /* background-color: rgba(170, 151, 204, 0.548); */
     /* background-color: #22094998; */
-    background-color: #2c1b319f;
+    background-color: var(--purple-darker);
 }
 
 .bg-main {
-    background-color: rgb(170, 151, 204);
+    background-color: var(--purple-lightest);
 }
 
 .display-font {
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
+}
+
+.heading-imp {
+    color: var(--purple-light);
+    text-shadow: 2px 3px 7px #fafafa, 
+      0 10px 1px  var(--purple-light);
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .heading-xs {
@@ -77,8 +101,6 @@ a {
     letter-spacing: 1px;
     font-size: 1.4rem;
     background-color: transparent;
-    text-shadow: 0px 15px 5px rgba(0, 0, 0, 0.1);;
-
 }
 
 .heading-lg {
@@ -86,7 +108,6 @@ a {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 2.5rem;
-    text-shadow: 0px 15px 5px rgba(0, 0, 0, 0.1);;
 }
 
 .heading-xl {
@@ -367,7 +388,7 @@ li {
 
 
 /* CTA Button copied from (http://www.matrebel.co.uk/) */
-a.cta_button, a.cta_button:active {
+/* a.cta_button, a.cta_button:active {
     position: absolute;
     top: 1.5rem;
     right: 6rem;
@@ -401,8 +422,49 @@ a.cta_button, a.cta_button:active {
             transform: scale(1.05);
     background: #69A8A9;
     color: #fafafa;
-}
-    /* end cta button */
+} */
+
+
+.paint-splatter {
+    max-width: 100%;
+    top: 1.5rem;
+    right: 6rem;
+    width: 11.35rem;
+    height: 12rem;
+    background-image: url('../images/pngwing.com.png');
+    background-size: cover;
+    position: absolute;
+    filter: hue-rotate(-10deg) brightness(140%);
+    -webkit-transform: rotate(-7deg);
+    -ms-transform: rotate(-7deg);
+    transform: rotate(-7deg);
+    opacity: 70%;
+  }
+  
+  .paint-splatter:hover {
+    opacity: 1;
+    filter: grayscale(0);
+    transform: rotate(0);
+    filter: hue-rotate(-10deg) brightness(140%);
+    -webkit-animation: fadein 2.5s ease-in;
+    animation: fadein 2.5s ease-in;
+  }
+  
+  .text {
+    position: absolute;
+    width: fit-content;
+    top: 42%;
+    left: 48%;
+    margin: 0 auto;
+    transform: translate(-50%, -50%);
+    font-size: 1rem;
+    text-align: center;
+    color: #fafafa;
+    letter-spacing: 2px;
+    text-shadow: -2px -2px 6px rgba(14, 0, 40, 0.836);
+  }
+
+/* end cta button */
 /* end header */
 /*.end-header-&-navigation */
 
@@ -446,7 +508,7 @@ a.dropdown-item:hover {
 /***************************** Homepage */
 .hero-container,
 #welcome {
-    background: linear-gradient(rgb(0 0 0 / 80%), rgb(0 0 0 / 60%)), url(../../media/hue1.jpg) no-repeat center center fixed;
+    background: linear-gradient(rgba(12, 2, 30, 0.71), rgba(43, 7, 67, 0.239)), url('https://www.publicdomainpictures.net/pictures/20000/velka/purple-watercolor-background.jpg') no-repeat center center fixed;
     background-size: cover;
     max-width: 100%;
     min-height: 100vh;
