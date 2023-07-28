@@ -42,7 +42,7 @@
                     Hue
                 </a>
              </div>
-            <div class="col-4 col-lg-auto py-3 py-lg-0 align-items-center justify-content-center text-lg-center ms-auto">
+            <div class="col-4 col-lg-4 py-3 py-lg-0 align-items-start text-start justify-content-start text-lg-start ms-auto">
                 <ul class="list-group list-group-horizontal py-2 border-bottom-1 text-end text-lg-end my-0 ms-auto">
                     <li class="list-item">
                         <a href="{% url 'home' %}" class="nav-link">
@@ -68,6 +68,7 @@
                             </i> Shop
                         </a>
                     </li>
+                    {% if request.user.is_authenticated %}
                     <li class="list-item dropdown text-light bg-dark me-2">
                         <a class="dropdown-toggle nav-link display-font" href="{% url 'profile' %}" role="button"
                             id="acccountOptions" data-bs-toggle="dropdown" aria-expanded="false">
@@ -76,7 +77,6 @@
                         </a>
                         <!--account-dropdown-starts-here-->
                         <ul class="dropdown-menu display-font" aria-labelledby="accountOptions">
-                            {% if request.user.is_authenticated %}
                             <li class="dropdown-item">
                                 <a href="{% url 'profile' %}" class="dropdown-item">Profile</a>
                             </li>
@@ -88,21 +88,18 @@
                                 <a href="/shop/add/" class="dropdown-item">Shop Management</a>
                             </li>
                             {% endif %}
-                            {% else %}
-                            <li class="dropdown-item">
+                            </ul>
+                        {% else %}
+                        <ul class="list-group list-group-horizontal">
+                            <li class="list-item">
                                 <a class="dropdown-item" href="{% url 'account_login' %}">Login</a>
                             </li>
                             <li class="dropdown-item">
                                 <a class="dropdown-item" href="{% url 'account_login' %}">Signup</a>
                             </li>
-                        </ul>
-                        {% endif %}
+                            </ul>
                     </li>
-                    <!-- <li class="list-item">
-                        <div class="gen-art-btn">
-                            <a href="{% url 'add_hugo' %}" class="link">create art</a>
-                         </div>
-</li>                          -->
+                    {% endif %}
                     {% if grand_total > 0 %}
                     <li class="list-item me-2">
                         <a class="nav-link {% if grand_total %} text-info {% else %}{% endif %}"

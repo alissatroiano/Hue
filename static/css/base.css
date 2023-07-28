@@ -508,7 +508,7 @@ a.dropdown-item:hover {
 /***************************** Homepage */
 .hero-container,
 #welcome {
-    background: linear-gradient(rgba(12, 2, 30, 0.71), rgba(43, 7, 67, 0.239)), url('https://www.publicdomainpictures.net/pictures/20000/velka/purple-watercolor-background.jpg') no-repeat center center fixed;
+    background: linear-gradient(rgb(0 0 0 / 80%), rgb(0 0 0 / 60%)), url('https://hue-alissa.s3.amazonaws.com/media/hue1.jpg') no-repeat center center fixed;
     background-size: cover;
     max-width: 100%;
     min-height: 100vh;
