@@ -81,9 +81,6 @@
                             <li class="list-item">
                                 <a href="{% url 'profile' %}" class="dropdown-item">Profile</a>
                             </li>
-                            <li class="list-item">
-                                <a href="{% url 'add_hugo' %}" class="dropdown-item">Create Artwork</a>
-                            </li>
                             {% if request.user.is_superuser %}
                             <li class="list-item">
                                 <a href="{% url 'add_product' %}" class="dropdown-item">Add Product</a>
@@ -93,9 +90,9 @@
                             </li>
                         </ul>
                         {% else %}
-                        <a type="button" id="login-button" class="btn btn-primary me-2"
+                        <a type="button" id="login-button" class="btn btn-primary m-2"
                             href="{% url 'account_login' %}">Login</a>
-                        <a type="button" id="signup-button" class="btn btn-primary"
+                        <a type="button" id="signup-button" class="btn btn-primary m-2"
                             href="{% url 'account_signup' %}">Sign Up</a>
                         {% endif %}
                     </li>
