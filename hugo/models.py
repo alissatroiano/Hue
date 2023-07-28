@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.auth.models import Product
 
 
 class Style(models.Model):
@@ -24,6 +25,9 @@ class Artwork(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     deleted_at = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(User, related_name='userz', on_delete=models.CASCADE, blank=True, null=True)
+    # Linking the Artwork to the Product (optional - can be null if not associated with any product)
+    product = models.ForeignKey('Product', null=True, blank=True, on_delete=models.SET_NULL)
+
     style = models.ForeignKey('Style', null=True, blank=True, on_delete=models.SET_NULL)
 
     def get_style(s):

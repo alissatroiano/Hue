@@ -2,6 +2,7 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth.models import User
+from django.contrib.auth.models import Product
 
 from django_countries.fields import CountryField
 
@@ -24,6 +25,7 @@ class Profile(models.Model):
         max_length=80, null=True, blank=True)
     default_county = models.CharField(max_length=80, null=True, blank=True)
     avatar = models.ImageField(upload_to='avatars', default="avatar.jpg")
+    products = models.ManyToManyField('your_app_name.Product', blank=True, related_name='seller')
 
     def create_default_avatar(self):
         if not self.avatar_set.all():
