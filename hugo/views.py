@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.db.models.functions import Lower
 from .forms import ArtworkForm
-from .models import Artwork, Style
+from .models import Artwork, Style, Product
 from django.conf import settings
 from django.contrib import messages
 import mindsdb_sdk
@@ -17,6 +17,8 @@ from pandas import DataFrame
 import random
 import string
 import time
+from shop.forms import ProductForm
+
 email = os.environ["MINDSDB_EMAIL"]
 password = os.environ["MINDSDB_PASSWORD"]
 
@@ -116,3 +118,21 @@ def add_hugo(request):
     context = {'form': form}
 
     return render(request, template, context)
+
+
+@login_required
+def create_product(request, artwork_id):
+    artwork = Artwork.objects.get(pk=artwork_id)
+    if request.method == 'POST':
+        form = ProductForm(request.POST)
+        if form.is_valid():
+            product = form.save(commit=False)
+            product.seller = request.user.userprofile
+            product.save()
+            artwork.product = product
+            artwork.save()
+            return redirect('product_detail', product_id=product.id)
+    else:
+        form = ProductForm()
+
+    return render(request, 'create_product.html', {'form': form})`

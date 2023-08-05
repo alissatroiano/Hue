@@ -1,10 +1,8 @@
 from django.contrib import admin
 from django.conf import settings
 from .models import Category, Product
-
 # https://docs.djangoproject.com/en/3.2/topics/i18n/timezones/
 CURRENCY = settings.CURRENCY
-
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
@@ -25,7 +23,6 @@ class CategoryAdmin(admin.ModelAdmin):
         'title',
         'friendly_name',
     ]
-
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
@@ -64,6 +61,7 @@ class ProductAdmin(admin.ModelAdmin):
         'label',
         'predicted_titles',
         'artwork_description',
+        'seller',
     ]
     autocomplete_fields = ['category']
    # Add display_final_price to readonly_fields because it is a function not a db field

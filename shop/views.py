@@ -205,3 +205,18 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Product deleted!')
     return redirect(reverse('shop'))
+
+    artwork = Artwork.objects.get(pk=artwork_id)
+    if request.method == 'POST':
+        form = ProductForm(request.POST)
+        if form.is_valid():
+            product = form.save(commit=False)
+            product.seller = request.user.userprofile
+            product.save()
+            artwork.product = product
+            artwork.save()
+            return redirect('product_detail', product_id=product.id)
+    else:
+        form = ProductForm()
+
+    return render(request, 'create_product.html', {'form': form})

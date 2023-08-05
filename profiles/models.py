@@ -25,7 +25,8 @@ class Profile(models.Model):
     default_county = models.CharField(max_length=80, null=True, blank=True)
     avatar = models.ImageField(upload_to='avatars', default="avatar.jpg")
     shop_name = models.CharField(max_length=80, null=True, blank=True)
-    
+    shop_description = models.TextField(null=True, blank=True)
+
 
     def create_default_avatar(self):
         if not self.avatar_set.all():

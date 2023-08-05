@@ -2,6 +2,7 @@ from django.db import models
 from django.conf import settings
 from .managers import ProductManager
 from django.utils import timezone
+from profiles.models import Profile
 from model_utils import Choices
 
 # https://docs.djangoproject.com/en/3.2/topics/i18n/timezones/
@@ -67,14 +68,13 @@ class Product(models.Model):
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True, )
     qty = models.PositiveIntegerField(default=0)
-    # https://stackoverflow.com/questions/1737017/django-auto-now-and-auto-now-add
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     deleted_at = models.DateTimeField(auto_now=True)
-    # description = models.TextField(blank=True, null=True)
-
     objects = models.Manager()
     product_manager = ProductManager()
+    # Add the user as a seller
+    seller = models.ForeignKey(Profile, null=True, blank=True, on_delete=models.CASCADE)
 
     def get_label(l):
         return dict(LABEL).get(l)
