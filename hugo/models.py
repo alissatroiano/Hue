@@ -25,6 +25,7 @@ class Artwork(models.Model):
     deleted_at = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(User, related_name='userz', on_delete=models.CASCADE, blank=True, null=True)
     style = models.ForeignKey('Style', null=True, blank=True, on_delete=models.SET_NULL)
+    product = models.ForeignKey('Product', null=True, blank=True, on_delete=models.SET_NULL)
 
     def get_style(s):
         """
