@@ -116,3 +116,10 @@ def add_hugo(request):
     context = {'form': form}
 
     return render(request, template, context)
+
+# @login_required
+# def generate_mockup(request):
+#     """
+#     Connect to Printful's mockup generator API and generate a mockup image
+#     """
+#     if request.method == 'POST':

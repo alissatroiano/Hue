@@ -7,7 +7,9 @@ from django.db.models import Q
 from django.db.models.functions import Lower
 
 from .models import Product, Category
-from .forms import ProductForm, ArtworkForm
+from hugo.models import Artwork, Style
+from .forms import ProductForm
+from hugo.forms import ArtworkForm
 # import mindsdb config from settings.py
 from django.conf import settings
 import mindsdb_sdk
@@ -205,3 +207,21 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Product deleted!')
     return redirect(reverse('shop'))
+
+
+def add_ai_art_as_product(request, artwork_id):
+    artwork = Artwork.objects.get(pk=artwork_id)
+
+    if request.method == 'POST':
+        form = ProductForm(request.POST)
+        if form.is_valid():
+            product = form.save(commit=False)
+            product.seller = request.user.userprofile
+            product.save()
+            artwork.product = product
+            artwork.save()
+            return redirect('product_detail', product_id=product.id)
+    else:
+        form = ProductForm()
+
+    return render(request, 'shop/add_ai_art_as_product.html', {'form': form, 'artwork': artwork})
