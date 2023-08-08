@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from shop.models import Product
 
 
 class Style(models.Model):
@@ -26,7 +25,9 @@ class Artwork(models.Model):
     deleted_at = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(User, related_name='userz', on_delete=models.CASCADE, blank=True, null=True)
     style = models.ForeignKey('Style', null=True, blank=True, on_delete=models.SET_NULL)
-    product = models.ForeignKey(Product, null=True, blank=True, on_delete=models.SET_NULL)
+    for_sale = models.BooleanField(default=False)
+    sell_price = models.DecimalField(
+        decimal_places=2, max_digits=8, null=False, default=0)
 
     def get_style(s):
         """

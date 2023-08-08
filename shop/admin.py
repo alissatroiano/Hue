@@ -59,7 +59,6 @@ class ProductAdmin(admin.ModelAdmin):
         'orientation',
         'has_dimensions',
         'label',
-        'predicted_titles',
         'artwork_description',
         'seller',
     ]

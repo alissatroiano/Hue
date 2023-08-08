@@ -8,4 +8,4 @@ class ProfileAdmin(admin.ModelAdmin):
 	fields = ('user', 'default_phone_number',
               'default_postcode',  'default_street_address1',
               'default_street_address2', 'default_town_or_city',
-              'default_county', 'avatar', 'artwork', 'shop_name', 'shop_description')
+              'default_county', 'avatar', 'shop_name', 'shop_description')

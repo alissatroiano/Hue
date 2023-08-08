@@ -13,5 +13,19 @@
 </div>
 {% endblock %}
 
+<div class="container">
+    <div class="row">
+            {% for artwork in artworks %}
+            <div class="col-xs-8 col-sm-4">
+                 <div class="card h-100">
+                    {% if artwork.image %}
+                    <img src="{{ artwork.image.url }}" class="card-img-top" alt="{{ artwork.title }}">
+                    {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
 {% block content %}
 {% endblock %}

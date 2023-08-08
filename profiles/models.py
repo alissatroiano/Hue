@@ -27,12 +27,11 @@ class Profile(models.Model):
     shop_name = models.CharField(max_length=80, null=True, blank=True)
     shop_description = models.TextField(null=True, blank=True)
 
-
     def create_default_avatar(self):
         if not self.avatar_set.all():
             avatar = profile.avatar_set.create(profile=self.__class__)
             avatar.avatar = File(open('media/avatar.jpg'))
-            avatar.avatar_thumbnail = File(open('media/avatar.jpg'))
+            avatar.avatar_thumbnail = File(open('media/static/images/profile-card-bg.jpg'))
             avatar.save()
 
     def __str__(self):

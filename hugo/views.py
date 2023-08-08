@@ -1,11 +1,13 @@
 import os
 import re
 from django.core import files
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.db.models.functions import Lower
 from .forms import ArtworkForm
-from .models import Artwork, Style, Product
+from .models import Artwork, Style
+from django.contrib.auth.models import User
+from shop.models import Product
 from django.conf import settings
 from django.contrib import messages
 import mindsdb_sdk
@@ -48,11 +50,17 @@ def artwork_detail(request, artwork_id):
     """ A view to render a page for individual artwork and artwork details """
     artwork = get_object_or_404(Artwork, pk=artwork_id)
 
+    if request.method == 'POST' and 'download' in request.POST:
+        response = HttpResponse(artwork.image, content_type='image/jpeg')
+        response['Content-Disposition'] = f'attachment; filename="{artwork.title}.jpg"'
+        return response
+
     context = {
         'artwork': artwork,
     }
 
     return render(request, 'artwork_detail.html', context)
+
 
 @login_required
 def add_hugo(request):
@@ -135,4 +143,4 @@ def create_product(request, artwork_id):
     else:
         form = ProductForm()
 
-    return render(request, 'create_product.html', {'form': form})`
+    return render(request, 'create_product.html', {'form': form})

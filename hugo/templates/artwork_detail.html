@@ -25,10 +25,10 @@
                 <i class="fas fa-quote-left fa-3x my-3 icon-main" id="quote1"></i>
                 <p class="text-start my-3 body-font"> "{{ artwork.artwork_description }}"</p>
                 <i class="fas fa-quote-right icon-main fa-3x my-3"></i>
+                
+            </div>
+            </div>
 
-            </div>
-            </div>
-   
         <!--artwork-image-row-->
             <!-- art image card-->
             <div class="col-12 col-sm-8 my-0 mx-auto pt-sm-3">
@@ -49,8 +49,8 @@
         <!--./end-artwork-image-card-->
 
         <!--buttons-row-->
-        <div class="row">
-            <div class="col-12 text-center pt-5 me-auto">
+        <div class="row d-flex">
+            <div class="col-12 col-sm-6 text-center pt-5 me-auto">
                 <a href="{% url 'hugo' %}" class="btn btn-outline-dark btn-dark rounded-1">
                     <span class="icon text-light">
                         <i class="fas fa-chevron-left fa-sm"></i>
@@ -58,6 +58,13 @@
                     <span class="text-uppercase fw-bold text-light">Community Collection</span>
                 </a>
     </div>
+    <div class="col-12 col-sm-6">
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" name="download">Download Image</button>
+        </form>
+    </div>
+
     <!--./-end-artwork-details-->
     </div>
 

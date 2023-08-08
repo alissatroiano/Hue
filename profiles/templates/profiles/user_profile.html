@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>User Profile: {{ user_profile.user.username }}</h1>
+    <p>Email: {{ user_profile.user.email }}</p>
+    <!-- Display other profile information as needed -->
+
+    <h2>Artwork by {{ user_profile.user.username }}</h2>
+    <ul>
+      <div class="container">
+        <div class="row">
+                {% for artwork in artworks %}
+                <div class="col-xs-8 col-sm-4">
+                     <div class="card h-100">
+                        {% if artwork.image %}
+                        <img src="{{ artwork.image.url }}" class="card-img-top" alt="{{ artwork.title }}">
+                        {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    </ul>
+{% endblock %}

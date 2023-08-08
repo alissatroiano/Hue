@@ -4,7 +4,7 @@ from .models import Artwork
 class ArtworkForm(forms.ModelForm):
     class Meta:
         model = Artwork
-        fields = ['artwork_description', 'title', 'style']
+        fields = ['artwork_description', 'title', 'style', 'for_sale', 'sell_price']
 
     def __init__(self, *args, **kwargs):
             """
@@ -12,6 +12,8 @@ class ArtworkForm(forms.ModelForm):
             labels and set autofocus on first field
             """
             super().__init__(*args, **kwargs)
+            if self.instance.pk:
+                self.fields['image'].widget.attrs['readonly'] = True
 
             for field_name, field in self.fields.items():
                 """ Set a length requirement for the artwork description """

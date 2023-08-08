@@ -4,6 +4,7 @@ from .managers import ProductManager
 from django.utils import timezone
 from profiles.models import Profile
 from model_utils import Choices
+from hugo.models import Artwork
 
 # https://docs.djangoproject.com/en/3.2/topics/i18n/timezones/
 now = timezone.now
@@ -52,7 +53,6 @@ class Product(models.Model):
     sku = models.CharField(unique=True, max_length=254, null=True, blank=True)
     active = models.BooleanField(default=True)
     artwork_description = models.TextField(null=True, blank=True)
-    predicted_titles = models.JSONField(blank=True, null=True)
     title = models.CharField(max_length=254, unique=True)
     orientation = models.CharField(
         choices=ORIENTATION, max_length=254, default='3')
@@ -71,7 +71,12 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     deleted_at = models.DateTimeField(auto_now=True)
+
+    aiArt = models.ForeignKey(
+        Artwork, null=True, blank=True, on_delete=models.SET_NULL)
+    
     objects = models.Manager()
+
     product_manager = ProductManager()
     # Add the user as a seller
     seller = models.ForeignKey(Profile, null=True, blank=True, on_delete=models.CASCADE)

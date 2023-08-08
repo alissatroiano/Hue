@@ -7,6 +7,7 @@ from django.db.models import Q
 from django.db.models.functions import Lower
 
 from .models import Product, Category
+from hugo.models import Artwork
 from .forms import ProductForm, ArtworkForm
 # import mindsdb config from settings.py
 from django.conf import settings
@@ -17,21 +18,15 @@ from pandas import DataFrame
 
 from django.shortcuts import render
 
-mdb_server = mindsdb_sdk.connect(settings.MINDSDB_HOST, settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
+mdb_server = mindsdb_sdk.connect(
+    settings.MINDSDB_HOST, settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
 project = mdb_server.get_project('mindsdb')
 
-# response = openai.Image.create(
-#   prompt="a purple siamese cat cartoon with a yellow background",
-#   n=1,
-#   size="1024x1024"
-# )
-# image_url = response['data'][0]['url']
-# print(image_url)
 
 def shop_all(request):
     """ A view to show all products, including sorting and search queries """
-
-    products = Product.objects.all()
+    products = Product.objects.filter()
+    artworks = Artwork.objects.filter(for_sale=True)
     query = None
     categories = None
     current_sorting = None
@@ -40,6 +35,8 @@ def shop_all(request):
     orientations = None
     sort = None
     direction = None
+
+    artworks_in_shop = Artwork.objects.filter(for_sale=True)
 
     # https://github.com/Code-Institute-Solutions/boutique_ado_v1/blob/673a36fdd4bb2c09f8843c6ad8cb6ae4a60dda01/templates/includes/main-nav.html
 
@@ -104,7 +101,9 @@ def shop_all(request):
         'current_sorting': current_sorting,
         'current_labels': labels,
         'current_orientation': orientations,
-    }
+        'artworks_in_shop': artworks_in_shop,  # Pass the artworks to the template
+        'artworks' : artworks
+}
 
     return render(request, 'shop/shop.html', context)
 
@@ -143,24 +142,6 @@ def add_product(request):
     }
 
     return render(request, template, context)
-
-
-@login_required
-def get_title_suggestions(request):
-    form = ArtworkForm()
-    predicted_titles = []
-    if request.method == 'POST':
-        # Retrieve the artwork description from the POST request
-        text = request.POST.get('text')
-
-        # Call your MindsDB/ChatGPT model to get the predictions
-        mdb_server = mindsdb_sdk.connect('https://cloud.mindsdb.com', settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
-        project = mdb_server.get_project('open_ai')
-        query = project.query(f'SELECT * FROM open_ai.art WHERE artwork_description="{text}";')
-
-        predicted_titles = DataFrame.to_dict(query.fetch(), orient='records')
-    
-    return render(request, 'shop/get_title_suggestions.html', {'predicted_titles': predicted_titles})
 
 
 @login_required
@@ -205,6 +186,25 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Product deleted!')
     return redirect(reverse('shop'))
+
+
+@login_required
+def add_ai_art_as_product(request, artwork_id):
+    artwork = Artwork.objects.get(pk=artwork_id)
+
+    if request.method == 'POST':
+        form = ProductForm(request.POST)
+        if form.is_valid():
+            product = form.save(commit=False)
+            product.seller = request.user.userprofile
+            product.save()
+            artwork.product = product
+            artwork.save()
+            return redirect('product_detail', product_id=product.id)
+    else:
+        form = ProductForm()
+
+    return render(request, 'add_ai_art_as_product.html', {'form': form, 'artwork': artwork})
 
     artwork = Artwork.objects.get(pk=artwork_id)
     if request.method == 'POST':

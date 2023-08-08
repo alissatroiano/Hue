@@ -75,7 +75,10 @@
                         </div>
                         <div class="col-6">
                             <h6 class="display-font text-end">
-                                by {{ artwork.user }}</h6>
+                                by  <a href="{% url 'user_profile' username=artwork.user.username %}">
+                                    {{ artwork.user }}</a> 
+                                </a></h6>
+                              
                         </div>
                     </div>
                     {% if artwork.style %}
