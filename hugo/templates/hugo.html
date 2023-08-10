@@ -54,6 +54,12 @@
         <h4 class="body-font style-text mx-3 mx-md-5 px-md-5">The fine art model was trained to create highly detailed contemporary, fantasy style oil paintings based on the user's input.</h4>
     </div>
         {% endif %}
+        {% if s.friendly_name == 'Street Art' %}
+        <hr class="w-50 mb-1">
+        <div class="text-center my-3 mx-3 mx-md-4 mx-lg-5 px-3 px-md-4 px-md-lg"> 
+        <h4 class="body-font style-text mx-3 mx-md-5 px-md-5">The street art model was trained to produce pieces that mimic the contemporary, urban street art style of <a href="https://kawsone.com/password" target="_blank" class="link-font">KAWS</a> with the controversial style of <a href="https://www.banksy.co.uk/" target="_blank" class="link-font">Banksy.</a></h4>
+    </div>
+        {% endif %}
     {% endfor %}
 </div>
 

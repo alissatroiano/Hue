@@ -98,3 +98,33 @@ FROM open_ai.icons
 WHERE text = 'A purple gradient paint splatter icon';
 ```
 
+
+
+CREATE MODEL open_ai.urban
+PREDICT img_url
+USING
+   engine = 'openai',
+   mode = 'image',
+   prompt_template = '{{text}}, 4K | highly detailed, contemporary, urban street art style of Kaws combined with the controversial style of Banksy | bright lighting | warrm happy colors | 1024 x 1024 pixels';
+
+
+
+CREATE MODEL open_ai.urban
+PREDICT img_url
+USING
+engine = 'openai',
+mode = 'image',
+prompt_template = '{{text}}, 4K | highly detailed, contemporary, urban street art style of KAWS combined with the controversial style of Banksy | bright lighting | warrm happy colors | 1024 x 1024 pixels',
+api_key = 'sk-******';
+
+
+
+SELECT *
+FROM open_ai.urban_art
+WHERE text='A statue of a cool mouse with headphones, baggy pants, and a t-shirt on a side-street in NYC.'
+
+"A statue of a cool using turn tables on the lower east side of Manhattan"
+
+
+
+

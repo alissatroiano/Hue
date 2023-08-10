@@ -4,7 +4,6 @@ body {
     font-size: 16px;
     overflow: auto;
     margin: 0px auto;
-    cursor: url('../images/splatter.png'), cell;
 }
 
 /* *************************** Headers & Special Text */
@@ -1047,16 +1046,16 @@ main {
 
 /* ------------------------------ AI Art */
 
-/* div#artwork-card {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-} */
-
 .style-badge {
     font-size: 2rem;
 }
 
 .style-text {
     line-height: 2;
+}
+
+.card-footer {
+    background: none;
 }
 
 /*------------------------------New CTA for AI Art */
@@ -1073,7 +1072,7 @@ main {
 }
     /* button */
  
-    .link {
+.link {
        font-family: "Oswald", sans-serif;
        background-color: transparent;
        font-size: 1.2rem;
