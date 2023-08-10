@@ -14,7 +14,10 @@ from django.conf import settings
 import mindsdb_sdk
 import pandas as pd
 from pandas import DataFrame
+from shop.views import create_product
 
+email = os.environ["MINDSDB_EMAIL"]
+password = os.environ["MINDSDB_PASSWORD"]
 
 from django.shortcuts import render
 

@@ -1047,10 +1047,6 @@ main {
 
 /* ------------------------------ AI Art */
 
-#artwork-card {
-    box-shadow: 1px 3px 3px 5px #9988b8fa;
-}
-
 .style-badge {
     font-size: 2rem;
 }
