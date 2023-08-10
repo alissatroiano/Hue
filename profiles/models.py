@@ -29,7 +29,7 @@ class Profile(models.Model):
         if not self.avatar_set.all():
             avatar = profile.avatar_set.create(profile=self.__class__)
             avatar.avatar = File(open('media/avatar.jpg'))
-            avatar.avatar_thumbnail = File(open('media/avatar.jpg'))
+            avatar.avatar_thumbnail = File(open('media/static/images/profile-card-bg.jpg'))
             avatar.save()
 
     def __str__(self):

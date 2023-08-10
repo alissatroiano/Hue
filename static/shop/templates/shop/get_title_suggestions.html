@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+	<div class="row">
+		<div class="col"></div>
+	</div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+
+<div class="container-fluid pt-5">
+	<div class="row py-3 text-center pt-5 justify-content-center">
+		<div class="col-12">
+			<span class="icon pt-3 pt-mt-5">
+				<i class="fas fa-paint-roller fa-3x py-5 mt-5"></i>
+			</span>
+			<h2 class="display-font text-center pt-3">Title Tool</h2>
+			<p class="text-center body-font mx-5 my-3 px-4">Hey, <strong>{{ user.profile|upper }}! </strong></p>
+			<hr class="my-2">
+			<p class="body-font mx-5">Use our new AI tool to generate clever titles for your artwork before adding to the shop!</p>
+		</div>
+		<div class="col-12">
+			<form method='POST' action="{% url 'get_title_suggestions' %}" class="form mb-2" enctype="multipart/form-data">
+				{% csrf_token %}
+			<input type="text" name="text" id="text">
+			<a class="btn btn-primary">
+			<button type="submit" action="{% url 'get_title_suggestions' %}">Generate</button>
+		</a>
+		</form>`
+	{% if predicted_titles %}
+    <div class="d-flex">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for product in predicted_titles %}
+                <tr>
+                    <td>{{ product.title }}</td>
+                    <td>{{ product.artwork_description }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+		
+    </div>
+
+{% endif %}
+
+	</div>
+	</div>
+	<div class="row d-flex justify-content-between text-center align-items-center">
+		<div class="col-12 col-sm-6">
+				<a class="btn btn-primary" href="{% url 'add_product' %}">
+					<i class="fas fa-chevron-left"></i>
+					Add Product</a>
+		</div>
+		<div class="col-12 col-sm-6">
+				<a class="btn btn-primary" href="{% url 'add_product' %}">
+					Back to Shop
+					<i class="fas fa-chevron-right"></i>
+				</a>
+		</div>
+	</div>
+{% endblock %}
