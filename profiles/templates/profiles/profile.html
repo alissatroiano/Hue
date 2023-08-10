@@ -27,12 +27,12 @@
                     </a>
                     <div class="mt-3">
                         <h5 class="my-3">{{ user.username }}</h5>
-                        <p class="body-font">{{ user.profile.default_town_or_city }} , 
+                        <p class="body-font">{{ user.profile.default_town_or_city }} ,
                             {{ user.profile.default_country }}</p>
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-12 col-sm-6 flex-column p-2 bg-none">
                 <div class="p-4">
                     <p>
@@ -57,50 +57,18 @@
             <!-- render artwork here -->
             <div class="row g-2">
                 {% for artwork in artworks %}
-                <div class="col-xs-8 col-sm-4 my-0 mx-auto p-2 px-sm-2 px-lg-4">
-                    <div class="card h-100 border-0 my-3" id="artwork-card">
+                <div class="col-12 col-sm-3 col-md-2 my-0 mx-auto p-2 px-lg-4">
+                    <div class="card border-0 my-3">
                         {% if artwork.image %}
-                        <div class="card-body">
-                            <a class="" href="{% url 'artwork_detail' artwork.id %}">
-                                <img class="img-fluid" src="{{ artwork.image.url }}" alt="Card image cap">
-                            </a>
-                            {% endif %}
-                            <div class="card-footer">
-                                <div class="d-flex">
-                                <div class="col-6">
-                                    <h6 class="display-font text-start"> {{ artwork.title }}</h6>
-                                </div>
-                                <div class="col-6">
-                                    <h6 class="display-font text-end">
-                                        by {{ artwork.user }}</h6>
-                                </div>
-                            </div>
-                            {% if artwork.style %}
-                            <div class="d-flex">
-                                <div class="col">
-                                <a class="text-muted" href="{% url 'hugo' %}?style={{ artwork.style.name }}">
-                               <p class="body-small body-font mt-1 mb-0">
-                                        <i class="fas fa-hashtag me-1"></i>
-                                        {{ artwork.style.friendly_name }}
-                                </p>
-                                </a>
-                            </div>
-                            </div>
-                            {% endif %}
-                            <!-- {% if artwork.artwork_description %}
-                            <hr class="my-3">
-                            <div class="prompt">
-                                <p class="body-small"><strong>prompt: </strong>
-                                    {{ artwork.artwork_description }}</p>
-                            </div>
-                            {% endif %} -->
-                          </div>
-                            </div>
-                        </div>
-                    </div>    
-                    {% endfor %}
+                        <a class="stretched-link" href="{% url 'artwork_detail' artwork.id %}">
+                            <img class="img-fluid" src="{{ artwork.image.url }}" alt="Card image cap">
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
         </div>
-    </div>
     </div>
     </div>
     </div>
