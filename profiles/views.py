@@ -11,13 +11,15 @@ import mindsdb_sdk
 import openai
 import pandas as pd
 from pandas import DataFrame
+from hugo.models import Artwork
 
 
 # Create your views here.
 
 def profile(request):
     profile = get_object_or_404(Profile, user=request.user)
-    
+    artworks = Artwork.objects.filter(user=request.user)
+
     avatar_form = AvatarForm(request.POST or None, request.FILES or None, instance=profile)
     form = ProfileForm(request.POST or None, instance=profile)
 
@@ -38,7 +40,8 @@ def profile(request):
         'avatar_form': avatar_form,
         'form': form,
         'orders': orders,
-        'on_profile_page': True
+        'on_profile_page': True,
+        'artworks': artworks,
     }
 
     return render(request, template, context)
