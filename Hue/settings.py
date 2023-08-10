@@ -65,7 +65,6 @@ INSTALLED_APPS = [
     'django_countries',
     "crispy_bootstrap5",
     "profiles",
-    "artists",
     "hugo"
 ]
 
