@@ -1,8 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.models import User
 # from django.contrib.auth.decorators import login_required
 from .models import Profile
-from .forms import ProfileForm
+from .forms import ProfileForm, AvatarForm
 from django.contrib import messages
 from checkout.models import Order, OrderItem
 # import mindsdb config from settings.py
@@ -12,38 +12,30 @@ import openai
 import pandas as pd
 from pandas import DataFrame
 
-# mdb_server = mindsdb_sdk.connect(settings.MINDSDB_HOST, settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
-# project = mdb_server.get_project('mindsdb')
-
-# response = openai.Image.create(
-#   prompt="a purple siamese cat cartoon with a yellow background",
-#   n=1,
-#   size="1024x1024"
-# )
-# image_url = response['data'][0]['url']
-# print(image_url)
-
 
 # Create your views here.
+
 def profile(request):
-    """ 
-    Display the user's profile 
-    """
     profile = get_object_or_404(Profile, user=request.user)
+    
+    avatar_form = AvatarForm(request.POST or None, request.FILES or None, instance=profile)
+    form = ProfileForm(request.POST or None, instance=profile)
 
     if request.method == 'POST':
-        form = ProfileForm(request.POST, request.FILES, instance=profile)
-        if form.is_valid():
+        if avatar_form.is_valid():
+            avatar_form.save()
+            messages.success(request, 'Avatar updated successfully')
+        elif form.is_valid():
             form.save()
             messages.success(request, 'Profile updated successfully')
         else:
             messages.error(request, 'Update failed. Please try again!')
-    else:
-        form = ProfileForm(instance=profile)
+
     orders = profile.orders.all()
 
     template = 'profiles/profile.html'
     context = {
+        'avatar_form': avatar_form,
         'form': form,
         'orders': orders,
         'on_profile_page': True
@@ -65,6 +57,8 @@ def order_history(request, order_number):
         'order': order,
         'from_profile': True,
         'orderitems': orderitems,
+         'default_town_or_city': profile.default_town_or_city,  # Add this line
+        'default_country': profile.default_country  # Add this line
     }
 
     return render(request, template, context)
