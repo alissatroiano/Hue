@@ -74,6 +74,8 @@ def add_hugo(request):
                 query = project.query(f'SELECT * FROM open_ai.digital_only WHERE text="{text}";')
             elif style.name == 'fine-art':
                 query = project.query(f'SELECT * FROM open_ai.fine_art WHERE text="{text}";')
+            elif style.name == 'street-art':
+                query = project.query(f'SELECT * FROM open_ai.urban_art WHERE text="{text}";')
             else:
                 query = None
             if query is not None:
