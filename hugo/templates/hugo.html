@@ -2,7 +2,8 @@
 {% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'hugo/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'hugo/css/hugo.css' %}">
+
 {% endblock %}
 
 {% block page_header %}
@@ -26,7 +27,7 @@
             <h4 class="body-font my-1">artwork created by our community 
            with <strong>Hugo</strong>, Hue's new AI tool. 
            </h4>
-           <h4 class="body-font my-1">click on an image to see the prompt used to create it.</h4>
+           <h4 class="body-font my-1">hover over on an image to see the text prompt that was used to create it.</h4>
         </div>
             {% endif %}
         </div>
@@ -80,7 +81,7 @@
                     <p class="artwork_desc body-font">
                   {{ artwork.artwork_description }}
                   </p>
-                  <div class="view-art">
+                  <div class="view-arts">
                     <a class="body-font link-font" href="{% url 'artwork_detail' artwork.id %}">
                         View <i class="fas fa-chevron-right"></i></a>
                   </div>
