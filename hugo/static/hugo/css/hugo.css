@@ -163,91 +163,44 @@ img.card-img-top {
   .intro a:hover{
     text-decoration:underline
   }
+  
   .card-info {
-     box-sizing: border-box;
+    box-sizing: border-box;
     padding: 0;
     width: 100%;
     position: absolute;
-    bottom: -40px;
+    top: 20;
     left: 0;
     margin: 0 auto;
-    padding: 0 50px;
-    font-style: 16px;
-    line-height: 24px;
+    font-style: 1rem;
     z-index: 20;
     opacity: 0;
     transition: bottom 0.64s, opacity 0.63s cubic-bezier(0.33, 0.66, 0.66, 1);
   }
   
   .card-info a{
-    display:block;
-    width:100px;
-    margin:15px auto;
-    background:#fff;
+    display: block;
+    width: 100px;
+    margin: 15px auto;
+    background:#fafafaed;
     color:#444;
     padding:3px 10px;
     border-radius:2px;
     font-size:0.8em
   }
+
   .card-info a:hover{
     background: #9867f2;
-    color:#fff;
+    color:#fafafa;
   }
+
   .card-info a:hover span{
      filter: brightness(10);
      opacity:1
   }
  
-  .licon{
-    position:relative;  
-     width:23px;
-     height:15px;
-     display:inline-block;
-     vertical-align:middle;
-  }
-  .licon:before{
-    content:"";
-     background:url(https://rawcdn.githack.com/Nodws/NodPen/ffad95aa5244b4b09a3c7c1508a018959bbedb7e/postItem/licons.svg?) -2px -6px no-repeat;
-     background-size:250px;
-     width:26px;
-     height:20px;
-     display:inline-block;
-     vertical-align:middle;
-     position:absolute;
-     top:-3px;
-     left:0;
-  }
-
-  .icon-white{
-     filter: brightness(10);
-  }
-
-  .icon-black{
-     filter: brightness(0);
-     opacity:0.6
-  }
-
-  .icon-like:before{
-    background-position: -183px -6px;
-  
-  }
-  .icon-com:before{
-    background-position: -63px -4px;
-  
-  }
-  .icon-dat:before{
-    background-position: -94px -7px;
-  }
-
-  .icon-tag:before{
-    background-position: -33px -6px;
-  
-  }
   
   @media (max-width:500px){
-    .card-info {
-      display:none
-    }
     .art-card:hover .title-content,.title-content{
     margin-top:40px
   }
