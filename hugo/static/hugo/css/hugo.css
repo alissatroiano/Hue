@@ -201,9 +201,6 @@ img.card-img-top {
  
   
   @media (max-width:500px){
-    .card-info {
-      display:none
-    }
     .art-card:hover .title-content,.title-content{
     margin-top:40px
   }
