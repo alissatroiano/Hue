@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Sacramento');
 
 /* ------------------------------ AI Art */
-
 .style-badge {
     font-size: 2rem;
 }
@@ -51,7 +50,6 @@ img.card-img-top {
   }
   
   .art-card .color-overlay {
-    background: rgba(17, 3, 52, 0.504);
     width: 550px;
     height: 500px;
     position: absolute;
@@ -199,44 +197,7 @@ img.card-img-top {
      filter: brightness(10);
      opacity:1
   }
-  .utility-info {
-    position: absolute;
-    bottom: 0px;
-    left: 0;
-    z-index: 20;
-    width:100%;
-    text-align:left
-  }
-  .utility-info:after{
-    content:" ";
-    background: url(https://rawcdn.githack.com/Nodws/NodPen/ffad95aa5244b4b09a3c7c1508a018959bbedb7e/postItem/licons.svg) center no-repeat;
-    background-size: 30px auto;
-    display:block;
-    opacity: 0.4;
-    position:absolute;
-    bottom:25px;
-    right:15px;
-    width:30px;
-    height:15px
-  }
-  .utility-info a:hover{
-    text-decoration:underline
-  }
-  .utility-list {
-    list-style-type: none;
-    margin: 0 0 10px 20px;
-    padding: 0;
-    width: 100%;
-  
-  }
-  .utility-list li {
-    margin: 0 5px 0 0;
-    padding: 3px 0 15px 0px;
-    display: inline-block;
-    
-    font-size:0.8em
-  }
-  
+ 
   .licon{
     position:relative;  
      width:23px;
@@ -256,13 +217,16 @@ img.card-img-top {
      top:-3px;
      left:0;
   }
+
   .icon-white{
      filter: brightness(10);
   }
+
   .icon-black{
      filter: brightness(0);
      opacity:0.6
   }
+
   .icon-like:before{
     background-position: -183px -6px;
   
@@ -274,34 +238,14 @@ img.card-img-top {
   .icon-dat:before{
     background-position: -94px -7px;
   }
+
   .icon-tag:before{
     background-position: -33px -6px;
   
   }
   
-  @media (max-width:750px)
-  {
-    .utility-info {
-      text-align:center;
-    }
-    .utility-info ul{
-      width:100%;
-      margin:0;
-      box-sizing:border-box
-    }
-    .utility-info li{
-      width:49%;
-      display:inline-block;
-      box-sizing:border-box;
-      margin:0
-    }
-  }
-  
   @media (max-width:500px){
-    .utility-info li:last-of-type{
-      width:100%
-    }
-    .card-info{
+    .card-info {
       display:none
     }
     .art-card:hover .title-content,.title-content{
@@ -310,10 +254,10 @@ img.card-img-top {
   .art-card{
     height:300px
   }
-  .art-card h3{
+  .art-card h3 {
     font-size:1.3em
   }
-  .intro{
+  .intro {
     font-size:0.8em
   }
   }
