@@ -75,13 +75,14 @@
                 <div class="title-content">
                   <h3 class="display-font">
                     <a href="#">{{ artwork.title }}</a></h3>
-                  <div class="intro"> <a href="#" class="artist-link">by {{ artwork.user }}</a> </div>
+                  <div class="intro"> 
+                    <a href="#" class="artist-link">by {{ artwork.user }}</a> </div>
                 </div>
                 <div class="card-info">
                     <p class="artwork_desc body-font">
                   {{ artwork.artwork_description }}
                   </p>
-                  <div class="view-arts">
+                  <div class="view-art">
                     <a class="body-font link-font" href="{% url 'artwork_detail' artwork.id %}">
                         View <i class="fas fa-chevron-right"></i></a>
                   </div>
