@@ -17,9 +17,9 @@
 <div class="overlay"></div>
 <!-- User Profile -->
 <section class="h-100 gradient-custom-2 user-profile" id="profile">
-    <div class="container-fluid py-5 h-100">
-        <div class="row d-flex justify-content-center align-items-center">
-            <div class="col-12 col-sm-6 flex-column text-dark" id="profile-sidebar">
+    <div class="container py-5">
+        <div class="row d-flex justify-content-center align-items-center p-4">
+            <div class="col-12 col-sm-6 flex-column text-dark g-3">
                 <div class="d-flex flex-row">
                     <a href="#editAvatar" data-bs-toggle="modal" data-bs-target="#editAvatar">
                         <img src="{{ user.profile.avatar.url }}" alt="{{ user.profile }}"
@@ -32,7 +32,7 @@
                     </div>
                 </div>
             </div>
-
+            {% if request.user == user %}
             <div class="col-12 col-sm-6 flex-column p-2 bg-none">
                 <div class="p-4">
                     <p>
@@ -47,11 +47,13 @@
                     </p>
                 </div>
             </div>
+            {% endif %}
         </div>
 
-        <div class="row p-4">
-            <div class="d-flex justify-content-between align-items-center g-3 mb-4">
-                <p class="lead fw-normal mb-0">AI Art Collection</p>
+        <div class="row p-5 g-2">
+            <div class="d-flex justify-content-between align-items-center mb-4 ms-3">
+                <h3 class="display-font fw-normal mb-0">
+                    <strong class="username">{{ user.username }}'s</strong> Collection</h3>
                 <!-- <p class="mb-0"><a href="#!" class="text-muted">Show all</a></p> -->
             </div>
             <!-- render artwork here -->
