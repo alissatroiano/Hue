@@ -67,49 +67,33 @@
     <div class="row g-3 p-3 p-md-4 p-lg-5">
         {% for artwork in artworks %}
         <div class="col-xs-8 col-sm-4 my-0 mx-auto p-2 px-sm-2 px-lg-4">
-            <div class="card h-100 border-0 my-3" id="artwork-card">
+            <div class="art-card spring-fever">
                 {% if artwork.image %}
-                <div class="card-body">
-                    <a class="" href="{% url 'artwork_detail' artwork.id %}">
-                        <img class="img-fluid" src="{{ artwork.image.url }}" alt="Card image cap">
-                    </a>
+                    <img class="img-fluid" src="{{ artwork.image.url }}" alt="Card image cap">
                     {% endif %}
-                    <div class="card-footer">
-                        <div class="d-flex">
-                        <div class="col-6">
-                            <h6 class="display-font text-start"> {{ artwork.title }}</h6>
-                        </div>
-                        <div class="col-6">
-                            <h6 class="display-font text-end">
-                                by {{ artwork.user }}</h6>
-                        </div>
-                    </div>
-                    {% if artwork.style %}
-                    <div class="d-flex">
-                        <div class="col">
-                        <a class="text-muted" href="{% url 'hugo' %}?style={{ artwork.style.name }}">
-                       <p class="body-small body-font mt-1 mb-0">
-                                <i class="fas fa-hashtag me-1"></i>
-                                {{ artwork.style.friendly_name }}
-                        </p>
-                        </a>
-                    </div>
-                    </div>
-                    {% endif %}
-                    <!-- {% if artwork.artwork_description %}
-                    <hr class="my-3">
-                    <div class="prompt">
-                        <p class="body-small"><strong>prompt: </strong>
-                            {{ artwork.artwork_description }}</p>
-                    </div>
-                    {% endif %} -->
-                  </div>
-                    </div>
+                <div class="title-content">
+                  <h3 class="display-font">
+                    <a href="#">{{ artwork.title }}</a></h3>
+                  <div class="intro"> <a href="#" class="artist-link">by {{ artwork.user }}</a> </div>
                 </div>
+                <div class="card-info">
+                    <p class="artwork_desc body-font">
+                  {{ artwork.artwork_description }}
+                  </p>
+                  <div class="view-art">
+                    <a class="body-font link-font" href="{% url 'artwork_detail' artwork.id %}">
+                        View <i class="fas fa-chevron-right"></i></a>
+                  </div>
+                </div>
+                <div class="gradient-overlay"></div>
+                <div class="color-overlay"></div>
+              </div>
+            </a>
             </div>    
         {% endfor %}
     </div>
 </div>
+
 
 <div class="btt-wrapper">
     <!--start-back-to-top-button-->

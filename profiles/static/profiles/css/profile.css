@@ -84,3 +84,7 @@ img#profile-image {
 #collapseOne {
     background: none;
 }
+
+strong {
+    color: rgb(154 76 238);
+}
