@@ -121,7 +121,8 @@ img.card-img-top {
   
   .art-card:hover .card-info {
     opacity: 1;
-    bottom: 80px;
+    bottom: 20%;
+    padding: 10px;
   }
 
   .art-card:hover a.artist-link,
@@ -223,17 +224,7 @@ img.card-img-top {
     opacity: 0;
     transition: bottom 0.64s, opacity 0.63s cubic-bezier(0.33, 0.66, 0.66, 1);
   }
-  
-  .card-info a{
-    display: block;
-    width: 100px;
-    margin: 15px auto;
-    background:#fafafaed;
-    color:#444;
-    padding:3px 10px;
-    border-radius:2px;
-    font-size:0.8em
-  }
+
 
   .card-info a:hover{
     background: #9867f2;
@@ -261,4 +252,14 @@ img.card-img-top {
   }
   }
   
-  
+
+.tag-font {
+  font-size: 12px;
+  font-family: 'oswald', sans-serif;
+  text-transform: uppercase;
+  color: #b5b5b5;
+}
+
+.artwork_desc {
+  font-style: italic;
+}
