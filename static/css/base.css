@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 body {
     font-size: 16px;
@@ -106,50 +106,51 @@ a {
 }
 
 .body-light {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 100;
     font-style: normal;
     font-size: 4rem;
 }
 
 .body-font {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 1rem;
+    font-weight: 400;
 }
 
 .body-small {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 400;
     font-size: 12px;
 }
 
 .body-sm {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 400;
     font-size: 1rem;
 }
 
 .body-main {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 400;
     font-size: 1.3rem;
 }
 
 .body-intro {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 400;
     font-size: 1.5rem;
     letter-spacing: 2px;
 }
 
 .body-md {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 400;
     font-size: 2rem;
 }
 
 .body-lg {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 400;
     font-size: 3rem;
 }
@@ -164,7 +165,7 @@ a {
 
 a.icon-link,
 .link-font {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Poppins', sans-serif;
     text-decoration: none;
     font-weight: 400;
     color: #6a509a;
@@ -202,7 +203,7 @@ hr {
 
 button,
 .btn-primary {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -218,7 +219,7 @@ button,
 }
 
 .btn-secondary {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -241,7 +242,7 @@ button,
 }
 
 input {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 500;
     color: #6a509a;
     max-width: 100%;
@@ -488,7 +489,7 @@ h1#title {
 
 h2.lead.my-4.py-3.mx-auto {
     font-size: 1.3rem;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 2.5px;
@@ -500,7 +501,7 @@ h2.lead.my-4.py-3.mx-auto {
 }
 
 a#sale {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 1.5rem;
     letter-spacing: 3.55px;
     text-decoration: none;
@@ -516,7 +517,7 @@ a#sale:hover {
 
 button#hero-button {
     font-size: 1.3rem;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 400;
     height: 60px;
     text-transform: uppercase;
@@ -547,7 +548,7 @@ div.card-image-overlay {
 }
 
 h3.py-3.mt-5.mb-4.lh-1.fw-bold {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 1rem;
     background-color: rgb(121 93 130 / 88%);
     font-weight: 300;
@@ -960,7 +961,7 @@ img#productdetails2 {
 a.btn.btn-outline-dark.btn-dark.rounded-1,
 input.btn.btn-outline-dark.btn-dark.text-light.fw-bold.rounded-1.text-uppercase,
 .btn.btn-outline-dark.btn-dark.text-light.fw-bold.rounded-1 {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Poppins', sans-serif;
     letter-spacing: .5px;
     font-size: 11px;
     margin: 5px;
@@ -987,13 +988,13 @@ img.img-fluid {
 
 /* **************************** Shopping Cart */
 #cart-total {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 700;
     letter-spacing: .5px;
 }
 
 th {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 15px;
     font-weight: 500;
     text-transform: uppercase;
