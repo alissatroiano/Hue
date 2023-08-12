@@ -908,6 +908,7 @@ button.btn.btn-primary.loginButton {
     position: fixed;
     bottom: 20px;
     right: 10px;
+    z-index: 1000;
 }
 
 .btt-link, .update-link, .remove-item {
