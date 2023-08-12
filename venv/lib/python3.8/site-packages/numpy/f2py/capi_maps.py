@@ -342,9 +342,9 @@ def getstrlength(var):
 def getarrdims(a, var, verbose=0):
     ret = {}
     if isstring(var) and not isarray(var):
-        ret['size'] = getstrlength(var)
-        ret['rank'] = '0'
-        ret['dims'] = ''
+        ret['dims'] = getstrlength(var)
+        ret['size'] = ret['dims']
+        ret['rank'] = '1'
     elif isscalar(var):
         ret['size'] = '1'
         ret['rank'] = '0'

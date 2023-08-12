@@ -1,5 +1,51 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Sacramento');
 
+.dropdown#styleDropdown {
+    font-size: 12px;
+}
+
+a.dropdown-item.text-dark.link-font:hover {
+  background-color: transparent;
+  color: rgb(60, 0, 128);
+}
+
+li.dropdown-item-light {
+  margin: 10px 10px 0px 20px;
+}
+
+a.style-item.display-font {
+  color: #646464;
+  line-height: 1.5px;
+  text-decoration: none;
+}
+
+a.style-item.display-font:hover {
+  color: #9867f2;
+  text-decoration: none;
+}
+
+
+
+/* ---------------------------  Sort Selector */
+ul#styleSelector {
+  background: #fafafab8;
+}
+
+button.btn.display-font.dropdown-toggle {
+  font-size: 14px;
+  color: #4b1fa9;
+  text-shadow: none;
+  border: 2px solid #4b1fa9;
+}
+
+.dropdown-menu#styleSelector {
+    font-size: 12px;
+    background-color: #ffffffde;
+    box-shadow: 2px 7px 6px 0px #494949;
+}
+
+
+
 /* ------------------------------ AI Art */
 .style-badge {
     font-size: 2rem;

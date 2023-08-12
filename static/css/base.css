@@ -17,6 +17,10 @@ h6 {
     letter-spacing: 1px;
 }
 
+li.dropdown-item {
+    float: none;
+}
+
 a {
     cursor: pointer;
 }
@@ -369,7 +373,6 @@ strong#nav-sale {
 ul,
 li {
     list-style: none;
-    float: left;
 }
 
 
@@ -421,7 +424,7 @@ a.cta_button, a.cta_button:active {
     border: none;
 }
 
-.dropdown-menu {
+ul.dropdown-menu.display-font {
     background-color: #212529!important;
     color: #fafafa;
 }
@@ -435,7 +438,6 @@ a.dropdown-item {
 }
 
 a.dropdown-item:hover {
-    background-color: #212529;
     color: rgb(170 151 204);
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;

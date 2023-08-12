@@ -126,7 +126,7 @@ def set_module(module):
 
 
 def array_function_dispatch(dispatcher, module=None, verify=True,
-                            docs_from_dispatcher=False, use_like=False):
+                            docs_from_dispatcher=False):
     """Decorator for adding dispatch with the __array_function__ protocol.
 
     See NEP-18 for example usage.
@@ -198,8 +198,7 @@ def array_function_dispatch(dispatcher, module=None, verify=True,
                 raise TypeError(new_msg) from None
 
             return implement_array_function(
-                implementation, public_api, relevant_args, args, kwargs,
-                use_like)
+                implementation, public_api, relevant_args, args, kwargs)
 
         public_api.__code__ = public_api.__code__.replace(
                 co_name=implementation.__name__,

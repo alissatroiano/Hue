@@ -15,14 +15,13 @@
 {% endblock %}
 {% block content %}
 <div class="overlay"></div>
-<div class="container-fluid p-2">
-    <div class="row">
+<div class="container-fluid mt-4 p-2">
+    <div class="row pt-3 mt-5">
         <div class="col-12 text-center mt-3 p-1">
             <!-- hide the below text when on a style page-->
             {% if not current_styles %}
-            <h1 class="display-font display-3 my-3 mt-4 pt-lg-5">AI Art</h1>
-            </div>
-            <div class="col-8 offset-2 text-center">
+            <h1 class="display-font display-3">AI Art</h1>
+            <div class="text-center mt-3">
             <hr class="w-50 mb-1 mb-md-3">
             <h4 class="body-font my-1">artwork created by our community 
            with <strong>Hugo</strong>, Hue's new AI tool. 
@@ -30,13 +29,9 @@
            <h4 class="body-font my-1">hover over on an image to see the text prompt that was used to create it.</h4>
         </div>
             {% endif %}
-        </div>
-    </div>
     {% for s in current_styles %}
-    <div class="text-center mt-5">
         <h1 class="p-2 mt-3 mb-0 display-3 text-purple display-font">
         {{ s.friendly_name }}</h1>
-        </div>
         {% if s.friendly_name == 'Pop Art' %}
         <hr class="w-50 mb-1">
         <div class="text-center my-3 mx-3 mx-md-4 mx-lg-5 px-3 px-md-4 px-md-lg"> 
@@ -62,6 +57,31 @@
     </div>
         {% endif %}
     {% endfor %}
+            
+    <div class="row ps-sm-3 ps-md-4 ps-lg-5">
+        <div class="col-8 offset-2 text-start m-3">
+            <div class="dropdown">
+    <button class="btn display-font dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Style Filter 
+    </button>
+    <ul class="dropdown-menu text-dark style-menu" id="styleSelector">
+      <li class="dropdown-item-light">
+        <a class="style-item display-font" href="{% url 'hugo' %}?style=pop-art&direction=asc" class="nav-link display-font">Pop Art</a></li>
+        <li class="dropdown-item-light">
+            <a class="style-item display-font" href="{% url 'hugo' %}?style=digital-art&direction=asc" class="nav-link display-font">Digital Art</a>
+    </li>
+    <li class="dropdown-item-light">
+        <a class="style-item display-font" href="{% url 'hugo' %}?style=fine-art&direction=asc" class="nav-link display-font">Fine Art</a>
+    </li>
+    <li class="dropdown-item-light">
+        <a class="style-item display-font" href="{% url 'hugo' %}?style=street-art&direction=asc" class="nav-link display-font">Street Art</a>
+    </li>
+    <li class="dropdown-item-light">
+        <a class="style-item display-font" href="{% url 'hugo' %}" class="nav-link display-font">View All</a></li>
+    </ul>
+</div>
+    </div>
+</div>
 </div>
 
 <div class="container-fluid">
@@ -100,15 +120,22 @@
 <div class="btt-wrapper">
     <!--start-back-to-top-button-->
     <div class="btt-button rounded-0">
-            <a class="btn btt-link d-flex h-100" href="{% url 'add_hugo' %}">
-                <i class="fas fa-plus text-purple fa-2x text-end mx-auto my-auto"></i>
+            <a class="btn btt-link d-flex h-100">
+                <i class="fas fa-chevron-up text-purple fa-2x text-end mx-auto my-auto"></i>
             </a>    
     </div>
 </div>
+<!--end-back-to-top-button-->
 {% endblock %}
 
 {% block postloadjs %}
 {{ block.super }}
+    <script type="text/javascript">
+        $('.btt-link').click(function(e) {
+            window.scrollTo(0,0)
+        })
+    </script>
+    
 <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
     integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"
     async></script>

@@ -1362,7 +1362,7 @@ def loadtxt(fname, dtype=float, comments='#', delimiter=None,
 
 
 _loadtxt_with_like = array_function_dispatch(
-    _loadtxt_dispatcher, use_like=True
+    _loadtxt_dispatcher
 )(loadtxt)
 
 
@@ -2472,7 +2472,7 @@ def genfromtxt(fname, dtype=float, comments='#', delimiter=None,
 
 
 _genfromtxt_with_like = array_function_dispatch(
-    _genfromtxt_dispatcher, use_like=True
+    _genfromtxt_dispatcher
 )(genfromtxt)
 
 

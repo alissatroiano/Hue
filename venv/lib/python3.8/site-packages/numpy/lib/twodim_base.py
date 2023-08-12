@@ -229,7 +229,7 @@ def eye(N, M=None, k=0, dtype=float, order='C', *, like=None):
 
 
 _eye_with_like = array_function_dispatch(
-    _eye_dispatcher, use_like=True
+    _eye_dispatcher
 )(eye)
 
 
@@ -431,7 +431,7 @@ def tri(N, M=None, k=0, dtype=float, *, like=None):
 
 
 _tri_with_like = array_function_dispatch(
-    _tri_dispatcher, use_like=True
+    _tri_dispatcher
 )(tri)
 
 
@@ -766,7 +766,7 @@ def histogram2d(x, y, bins=10, range=None, density=None, weights=None):
     >>> xcenters = (xedges[:-1] + xedges[1:]) / 2
     >>> ycenters = (yedges[:-1] + yedges[1:]) / 2
     >>> im.set_data(xcenters, ycenters, H)
-    >>> ax.add_image(im)
+    >>> ax.images.append(im)
     >>> plt.show()
 
     It is also possible to construct a 2-D histogram without specifying bin
