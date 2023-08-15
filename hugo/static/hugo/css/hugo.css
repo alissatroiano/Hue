@@ -24,7 +24,14 @@ a.style-item.display-font:hover {
   text-decoration: none;
 }
 
-
+a.body-font.random-prompt {
+  font-size: 13px;
+  color: #0a0a0a;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
 
 /* ---------------------------  Sort Selector */
 ul#styleSelector {
@@ -43,8 +50,6 @@ button.btn.display-font.dropdown-toggle {
   background-color: #ffffffde;
   box-shadow: 2px 7px 6px 0px #494949;
 }
-
-
 
 /* ------------------------------ AI Art */
 .style-badge {
