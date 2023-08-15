@@ -109,9 +109,9 @@
                         VIEW ARTWORK <i class="fas fa-chevron-right"></i></a>
                   </div>
                   {% if artwork.style %}
-                  <div class="mt-5">
+                  <div class="mt-lg-4">
                     <a class="tag-font" href="{% url 'hugo' %}?style={{ artwork.style.name }}">
-                        <i class="fas fa-tag mr-1"></i> {{ artwork.style.friendly_name }}
+                        <i class="fas fa-tag mr-1" id="styleTag"></i> {{ artwork.style.friendly_name }}
                     </a>
                     </div>
                 {% endif %}

@@ -60,8 +60,8 @@ def order_history(request, order_number):
         'order': order,
         'from_profile': True,
         'orderitems': orderitems,
-         'default_town_or_city': profile.default_town_or_city,  # Add this line
-        'default_country': profile.default_country  # Add this line
+        'default_town_or_city': profile.default_town_or_city,
+        'default_country': profile.default_country or 'United States',
     }
 
     return render(request, template, context)
