@@ -96,8 +96,8 @@ img.card-img-top {
   }
   
   .art-card .color-overlay {
-    width: 550px;
-    height: 500px;
+    width: 750px;
+    height: 700px;
     position: absolute;
     z-index: 10;
     top: 0;
@@ -107,8 +107,8 @@ img.card-img-top {
   
   .art-card .gradient-overlay {  
     background-image: linear-gradient(transparent 0%, rgba(8, 1, 30, 0.6) 21%);
-    width: 550px;
-    height: 500px;
+    width: 750px;
+    height: 700px;
     position: absolute;
     top: 350px;
     left: 0;

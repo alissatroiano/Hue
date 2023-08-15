@@ -27,7 +27,7 @@
 	<div class="row d-flex justify-content-center">
 		<div class="col-md-8 justify-content-center">
 			<div class="card p-5 my-0 mx-auto bg-main text-light body-font">
-				<form method="POST" action="{% url 'add_hugo' %}" class="form mb-2" enctype="multipart/form-data">
+                <form method="POST" action="{% url 'add_hugo' %}" class="form mb-2" enctype="multipart/form-data" onsubmit="return showLoading()">
 					{% csrf_token %}
 					{% for field in form %}
 
@@ -37,15 +37,25 @@
 						<button>
 							<a class="btn btn-dark rounded-0" href="{% url 'hugo' %}">Cancel</a>
 						</button>
-						<button class="btn btn-dark rounded-0" type="submit">Create Art</button>
+                        <button id="createArtBtn" class="btn btn-dark rounded-0" type="submit">Create Art</button>
 					</div>
 				</form>
+				<div id="loadingMessage" class="text-center" style="display: none;">
+                    Generating art... Please wait.
+                </div>
 			</div>
-			<div class="col-md-2"></div>
 		</div>
-
-
 	</div>
 </div>
+{% endblock %}
 
+{% block postloadjs %}
+{{ block.super }}
+<script>
+    function showLoading() {
+        document.getElementById('createArtBtn').disabled = true;
+        document.getElementById('loadingMessage').style.display = 'block';
+        return true;  // Proceed with form submission
+    }
+</script>
 {% endblock %}

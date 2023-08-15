@@ -88,3 +88,16 @@ img#profile-image {
 strong {
     color: rgb(154 76 238);
 }
+
+#userProfile {
+    background: url('https://plus.unsplash.com/premium_photo-1667668221104-bedb32295205?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2051&q=80') no-repeat center center fixed;
+    background-size: cover;
+}
+
+#sidebar {
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+}
