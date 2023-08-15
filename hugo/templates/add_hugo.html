@@ -32,27 +32,27 @@
 	<div class="row d-flex justify-content-center">
 		<div class="col-md-8 justify-content-center">
 			<div class="card p-3 p-sm-4 p-md-5 my-0 mx-auto bg-main text-light body-font">
-				<form method="POST" action="{% url 'add_hugo' %}" class="form" enctype="multipart/form-data"
-					onsubmit="return showLoading()">
-					{% csrf_token %}
-					{% for field in form %}
-					{% if field.name == 'artwork_description' %}
-					{{ field | as_crispy_field }}
-					<div class="text-start mb-3">
-						<a class="body-font random-prompt" onclick="generateRandomPrompt()">
-							Surprise Me!</a>
-					</div>
-					{% else %}
-					{{ field | as_crispy_field }}
-					{% endif %}
-					{% endfor %}
-					<div class="text-right">
-						<button>
-							<a class="btn btn-dark rounded-0" href="{% url 'hugo' %}">Cancel</a>
-						</button>
-						<button id="createArtBtn" class="btn btn-dark rounded-0" type="submit">Create Art</button>
-					</div>
-				</form>
+				<form method="POST" action="{% url 'add_hugo' %}" class="form mb-2" enctype="multipart/form-data" onsubmit="return validateForm()">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        {% if field.name == 'artwork_description' %}
+                            {{ field | as_crispy_field }}
+                            <div class="text-start mt-3">
+                                <a type="button" class="body-font random-prompt" onclick="generateRandomPrompt()">Surprise Me!</a>
+                            </div>
+                            <div id="charCount" class="text-end mt-1">
+                                <small>Character count: <span id="charCountValue">0</span>/400</small>
+                            </div>
+                        {% else %}
+                            {{ field | as_crispy_field }}
+                        {% endif %}
+                    {% endfor %}
+                    <div class="text-right">
+                            <a class="btn btn-dark rounded-0" href="{% url 'hugo' %}">Cancel</a>
+                        </button>
+                        <button id="createArtBtn" class="btn btn-dark rounded-0" type="submit">Create Art</button>
+                    </div>
+                </form>
 				<div id="loadingMessage" class="text-center" style="display: none;">
 					Generating art... Please wait.
 				</div>
@@ -90,6 +90,21 @@
 		var randomPrompt = prompts[Math.floor(Math.random() * prompts.length)];
 		document.getElementById('id_artwork_description').value = randomPrompt;
 	}
+	function validateForm() {
+        var artworkDescription = document.getElementById('id_artwork_description').value;
+        var charCount = artworkDescription.length;
+        
+        if (charCount > 400) {
+            return false;  // Prevent form submission
+        } else {
+            return true;  // Proceed with form submission
+        }
+    }
 
+    // Update character count on input
+    document.getElementById('id_artwork_description').addEventListener('input', function() {
+        var charCount = this.value.length;
+        document.getElementById('charCountValue').textContent = charCount;
+    });
 </script>
 {% endblock %}

@@ -16,7 +16,7 @@ class ArtworkForm(forms.ModelForm):
             for field_name, field in self.fields.items():
                 """ Set a length requirement for the artwork description """
                 if field_name == 'artwork_description':
-                    field.widget.attrs['maxlength'] = 500
+                    field.widget.attrs['maxlength'] = 400
                     field.widget.attrs['rows'] = 3
                     field.widget.attrs['placeholder'] = 'Describe your artwork'
                     field.widget.attrs['class'] = 'border-1 rounded shadow-sm'
