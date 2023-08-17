@@ -575,7 +575,7 @@ img.card-img-overlay {
 
 /* grayscale effect copied from https://codepen.io/mhhasan320/pen/BwqvLL */
 div#category-card1 {
-    background-image: url('../../media/glitchart.jpg');
+    background-image: url('https://images.unsplash.com/photo-1592492159418-39f319320569?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
     background-position: center;
     background-size: cover;
     min-width: 100%;
@@ -601,7 +601,7 @@ div#category-card1:hover {
 }
 
 div#category-card2 {
-    background-image: url('../../media/mixedmedia.jpg');
+    background-image: url('https://images.unsplash.com/photo-1622405538251-e8c48fdc40db?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
     background-position: center;
     background-size: cover;
     min-width: 100%;
@@ -627,7 +627,7 @@ div#category-card2:hover {
 }
 
 div#category-card3 {
-    background-image: url('../../media/conceptualart.jpg');
+    background-image: url('https://images.unsplash.com/photo-1620503266076-5fd971fdd572?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
     background-position: center;
     background-size: cover;
     min-width: 100%;
