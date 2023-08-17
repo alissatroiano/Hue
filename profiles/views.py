@@ -12,9 +12,8 @@ import openai
 import pandas as pd
 from pandas import DataFrame
 from hugo.models import Artwork
+from hugo.forms import ArtworkForm
 
-
-# Create your views here.
 
 def profile(request):
     profile = get_object_or_404(Profile, user=request.user)
@@ -67,33 +66,36 @@ def order_history(request, order_number):
     return render(request, template, context)
 
 
-# @login_required
-# def artwork(request):
+def edit_artwork(request, artwork_id):
+    artwork = get_object_or_404(Artwork, id=artwork_id, user=request.user)
+
     if request.method == 'POST':
-        # Retrieve the artwork description from the POST request
-        artwork_description = request.POST.get('artwork_description')
+        form = ArtworkForm(request.POST, request.FILES, instance=artwork)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')  # Redirect to profile page or any other desired page
+    else:
+        form = ArtworkForm(instance=artwork)
 
-        # Call your artwork generation code here
-        response = openai.Image.create(
-            prompt=artwork_description,
-            n=1,
-            size="1024x1024"
-        )
-        image_url = response['data'][0]['url']
+    template = 'profiles/edit_artwork.html'
+    context = {
+        'form': form,
+        'artwork': artwork,
+    }
 
-        # Get the user's profile
-        profile = request.user.profile
+    return render(request, template, context)
 
-        # Save the artwork and titles in the profile
-        profile.artwork_description = artwork_description
-        profile.artwork = image_url
-        profile.titles = response['title']
 
-        # Save the profile
-        profile.save()
+def delete_artwork(request, artwork_id):
+    artwork = get_object_or_404(Artwork, id=artwork_id, user=request.user)
+    
+    if request.method == 'POST':
+        artwork.delete()
+        # Redirect to the user's profile page
+        return redirect('profile')
 
-        # Redirect to a success page or any other desired view
-        return redirect('success')
-
-    # Render the template with the form
-    return render(request, 'profiles/artwork.html')
+    template = 'profiles/delete_artwork.html'
+    context = {
+        'artwork': artwork,
+    }
+    return render(request, template, context)

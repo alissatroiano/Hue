@@ -57,10 +57,15 @@
                 <div class="col-12 col-sm-4 col-md-3 my-0 mx-auto p-2 px-lg-4">
                     <div class="card border-0 my-3">
                         {% if artwork.image %}
-                        <a class="stretched-link" href="{% url 'artwork_detail' artwork.id %}">
+                        <a class="card-header" href="{% url 'artwork_detail' artwork.id %}">
                             <img class="img-fluid" src="{{ artwork.image.url }}" alt="Card image cap">
                         </a>
                         {% endif %}
+                        
+                        <div class="card-footer">
+                            <a href="{% url 'edit_artwork' artwork.id %}" class="btn btn-primary">Edit</a>
+                            <a href="{% url 'delete_artwork' artwork.id %}" class="btn btn-danger">Delete</a>
+                        </div>
                     </div>
                 </div>
                 {% endfor %}
@@ -68,7 +73,6 @@
         </div>
     </div>
     </div>
-
 </section>
 
 
