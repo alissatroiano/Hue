@@ -15,11 +15,21 @@
 
 {% block content %}
 <div class="container p-5">
+  <div class="row">
+    <div class="col-12 text-center my-3 my-md-4">
   <h1>Edit Artwork</h1>
+  </div>
+  <div class="col-10 offset-1 mt-md-4">
+  <div class="card h-100 p-3 p-md-4 p-lg-5 m-lg-3">
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form|crispy }}
-    <button type="submit">Save Changes</button>
+    {{ form.title|as_crispy_field }}
+    {{ form.style|as_crispy_field }}
+    {{ form.is_downloadable|as_crispy_field }}
+    {{ form.is_public|as_crispy_field }}
+    <button class="btn btn-primary mt-3" type="submit">Save Changes</button>
   </form>
+  </div>
+  </div>
   </div>
 {% endblock %}
