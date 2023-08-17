@@ -32,7 +32,7 @@
 	<div class="row d-flex justify-content-center">
 		<div class="col-md-8 justify-content-center">
 			<div class="card p-3 p-sm-4 p-md-5 my-0 mx-auto bg-main text-light body-font">
-				<form method="POST" action="{% url 'add_hugo' %}" class="form mb-2" enctype="multipart/form-data" onsubmit="return validateForm()">
+				<form method="POST" action="{% url 'add_hugo' %}" class="form mb-2" enctype="multipart/form-data" onsubmit="return showLoading() && validateForm()">
                     {% csrf_token %}
                     {% for field in form %}
                         {% if field.name == 'artwork_description' %}
@@ -60,17 +60,12 @@
 		</div>
 	</div>
 </div>
+
 {% endblock %}
 
 {% block postloadjs %}
 {{ block.super }}
 <script>
-	function showLoading() {
-		document.getElementById('createArtBtn').disabled = true;
-		document.getElementById('loadingMessage').style.display = 'block';
-		return true;  // Proceed with form submission
-	}
-
 	function generateRandomPrompt() {
 		var prompts = [
 			"A surreal landscape with floating islands",
@@ -91,6 +86,7 @@
 		var randomPrompt = prompts[Math.floor(Math.random() * prompts.length)];
 		document.getElementById('id_artwork_description').value = randomPrompt;
 	}
+
 	function validateForm() {
         var artworkDescription = document.getElementById('id_artwork_description').value;
         var charCount = artworkDescription.length;
@@ -101,11 +97,14 @@
             return true;  // Proceed with form submission
         }
     }
-
-    // Update character count on input
     document.getElementById('id_artwork_description').addEventListener('input', function() {
         var charCount = this.value.length;
         document.getElementById('charCountValue').textContent = charCount;
     });
+
+    generateRandomPrompt();
+
 </script>
+
+<script src="{% static 'hugo/js/loading.js' %}"></script>
 {% endblock %}

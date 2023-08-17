@@ -21,14 +21,10 @@ class ArtworkForm(forms.ModelForm):
                     field.widget.attrs['placeholder'] = 'Describe your artwork'
                     field.widget.attrs['class'] = 'border-1 rounded shadow-sm'
                     field.widget.attrs['required'] = True
-                if field_name == 'is_downloadable':
-                     field.widget.attrs['placeholder'] = 'Make Public'
-                if field_name == 'is_public':
-                     field.widget.attrs['placeholder'] = 'Downloadable'
-                if field_name == 'name':
-                    field.widget.attrs['placeholder'] = 'Give your artwork a name'
+                if field_name == 'title':
+                    field.widget.attrs['placeholder'] = 'Give your artwork a title'
                     field.widget.attrs['class'] = 'border-1 rounded shadow-sm'
                     field.widget.attrs['required'] = True
                 else:
                     field.widget.attrs['class'] = 'border-1 rounded shadow-sm'
-                    field.widget.attrs['required'] = True
+                    field.widget.attrs['required'] = False
