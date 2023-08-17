@@ -3,7 +3,6 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'hugo/css/hugo.css' %}">
-
 {% endblock %}
 
 {% block page_header %}
@@ -48,7 +47,8 @@
             <h1 class="display-font display-3">AI Art</h1>
             <div class="text-center mt-3">
             <hr class="w-50 my-3 my-md-4 my-lg-5">
-            <p class="body-font my-3 px-3 px-md-4 px-lg-5 ai-art-desc mx-3 mx-md-4 mx-lg-5">Artwork created by our community using Hue's new AI tool, <strong>Hugo</strong>, powered by <strong>MindsDB</strong> & <strong>OpenAI</strong>. Hover over on an image to see the text prompt that was used to create it.</p>
+            <p class="body-font my-3 px-3 px-md-4 px-lg-5 ai-art-desc mx-3 mx-md-4 mx-lg-5">Artwork created by our community using Hue's new AI tool, <strong>Hugo</strong>, powered by <a href="https://mindsdb.com/" target="_blank" class="link-font">MindsDB</a> & 
+                <a href="https://openai.com/" target="_blank" class="link-font">OpenAI</a>. Hover over on an image to see the text prompt that was used to create it.</p>
         </div>
             {% endif %}
     {% for s in current_styles %}
