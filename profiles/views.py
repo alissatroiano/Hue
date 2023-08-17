@@ -17,7 +17,7 @@ from hugo.forms import ArtworkForm
 
 def profile(request):
     profile = get_object_or_404(Profile, user=request.user)
-    artworks = Artwork.objects.filter(user=request.user)
+    artworks = Artwork.objects.filter(user=request.user).order_by('-created_at')
 
     avatar_form = AvatarForm(request.POST or None, request.FILES or None, instance=profile)
     form = ProfileForm(request.POST or None, instance=profile)
