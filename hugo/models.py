@@ -24,7 +24,9 @@ class Artwork(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     deleted_at = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(User, related_name='userz', on_delete=models.CASCADE, blank=True, null=True)
-    style = models.ForeignKey('Style', null=True, blank=True, on_delete=models.SET_NULL)
+    style = models.ForeignKey('Style', null=True, blank=True,on_delete=models.SET_NULL)
+    is_public = models.BooleanField(default=False)
+    is_downloadable = models.BooleanField(default=False)
 
     def get_style(s):
         """

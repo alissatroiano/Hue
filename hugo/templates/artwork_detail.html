@@ -17,7 +17,7 @@
 <div class="overlay"></div>
 <!--artwork-details-wrapper-->
 <section class="container-fluid my-0 mx-auto pt-3 pt-md-4">
-    <div class="row p-3 p-md-4 my-0 mx-auto d-flex justify-content-center align-items-center">
+    <div class="row my-3 my-sm-4 p-3 p-md-4 d-flex justify-content-center align-items-center">
             <div class="col-12 col-sm-5">
                 <h1 class="display-font text-start my-3">{{ artwork.title }}</h1>
                 <h2 class="text-start body-font my-3">By: {{ artwork.user }}</h2>
@@ -25,17 +25,28 @@
                 <i class="fas fa-quote-left fa-3x my-3 icon-main" id="quote1"></i>
                 <p class="text-start my-3 body-font"> "{{ artwork.artwork_description }}"</p>
                 <i class="fas fa-quote-right icon-main fa-3x my-3"></i>
-
             </div>
             <div class="d-flex">
-                <div class="col-12 col-sm-4 text-start my-3">
-                    <a href="{% url 'hugo' %}" class="btn btn-outline-dark btn-dark rounded-1">
-                        <span class="icon text-light">
-                            <i class="fas fa-chevron-left fa-sm"></i>
-                        </span>
-                        <span class="text-uppercase fw-bold text-light">Explore </span>
-                    </a>
-        </div>
+            <div class="text-end my-3">
+                <a href="{% url 'hugo' %}" class="btn btn-outline-dark btn-dark rounded-1">
+                    <span class="icon text-light">
+                        <i class="fas fa-chevron-left fa-sm"></i>
+                    </span>
+                    <span class="text-uppercase fw-bold text-light">Explore </span>
+                </a>
+    </div>
+    <div class="text-start my-3">
+        {% if artwork.is_downloadable %}
+        <a class="btn btn-outline-dark btn-dark rounded-1" href="{{ artwork.image.url }}" download>
+            <span class="icon text-light">
+                <i class="fas fa-download fa-sm"></i>
+            </span>
+            <span class="text-uppercase fw-bold text-light">Download </span>            </a>
+    {% else %}
+        <p>This artwork is not available for download.</p>
+    {% endif %}
+    </div>
+    
             </div>
             </div>
         <!--artwork-image-row-->
@@ -51,9 +62,9 @@
                         alt="{{ artwork.title }}">
                 </div>
                 {% endif %}
+                
             </div>
             </div>
-        </div>
         <!--./end-artwork-image-card-->
 </section>
 {% endblock %}

@@ -98,6 +98,9 @@
                     <p>by 
                     <a href="#" class="artist-link"> {{ artwork.user }}</a> 
                 </p>
+                {% if artwork.is_downloadable %}
+                <small>Downloadable</small>
+                {% endif %}
             </div>
                 </div>
                 <div class="card-info">

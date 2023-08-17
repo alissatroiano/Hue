@@ -4,7 +4,7 @@ from .models import Artwork
 class ArtworkForm(forms.ModelForm):
     class Meta:
         model = Artwork
-        fields = ['artwork_description', 'title', 'style']
+        fields = ['artwork_description', 'title', 'style', 'is_downloadable', 'is_public']
 
     def __init__(self, *args, **kwargs):
             """
@@ -21,6 +21,10 @@ class ArtworkForm(forms.ModelForm):
                     field.widget.attrs['placeholder'] = 'Describe your artwork'
                     field.widget.attrs['class'] = 'border-1 rounded shadow-sm'
                     field.widget.attrs['required'] = True
+                if field_name == 'is_downloadable':
+                     field.widget.attrs['placeholder'] = 'Make Public'
+                if field_name == 'is_public':
+                     field.widget.attrs['placeholder'] = 'Downloadable'
                 if field_name == 'name':
                     field.widget.attrs['placeholder'] = 'Give your artwork a name'
                     field.widget.attrs['class'] = 'border-1 rounded shadow-sm'
