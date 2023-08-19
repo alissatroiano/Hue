@@ -74,7 +74,6 @@ img.card-img-top {
   width: 100%;
   height: auto;
   position: relative;
-  font-family: 'Droid Serif', serif;
   color: #fff;
   right: 0;
   left: 0;
@@ -173,7 +172,6 @@ h1 {
   font-size: 1.9em;
   font-weight: 400;
   letter-spacing: 1px;
-  font-family: 'Abril Fatface', serif;
   margin-bottom: 0;
   display: inline-block;
 }
