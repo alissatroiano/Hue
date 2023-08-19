@@ -90,8 +90,11 @@ strong {
 }
 
 #userProfile {
-    background: url('https://plus.unsplash.com/premium_photo-1667668221104-bedb32295205?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2051&q=80') no-repeat center center fixed;
+    background: linear-gradient(rgba(255, 255, 255, 0.563), rgba(255, 255, 255, 0.6)), url('https://images.pexels.com/photos/7577900/pexels-photo-7577900.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') no-repeat center center fixed;
     background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
 }
 
 #sidebar {
@@ -100,6 +103,9 @@ strong {
     backdrop-filter: blur( 4px );
     -webkit-backdrop-filter: blur( 4px );
     border-radius: 10px;
+    min-height: 100vh;
+    overflow: hidden;
+
 }
 
 a.text-small {

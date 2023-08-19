@@ -14,7 +14,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="container-fluid">
+<div class="container-fluid" id="createArtForm">
 	<div class="row py-3 text-center pt-5 justify-content-center">
 		<div class="col-12">
 			<span class="icon pt-3 pt-mt-5">
@@ -23,39 +23,59 @@
 			<h2 class="display-font text-center pt-3">AI Art Generator</h2>
 			<p class="text-center body-font mx-5 my-3 px-4">Hi, <strong>{{ user.profile|upper }}! </strong></p>
 			<hr class="my-2">
-			<p class="body-font mx-5">Use our new AI tool to generate unique artwork!</p>
+			<p class="body-font mx-5">Use this tool to generate unique artwork!</p>
+		</div>
+	</div>
+	<div class="row d-flex justify-content-center">
+		<div class="col-md-8 justify-content-center">
+			<div class="card p-3 p-sm-4 p-md-5 my-0 mx-auto bg-main text-light body-font">
+				<form method="POST" action="{% url 'add_hugo' %}" class="form mb-2" enctype="multipart/form-data"
+					onsubmit="return showLoading() && validateForm()">
+					{% csrf_token %}
+					{% for field in form %}
+					{% if field.name == 'artwork_description' %}
+					{{ field | as_crispy_field }}
+					<div class="text-start mt-3">
+						<a type="button" class="body-font random-prompt" onclick="generateRandomPrompt()">Surprise
+							Me!</a>
+					</div>
+					<div id="charCount" class="text-end mt-1">
+						<small>Character count: <span id="charCountValue">0</span>/400</small>
+					</div>
+					{% else %}
+					{{ field | as_crispy_field }}
+					{% endif %}
+					{% endfor %}
+					<div class="text-right">
+						<a class="btn btn-dark rounded-0" href="{% url 'hugo' %}">Cancel</a>
+						</button>
+						<button id="createArtBtn" class="btn btn-dark rounded-0" type="submit">Create Art</button>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 </div>
 
-<div class="container-fluid">
-	<div class="row d-flex justify-content-center">
-		<div class="col-md-8 justify-content-center">
-			<div class="card p-3 p-sm-4 p-md-5 my-0 mx-auto bg-main text-light body-font">
-				<form method="POST" action="{% url 'add_hugo' %}" class="form mb-2" enctype="multipart/form-data" onsubmit="return showLoading() && validateForm()">
-                    {% csrf_token %}
-                    {% for field in form %}
-                        {% if field.name == 'artwork_description' %}
-                            {{ field | as_crispy_field }}
-                            <div class="text-start mt-3">
-                                <a type="button" class="body-font random-prompt" onclick="generateRandomPrompt()">Surprise Me!</a>
-                            </div>
-                            <div id="charCount" class="text-end mt-1">
-                                <small>Character count: <span id="charCountValue">0</span>/400</small>
-                            </div>
-                        {% else %}
-                            {{ field | as_crispy_field }}
-                        {% endif %}
-                    {% endfor %}
-                    <div class="text-right">
-                            <a class="btn btn-dark rounded-0" href="{% url 'hugo' %}">Cancel</a>
-                        </button>
-                        <button id="createArtBtn" class="btn btn-dark rounded-0" type="submit">Create Art</button>
-                    </div>
-                </form>
-				<div id="loadingMessage" class="text-center" style="display: none;">
-					Generating art... Please wait.
-				</div>
+
+<div id="loadingMessage" class=" text-center align-items-center justify-content-center">
+	<div class="loading">
+		<div class="text-center">
+			<span class="icon" id="artSpinner">
+				<i class="fas fa-3x fa-spinner fa-spin"></i>
+			</span>
+			<br>
+			<br>
+			<span class="loading-text body-font">
+				Generating your AI masterpiece now...
+			</span>
+			<br>
+			<div class="m-5 px-5 copyright pt-5">
+				<span class="copyright-terms">Subject to the Content Policy and Terms, you own the images you create
+					with <a target="_blank" class="link-font"
+						href="https://openai.com/policies/terms-of-use">DALL·E</a>, including the right to reprint,
+					sell, and merchandise – regardless of whether an image was generated through a free or paid
+					credit.</span>
 			</div>
 		</div>
 	</div>
@@ -88,21 +108,21 @@
 	}
 
 	function validateForm() {
-        var artworkDescription = document.getElementById('id_artwork_description').value;
-        var charCount = artworkDescription.length;
-        
-        if (charCount > 400) {
-            return false;  // Prevent form submission
-        } else {
-            return true;  // Proceed with form submission
-        }
-    }
-    document.getElementById('id_artwork_description').addEventListener('input', function() {
-        var charCount = this.value.length;
-        document.getElementById('charCountValue').textContent = charCount;
-    });
+		var artworkDescription = document.getElementById('id_artwork_description').value;
+		var charCount = artworkDescription.length;
 
-    generateRandomPrompt();
+		if (charCount > 400) {
+			return false;  // Prevent form submission
+		} else {
+			return true;  // Proceed with form submission
+		}
+	}
+	document.getElementById('id_artwork_description').addEventListener('input', function () {
+		var charCount = this.value.length;
+		document.getElementById('charCountValue').textContent = charCount;
+	});
+
+	generateRandomPrompt();
 
 </script>
 
