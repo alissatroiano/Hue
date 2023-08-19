@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'hugo/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'hugo/css/hugo.css' %}">
 {% endblock %}
 
 {% block page_header %}
@@ -41,14 +41,15 @@
             <span class="icon text-light">
                 <i class="fas fa-download fa-sm"></i>
             </span>
-            <span class="text-uppercase fw-bold text-light">Download </span>            </a>
+            <span class="text-uppercase fw-bold text-light">Download </span>            
+        </a>
     {% else %}
-        <p>This artwork is not available for download.</p>
+        <p class="body-font" id="downloadMessage">This artwork is not available for download.</p>
     {% endif %}
     </div>
     
             </div>
-            </div>
+        </div>
         <!--artwork-image-row-->
             <!-- art image card-->
             <div class="col-12 col-sm-7">
@@ -66,5 +67,15 @@
             </div>
             </div>
         <!--./end-artwork-image-card-->
+        {% if artwork.user == request.user %}
+        <div class="row">
+            <div class="col-12">
+                <a href="{% url 'profile' %}" class="link-font">
+                    <i class="fas fa-chevron-left"></i>
+                    My Artwork
+                </a>
+            </div>
+        </div>
+        {% endif %}
 </section>
 {% endblock %}

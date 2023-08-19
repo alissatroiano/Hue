@@ -260,6 +260,12 @@ h3:after {
   font-style: italic;
 }
 
+p#downloadMessage {
+  font-style: italic;
+  font-size: 12px;
+  padding-top: 20px;
+}
+
 @media (min-width: 320px) and (max-width: 480px) {
   .art-card:hover .title-content,
   .title-content {
