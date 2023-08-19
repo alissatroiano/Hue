@@ -128,3 +128,11 @@ WHERE text='A statue of a cool mouse with headphones, baggy pants, and a t-shirt
 
 
 
+
+
+# Abstract Art Model
+
+
+```sql
+{'target': 'img_url', 'using': {'mode': 'image', 'prompt_template': '{{text}}, 8K | highly detailed abstract painting style by Jackson Pollock combined with Piet Mondrian |  cinematic lighting | happy colors'}}
+```s

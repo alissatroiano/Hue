@@ -67,7 +67,6 @@ def add_hugo(request):
             mdb_server = mindsdb_sdk.connect('https://cloud.mindsdb.com', settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
             project = mdb_server.get_project('open_ai')
             
-            # Query the respective model based on the selected style
             if style.name == 'pop-art':
                 query = project.query(f'SELECT * FROM open_ai.retro WHERE text="{text}";')
             elif style.name == 'digital-art':
@@ -76,6 +75,8 @@ def add_hugo(request):
                 query = project.query(f'SELECT * FROM open_ai.fine_art WHERE text="{text}";')
             elif style.name == 'street-art':
                 query = project.query(f'SELECT * FROM open_ai.urban_art WHERE text="{text}";')
+            elif style.name == 'abstract-art':
+                query = project.query(f'SELECT * FROM open_ai.abstract WHERE text="{text}";')
             else:
                 query = None
             if query is not None:
