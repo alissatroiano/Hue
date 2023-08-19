@@ -35,6 +35,9 @@
         <a class="style-item display-font" href="{% url 'hugo' %}?style=street-art&direction=asc" class="nav-link display-font">Street Art</a>
     </li>
     <li class="dropdown-item-light">
+        <a class="style-item display-font" href="{% url 'hugo' %}?style=abstract-art&direction=asc" class="nav-link display-font">Abstract Art</a>
+    </li>
+    <li class="dropdown-item-light">
         <a class="style-item display-font" href="{% url 'hugo' %}" class="nav-link display-font">View All</a></li>
     </ul>
 </div>
@@ -76,6 +79,12 @@
         <hr class="w-50 mb-1">
         <div class="text-center my-3 mx-3 mx-md-4 mx-lg-5 px-3 px-md-4 px-md-lg"> 
         <h4 class="body-font style-text mx-3 mx-md-5 px-md-5">The street art model was trained to produce pieces that mimic the contemporary, urban street art style of <a href="https://kawsone.com/password" target="_blank" class="link-font">KAWS</a> with the controversial style of <a href="https://www.banksy.co.uk/" target="_blank" class="link-font">Banksy.</a></h4>
+    </div>
+        {% endif %}
+        {% if s.friendly_name == 'Abstract' %}
+        <hr class="w-50 mb-1">
+        <div class="text-center my-3 mx-3 mx-md-4 mx-lg-5 px-3 px-md-4 px-md-lg"> 
+        <h4 class="body-font style-text mx-3 mx-md-5 px-md-5">The abstract art model was trained to create images in the likeness of famous abstract artists <a href="#" target="_blank" class="link-font">Jackson Pollock</a> and <a href="https://www.jackson-pollock.org/" target="_blank" class="link-font">Piet Mondrian.</a></h4>
     </div>
         {% endif %}
     {% endfor %}
