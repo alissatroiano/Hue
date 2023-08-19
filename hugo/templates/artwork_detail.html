@@ -19,12 +19,12 @@
 <section class="container my-0 mx-auto pt-3">
     <div class="row mt-sm-4 d-flex justify-content-center align-items-center">
             <div class="col-12 col-sm-5">
-                <h1 class="display-font display-2 text-center">{{ artwork.title }}</h1>
-                <h2 class="text-start body-font mt-3">By: 
-                    <a href="{% url 'profile' %}" class="link-font">
+                <h1 class="display-font display-4 mb-2 text-start">{{ artwork.title }}</h1>
+                <h2 class="text-start body-font">By: 
+                    <a class="link-font">
                     {{ artwork.user }}
                 </a></h2>        
-                <div class="my-3">
+                <div class="mt-3">
                 <i class="fas fa-quote-left fa-3x my-3 icon-main" id="quote1"></i>
                 <p class="text-start my-3 body-font"> "{{ artwork.artwork_description }}"</p>
                 <i class="fas fa-quote-right icon-main fa-3x my-3"></i>
@@ -69,7 +69,7 @@
             <!--./end-artwork-image-card-->
         </div>
         {% if artwork.user == request.user %}
-        <div>
+        <div class="row">
                 <a href="{% url 'profile' %}" class="link-font">
                     <i class="fas fa-chevron-left"></i>
                     My Artwork
