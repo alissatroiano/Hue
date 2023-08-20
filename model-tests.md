@@ -136,3 +136,12 @@ WHERE text='A statue of a cool mouse with headphones, baggy pants, and a t-shirt
 ```sql
 {'target': 'img_url', 'using': {'mode': 'image', 'prompt_template': '{{text}}, 8K | highly detailed abstract painting style by Jackson Pollock combined with Piet Mondrian |  cinematic lighting | happy colors'}}
 ```s
+
+```sql
+CREATE MODEL open_ai.street_art
+PREDICT img_url
+USING
+   engine = 'openai',
+   mode = 'image',
+   prompt_template = '{{text}}, 4K | highly detailed, contemporary, urban street art style of Kaws combined with the controversial style of Banksy | bright lighting | warrm happy colors | 1024 x 1024 pixels';
+```

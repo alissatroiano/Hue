@@ -12,7 +12,7 @@ import openai
 import pandas as pd
 from pandas import DataFrame
 from hugo.models import Artwork
-from hugo.forms import ArtworkForm
+from hugo.forms import EditArtworkForm
 
 
 def profile(request):
@@ -70,12 +70,12 @@ def edit_artwork(request, artwork_id):
     artwork = get_object_or_404(Artwork, id=artwork_id, user=request.user)
 
     if request.method == 'POST':
-        form = ArtworkForm(request.POST, request.FILES, instance=artwork)
+        form = EditArtworkForm(request.POST, request.FILES, instance=artwork)
         if form.is_valid():
             form.save()
             return redirect('profile')  # Redirect to profile page or any other desired page
     else:
-        form = ArtworkForm(instance=artwork)
+        form = EditArtworkForm(instance=artwork)
 
     template = 'profiles/edit_artwork.html'
     context = {
