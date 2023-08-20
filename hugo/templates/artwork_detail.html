@@ -70,11 +70,13 @@
         </div>
         {% if artwork.user == request.user %}
         <div class="row">
+            <div class="col">
                 <a href="{% url 'profile' %}" class="link-font">
                     <i class="fas fa-chevron-left"></i>
                     My Artwork
                 </a>
             </div>
+        </div>
         {% endif %}
 </section>
 {% endblock %}
