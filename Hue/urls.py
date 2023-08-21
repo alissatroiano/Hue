@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from django.conf.urls import url
+from django.conf.urls import url, handler404
 from home.views import page_not_found_view
 
 handler404 = page_not_found_view
@@ -12,6 +12,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     url(r'^accounts/', include('allauth.urls')),
     path('', include('home.urls')),
+    path('page_not_found_view/', page_not_found_view, name='page_not_found_view'),
     path('shop/', include('shop.urls')),
     path('cart/', include('cart.urls')),
     path('checkout/', include('checkout.urls')),
