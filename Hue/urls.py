@@ -3,12 +3,15 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import url
+from home.views import page_not_found_view
+
+handler404 = page_not_found_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     url(r'^accounts/', include('allauth.urls')),
-    path('', include('home.urls')),
+    path('home/', include('home.urls')),
     path('shop/', include('shop.urls')),
     path('cart/', include('cart.urls')),
     path('checkout/', include('checkout.urls')),
