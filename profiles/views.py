@@ -116,4 +116,4 @@ def add_artwork_to_store(request, artwork_id):
         form = AddToStoreForm()
 
     context = {'form': form}
-    return render(request, 'add_to_store.html', context)
+    return render(request, 'profiles/add_to_store.html', context)

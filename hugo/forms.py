@@ -45,4 +45,4 @@ class EditArtworkForm(forms.ModelForm):
 class AddToStoreForm(forms.ModelForm):
     class Meta:
         model = Artwork
-        fields = ['price', 'title', 'style', 'is_downloadable', 'is_public', 'for_sale']
+        fields = ['price', 'for_sale']

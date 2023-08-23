@@ -206,7 +206,7 @@ def delete_product(request, product_id):
 
 
 @login_required
-def import_artwork_to_store(request, artwork_id):
+def import_artwork_to_store(request):
     # Retrieve all artwork items
     artwork_items = Artwork.objects.filter(for_sale=True)
 
@@ -216,7 +216,8 @@ def import_artwork_to_store(request, artwork_id):
             title=artwork.title,
             price=artwork.price,
             image=artwork.image_url,
-            image_url=artwork.image_url,        )
+            image_url=artwork.image,
+                          )
         product.save()
 
     return redirect('shop')  # Redirect to the shop or another page
