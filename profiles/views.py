@@ -117,3 +117,14 @@ def add_artwork_to_store(request, artwork_id):
 
     context = {'form': form}
     return render(request, 'profiles/add_to_store.html', context)
+
+
+def artist_artworks(request, username):
+    artist = get_object_or_404(User, username=username)
+    artworks = Artwork.objects.filter(user=artist)
+    
+    context = {
+        'artist': artist,
+        'artworks': artworks,
+    }
+    return render(request, 'profiles/artwork.html', context)

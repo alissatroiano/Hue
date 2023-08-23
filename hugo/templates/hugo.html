@@ -106,7 +106,7 @@
                 {{ artwork.title }}</h3>
                   <div class="intro">
                     <p>by 
-                    <a href="#" class="artist-link"> {{ artwork.user }}</a> 
+                        <a href="{% url 'artist_artworks' artwork.user.username %}">{{ artwork.user }}</a></p>
                 </p>
                 {% if artwork.is_downloadable %}
                 <small>Downloadable</small>
@@ -120,6 +120,11 @@
                   <div class="view-art my-2">
                     <a class="btn display-font" href="{% url 'artwork_detail' artwork.id %}">
                         VIEW ARTWORK <i class="fas fa-chevron-right"></i></a>
+                  </div>
+                  <div class="view-artist">
+                    <a class="btn display-font" href="{% url 'artist_artworks' artwork.user %}">
+                        <i class="fas fa-chevron-left"></i>
+                        VIEW ARTIST </a>
                   </div>
                   {% if artwork.style %}
                   <div class="mt-lg-4">

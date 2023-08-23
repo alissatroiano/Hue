@@ -14,4 +14,26 @@
 {% endblock %}
 
 {% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <h1>{{ artist.username }}'s Collection</h1>
+            </div>
+            </div>
+  <div class="row d-flex p-3">
+    {% for artwork in artworks %}
+      <div class="col-xs-8 col-sm-4">
+        <div class="card m-2">
+          <img src="{{ artwork.image.url }}" class="card-img-top img-fluid" alt="{{ artwork.title }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ artwork.title }}</h5>
+            <p class="card-text">{{ artwork.artwork_description }}</p>
+            <a href="{% url 'artwork_detail' artwork.id %}" class="btn btn-primary">View Artwork</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+        </div>
+
 {% endblock %}
