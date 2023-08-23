@@ -204,8 +204,9 @@ def delete_product(request, product_id):
     messages.success(request, 'Product deleted!')
     return redirect(reverse('shop'))
 
+
 @login_required
-def import_artwork_to_store(request):
+def import_artwork_to_store(request, artwork_id):
     # Retrieve all artwork items
     artwork_items = Artwork.objects.filter(for_sale=True)
 
@@ -215,8 +216,7 @@ def import_artwork_to_store(request):
             title=artwork.title,
             price=artwork.price,
             image=artwork.image_url,
-            # Set other fields as needed
-        )
+            image_url=artwork.image_url,        )
         product.save()
 
     return redirect('shop')  # Redirect to the shop or another page
