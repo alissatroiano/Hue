@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.http import JsonResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from hugo.models import Artwork
+from django.contrib.auth.models import User
+from profiles.views import add_artwork_to_store
 
 from django.db.models import Q
 from django.db.models.functions import Lower
@@ -32,6 +35,7 @@ def shop_all(request):
     """ A view to show all products, including sorting and search queries """
 
     products = Product.objects.all()
+    artwork_items = Artwork.objects.filter(for_sale=True)
     query = None
     categories = None
     current_sorting = None
@@ -104,6 +108,7 @@ def shop_all(request):
         'current_sorting': current_sorting,
         'current_labels': labels,
         'current_orientation': orientations,
+        'artwork_items': artwork_items,
     }
 
     return render(request, 'shop/shop.html', context)
@@ -120,6 +125,17 @@ def product_detail(request, product_id):
 
     return render(request, 'shop/product_detail.html', context)
 
+
+def artwork_detail(request, artwork_id):
+    """ A view to show individual artwork details """
+
+    artwork = get_object_or_404(Artwork, pk=artwork_id)
+
+    context = {
+        'artwork': artwork,
+    }
+
+    return render(request, 'hugo/artwork_detail.html', context)
 
 @login_required
 def add_product(request):
@@ -143,24 +159,6 @@ def add_product(request):
     }
 
     return render(request, template, context)
-
-
-@login_required
-def get_title_suggestions(request):
-    form = ArtworkForm()
-    predicted_titles = []
-    if request.method == 'POST':
-        # Retrieve the artwork description from the POST request
-        text = request.POST.get('text')
-
-        # Call your MindsDB/ChatGPT model to get the predictions
-        mdb_server = mindsdb_sdk.connect('https://cloud.mindsdb.com', settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
-        project = mdb_server.get_project('open_ai')
-        query = project.query(f'SELECT * FROM open_ai.art WHERE artwork_description="{text}";')
-
-        predicted_titles = DataFrame.to_dict(query.fetch(), orient='records')
-    
-    return render(request, 'shop/get_title_suggestions.html', {'predicted_titles': predicted_titles})
 
 
 @login_required
@@ -205,3 +203,20 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Product deleted!')
     return redirect(reverse('shop'))
+
+@login_required
+def import_artwork_to_store(request):
+    # Retrieve all artwork items
+    artwork_items = Artwork.objects.filter(for_sale=True)
+
+    for artwork in artwork_items:
+        # Create a new Product instance using data from artwork
+        product = Product(
+            title=artwork.title,
+            price=artwork.price,
+            image=artwork.image_url,
+            # Set other fields as needed
+        )
+        product.save()
+
+    return redirect('shop')  # Redirect to the shop or another page

@@ -5,7 +5,6 @@ from django.contrib import messages
 
 from shop.models import Product
 
-
 # Create your views here.
 
 def view_cart(request):
@@ -18,6 +17,7 @@ def add_to_cart(request, item_id):
     """ A view to add a quantity of a specific store product to the user's shopping cart """
     
     product = get_object_or_404(Product, pk=item_id)
+   
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     dimension = None

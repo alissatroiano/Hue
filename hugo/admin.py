@@ -14,5 +14,5 @@ class StyleAdmin(admin.ModelAdmin):
 @admin.register(Artwork)
 class ArtworkAdmin(admin.ModelAdmin):
     fields = [  
-        'title', 'user', 'artwork_description', 'image_url', 'image', 'style', 'is_downloadable', 'is_public'
+        'title', 'user', 'artwork_description', 'image_url', 'image', 'style', 'is_downloadable', 'is_public', 'for_sale'
     ]

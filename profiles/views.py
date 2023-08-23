@@ -12,7 +12,7 @@ import openai
 import pandas as pd
 from pandas import DataFrame
 from hugo.models import Artwork
-from hugo.forms import EditArtworkForm
+from hugo.forms import EditArtworkForm, AddToStoreForm
 
 
 def profile(request):
@@ -99,3 +99,21 @@ def delete_artwork(request, artwork_id):
         'artwork': artwork,
     }
     return render(request, template, context)
+
+
+def add_artwork_to_store(request, artwork_id):
+    artwork = get_object_or_404(Artwork, id=artwork_id, user=request.user)
+
+    if request.method == 'POST':
+        form = AddToStoreForm(request.POST, request.FILES, instance=artwork)
+        if form.is_valid():
+            artwork = form.save(commit=False)
+            artwork.user = request.user 
+            artwork.for_sale = True
+            artwork.save()
+            return redirect('shop')
+    else:
+        form = AddToStoreForm()
+
+    context = {'form': form}
+    return render(request, 'add_to_store.html', context)

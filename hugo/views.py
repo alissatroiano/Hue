@@ -20,6 +20,7 @@ import time
 email = os.environ["MINDSDB_EMAIL"]
 password = os.environ["MINDSDB_PASSWORD"]
 
+from cart.views import add_to_cart
 
 def hugo(request):
     artworks = Artwork.objects.all()
@@ -119,3 +120,11 @@ def add_hugo(request):
     context = {'form': form}
 
     return render(request, template, context)
+
+def add_artwork_to_cart(request, artwork_id):
+    artwork = get_object_or_404(Artwork, id=artwork_id)
+
+    # Call the add_to_cart view to add the artwork to the cart
+    add_to_cart(request, artwork.id, quantity=1)
+
+    return redirect('cart:view_cart') 

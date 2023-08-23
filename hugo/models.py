@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
 class Style(models.Model):
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
@@ -27,6 +26,10 @@ class Artwork(models.Model):
     style = models.ForeignKey('Style', null=True, blank=True,on_delete=models.SET_NULL)
     is_public = models.BooleanField(default=False)
     is_downloadable = models.BooleanField(default=False)
+    for_sale = models.BooleanField(default=False)
+    price = models.DecimalField(
+        decimal_places=2, max_digits=8, null=False, default=0)
+
 
     def get_style(s):
         """
