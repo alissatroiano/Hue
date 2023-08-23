@@ -4,7 +4,7 @@ from .models import Artwork
 class ArtworkForm(forms.ModelForm):
     class Meta:
         model = Artwork
-        fields = ['artwork_description', 'title', 'style', 'is_downloadable', 'is_public', 'for_sale']
+        fields = ['artwork_description', 'title', 'style', 'is_downloadable', 'is_public']
 
     def __init__(self, *args, **kwargs):
             """
@@ -42,7 +42,15 @@ class EditArtworkForm(forms.ModelForm):
             field.widget.attrs['class'] = 'border-1 rounded shadow-sm'
             field.widget.attrs['required'] = False
 
+
 class AddToStoreForm(forms.ModelForm):
-    class Meta:
+  class Meta:
         model = Artwork
-        fields = ['price', 'for_sale']
+        fields = ['price']
+        
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+
+            for field_name, field in self.fields.items():
+                field.widget.attrs['class'] = 'border-1 rounded shadow-sm'
+                field.widget.attrs['required'] = False
