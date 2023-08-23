@@ -3,6 +3,8 @@ from django.conf import settings
 from .managers import ProductManager
 from django.utils import timezone
 from model_utils import Choices
+# import user
+from django.contrib.auth.models import User
 
 # https://docs.djangoproject.com/en/3.2/topics/i18n/timezones/
 now = timezone.now
@@ -71,6 +73,7 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     deleted_at = models.DateTimeField(auto_now=True)
+    user = models.ForeignKey(User, related_name='userz', on_delete=models.CASCADE, blank=True, null=True)
     # description = models.TextField(blank=True, null=True)
 
     objects = models.Manager()

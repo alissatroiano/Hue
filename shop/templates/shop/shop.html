@@ -27,10 +27,11 @@
             </a>
             {% endfor %}
         </div>
+        {% if has_artwork_for_import %}
         <div class="col-12 text-end justify-content-end">
             <a href="{% url 'import_artwork_to_store' %}" class="btn btn-primary">Import Artwork to Store</a>
-
         </div>
+        {% endif %}
     </div>
     <div class="row d-flex g-4 justify-content-center justify-content-lg-between my-0 mx-auto px-3 px-lg-5 pb-3">
         <div class="col-auto d-flex justify-content-center justify-content-lg-start">

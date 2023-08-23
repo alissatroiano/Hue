@@ -35,7 +35,9 @@ def shop_all(request):
     """ A view to show all products, including sorting and search queries """
 
     products = Product.objects.all()
-    artwork_items = Artwork.objects.filter(for_sale=True)
+    has_artwork_for_import = False
+    if request.user.is_authenticated:
+            has_artwork_for_import = Artwork.objects.filter(user=request.user, for_sale=True).exists()
     query = None
     categories = None
     current_sorting = None
@@ -108,7 +110,7 @@ def shop_all(request):
         'current_sorting': current_sorting,
         'current_labels': labels,
         'current_orientation': orientations,
-        'artwork_items': artwork_items,
+        'has_artwork_for_import': has_artwork_for_import,
     }
 
     return render(request, 'shop/shop.html', context)
@@ -211,13 +213,14 @@ def import_artwork_to_store(request):
     artwork_items = Artwork.objects.filter(for_sale=True)
 
     for artwork in artwork_items:
-        # Create a new Product instance using data from artwork
-        product = Product(
-            title=artwork.title,
-            price=artwork.price,
-            image=artwork.image_url,
-            image_url=artwork.image,
-                          )
-        product.save()
+        # Check if a product with the same title already exists
+        if not Product.objects.filter(title=artwork.title).exists():
+            # Create a new Product instance using data from artwork
+            product = Product(
+                title=artwork.title,
+                price=artwork.price,
+                image=artwork.image,
+                created_at=artwork.created_at,)
+            product.save()
 
     return redirect('shop')  # Redirect to the shop or another page
