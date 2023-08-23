@@ -73,7 +73,7 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     deleted_at = models.DateTimeField(auto_now=True)
-    user = models.ForeignKey(User, related_name='userz', on_delete=models.CASCADE, blank=True, null=True)
+    user = models.ForeignKey(User, related_name='artist', on_delete=models.CASCADE, blank=True, null=True)
     # description = models.TextField(blank=True, null=True)
 
     objects = models.Manager()
