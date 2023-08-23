@@ -103,9 +103,6 @@ strong {
     backdrop-filter: blur( 4px );
     -webkit-backdrop-filter: blur( 4px );
     border-radius: 10px;
-    min-height: 100vh;
-    overflow: hidden;
-
 }
 
 a.text-small {
@@ -117,4 +114,16 @@ a.text-small {
 
 a.text-small:hover {
     color: #666;
+}
+
+@media only screen and (min-width: 768px) {
+    #sidebar {
+        background: rgba( 255, 255, 255, 0.25 );
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 4px );
+        -webkit-backdrop-filter: blur( 4px );
+        border-radius: 10px;
+        min-height: 100vh;
+        overflow: hidden;
+    }
 }
