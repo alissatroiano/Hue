@@ -5,6 +5,7 @@ from django.utils import timezone
 from model_utils import Choices
 # import user
 from django.contrib.auth.models import User
+from hugo.models import Artwork, Style
 
 # https://docs.djangoproject.com/en/3.2/topics/i18n/timezones/
 now = timezone.now
@@ -74,6 +75,7 @@ class Product(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     deleted_at = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(User, related_name='artist', on_delete=models.CASCADE, blank=True, null=True)
+    style = models.ForeignKey(Style, related_name='genre', on_delete=models.CASCADE, blank=True, null=True)
     # description = models.TextField(blank=True, null=True)
 
     objects = models.Manager()

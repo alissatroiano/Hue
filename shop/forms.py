@@ -1,20 +1,6 @@
 from django import forms
 from .models import Product, Category
-
-class ArtworkDescriptionForm(forms.ModelForm):
-    class Meta:
-        model = Product
-        fields = ['artwork_description']
-        labels = {
-            'artwork_description': 'Artwork Description'
-        }
-        widgets = {
-            'artwork_description': forms.Textarea(attrs={
-                'rows': 3,
-                'placeholder': 'Describe your artwork',
-                'class': 'border-1 rounded shadow-sm'
-            })
-        }
+from hugo.models import Artwork, Style
 
 class ProductForm(forms.ModelForm):
 
@@ -43,7 +29,8 @@ class ProductForm(forms.ModelForm):
             else:
                 field.widget.attrs['required'] = True
 
-class ArtworkForm(forms.Form):
-    description = forms.CharField(label='Describe your artwork', widget=forms.Textarea)
-    artwork_description = forms.CharField(label='Artwork Description', widget=forms.Textarea)
-    predicted_titles = forms.JSONField(label='Predicted Titles', widget=forms.HiddenInput, required=False)
+class EditProductForm(forms.ModelForm):
+
+    class Meta:
+        model = Product
+        fields = 'title', 'price'
