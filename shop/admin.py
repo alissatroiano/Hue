@@ -64,6 +64,7 @@ class ProductAdmin(admin.ModelAdmin):
         'label',
         'predicted_titles',
         'artwork_description',
+        'style',
     ]
     autocomplete_fields = ['category']
    # Add display_final_price to readonly_fields because it is a function not a db field

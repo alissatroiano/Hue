@@ -51,11 +51,26 @@
             </div>
 
             <div class="d-flex justify-content-between border-bottom py-2 my-3">
+                {% if product.medium %}
                 <div class="py-2">
                     <div class="fw-bold body-font text-dark">Medium</div>
                 </div>
                 <div class="body-font text-muted body-sm">{{ product.medium }}</div>
+                {% endif %}
             </div>
+
+            {% if product.artwork_description %}
+            <div class="d-flex justify-content-between border-bottom py-2 my-3">
+                <div class="col-6">
+                    <div class="fw-bold body-font text-dark">Prompt</div>
+                </div>
+                <div class="col-6">
+                    <div class="body-font text-muted body-sm">{{ product.artwork_description }}</div>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if product.orientation %}
             <div class="d-flex justify-content-between border-bottom py-2 my-3">
                 <div class="py-2">
                     <div class="fw-bold body-font text-dark">Orientation</div>
@@ -70,9 +85,10 @@
                 <div class="body-font text-muted body-sm">Square</div>
                 {% endif %}
             </div>
+            {% endif %}
+
             <div class="row">
                 <div class=" d-flex justify-content-between border-0 py-2 my-3">
-                    <span class="fw-bold body-font text-dark text-start">File Size</span>
                     <form class="row" method="POST" action="{% url 'add_to_cart' product.id %}">
                         {% csrf_token %}
                         <div class="col-auto">
@@ -87,61 +103,60 @@
                             </select>
                         </div>
                         {% endif %}
-                </div>
-                <!--quantity-input-->
-                <div class=" d-flex justify-content-between border-0 py-2 my-3">
-                    <div class="py-2">
-                        <div class="fw-bold body-font text-dark">Quantity:</div>
-                    </div>
-                    <div class="col-auto input-group my-0 mx-auto justify-content-end pe-5">
-                        <div class="bg-transparent border-0">
-                            <button class="decrement-qty my-0 mx-auto btn rounded-0" data-item_id="{{ product.id }}"
-                                id="decrement-qty_{{ product.id }}">
-                                <span class="icon">
-                                    <i class="fas fa-minus fa-xs"></i>
-                                </span>
-                            </button>
+                        {% endwith %}
+                        <!--quantity-input-->
+                        <div class="d-flex justify-content-between border-0 py-2 my-3">
+                            <div class="py-2">
+                                <div class="fw-bold body-font text-dark">Quantity:</div>
+                            </div>
+                            <div class="col-auto input-group my-0 mx-auto justify-content-end pe-5">
+                                <div class="bg-transparent border-0">
+                                    <button class="decrement-qty my-0 mx-auto btn rounded-0"
+                                        data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
+                                        <span class="icon">
+                                            <i class="fas fa-minus fa-xs"></i>
+                                        </span>
+                                    </button>
+                                </div>
+                                <input class="form-control-sm qty_input body-small" type="number" name="quantity"
+                                    value="1" min="1" max="99" data-item_id="{{ product.id }}"
+                                    id="id_qty_{{ product.id }}">
+                                <div class="bg-transparent border-0">
+                                    <button class="increment-qty btn rounded-0" data-item_id="{{ product.id }}"
+                                        id="increment-qty_{{ product.id }}">
+                                        <span class="icon">
+                                            <i class="fas fa-plus fa-xs"></i>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                        <input class="form-control-sm qty_input body-small" type="number" name="quantity" value="1"
-                            min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
-                        <div class="bg-transparent border-0">
-                            <button class="increment-qty btn rounded-0" data-item_id="{{ product.id }}"
-                                id="increment-qty_{{ product.id }}">
-                                <span class="icon">
-                                    <i class="fas fa-plus fa-xs"></i>
-                                </span>
-                            </button>
-                        </div>
-                    </div>
+                        <!--./end-quantity-input-->
+
+                        <!--buttons-row-->
+                        <div class="row">
+                            <div class="col-12 text-center pt-5 me-auto">
+                                <a href="{% url 'shop' %}" class="btn btn-outline-dark btn-dark rounded-1">
+                                    <span class="icon text-light">
+                                        <i class="fas fa-chevron-left fa-sm"></i>
+                                    </span>
+                                    <span class="text-uppercase fw-bold text-light">Keep Shopping</span>
+                                </a>
+                                <div class="btn btn-outline-dark btn-dark text-light fw-bold rounded-1">
+                                    <input type="submit"
+                                        class="bg-transparent body-small border-0 text-light text-uppercase fw-bold "
+                                        value="Add to Cart">
+                                    <span class='icon text-center me-auto'>
+                                        <i class="fas fa-plus"></i>
+                                    </span>
+                                </div>
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                            </div>
+                            <!--./end-buttons-row-->
+                    </form>
                 </div>
-                <!--./end-quantity-input-->
+                <!--./-end-product-details-->
             </div>
-        </div>
-        <!--buttons-row-->
-        <div class="row">
-            <div class="col-12 text-center pt-5 me-auto">
-                <a href="{% url 'shop' %}" class="btn btn-outline-dark btn-dark rounded-1">
-                    <span class="icon text-light">
-                        <i class="fas fa-chevron-left fa-sm"></i>
-                    </span>
-                    <span class="text-uppercase fw-bold text-light">Keep Shopping</span>
-                </a>
-                <div class="btn btn-outline-dark btn-dark text-light fw-bold rounded-1">
-                    <input type="submit" class="bg-transparent body-small border-0 text-light text-uppercase fw-bold "
-                        value="Add to Cart">
-                    <span class='icon text-center me-auto'>
-                        <i class="fas fa-plus"></i>
-                    </span>
-                </div>
-            </div>
-            <input type="hidden" name="redirect_url" value="{{ request.path }}">
-        </div>
-        <!--./end-buttons-row-->
-        {% endwith %}
-        </form>
-    </div>
-    <!--./-end-product-details-->
-    </div>
 </section>
 <!--./end-product-details-->
 {% endblock %}

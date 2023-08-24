@@ -11,7 +11,7 @@
 <div class="overlay"></div>
 <div class="container-fluid bg-light mt-3 pt-3 pb-2">
     <div class="row">
-        <div class="col text-center mt-3 p-3">
+        <div class="col-12 text-center mt-3 p-3">
             <h2 class="display-font my-3 mt-4 pt-lg-5">The Shop</h2>
              <hr class="w-50 mb-1">
             {% for c in current_categories %}
@@ -26,7 +26,13 @@
                 </span>
             </a>
             {% endfor %}
+
         </div>
+        {% if has_artwork_for_import %}
+        <div class="col-12 text-end justify-content-end">
+            <a href="{% url 'import_artwork_to_store' %}" class="btn btn-primary">Import Artwork to Store</a>
+        </div>
+        {% endif %}
     </div>
     <div class="row d-flex g-4 justify-content-center justify-content-lg-between my-0 mx-auto px-3 px-lg-5 pb-3">
         <div class="col-auto d-flex justify-content-center justify-content-lg-start">
@@ -91,6 +97,13 @@
                             <p class="body-small body-font mt-1 mb-0">
                                 <a class="text-muted" href="{% url 'shop' %}?category={{ product.category.title }}">
                                     <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                                </a>
+                            </p>
+                            {% endif %}
+                            {% if product.style %}
+                            <p class="body-small body-font mt-1 mb-0">
+                                <a class="text-muted" href="{% url 'shop' %}?style={{ product.style.name }}">
+                                    <i class="fas fa-tag mr-1"></i>{{ product.style.friendly_name }}
                                 </a>
                             </p>
                             {% endif %}

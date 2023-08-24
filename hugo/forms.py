@@ -41,3 +41,16 @@ class EditArtworkForm(forms.ModelForm):
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-1 rounded shadow-sm'
             field.widget.attrs['required'] = False
+
+
+class AddToStoreForm(forms.ModelForm):
+  class Meta:
+        model = Artwork
+        fields = ['price']
+        
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+
+            for field_name, field in self.fields.items():
+                field.widget.attrs['class'] = 'border-1 rounded shadow-sm'
+                field.widget.attrs['required'] = False

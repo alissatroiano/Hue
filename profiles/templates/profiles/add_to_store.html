@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container pt-5">
+    <div class="row d-flex p-5">
+        <div class="col-12">
+            <div class="text-center">
+            <i class="fas fa-solid fa-hand-holding-heart fa-3x mb-3"></i>
+            </div>
+            <h1 class="text-center">Donate Artwork</h1>
+            <hr class="my-3 my-md-4">
+            <p class="body-font text-center px-3 px-md-5">Set a price for your creation and add it to our shop! Proceeds from donated artwork will go to "bla bla"</p>
+        </div>
+        </div>
+        <div class="col-10 offset-1 justify-content-center">
+            <div class="card h-100 p-3 p-md-4 p-lg-5 m-lg-3">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.price|as_crispy_field }}
+                    <button type="submit">Add Artwork to Store</button>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}
