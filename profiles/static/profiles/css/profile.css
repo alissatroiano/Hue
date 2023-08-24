@@ -103,6 +103,7 @@ strong {
     backdrop-filter: blur( 4px );
     -webkit-backdrop-filter: blur( 4px );
     border-radius: 10px;
+    min-height: 20vh;
 }
 
 a.text-small {

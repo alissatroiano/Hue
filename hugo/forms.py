@@ -27,7 +27,7 @@ class ArtworkForm(forms.ModelForm):
                     field.widget.attrs['required'] = True
                 else:
                     field.widget.attrs['class'] = 'border-1 rounded shadow-sm'
-                    field.widget.attrs['required'] = False
+                    field.widget.attrs['required'] = True
 
 
 class EditArtworkForm(forms.ModelForm):
