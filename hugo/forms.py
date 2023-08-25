@@ -25,9 +25,11 @@ class ArtworkForm(forms.ModelForm):
                     field.widget.attrs['placeholder'] = 'Give your artwork a title'
                     field.widget.attrs['class'] = 'border-1 rounded shadow-sm'
                     field.widget.attrs['required'] = True
+                if field_name == 'style':
+                    field.widget.attrs['required'] = True
                 else:
                     field.widget.attrs['class'] = 'border-1 rounded shadow-sm'
-                    field.widget.attrs['required'] = True
+                    field.widget.attrs['required'] = False
 
 
 class EditArtworkForm(forms.ModelForm):

@@ -108,22 +108,32 @@
 	}
 
 	function validateForm() {
-		var artworkDescription = document.getElementById('id_artwork_description').value;
-		var charCount = artworkDescription.length;
+        var prohibitedWords = ['poop', 'unsafe', 'other_bad_word']; // Add your list of prohibited words here
+        var descriptionField = document.getElementById('id_artwork_description');
+        var descriptionValue = descriptionField.value.toLowerCase();
 
-		if (charCount > 400) {
-			return false;  // Prevent form submission
-		} else {
-			return true;  // Proceed with form submission
-		}
-	}
-	document.getElementById('id_artwork_description').addEventListener('input', function () {
-		var charCount = this.value.length;
-		document.getElementById('charCountValue').textContent = charCount;
-	});
+        for (var i = 0; i < prohibitedWords.length; i++) {
+            if (descriptionValue.includes(prohibitedWords[i])) {
+                alert('Please remove prohibited words from the description.');
+                return false; // Prevent form submission
+            }
+        }
 
-	generateRandomPrompt();
+        var charCount = descriptionValue.length;
+        if (charCount > 400) {
+            alert('Description is too long. Please keep it under 400 characters.');
+            return false; // Prevent form submission if character count exceeds 400
+        }
 
+        return true; // Proceed with form submission if validation passes
+    }
+
+    document.getElementById('id_artwork_description').addEventListener('input', function () {
+        var charCount = this.value.length;
+        document.getElementById('charCountValue').textContent = charCount;
+    });
+
+    generateRandomPrompt();
 </script>
 
 <script src="{% static 'hugo/js/loading.js' %}"></script>
