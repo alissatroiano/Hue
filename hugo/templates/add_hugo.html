@@ -108,16 +108,8 @@
 	}
 
 	function validateForm() {
-        var prohibitedWords = ['poop', 'unsafe', 'other_bad_word']; // Add your list of prohibited words here
         var descriptionField = document.getElementById('id_artwork_description');
         var descriptionValue = descriptionField.value.toLowerCase();
-
-        for (var i = 0; i < prohibitedWords.length; i++) {
-            if (descriptionValue.includes(prohibitedWords[i])) {
-                alert('Please remove prohibited words from the description.');
-                return false; // Prevent form submission
-            }
-        }
 
         var charCount = descriptionValue.length;
         if (charCount > 400) {
