@@ -423,10 +423,19 @@ span.copyright-terms {
 
 .card-footer a {
   font-size: 12px;
-  color: #1a83b4;
+  color: #1a5ab4;
   text-decoration: underline;
   text-decoration-style: double;
   text-underline-offset: 0.4em;
+  font-weight: 600;
+}
+
+a.link-to-openai {
+  color: #1a5ab4;
+  text-decoration: underline;
+  text-decoration-style: double;
+  text-underline-offset: 0.4em;
+  font-weight: 600;
 }
 
 ul#contentPolicy {
@@ -434,7 +443,7 @@ ul#contentPolicy {
   line-height: 2;
 }
 
-p#smallContent {
+div#smallContent {
   font-size: 12px;
   color: #494949;
 }

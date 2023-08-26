@@ -16,7 +16,7 @@
 {% block content %}
 <div class="overlay"></div>
 
-<div class="container">
+<div class="container-fluid">
     <div class="row mt-5">
         <div class="col-12 text-center">
             <div class="text-center my-2">
@@ -28,15 +28,18 @@
                 This may be becuase it contains language that is offensive, vulgar or against OpenAI's Content Policy.
                 <br>
                 Please abstain from using language that is violent or offensive in any way</p>
-            <p class="body-font" id="smallContent">
-                Need more guidance? Please review OpenAI's Content Policy below
-            </p>
-            <div class="text-center">
-                <i class="fas fa-arrow-down"></i>
-            </div>
+                <div class="d-flex my-3">
+                    <div class="col-6"><a href="" class="link-font"><i class="fas fa-chevron-left"></i>  Back to Create Art Form</a></div>
+                    <div class="col-6">   
+                        <a class="link-font" href="#OpenAiContentPolicy">
+                        OpenAI's Content Policy
+                            <i class="fas fa-arrow-down"></i>
+                        </a></div>
+                </div>
+          </div>
             <div class="d-flex justify-content-center">
-            <div class="col-11 my-3">
-                <div class="card shadow-lg">
+            <div class="col-12 col-sm-10 col-lg-8 my-3">
+                <div class="card shadow-lg" id="OpenAiContentPolicy">
                     <div class="card-header text-center">
                         <h4>Open AI's Content Policy</h4>
                     </div>
@@ -68,7 +71,6 @@
                                     of diseases, or people experiencing health ailments.</li>
                                 <li> -Spam: unsolicited bulk content.</li>
                             </ul>
-                            <br>
                             <strong> Don’t mislead your audience about AI involvement.</strong>
                             <ul>
                                 <li> - When sharing your work, we encourage you to proactively disclose AI involvement
@@ -86,10 +88,10 @@
                                 <li>- Do not create images of public figures.</li>
                             </ul>
                             <strong>Please report any suspected violations of these rules to OpenAI's team through the
-                                <a href="https://help.openai.com/en/" target="_blank">OpenAI help center.</a>
+                                <a href="https://help.openai.com/en/" target="_blank" class="link-to-openai">OpenAI help center.</a>
                             </strong>
                         </div>
-                        <div class="card-footer">
+                        <div class="card-footer text-center">
                             <a href="https://labs.openai.com/policies/content-policy" target="_blank">OpenAI Official
                                 Content Policy</a>
                         </div>
