@@ -57,11 +57,19 @@
                             </i> About
                         </a>
                     </li>
-                    <li class="list-item">
-                        <a class="nav-link display-font" href="{% url 'hugo' %}">
+                    <li class="list-item dropdown">
+                        <a class="dropdown-toggle nav-link display-font" href="{% url 'hugo' %}" id="aiDropdown" data-bs-toggle="dropdown" aria-expanded="false" >
                         <i class="bi d-block mx-auto text-center mb-1 fas fa-paint-brush">
-                        </i> Explore
+                        </i> AI GRAPHICS
                     </a>
+                    <ul class="dropdown-menu display-font" aria-labelledby="aiDropdown">
+                        <li class="list-item dropdown text-light bg-dark me-2">
+                            <a href="{% url 'hugo' %}" class="dropdown-item">AI Art</a>
+                        </li>
+                        <li class="list-item dropdown text-light bg-dark me-2">
+                            <a href="{% url 'hugo' %}?style=photography" class="dropdown-item">AI Photos</a>
+                        </li>
+                    </ul>
                     </li>
                     <li class="list-item">
                         <a href="{% url 'shop' %}" class="nav-link">

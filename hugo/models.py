@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 class Style(models.Model):
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
+    parent = models.ForeignKey('self', null=True, blank=True, on_delete=models.CASCADE)
+
     class Meta:
         verbose_name_plural = 'Styles'
 

@@ -28,11 +28,32 @@ def hugo(request):
 
     # sort artwork by style if the user has selected that style
     if request.GET:
-        if 'style' in request.GET:
-            styles = request.GET['style'].split(',')
-            artworks = artworks.filter(style__name__in=styles)
+        style_param = request.GET['style']
+        if style_param == 'photography':
+            photography_artworks = artworks.filter(style__name='photography')
+            context = {
+                'artworks': photography_artworks,
+                'current_styles': 'photography',  # Set this to 'photography' for highlighting in the template
+            }
+            return render(request, 'photography.html', context)
+        else:
+            artworks = artworks.exclude(style__name='photography')
             styles = Style.objects.filter(name__in=styles)
     # display artwork from newest to oldest whe visiting the page
+    artworks = artworks.order_by('-created_at')
+    context = {
+        'artworks': artworks,
+        'current_styles': styles,
+        # 'sort_dir': sort_dir,
+    }
+
+    return render(request, 'hugo.html', context)
+
+
+def photo_art(request):
+    artworks = Artwork.objects.all()
+    styles = None
+
     artworks = artworks.order_by('-created_at')
     context = {
         'artworks': artworks,
@@ -78,6 +99,8 @@ def add_hugo(request):
                 query = project.query(f'SELECT * FROM open_ai.urban_art WHERE text="{text}";')
             elif style.name == 'abstract-art':
                 query = project.query(f'SELECT * FROM open_ai.abstract WHERE text="{text}";')
+            elif style.name == 'photography':
+                query = project.query(f'SELECT * FROM open_ai.stock_photos WHERE text="{text}";')
             else:
                 query = None
             if query is not None:
