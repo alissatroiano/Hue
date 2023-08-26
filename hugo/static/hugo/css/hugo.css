@@ -80,7 +80,7 @@ img.card-img-top {
   margin: 0 auto;
   overflow: hidden;
   border-radius: 0px;
-  box-shadow: 0px 10px 20px -9px rgba(23, 4, 43, 0.488);
+  box-shadow: 0px 10px 20px -9px rgba(13, 1, 26, 0.626);
   text-align: center;
   transition: all 0.4s;
   background-size: 100%;
@@ -118,18 +118,19 @@ img.card-img-top {
   z-index: 15;
 }
 
-p.body-font.my-3.ai-art-desc {
-  line-height: 2;
-  font-size: 1rem;
+p#aiPrompt,
+p.artwork-desc.body-font {
+  line-height: 1.5;
+  font-size: 14px;
 }
 
-.art-card:hover {
+.art-card::after {
   box-shadow: 0px 18px 20px -9px rgba(10, 1, 22, 0.781);
 }
 
 .art-card:hover .card-info {
   opacity: 1;
-  bottom: 20%;
+  top: 10%;
   padding: 10px;
 }
 
@@ -144,11 +145,16 @@ p.body-font.my-3.ai-art-desc {
 
 .art-card .title-content {
   padding: 20px 0;
-  background-color: #1202219d;
+  background-color: #1c0631c3;
 }
 
 .art-card:hover .title-content {
   margin-top: 70px
+}
+
+.download-info.body-font span {
+  font-size: 10px;
+  font-style: italc;
 }
 
 .title-content {
@@ -196,6 +202,21 @@ h3:after {
   transition: all 0.2s
 }
 
+#artcardText {
+  font-size: 11px;
+  color: #cbb1fb;
+  font-weight: 600;
+}
+
+a#artistHover {
+  color: #cbb1fb;
+}
+
+a#artistHover:hover {
+  background-color: transparent;
+  color: #9867f2;
+}
+
 @keyframes changeLetter {
   0% {
     width: 10%;
@@ -210,7 +231,6 @@ h3:after {
   width: 170px;
   margin: 0 auto;
   color: #ddd;
-  font-style: italic;
   line-height: 18px;
 }
 
@@ -246,21 +266,101 @@ h3:after {
   opacity: 1
 }
 
-.tag-font {
+a.tag-font {
   font-size: 12px;
   font-family: 'oswald', sans-serif;
   text-transform: uppercase;
-  color: #b5b5b5;
+  color: #b6b6b6;
+}
+
+a.download-font {
+  font-size: 12px;
+  font-family: 'oswald', sans-serif;
+  text-transform: uppercase;
+  color: #939393;
+}
+
+a.download-font:hover,
+a.tag-font:hover {
+  color: #9867f2;
+  background-color: transparent;
+}
+
+#artistName {
+  text-decoration: none;
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #9867f2 67%,
+    #d881f8 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+  letter-spacing: 1px;
+}
+
+#artworkCardTitle,
+#artworkTitle {
+  text-decoration: none;
+  background-image: linear-gradient(
+    -225deg,
+    #e2bce8 10%,
+    #9f4bf7 29%,
+    #9867f2 67%,
+    #b99cd3 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+  letter-spacing: 1px;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+a.user-credit {
+  text-decoration: none;
+  color: #af97db;
+  letter-spacing: .5px;
+}
+
+#artistName:hover {
+  color: #4b1fa9;
+  text-decoration-line: underline;
+  text-underline-offset: 0.4em;
 }
 
 .artwork_desc {
   font-style: italic;
 }
 
-p#downloadMessage {
+p#downloadInfo {
   font-style: italic;
   font-size: 12px;
-  padding-top: 20px;
+  color: #a4a4a4;
+}
+
+.download-span:hover {
+  color: #9867f2;
 }
 
 #loadingMessage {
@@ -272,6 +372,12 @@ p#downloadMessage {
   height: 100%;
   background: rgba(170, 151, 204, .85);
   z-index: 9999;
+}
+
+p#downloadTxt {
+  font-size: 11px;
+  font-style: italic;
+  color: #a4a4a4;
 }
 
 .loading {
@@ -321,10 +427,6 @@ span.copyright-terms {
     height: auto;
   }
 
-  .art-card h3 {
-    font-size: 1rem
-  }
-
   .intro {
     font-size: 0.8em
   }
@@ -339,7 +441,7 @@ span.copyright-terms {
 
   p.body-font.my-3.ai-art-desc {
     line-height: 2;
-    font-size: 13px;
+    font-size: 12px;
   }
 
   a.btn.display-font {
@@ -348,4 +450,14 @@ span.copyright-terms {
   a.tag-font {
     font-size: 10px;
 }
+#artcardText {
+  font-size: 10px;
+}
+}
+
+@media only screen and (min-width: 1280px) {
+  #artcardText {
+    font-size: 1rem;
+  }
+
 }

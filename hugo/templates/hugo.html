@@ -102,38 +102,38 @@
                     <img class="img-fluid" src="{{ artwork.image.url }}" alt="Card image cap">
                     {% endif %}
                 <div class="title-content">
-                  <h3 class="display-font">
+                  <h3 class="display-font display-5 my-3" id="artworkTitle">
                 {{ artwork.title }}</h3>
-                  <div class="intro">
-                    <p>by 
-                        <a href="{% url 'artist_artworks' artwork.user.username %}">{{ artwork.user }}</a></p>
-                </p>
-                {% if artwork.is_downloadable %}
-                <small>Downloadable</small>
-                {% endif %}
-            </div>
+                 
                 </div>
                 <div class="card-info">
-                    <p class="artwork_desc body-font display-6">
-                  {{ artwork.artwork_description }}
+                        <h3 class="display-font" id="artworkCardTitle">
+                      {{ artwork.title }}</h3>
+                      <p class="display-font user-credit"> by 
+                        <a class="display-font user-credit" href="{% url 'artist_artworks' artwork.user.username %}"> {{ artwork.user }}</a>
+                      </p>
+                    <p class="artwork_desc body-font mx-md-3" id="aiPrompt">
+                 "{{ artwork.artwork_description }}"
                   </p>
                   <div class="view-art my-2">
                     <a class="btn display-font" href="{% url 'artwork_detail' artwork.id %}">
                         VIEW ARTWORK <i class="fas fa-chevron-right"></i></a>
                   </div>
-                  <div class="view-artist">
-                    <a class="btn display-font" href="{% url 'artist_artworks' artwork.user %}">
-                        <i class="fas fa-chevron-left"></i>
-                        VIEW ARTIST </a>
-                  </div>
+             
                   {% if artwork.style %}
-                  <div class="mt-lg-4">
-                    <a class="tag-font" href="{% url 'hugo' %}?style={{ artwork.style.name }}">
-                        <i class="fas fa-tag mr-1" id="styleTag"></i> {{ artwork.style.friendly_name }}
+                  <div class="mt-lg-4 display-font">
+                    <a class="tag-font mx-3" href="{% url 'hugo' %}?style={{ artwork.style.name }}">
+                        <i class="fas fa-tag" id="styleTag"></i> {{ artwork.style.friendly_name }} 
                     </a>
+                    {% if artwork.is_downloadable %}
+                    <a class="tag-font mx-3" href="{{ artwork.image.url }}" download> 
+                        <i class="fas fa-download mx-1" id="styleTag"></i> Download
+                    </a>
+                    {% endif %}
+                   
                     </div>
                 {% endif %}
-                </div>
+                            </div>
                 <div class="gradient-overlay"></div>
                 <div class="color-overlay"></div>
               </div>

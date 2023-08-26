@@ -16,6 +16,8 @@ import pandas as pd
 from pandas import DataFrame
 import random
 import string
+from urllib.parse import quote
+
 import time
 email = os.environ["MINDSDB_EMAIL"]
 password = os.environ["MINDSDB_PASSWORD"]
@@ -53,6 +55,7 @@ def artwork_detail(request, artwork_id):
 
     return render(request, 'artwork_detail.html', context)
 
+
 @login_required
 def add_hugo(request):
     if request.method == 'POST':
@@ -62,26 +65,29 @@ def add_hugo(request):
             artwork.user = request.user
             artwork.save()
             
-            style = artwork.style  # Get the selected style from the artwork object
+            style = artwork.style 
             text = artwork.artwork_description
+            encoded_text = quote(text)
             
-            mdb_server = mindsdb_sdk.connect('https://cloud.mindsdb.com', settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
-            project = mdb_server.get_project('open_ai')
+            # Define a dictionary to map style names to query templates
+            style_queries = {
+                'pop-art': 'SELECT * FROM open_ai.retro WHERE text="{}";',
+                'digital-art': 'SELECT * FROM open_ai.digital_only WHERE text="{}";',
+                'fine-art': 'SELECT * FROM open_ai.fine_art WHERE text="{}";',
+                'street-art': 'SELECT * FROM open_ai.urban_art WHERE text="{}";',
+                'abstract-art': 'SELECT * FROM open_ai.abstract WHERE text="{}";',
+                'photography': 'SELECT * FROM open_ai.stock_photos WHERE text="{}";'
+            }
             
-            if style.name == 'pop-art':
-                query = project.query(f'SELECT * FROM open_ai.retro WHERE text="{text}";')
-            elif style.name == 'digital-art':
-                query = project.query(f'SELECT * FROM open_ai.digital_only WHERE text="{text}";')
-            elif style.name == 'fine-art':
-                query = project.query(f'SELECT * FROM open_ai.fine_art WHERE text="{text}";')
-            elif style.name == 'street-art':
-                query = project.query(f'SELECT * FROM open_ai.urban_art WHERE text="{text}";')
-            elif style.name == 'abstract-art':
-                query = project.query(f'SELECT * FROM open_ai.abstract WHERE text="{text}";')
-            else:
-                query = None
-            if query is not None:
-                ai_img = DataFrame.to_string(query.fetch())
+            query_template = style_queries.get(style.name)
+            
+            if query_template is not None:
+                query = query_template.format(encoded_text)  # Insert encoded_text into the query template
+                mdb_server = mindsdb_sdk.connect('https://cloud.mindsdb.com', settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
+                project = mdb_server.get_project('open_ai')
+                query_result = project.query(query).fetch()
+                
+                ai_img = DataFrame.to_string(query_result)
                 # Extract the image URL from ai_img using regular expressions
                 url_pattern = r'(https?://\S+)'
                 match = re.search(url_pattern, ai_img)
