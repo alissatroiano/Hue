@@ -86,11 +86,8 @@
 {% block postloadjs %}
 {{ block.super }}
 <script>
-	const styleDropdown = document.getElementById("styleDropdown");
-	const artworkDescriptionInput = document.getElementById("id_artwork_description");
-
-	const generateRandomPrompt() {
-		abstractA = [
+	function generateRandomPrompt() {
+		var prompts = [
 			"A surreal landscape with floating islands",
 			"The Hulk, wearing an apron and baking a cake. Retro, 1950's aesthetic",
 			"A futuristic cityscape at sunset",
@@ -109,8 +106,7 @@
 			"Stacked money coins and black laptop with room for copy space",
 			"Real estate. Satisfied man rejoicing of founding perfect home apartment, holding paper house model, standing over white background with copy space",
 			"Road to success, achievement and personal development concept with walking on red carpet in form of arrow growing up businessman back view on light background with copy space",
-			"3d render simple minimal toy art kaws styles of a cute cartoon fat shih tzu barking, modern minimalist, digital art",
-			"3d render simple minimal toy art kaws styles of a cute cartoon fat shih tzu barking, modern minimalist",
+
 		];
 
 		var randomPrompt = prompts[Math.floor(Math.random() * prompts.length)];
