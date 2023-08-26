@@ -416,6 +416,29 @@ span.copyright-terms {
   font-style: italic;
 }
 
+.content-policy {
+  font-size: 12px;
+  line-height: 2;
+}
+
+.card-footer a {
+  font-size: 12px;
+  color: #1a83b4;
+  text-decoration: underline;
+  text-decoration-style: double;
+  text-underline-offset: 0.4em;
+}
+
+ul#contentPolicy {
+  list-style-type: circle;
+  line-height: 2;
+}
+
+p#smallContent {
+  font-size: 12px;
+  color: #494949;
+}
+
 @media (min-width: 320px) and (max-width: 480px) {
   .art-card:hover .title-content,
   .title-content {
