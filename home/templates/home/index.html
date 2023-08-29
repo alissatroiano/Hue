@@ -20,14 +20,14 @@
             <!--call to action-->
             <div class="col-8 col-lg-7 offset-lg-2 text-start text-md-end">
                 <h1 class="text-start text-md-end py-2 py-lg-3 lh-1 my-2 pe-md-3" id="title">HUE</h1>
-                <h2 class="text-start text-md-end body-intro my-3 my-md-4" id="subTitle">DIGITAL ART MARKETPLACE</h2>
+                <h2 class="text-start text-md-end body-intro my-3 my-md-4" id="subTitle">AI ART & IMAGE GENERATOR </h2>
                     {% if request.user.is_authenticated %}
-                    <a href="{% url 'hugo' %}" class="text-start text-md-end text-center display-font display-6 me-3 ms-md-3" id="createArt">AI Art</a>
+                    <a href="{% url 'hugo' %}" class="text-start text-md-end text-center display-font display-6 me-3 ms-md-3" id="createArt"> Gallery</a>
                     {% else %}
                     <a href="{% url 'account_login' %}" class="text-start text-md-end text-center display-font display-6" id="createArt1">Login </a>
                     {% endif %}
                    
-                    <a href="{% url 'shop' %}" class="text-start text-md-end text-center display-font display-6 ps-md-5 ms-md-5" id="shopBtn">Shop</a>
+                    <a href="{% url 'add_hugo' %}" class="text-start text-md-end text-center display-font display-6 ps-md-5 ms-md-5" id="shopBtn">CREATE</a>
             </div>
         </div>
         <!--./call-to-action-->
