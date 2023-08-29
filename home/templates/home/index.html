@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+{% endblock %}
+
 {% block page_header %}
 <div class="container">
     <div class="row">
@@ -11,19 +16,18 @@
 <!--hero starts here-->
 <section class="hero-container pt-5 mt-5" id="welcome">
     <div class="container-fluid py-5 mt-5">
-        <div class="row text-center d-flex align-items-center text-center py-3">
+        <div class="row d-flex align-items-center text-center py-3">
             <!--call to action-->
-            <div class="col-12">
-                <h1 class="text-center py-2 py-lg-3 lh-1 my-4" id="title">HUE</h1>
-                <h2 class="body-intro text-light">DIGITAL ART MARKETPLACE</h2>
-                <button role="button" class="btn btn-link my-4 rounded mx-2" id="hero-button">
+            <div class="col-8 col-lg-7 offset-lg-2 text-start text-md-end">
+                <h1 class="text-start text-md-end py-2 py-lg-3 lh-1 my-2 pe-md-3" id="title">HUE</h1>
+                <h2 class="text-start text-md-end body-intro my-3 my-md-4" id="subTitle">DIGITAL ART MARKETPLACE</h2>
                     {% if request.user.is_authenticated %}
-                    <a href="{% url 'hugo' %}" class="text-light btn text-center text-decoration-none" id="createArt">AI Art</a></button>
+                    <a href="{% url 'hugo' %}" class="text-start text-md-end text-center display-font display-6 me-3 ms-md-3" id="createArt">AI Art</a>
                     {% else %}
-                    <a href="{% url 'account_login' %}" class="text-light btn text-decoration-none text-center" id="createArt1">Login </a></button>
+                    <a href="{% url 'account_login' %}" class="text-start text-md-end text-center display-font display-6" id="createArt1">Login </a>
                     {% endif %}
-                    <button role="button" class="btn btn-link my-4 rounded" id="hero-button">
-                    <a href="{% url 'shop' %}" class="text-light btn text-decoration-none">Shop</a></button>
+                   
+                    <a href="{% url 'shop' %}" class="text-start text-md-end text-center display-font display-6 ps-md-5 ms-md-5" id="shopBtn">Shop</a>
             </div>
         </div>
         <!--./call-to-action-->

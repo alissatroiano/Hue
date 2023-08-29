@@ -456,8 +456,8 @@ a.dropdown-item:hover {
 /***************************** Homepage */
 .hero-container,
 #welcome {
-    background: -webkit-gradient(linear, left top, left bottom, from(rgb(0 0 0 / 80%)), to(rgb(0 0 0 / 60%))), url(../../media/hue1.jpg) no-repeat center center fixed;
-    background: -o-linear-gradient(rgb(0 0 0 / 80%), rgb(0 0 0 / 60%)), url(../../media/hue1.jpg) no-repeat center center fixed;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgb(0 0 0 / 80%)), to(rgb(0 0 0 / 60%))), url(../images/paint.png) no-repeat center center fixed;
+    background: -o-linear-gradient(rgb(0 0 0 / 80%), rgb(0 0 0 / 60%)), url(../images/paint.png) no-repeat center center fixed;
     background: linear-gradient(rgb(0 0 0 / 80%), rgb(0 0 0 / 60%)), url(../../media/hue1.jpg) no-repeat center center fixed;
     background-size: cover;
     max-width: 100%;
