@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+{% endblock %}
+
 {% block page_header %}
 <div class="container">
     <div class="row">
@@ -11,19 +16,18 @@
 <!--hero starts here-->
 <section class="hero-container pt-5 mt-5" id="welcome">
     <div class="container-fluid py-5 mt-5">
-        <div class="row text-center d-flex align-items-center text-center py-3">
+        <div class="row d-flex align-items-center text-center py-3">
             <!--call to action-->
-            <div class="col-12">
-                <h1 class="text-center py-2 py-lg-3 lh-1 my-4" id="title">HUE</h1>
-                <h2 class="body-intro text-light">DIGITAL ART MARKETPLACE</h2>
-                <button role="button" class="btn btn-link my-4 rounded mx-2" id="hero-button">
+            <div class="col-8 col-md-10 col-lg-9 offset-lg-2 text-start text-md-end">
+                <h1 class="text-start text-md-end py-2 py-lg-3 lh-1 my-2 pe-md-3 display-font" id="titleFont">HUE</h1>
+                <h2 class="text-start text-md-end body-intro my-3 my-md-4" id="subTitle">AI ART & IMAGE GENERATOR </h2>
                     {% if request.user.is_authenticated %}
-                    <a href="{% url 'hugo' %}" class="text-light btn text-center text-decoration-none" id="createArt">AI Art</a></button>
+                    <a href="{% url 'hugo' %}" class="text-start text-md-end text-center display-font display-6 me-3 ms-md-3" id="createArt"> Gallery</a>
                     {% else %}
-                    <a href="{% url 'account_login' %}" class="text-light btn text-decoration-none text-center" id="createArt1">Login </a></button>
+                    <a href="{% url 'account_login' %}" class="text-start text-md-end text-center display-font display-6" id="createArt1">Login </a>
                     {% endif %}
-                    <button role="button" class="btn btn-link my-4 rounded" id="hero-button">
-                    <a href="{% url 'shop' %}" class="text-light btn text-decoration-none">Shop</a></button>
+                   
+                    <a href="{% url 'add_hugo' %}" class="text-start text-md-end text-center display-font display-6 ps-md-5 ms-md-5" id="shopBtn">CREATE</a>
             </div>
         </div>
         <!--./call-to-action-->
@@ -32,20 +36,27 @@
 <!--./end-hero-->
 
 <!--About Starts Here-->
-<section class="container-fluid about-section px-4 py-5 my-5" id="about">
-    <div class="row">
-        <div class="col-12 mt-5">
-            <div class="text-center mt-5">
-                <i class="bi me-2 fas fa-tint fa-3x my-5"></i>
+<section class="container-fluid" id="about">
+    <div class="row py-3">
+        <div class="col-12 mt-5 py-3 pb-sm-4 pb-lg-5">
+            <div class="text-center my-3">
+                <i class="bi pt-3 me-2 fas fa-tint fa-3x my-5"></i>
             </div>
-            <h2 class="pb-2 text-center display-font heading-lg my-3">About</h2>
-            <div class="row d-flex align-items-center justify-content-center mx-auto px-lg-5 pt-3 text-center">
+            <h2 class="pb-2 text-center display-font heading-lg mt-3">About</h2>
+            <div class="row d-flex align-items-center justify-content-center mx-auto px-lg-4 pt-3 text-center">
                 <div class="col-8">
-                    <p class="body-font mx-lg-5 px-md-3" id="about-text">
-                        Hue is an online art community where you can create & license your own awesome AI artwork! Hue's new AI image generator tool is powered by <a class="link-font" href="https://mindsdb.com/" target="_blank">MindsDB</a> & <a class="link-font" href="https://openai.com/" target="_blank">OpenAI's </a> <a class="link-font" href="https://openai.com/dall-e-2" target="_blank">DALL-E 2</a> model, giving anyone with an eye for design the power to create stunning digital pieces. 
+                    <p class="body-font my-3 mx-lg-5 px-md-3" id="about-text">
+                        Hue is an online art community where you can create & license your own awesome AI artwork! Hue's new AI image generator tool is powered by <a class="link-font" href="https://mindsdb.com/" target="_blank">
+                            <span class="mdb">MindsDB</span>
+                        </a> & <a class="link-font" href="https://openai.com/" target="_blank"> <span class="mdb">OpenAI's </span></a> <a class="link-font" href="https://openai.com/dall-e-2" target="_blank"><span class="mdb">DallE-2</span> </a> model, giving anyone with an eye for design the power to create stunning digital pieces. 
                     </p>
                 </div>
             </div>
+        </div>
+        <div class="col-12 text-center my-3 py-sm-3">
+            <a href="#features" class="text-dark">
+            <i class="fas fa-chevron-down fa-3x"></i>
+            </a>
         </div>
     </div>
 
@@ -53,19 +64,19 @@
 <!--./end-about-->
 
 <!--Category Display https://codepen.io/mhhasan320/pen/BwqvLL -->
-<section class="category-cta container-fluid bg-dark text-light mt-5 p-5">
-    <div class="row">
-        <div class="col-12 mt-3">
-            <h2 class="pb-2 text-center display-font text-light heading-lg my-3" id="categories">Features
+<section class="category-cta container-fluid" id="features">
+    <div class="row mt-5">
+        <div class="col-12">
+            <h2 class="pb-2 text-center display-font text-light heading-lg my-3 text-dark" id="categories">Features
             </h2>
         </div>
     </div>
     <div class="row d-flex text-white g-4 p-5">
         <div class="col-xs-8 col-sm-4">
-            <div class="card h-100 overflow-hidden rounded-5 img-fluid" id="category-card1">
+            <div class="shadow-lg card h-100 overflow-hidden rounded-5 img-fluid" id="category-card1">
                 <div class="card-image-overlay">
                     <h3 class="py-3 mt-5 mb-4 lh-1 fw-bold">
-                         Find AI Art
+                        AI Art Gallery
                     </h3>
                     <a href="{% url 'hugo' %}" class="stretched-link"></a>
                 </div>
