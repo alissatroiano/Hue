@@ -121,6 +121,8 @@ def add_hugo(request):
 
                 return redirect(reverse('hugo'))
         except Exception as e:
+            # Delete the artwork if an exception occurs
+            artwork.delete()
             return render(request, 'runtime_error_template.html', {'error_message': str(e)})
     else:
         form = ArtworkForm()
@@ -129,8 +131,3 @@ def add_hugo(request):
         context = {'form': form}
 
         return render(request, template, context)
-
-def test_error(request, *args, **kwargs):
-    
-    return render(request, 'runtime_error_template.html', status=404)
-
