@@ -22,12 +22,12 @@
                 <h1 class="text-start text-md-end py-2 py-lg-3 lh-1 my-2 pe-md-3 display-font" id="titleFont">HUE</h1>
                 <h2 class="text-start text-md-end body-intro my-3 my-md-4" id="subTitle">AI ART & IMAGE GENERATOR </h2>
                     {% if request.user.is_authenticated %}
-                    <a href="{% url 'hugo' %}" class="text-start text-md-end text-center display-font display-6 me-3 ms-md-3" id="createArt"> Gallery</a>
+                    <a href="{% url 'add_hugo' %}" class="text-start text-md-end text-center display-font display-6 me-3 ms-md-3" id="createArt"> CREATE</a>
                     {% else %}
                     <a href="{% url 'account_login' %}" class="text-start text-md-end text-center display-font display-6" id="createArt1">Login </a>
                     {% endif %}
                    
-                    <a href="{% url 'add_hugo' %}" class="text-start text-md-end text-center display-font display-6 ps-md-5 ms-md-5" id="shopBtn">CREATE</a>
+                    <a href="{% url 'hugo' %}" class="text-start text-md-end text-center display-font display-6 ps-md-5 ms-md-5" id="shopBtn">GALLERY</a>
             </div>
         </div>
         <!--./call-to-action-->
