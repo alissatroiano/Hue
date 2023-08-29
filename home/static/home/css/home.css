@@ -31,7 +31,9 @@ h2#subTitle {
 }
 
 h1#titleFont,
-a#createArt, a#shopBtn {
+a#createArt, 
+a#createArt1,
+a#shopBtn {
     text-decoration: none;
     background-image: linear-gradient( -225deg, rgba(79, 23, 209, 0.882)0%, #867def 29%, #4d2bc8 67%, #755cd2 100% );
     background-size: auto auto;
@@ -46,6 +48,7 @@ a#createArt, a#shopBtn {
     display: inline-block;
 }
 
+a#createArt1:hover,
 a#createArt:hover,
 a#shopBtn:hover {
     text-decoration: underline;
