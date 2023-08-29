@@ -120,8 +120,8 @@ img.card-img-top {
 
 p#aiPrompt,
 p.artwork-desc.body-font {
-  line-height: 1.5;
-  font-size: 14px;
+  line-height: 1.25;
+  font-size: 12px;
 }
 
 .art-card::after {
@@ -462,6 +462,12 @@ div#smallContent {
   .intro {
     font-size: 0.8em
   }
+  p#aiPrompt,
+p.artwork-desc.body-font {
+  line-height: 1;
+  font-size: 10px;
+}
+
 }
 
 
@@ -471,25 +477,36 @@ div#smallContent {
     top: 10%;
   }
 
-  p.body-font.my-3.ai-art-desc {
-    line-height: 2;
-    font-size: 12px;
-  }
+  p#aiPrompt,
+p.artwork-desc.body-font {
+  line-height: 1.25;
+  font-size: 11px;
+}
 
   a.btn.display-font {
     font-size: 12px;
   }
+
   a.tag-font {
     font-size: 10px;
 }
 #artcardText {
   font-size: 10px;
 }
+#artworkCardTitle {
+  display: none;
+}
+
 }
 
 @media only screen and (min-width: 1280px) {
   #artcardText {
     font-size: 1rem;
   }
-
+  p#aiPrompt,
+  p.artwork-desc.body-font {
+    line-height: 1.25;
+    font-size: 14px;
+  }
+  
 }
