@@ -25,16 +25,15 @@
 
 h2#subTitle {
     font-family: 'Poppins', sans-serif;
-    font-weight: 300;
+    font-weight: 200;
     font-size: 1.35rem;
-    /* color: #ab99ba; */
-    color: #635c7d;
-
+    color: #9389b9;
 }
 
+h1#titleFont,
 a#createArt, a#shopBtn {
     text-decoration: none;
-    background-image: linear-gradient( -225deg, #6a3dd7 10%, #8362e8 29%, #6436a7 67%, #755cd2 100% );
+    background-image: linear-gradient( -225deg, rgba(79, 23, 209, 0.882)0%, #867def 29%, #4d2bc8 67%, #755cd2 100% );
     background-size: auto auto;
     background-clip: border-box;
     background-size: 200% auto;
@@ -45,7 +44,44 @@ a#createArt, a#shopBtn {
     -webkit-text-fill-color: transparent;
     animation: textclip 2s linear infinite;
     display: inline-block;
-    letter-spacing: 1px;
+}
+
+a#createArt:hover,
+a#shopBtn:hover {
+    text-decoration: underline;
+    background-image: none;
+    background-color: #867def;
+}
+
+section#about {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.201), rgba(247, 247, 247, 0.545), rgba(247, 247, 247, 0.785)), url('../../../../static/images/splash.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    max-width: 100%;
+    min-height: 80vh;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+span.mdb {
+    font-weight: 800;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+h1#titleFont {
+    letter-spacing: 5px;
+    font-size: 5rem;
 }
 
 @keyframes textclip {
@@ -59,5 +95,11 @@ a#createArt, a#shopBtn {
     .hero-container,
 #welcome {
     background-position: center;
+    
 }
+h1#titleFont {
+    letter-spacing: 3px;
+    font-size: 8rem;
+}
+
 }

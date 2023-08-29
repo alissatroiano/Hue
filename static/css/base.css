@@ -51,6 +51,10 @@ a {
     background-color: #100324;
 }
 
+.bg-none {
+    background-color: #10042c;
+}
+
 .bg-index {
     /* background-color: rgba(170, 151, 204, 0.548); */
     /* background-color: #22094998; */
@@ -140,12 +144,11 @@ a {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     font-size: 1.5rem;
-    letter-spacing: 2px;
+    letter-spacing: 2.5px;
 }
 
 .body-md {
     font-family: 'Poppins', sans-serif;
-    font-weight: 400;
     font-size: 2rem;
 }
 
@@ -167,13 +170,13 @@ a.icon-link,
 .link-font {
     font-family: 'Poppins', sans-serif;
     text-decoration: none;
-    font-weight: 400;
-    color: #6a509a;
+    color: #190341;
+    text-transform: uppercase;
 }
 
 a.icon-link:hover,
 .link-font:hover {
-    background-color: rgb(170 151 204);
+    background-color: rgb(83, 71, 188);
     opacity: 1;
     color: #fafafa;
     padding: 5px;
@@ -308,7 +311,7 @@ li.nav-item {
 }
 
 li.nav-item:hover {
-    color: rgb(172, 125, 219);
+    color: rgb(124, 85, 217);
 }
 
 .navbar-dark .navbar-nav .nav-link.active:hover,
@@ -356,7 +359,7 @@ div#bottom-nav {
 }
 
 a.nav-link:hover {
-    color: rgb(132, 116, 161);
+    color: rgb(151, 105, 238);
 }
 
 a.mb-auto.text-small.btn.btn-light.text-dark.me-2 {
@@ -426,7 +429,7 @@ a.cta_button, a.cta_button:active {
 }
 
 ul.dropdown-menu.display-font {
-    background-color: #212529!important;
+    background-color: #10042c;
     color: #fafafa;
 }
 
@@ -447,7 +450,8 @@ a.dropdown-item:hover {
 }
 
 .dropdown-item:focus, .dropdown-item:hover {
-    background-color: #212529;
+    background-color: #10042c;
+
 }
 
 /* ***************************.end-mobile-nav-&-shop-nav */
@@ -475,17 +479,7 @@ a.dropdown-item:hover {
     overflow: hidden;
 }
 
-h1#title {
-    font-family: 'Oswald', sans-serif;
-    font-size: 4.55rem;
-    letter-spacing: 3px;
-    font-weight: 300;
-    color: #fafafa;
-    letter-spacing: 2px;
-    text-shadow: 3px 3px 6px #100324;
-    margin-top: 80px;
-    margin-bottom: 50px;
-}
+
 
 h2.lead.my-4.py-3.mx-auto {
     font-size: 1.3rem;
@@ -537,7 +531,9 @@ button#hero-button-2:hover {
 
 p#about-text {
     line-height: 2.5rem;
+    font-weight: 600;
 }
+
 /* ***************************.end-hero */
 
 
@@ -550,7 +546,7 @@ div.card-image-overlay {
 h3.py-3.mt-5.mb-4.lh-1.fw-bold {
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
-    background-color: rgb(121 93 130 / 88%);
+    background-color: rgb(85 45 178);
     font-weight: 300;
     letter-spacing: 1.5px;
     margin: 0px auto;
@@ -575,7 +571,7 @@ img.card-img-overlay {
 
 /* grayscale effect copied from https://codepen.io/mhhasan320/pen/BwqvLL */
 div#category-card1 {
-    background-image: url('https://images.unsplash.com/photo-1592492159418-39f319320569?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+    background: url('https://images.unsplash.com/photo-1592492159418-39f319320569?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
     background-position: center;
     background-size: cover;
     min-width: 100%;
@@ -591,20 +587,20 @@ div#category-card1 {
     margin: 0px auto;
     -webkit-box-shadow: 1px 4px 14px 1px #2f1b31;
             box-shadow: 1px 4px 14px 1px #2f1b31;
-    filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);
-}
+    filter: opacity(85%);
+    -webkit-filter: opacity(85%);
+    }
 
 div#category-card1:hover {
-    filter: grayscale(0);
-    -webkit-filter: grayscale(0);
+    filter: opacity(100%);
+    -webkit-filter: opacity(100%);
 }
 
 div#category-card2 {
     background-image: url('https://images.unsplash.com/photo-1622405538251-e8c48fdc40db?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
     background-position: center;
     background-size: cover;
-    min-width: 100%;
+    max-width: 100%;
     min-height: 20rem;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
@@ -617,14 +613,17 @@ div#category-card2 {
     margin: 0px auto;
     -webkit-box-shadow: 1px 4px 14px 1px #2f1b31;
             box-shadow: 1px 4px 14px 1px #2f1b31;
-    filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);
+    filter: opacity(85%);
+    -webkit-filter: opacity(85%);
 }
 
+
 div#category-card2:hover {
-    filter: grayscale(0);
-    -webkit-filter: grayscale(0);
+    filter: opacity(100%);
+    -webkit-filter: opacity(100%);
 }
+
+
 
 div#category-card3 {
     background-image: url('https://images.unsplash.com/photo-1620503266076-5fd971fdd572?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
@@ -641,94 +640,17 @@ div#category-card3 {
     overflow: hidden;
     border: none;
     margin: 0px auto;
+    filter: opacity(85%);
+    -webkit-filter: opacity(85%);
     -webkit-box-shadow: 1px 4px 14px 1px #2f1b31;
             box-shadow: 1px 4px 14px 1px #2f1b31;
-    filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);
 }
 
 div#category-card3:hover {
-    filter: grayscale(0);
-    -webkit-filter: grayscale(0);
+    filter: opacity(100%);
+    -webkit-filter: opacity(100%);
 }
 
-div#category-card4 {
-    background-image: url('../../media/digitalpainting.jpg');
-    background-position: center;
-    background-size: cover;
-    min-width: 100%;
-    min-height: 20rem;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    overflow: hidden;
-    border: none;
-    margin: 0px auto;
-    -webkit-box-shadow: 1px 4px 14px 1px #2f1b31;
-            box-shadow: 1px 4px 14px 1px #2f1b31;
-    filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);
-}
-
-div#category-card4:hover {
-    filter: grayscale(0);
-    -webkit-filter: grayscale(0);
-}
-
-div#category-card5 {
-    background-image: url('https://cdn.pixabay.com/photo/2017/02/18/18/31/fractal-2077883_1280.jpg');
-    background-position: center;
-    background-size: cover;
-    min-width: 100%;
-    min-height: 20rem;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    overflow: hidden;
-    border: none;
-    margin: 0px auto;
-    -webkit-box-shadow: 1px 4px 14px 1px #2f1b31;
-            box-shadow: 1px 4px 14px 1px #2f1b31;
-    filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);
-}
-
-div#category-card5:hover {
-    filter: grayscale(0);
-    -webkit-filter: grayscale(0);
-}
-
-div#category-card6 {
-    background-image: url('https://cdn.pixabay.com/photo/2018/03/14/18/20/girl-3225923_1280.png');
-    background-position: center;
-    background-size: cover;
-    min-width: 100%;
-    min-height: 20rem;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    overflow: hidden;
-    border: none;
-    margin: 0px auto;
-    -webkit-box-shadow: 1px 4px 14px 1px #2f1b31;
-            box-shadow: 1px 4px 14px 1px #2f1b31;
-    filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);
-}
-
-div#category-card6:hover {
-    filter: grayscale(0);
-    -webkit-filter: grayscale(0);
-}
 
 #categories {
     /* text-shadow: 1px 3px 1px #07040e; */
