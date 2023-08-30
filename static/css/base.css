@@ -170,7 +170,7 @@ a.icon-link,
 .link-font {
     font-family: 'Poppins', sans-serif;
     text-decoration: none;
-    color: #190341;
+    color: #4f269c;
     text-transform: uppercase;
 }
 
@@ -183,6 +183,11 @@ a.icon-link:hover,
     -webkit-transition: 0.5s ease-in-out;
     -o-transition: 0.5s ease-in-out;
     transition: 0.5s ease-in-out;
+}
+.faqFooter {
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
 }
 
 .icon-main {
@@ -871,6 +876,17 @@ img#productdetails2 {
     height: 350px;
 }
 
+a.import-font {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgba(135, 128, 175, 0.995);
+}
+
+a.import-font:hover {
+    color: #6753cb;
+}
+
 #shop-card:hover {
     -webkit-filter: grayscale(0%);
     filter: grayscale(0%);
@@ -985,7 +1001,7 @@ main {
        font-size: 1.2rem;
        font-weight: 300;
        letter-spacing: 2px;
-       color: #eeedec;
+       color: #c3bbe1;
        position: relative;
        -webkit-transition: all 0.3s ease-in-out;
        -o-transition: all 0.3s ease-in-out;
@@ -1001,7 +1017,7 @@ main {
        /*line*/
        .link::before {
           content: "";
-          background-color: #b096e0;
+          background-color: #4d2bc8;
           width: 3px;
           height: 100%;
           position: absolute;
@@ -1026,7 +1042,7 @@ main {
                   align-items: center;
           background-color: transparent;
           position: absolute;
-          border: solid 3px #b096e0;
+          border: solid 3px #4d2bc8;
           border-left: 0;
           border-bottom: 0;
           top: calc(50% - 9px);
@@ -1040,12 +1056,11 @@ main {
        }
     
     .link:hover {
-       color: #a67af8;
+       color: #4d2bc8;
     }
     /* bg button */
     .gen-art-btn::before {
        content: "";
-       background-color: ;
        width: 0;
        height: 100%;
        position: absolute;

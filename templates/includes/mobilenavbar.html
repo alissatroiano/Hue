@@ -2,7 +2,7 @@
 <ul class="nav list-group list-group-horizontal text-center my-0 mx-auto py-1">
         <!--account-options-start-here-->
         <li class="list-item dropdown d-lg-none">
-            <a class="nav-link btn d-lg-none me-auto float-none" href="" role="button" id="mobileAccountOptions"
+            <a class="nav-link btn d-lg-none me-auto float-none dropdown-toggle" href="" role="button" id="mobileAccountOptions"
                 data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi d-block mx-auto text-center mb-1 fas fa-user">
                 </i>
@@ -34,16 +34,40 @@
         </li>
         <!--./account-options-end-here-->
     <!--About starts here-->
-    <li class="list-item">
-        <a class="nav-link d-block d-lg-none" href="{% url 'home' %}#about">
-            <div class="text-center">
-                <div>
-                    <i class="fas fa-info fa-lg"></i>
-                </div>
-                <p class="my-0">About</p>
-            </div>
+    <li class="list-item dropdown">
+        <a href="{% url 'home' %}#about" class="nav-link btn d-lg-none me-auto float-none dropdown-toggle display-font" role="button"
+        id="aboutDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi d-block mx-auto mb-1 fas fa-info text-center">
+            </i> About
         </a>
+        <ul class="dropdown-menu display-font" aria-labelledby="aboutDropdown">
+            <li class="list-item">
+                <a href="{% url 'faq' %}#contentPolicy" class="dropdown-item">Content Policy</a>
+            </li>
+            <li class="list-item">
+                <a href="{% url 'faq' %}#licenseAgreement" class="dropdown-item">Commercialization</a>
+            </li>
+            </ul>
     </li>
+    <!--./about-ends-here-->
+        <!--Hugo-->
+        <li class="list-item">
+            <a class="nav-link  d-block d-lg-none" href="{% url 'hugo' %}">
+                <div class="text-center">
+                <i class="fas fa-paint-brush fa-lg">
+                    </i>
+                    </div>
+                    <p class="my-0"> Explore</p>
+        </a>          
+        </li>
+        <li class="list-item">
+            <a class="nav-link display-font d-block d-lg-none" href="{% url 'add_hugo' %}">
+                <div class="text-center">
+            <i class="fas fa-wand-magic-sparkles fa-lg">
+                </i></div>
+                <p class="my-0"> Create</p>
+        </a>          
+        </li>
     <!--./about-ends-here-->
         <!--Shop starts here-->
         <li class="list-item d-lg-none">
@@ -61,11 +85,13 @@
     {% if request.path == '/shop/' %}
     <li class="list-item">
         <div class="col-12 col-lg-auto my-0 mx-auto w-auto">
-            <a class="nav-link btn 
+            <a class="nav-link 
              d-lg-none me-auto float-none" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"
                 data-bs-target="#mobile-search" aria-label="Toggle navigation" href="#">
                 <div class="text-center">
-                    <div><i class="bi d-block mx-auto text-center mb-1 fas fa-search fa-lg"></i></div>
+                    <div>
+                        <i class="fas fa-search fa-lg"></i>
+                    </div>
                     <p class="my-0">Search</p>
                 </div>
             </a>
@@ -106,24 +132,5 @@
     </li>
     {% endif %}
 
-        <!--Hugo-->
-        <li class="list-item d-lg-none">
-            <a class="nav-link display-font" href="{% url 'hugo' %}">
-            <i class="bi d-block mx-auto text-center mb-1 fas fa-paint-brush">
-            </i> Explore
-        </a>          
-        </li>
-        <li class="list-item d-lg-none" id="createCta">
-            <a class="nav-link display-font" href="{% url 'add_hugo' %}">
-            <i class="bi d-block mx-auto text-center mb-1 fas fa-wand-magic-sparkles">
-            </i> Create
-        </a>          
-        </li>
-        
-        <!-- <li class="list-item">
-            <div class="gen-art-btn">
-                <a class="link"  href="{% url 'add_hugo' %}" >create art</a>
-             </div>
-    </li>    -->
 </ul>
 <!--ul-ends-here-->

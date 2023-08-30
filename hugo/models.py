@@ -29,7 +29,8 @@ class Artwork(models.Model):
     is_downloadable = models.BooleanField(default=False)
     for_sale = models.BooleanField(default=False)
     price = models.DecimalField(
-        decimal_places=2, max_digits=8, null=False, default=0)
+    decimal_places=2, max_digits=8, null=False, default=0)
+    in_import_queue = models.BooleanField(default=False)
 
 
     def get_style(s):

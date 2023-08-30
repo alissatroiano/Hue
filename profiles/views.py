@@ -45,7 +45,6 @@ def profile(request):
 
     return render(request, template, context)
 
-
 def order_history(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
     orderitems = get_object_or_404(OrderItem, order=order)
@@ -65,7 +64,6 @@ def order_history(request, order_number):
 
     return render(request, template, context)
 
-
 def edit_artwork(request, artwork_id):
     artwork = get_object_or_404(Artwork, id=artwork_id, user=request.user)
 
@@ -84,7 +82,6 @@ def edit_artwork(request, artwork_id):
     }
 
     return render(request, template, context)
-
 
 def delete_artwork(request, artwork_id):
     artwork = get_object_or_404(Artwork, id=artwork_id, user=request.user)
@@ -110,7 +107,10 @@ def add_artwork_to_store(request, artwork_id):
             artwork = form.save(commit=False)
             artwork.user = request.user 
             artwork.for_sale = True
+            artwork.in_import_queue = True  # Set the import queue status
             artwork.save()
+            # Update has_artwork_for_import after importing
+            has_artwork_for_import = Artwork.objects.filter(user=request.user, for_sale=True, in_import_queue=True).exists()
             return redirect('shop')
     else:
         form = AddToStoreForm()
