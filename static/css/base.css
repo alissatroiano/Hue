@@ -190,18 +190,18 @@ a.icon-link:hover,
 }
 
 .icon-main:hover {
-    color: #6a509a;
+    color: #4b1fa9;
 }
 
 hr {
     width: 20px;
     margin: 0px auto;
-    border-top: 3px solid #6a509a;
+    border-top: 3px solid #4b1fa9;
 }
 
 #divider {
     width: 100%;
-    border-top: 1.5px solid #6a509a;
+    border-top: 1.5px solid #4b1fa9;
 }
 
 button,
@@ -236,7 +236,7 @@ button,
 .btn-none {
     background-color: transparent;
     border: none;
-    color: #6a509a;
+    color: #867def;
 }
 
 .btn-none:hover {
@@ -252,7 +252,7 @@ input {
 }
 
 .bg-primary {
-    background-color: #6a509aa6!important;
+    background-color: #867def!important;
 }
 
 .overlay {
@@ -309,18 +309,24 @@ li.nav-item:hover {
 .navbar-dark .navbar-nav .nav-link:hover .navbar-dark .navbar-nav .nav-link .nav-link.active:hover,
 .navbar-dark .navbar-nav .nav-link:focus,
 .navbar-dark .navbar-nav .nav-link:hover {
-    color: rgb(132, 116, 161);
+    color: 867def;
     background-color: transparent;
 }
 
 a#logo {
-    font-family: 'Oswald', sans-serif;
-    font-weight: 200;
-    font-size: 1.5rem;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: #fafafa;
-    text-shadow: 4px 4px 8px #033030;
+    text-decoration: none;
+    background-image: linear-gradient( -225deg, rgba(79, 23, 209, 0.882)0%, #867def 29%, #4d2bc8 67%, #755cd2 100% );
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2s linear infinite;
+    display: inline-block;
+    font-size: 1.5rem;  
 }
 
 a#logo:hover {
@@ -1092,6 +1098,21 @@ main {
     }
     .header-container {
         padding-top: 100px;
+    }
+    a#logo {
+        text-decoration: none;
+        background-image: linear-gradient( -225deg, rgba(79, 23, 209, 0.882)0%, #867def 29%, #4d2bc8 67%, #755cd2 100% );
+        background-size: auto auto;
+        background-clip: border-box;
+        background-size: 200% auto;
+        color: #fff;
+        background-clip: text;
+        text-fill-color: transparent;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: textclip 2s linear infinite;
+        display: inline-block;
+        font-size: 2rem;  
     }
 }
 

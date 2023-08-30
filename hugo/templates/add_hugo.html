@@ -117,7 +117,9 @@
 		];
 
 		var randomPrompt = prompts[Math.floor(Math.random() * prompts.length)];
-		document.getElementById('id_artwork_description').value = randomPrompt;
+        document.getElementById('id_artwork_description').value = randomPrompt;
+
+        updateCharCount(randomPrompt); // Update character count after setting the prompt
 	}
 
 	function validateForm() {
@@ -138,7 +140,10 @@
         document.getElementById('charCountValue').textContent = charCount;
     });
 
-    generateRandomPrompt();
+    function updateCharCount(text) {
+        var charCount = text.length;
+        document.getElementById('charCountValue').textContent = charCount;
+    }
 </script>
 
 <script src="{% static 'hugo/js/loading.js' %}"></script>
