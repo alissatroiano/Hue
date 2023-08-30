@@ -170,7 +170,7 @@ a.icon-link,
 .link-font {
     font-family: 'Poppins', sans-serif;
     text-decoration: none;
-    color: #190341;
+    color: #4f269c;
     text-transform: uppercase;
 }
 
@@ -183,6 +183,11 @@ a.icon-link:hover,
     -webkit-transition: 0.5s ease-in-out;
     -o-transition: 0.5s ease-in-out;
     transition: 0.5s ease-in-out;
+}
+.faqFooter {
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
 }
 
 .icon-main {

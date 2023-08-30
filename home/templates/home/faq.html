@@ -19,27 +19,28 @@
 <div class="container-fluid">
     <div class="row mt-5">
         <div class="col-12 text-center">
-            <div class="text-center my-2">
-                <i class="fas fa-bug fa-3x text-danger"></i>
+            <div class="text-center my-2 my-md-4">
+                <i class="fas fa-question fa-3x mt-3"></i>
             </div>
-            <h1 class="display-font text-center my-2 display-2 fw-normal" id="uhoh">Uh-Oh!</h1>
-            <h2 class="display-font my-2 fw-light text-danger display-6" id="runtime">Runtime Error</h2>
-            <p class="body-font mt-3">We couldn't generate your awesome AI artwork <br>
-                This may be becuase it contains language that is offensive, vulgar or against OpenAI's Content Policy.
-                <br>
-                Please abstain from using language that is violent or offensive in any way</p>
+            <h1 class="display-font text-center my-2 display-2 fw-normal" id="uhoh">FAQ</h1>
+            <p class="body-font text-center my-2">Frequently Asked Questions</p>
+            <p class="my-3 body-font px-5"> Hue takes advantage of MindsDB's integration with OpenAI's Dall-E model. Here are some solutions to frequently asked questions from <a href="https://labs.openai.com/policies/content-policy" target="_blank" class="display-font link-font">Dall-E's Offical Content Policy</a> </p>
+    
                 <div class="d-flex my-3">
-                    <div class="col-6"><a href="{% url 'add_hugo' %}" class="link-font"><i class="fas fa-chevron-left"></i>  Back to Create Art Form</a></div>
                     <div class="col-6">   
-                        <a class="link-font" href="#OpenAiContentPolicy">
-                        OpenAI's Content Policy
+                        <a class="link-font" href="#contentPolicy">
+                        Content Policy
                             <i class="fas fa-arrow-down"></i>
                         </a></div>
+                        <div class="col-6">
+                            <a href="#licenseAgreement" class="link-font"><i class="fas fa-arrow-down"></i> Commercialization</a>
+                        </div>
                 </div>
           </div>
-            <div class="d-flex justify-content-center">
-            <div class="col-12 col-sm-10 col-lg-8 my-3">
-                <div class="card shadow-lg" id="OpenAiContentPolicy">
+          </div>
+          <div class="row d-flex justify-content-center">
+            <div class="col-6 my-3" id="contentPolicy">
+                <div class="card shadow-lg">
                     <div class="card-header text-center">
                         <h4>Open AI's Content Policy</h4>
                     </div>
@@ -92,8 +93,48 @@
                             </strong>
                         </div>
                         <div class="card-footer text-center">
-                            <a href="https://labs.openai.com/policies/content-policy" target="_blank">OpenAI Official
+                            <a class="body-font link-font" href="https://labs.openai.com/policies/content-policy" target="_blank">OpenAI Official
                                 Content Policy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 my-3" id="licenseAgreement">
+                <div class="card shadow-lg">
+                    <div class="card-header text-center">
+                        <h4>Commercialization Questions
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="content-policy body-font">
+                        <p>Subject to the Content Policy and Terms, you own the images you create with DALL. E, including the right to reprint, sell, and merchandise – regardless of whether an image was generated through a free or paid credit.</p>
+                            <strong>
+                                Can I use DALL·E for commercial uses, including NFTs and freelancing?
+                            </strong>
+                            <ul class="content-policy-list" id="licenseInfo">
+                                <li> - Yes</li>
+                            </ul>
+                            <strong>Can I use DALL·E to create images for my company or employer?</strong>
+                            <ul>
+                            <li> - Yes </li></ul>
+                            <strong>Can I sell DALL·E generations I create? </strong>
+                            <ul>
+                                <li> - Yes </li></ul>
+                            <strong>Can I use DALL·E to create images for my clients?</strong>
+                            <ul>
+                                <li> - Yes </li></ul>
+                            <strong>Can I edit or alter photos I generated with DALL·E?</strong>
+                            <ul>
+                                <li> - Yes </li></ul>
+                            <strong>Can I add and/or remove watermarks?</strong>
+                            <ul>
+                                <li> - Yes </li></ul>
+                                </div>
+                        <div class="card-footer text-center">
+                            <p class="body-font">Got more queations? </p>
+                                <span class="faqFooter">Checkout  
+                            <a class="link-font" href="https://help.openai.com/en/articles/6468065-dall-e-content-policy-faq" target="_blank"> Dall-E's 
+                                Commercialization FAQ</a></span>
                         </div>
                     </div>
                 </div>
