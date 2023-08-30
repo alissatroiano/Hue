@@ -273,19 +273,8 @@ i {
     text-shadow: 0px 15px 5px rgba(0, 0, 0, 0.1);
 }
 
-.fab {
-    color: rgb(170 151 204 / 88%);
-    /* multiple light source shadow effect https://designshack.net/articles/css/12-fun-css-text-shadows-you-can-copy-and-paste/ */
-    text-shadow: 0px 15px 5px rgba(0, 0, 0, 0.1);
-}
-
-.fab:hover {
-    color: #6a509a;
-    margin-top: 5px;
-}
-
 .fas:hover {
-    color: #6a509a;
+    color: #4f1dba;
 }
 /****************************./end-icons */
 

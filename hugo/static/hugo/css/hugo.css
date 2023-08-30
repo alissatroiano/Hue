@@ -394,6 +394,27 @@ p#downloadTxt {
   margin-top: 100px;
 }
 
+.faq-btn {
+  font-family: 'Oswald', sans-serif;
+  font-size: 12px;
+      padding: 5px;
+      display:block;
+      position:absolute;
+      top:2x;
+      right:5%;
+      width: 150px;
+      background-color: transparent;
+      color: #4b1fa9;
+      text-align:center;
+}
+
+a.user-info {
+  color: #4b1fa9;
+  font-size: 11px;
+  text-decoration: none;
+  text-transform: uppercase;
+
+}
 
 .icon {
   -webkit-box-align: center;

@@ -125,11 +125,10 @@
                 <div class="col-4 col-lg-auto w-100 navbar-brand me-auto my-auto d-lg-none py-3 py-lg-0 text-center">
                     <a href="{% url 'home' %}"
                         class="nav-link navbar-brand my-0 me-auto d-lg-none justify-content-center" id="logo">
-                        <i class="bi me-2 fas fa-palette">
+                        <i class="bi me-2 fas fa-droplet">
                         </i> Hue
                     </a>
                 </div>
-                {% include 'includes/mobilenavbar.html' %} 
                 <!-- Create an if statement to only display the shop nav on the shop page-->
                 {% if request.path == '/shop/' %}
                 {% include 'includes/shop-nav.html' %}
@@ -137,6 +136,7 @@
                 {% if request.path == '/hugo/' %}
                 {% include 'includes/hugo-nav.html' %}
                 {% endif %}
+                {% include 'includes/mobilenavbar.html' %} 
             </nav>
         </div>
     </header>
