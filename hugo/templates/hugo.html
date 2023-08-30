@@ -37,6 +37,9 @@
         <a class="style-item display-font" href="{% url 'hugo' %}?style=abstract-art&direction=asc" class="nav-link display-font">Abstract Art</a>
     </li>
     <li class="dropdown-item-light">
+        <a class="style-item display-font" href="{% url 'hugo' %}?style=photography&direction=asc" class="nav-link display-font">Photography</a>
+    </li>
+    <li class="dropdown-item-light">
         <a class="style-item display-font" href="{% url 'hugo' %}" class="nav-link display-font">View All</a></li>
     </ul>
 </div>
@@ -84,6 +87,13 @@
         <hr class="w-50 mb-1">
         <div class="text-center my-3 mx-3 mx-md-4 mx-lg-5 px-3 px-md-4 px-md-lg"> 
         <h4 class="body-font style-text mx-3 mx-md-5 px-md-5">The abstract art model was trained to create images in the likeness of famous abstract artists <a href="#" target="_blank" class="link-font">Jackson Pollock</a> and <a href="https://www.jackson-pollock.org/" target="_blank" class="link-font">Piet Mondrian.</a></h4>
+    </div>
+        {% endif %}
+        {% if s.friendly_name == 'Photography' %}
+        <hr class="w-50 mb-1">
+        <div class="text-center my-3 mx-3 mx-md-4 mx-lg-5 px-3 px-md-4 px-md-lg"> 
+        <h4 class="body-font style-text mx-3 mx-md-5 px-md-5">The photography model was trained on a dataset of highly detailed, non-computerized, realistic and natural <strong>stock photographs</strong>, shot in high-resolution. 
+           </h4>
     </div>
         {% endif %}
     {% endfor %}
