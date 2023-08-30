@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'hugo/css/hugo.css' %}">
+{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+
+<div class="container-fluid">
+    <div class="row mt-5">
+        <div class="col-12 text-center">
+            <div class="text-center my-2">
+                <i class="fas fa-bug fa-3x text-danger"></i>
+            </div>
+            <h1 class="display-font text-center my-2 display-2 fw-normal" id="uhoh">Uh-Oh!</h1>
+            <h2 class="display-font my-2 fw-light text-danger display-6" id="runtime">Runtime Error</h2>
+            <p class="body-font mt-3">We couldn't generate your awesome AI artwork <br>
+                This may be becuase it contains language that is offensive, vulgar or against OpenAI's Content Policy.
+                <br>
+                Please abstain from using language that is violent or offensive in any way</p>
+                <div class="d-flex my-3">
+                    <div class="col-6"><a href="{% url 'add_hugo' %}" class="link-font"><i class="fas fa-chevron-left"></i>  Back to Create Art Form</a></div>
+                    <div class="col-6">   
+                        <a class="link-font" href="#OpenAiContentPolicy">
+                        OpenAI's Content Policy
+                            <i class="fas fa-arrow-down"></i>
+                        </a></div>
+                </div>
+          </div>
+            <div class="d-flex justify-content-center">
+            <div class="col-12 col-sm-10 col-lg-8 my-3">
+                <div class="card shadow-lg" id="OpenAiContentPolicy">
+                    <div class="card-header text-center">
+                        <h4>Open AI's Content Policy</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="content-policy body-font">
+                            In your usage, you must adhere to our Content Policy.
+                            <br>
+                            <strong>
+                                Do not attempt to create, upload, or share images that are not G-rated or that could
+                                cause harm. </strong>
+                            <ul class="content-policy-list" id="contentPolicy">
+                                <li> - Hate: hateful symbols, negative stereotypes, comparing certain groups to
+                                    animals/objects, or otherwise expressing or promoting hate based on identity.</li>
+                                <li> - Harassment: mocking, threatening, or bullying an individual.
+                                <li> - Violence: violent acts and the suffering or humiliation of others.
+                                    Self-harm: suicide, cutting, eating disorders, and other attempts at harming
+                                    oneself.</li>
+                                <li> - Sexual: nudity, sexual acts, sexual services, or content otherwise meant to
+                                    arouse sexual excitement.</li>
+                                <li> - Shocking: bodily fluids, obscene gestures, or other profane subjects that may
+                                    shock or disgust.</li>
+                                <li> - Illegal activity: drug use, theft, vandalism, and other illegal activities.</li>
+                                <li>
+                                    - Deception: major conspiracies or events related to major ongoing geopolitical
+                                    events.</li>
+                                <li> - Political: politicians, ballot-boxes, protests, or other content that may be used
+                                    to influence the political process or to campaign.</li>
+                                <li> - Public and personal health: the treatment, prevention, diagnosis, or transmission
+                                    of diseases, or people experiencing health ailments.</li>
+                                <li> -Spam: unsolicited bulk content.</li>
+                            </ul>
+                            <strong> Don’t mislead your audience about AI involvement.</strong>
+                            <ul>
+                                <li> - When sharing your work, we encourage you to proactively disclose AI involvement
+                                    in your work.</li>
+                                <li> -
+                                    You may remove the DALL·E signature if you wish, but you may not mislead others
+                                    about the nature of the work. For example, you may not tell people that the work was
+                                    entirely human generated or that the work is an unaltered photograph of a real
+                                    event.</li>
+                            </ul>
+                            <strong>Respect the rights of others.</strong>
+                            <ul>
+                                <li>- Do not upload images of people without their consent.</li>
+                                <li>- Do not upload images to which you do not hold appropriate usage rights.</li>
+                                <li>- Do not create images of public figures.</li>
+                            </ul>
+                            <strong>Please report any suspected violations of these rules to OpenAI's team through the
+                                <a href="https://help.openai.com/en/" target="_blank" class="link-to-openai">OpenAI help center.</a>
+                            </strong>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a href="https://labs.openai.com/policies/content-policy" target="_blank">OpenAI Official
+                                Content Policy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% endblock %}

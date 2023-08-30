@@ -421,6 +421,10 @@ span.copyright-terms {
   line-height: 2;
 }
 
+h1.text-gallery {
+  color: #928cc9;
+}
+
 .card-footer a {
   font-size: 12px;
   color: #1a5ab4;

@@ -57,7 +57,7 @@ a#shopBtn:hover {
 }
 
 section#about {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.251), rgba(247, 247, 247, 0.459), rgba(247, 247, 247, 0.785)), url('../../../../static/images/color.png');
+    background-image: linear-gradient(rgba(255, 255, 255, 0.251), rgba(247, 247, 247, 0.59), rgba(247, 247, 247, 0.85)), url('../../../../static/images/color.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

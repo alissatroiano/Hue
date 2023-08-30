@@ -170,9 +170,33 @@ a.icon-link,
 .link-font {
     font-family: 'Poppins', sans-serif;
     text-decoration: none;
-    color: #190341;
+    color: #1b0667;
     text-transform: uppercase;
 }
+
+a.about-font {
+    color: #3819a9;
+    font-family: 'Oswald', sans-serif;
+    text-decoration: none;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.about-font:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 10px;
+    text-decoration-color: #1b0667;
+    font-weight: bolder;
+    color: #1b0667;
+}
+
+span.body-font {
+    line-height: 2.5;
+    font-weight: 600;
+}
+
 
 a.icon-link:hover,
 .link-font:hover {
@@ -261,7 +285,7 @@ input {
     top: 0;
     left: 0;
     position: fixed;
-    background: white;
+    background: #10042c;
     z-index: -1;
 }
 /* ***************************./end-headers-&-special-text*/
@@ -325,13 +349,19 @@ li.nav-item:hover {
 }
 
 a#logo {
-    font-family: 'Oswald', sans-serif;
-    font-weight: 200;
+    text-decoration: none;
+    background-image: linear-gradient( -225deg, rgba(97, 46, 216, 0.882)0%, #867def 29%, #7c60e2 37%, #755cd2 100% );
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2s linear infinite;
+    display: inline-block;
     font-size: 1.5rem;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: #fafafa;
-    text-shadow: 4px 4px 8px #033030;
 }
 
 a#logo:hover {
@@ -1006,7 +1036,7 @@ main {
        /*line*/
        .link::before {
           content: "";
-          background-color: #b096e0;
+          background-color: #867def;
           width: 3px;
           height: 100%;
           position: absolute;
@@ -1031,7 +1061,7 @@ main {
                   align-items: center;
           background-color: transparent;
           position: absolute;
-          border: solid 3px #b096e0;
+          border: solid 3px #867def;
           border-left: 0;
           border-bottom: 0;
           top: calc(50% - 9px);
@@ -1045,7 +1075,7 @@ main {
        }
     
     .link:hover {
-       color: #a67af8;
+       color: #867def;
     }
     /* bg button */
     .gen-art-btn::before {

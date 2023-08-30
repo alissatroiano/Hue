@@ -106,6 +106,24 @@ strong {
     min-height: 20vh;
 }
 
+a#editLink {
+    color: #075e1a;
+}
+
+a#storeLink {
+    color: #5736ce;
+}
+
+a#deleteLink {
+    color: rgb(154, 10, 38);
+}
+
+a#editLink:hover, 
+a#storeLink:hover,
+a#deleteLink:hover {
+    color: #4d3c89;  
+}
+
 a.text-small {
     text-transform: uppercase;
     text-decoration: none;

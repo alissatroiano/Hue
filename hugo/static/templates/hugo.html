@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'hugo/css/hugo.css' %}">
+{% endblock %}
+
+{% block page_header %}
+<div class="header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+{% block content %}
+<div class="overlay"></div>
+<div class="container-fluid mt-4 p-2">
+                
+    <div class="row mt-3 ps-sm-3 ps-md-4 ps-lg-5 d-lg-none">
+        <div class="col-8 offset-2 text-start m-3">
+            <div class="dropdown">
+    <button class="btn display-font dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Style Filter 
+    </button>
+    <ul class="dropdown-menu text-dark style-menu" id="styleSelector">
+      <li class="dropdown-item-light">
+        <a class="style-item display-font" href="{% url 'hugo' %}?style=pop-art&direction=asc" class="nav-link display-font">Pop Art</a></li>
+        <li class="dropdown-item-light">
+            <a class="style-item display-font" href="{% url 'hugo' %}?style=digital-art&direction=asc" class="nav-link display-font">Digital Art</a>
+    </li>
+    <li class="dropdown-item-light">
+        <a class="style-item display-font" href="{% url 'hugo' %}?style=fine-art&direction=asc" class="nav-link display-font">Fine Art</a>
+    </li>
+    <li class="dropdown-item-light">
+        <a class="style-item display-font" href="{% url 'hugo' %}?style=street-art&direction=asc" class="nav-link display-font">Street Art</a>
+    </li>
+    <li class="dropdown-item-light">
+        <a class="style-item display-font" href="{% url 'hugo' %}?style=abstract-art&direction=asc" class="nav-link display-font">Abstract Art</a>
+    </li>
+    <li class="dropdown-item-light">
+        <a class="style-item display-font" href="{% url 'hugo' %}" class="nav-link display-font">View All</a></li>
+    </ul>
+</div>
+    </div>
+</div>
+    <div class="row mt-3 pt-md-4 pt-lg-5 mt-md-5">
+        <div class="col-12 text-center p-1">
+            <!-- hide the below text when on a style page-->
+            {% if not current_styles %}
+            <h1 class="display-font display-3 text-light">AI Art</h1>
+            <div class="text-center mt-3">
+            <hr class="w-50 my-3 my-md-4 my-lg-5">
+            <p class="body-font my-3 px-3 px-md-4 px-lg-5 ai-art-desc mx-3 mx-md-4 mx-lg-5 text-light">Artwork created by our community using Hue's new AI tool, <strong>Hugo</strong>, powered by <a href="https://mindsdb.com/" target="_blank" class="link-font">MindsDB</a> & 
+                <a href="https://openai.com/" target="_blank" class="link-font">OpenAI</a>. Hover over on an image to see the text prompt that was used to create it.</p>
+        </div>
+            {% endif %}
+    {% for s in current_styles %}
+        <h1 class="p-2 mt-3 mb-0 display-3 text-purple display-font">
+        {{ s.friendly_name }}</h1>
+        {% if s.friendly_name == 'Pop Art' %}
+        <hr class="w-50 mb-1">
+        <div class="text-center my-3 mx-3 mx-md-4 mx-lg-5 px-3 px-md-4 px-md-lg"> 
+        <h4 class="body-font style-text mx-3 mx-md-5 px-md-5">The pop art model was trained to generate images that mimic the retro, comic-book, pop-art style of digital illustrations by <a class="link-font" href="https://www.behance.net/butcherbilly" target="_blank">Butcher Billy.</a></h4>
+    </div>
+        {% endif %}
+        {% if s.friendly_name == 'Digital Art' %}
+        <hr class="w-50 mb-1">
+        <div class="text-center my-3 mx-3 mx-md-4 mx-lg-5 px-3 px-md-4 px-md-lg"> 
+        <h4 class="body-font style-text mx-3 mx-md-5 px-md-5">The digital art model was trained to generate images that mimic the highly detailed, digital, pop-art style of graphic designer,  <a class="link-font" href="https://www.beeple-crap.com/" target="_blank">Beeple</a></h4>
+    </div>
+        {% endif %}
+        {% if s.friendly_name == 'Fine Art' %}
+        <hr class="w-50 mb-1">
+        <div class="text-center my-3 mx-3 mx-md-4 mx-lg-5 px-3 px-md-4 px-md-lg"> 
+        <h4 class="body-font style-text mx-3 mx-md-5 px-md-5">The fine art model was trained to create highly detailed contemporary, fantasy style oil paintings based on the user's input.</h4>
+    </div>
+        {% endif %}
+        {% if s.friendly_name == 'Street Art' %}
+        <hr class="w-50 mb-1">
+        <div class="text-center my-3 mx-3 mx-md-4 mx-lg-5 px-3 px-md-4 px-md-lg"> 
+        <h4 class="body-font style-text mx-3 mx-md-5 px-md-5">The street art model was trained to produce pieces that mimic the contemporary, urban street art style of <a href="https://kawsone.com/password" target="_blank" class="link-font">KAWS</a> with the controversial style of <a href="https://www.banksy.co.uk/" target="_blank" class="link-font">Banksy.</a></h4>
+    </div>
+        {% endif %}
+        {% if s.friendly_name == 'Abstract' %}
+        <hr class="w-50 mb-1">
+        <div class="text-center my-3 mx-3 mx-md-4 mx-lg-5 px-3 px-md-4 px-md-lg"> 
+        <h4 class="body-font style-text mx-3 mx-md-5 px-md-5">The abstract art model was trained to create images in the likeness of famous abstract artists <a href="#" target="_blank" class="link-font">Jackson Pollock</a> and <a href="https://www.jackson-pollock.org/" target="_blank" class="link-font">Piet Mondrian.</a></h4>
+    </div>
+        {% endif %}
+    {% endfor %}
+
+</div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row g-3 p-3 p-md-4 p-lg-5">
+        {% for artwork in artworks %}
+            {% if artwork.is_public %}
+        <div class="col-xs-8 col-sm-4 my-0 mx-auto p-2 px-sm-2 px-lg-4">
+            <div class="art-card spring-fever">
+                {% if artwork.image %}
+                    <img class="img-fluid" src="{{ artwork.image.url }}" alt="Card image cap">
+                    {% endif %}
+                <div class="title-content">
+                  <h3 class="display-font display-5 my-3" id="artworkTitle">
+                {{ artwork.title }}</h3>
+                 
+                </div>
+                <div class="card-info">
+                        <h5 class="display-font" id="artworkCardTitle">
+                      {{ artwork.title }}</h5>
+                      <p class="display-font user-credits"> by 
+                        <a class="display-font user-credit" href="{% url 'artist_artworks' artwork.user.username %}"> {{ artwork.user }}</a>
+                      </p>
+                    <p class="artwork_desc body-font mx-lg-3" id="aiPrompt">
+                 "{{ artwork.artwork_description }}"
+                  </p>
+                  <div class="view-art my-2">
+                    <a class="btn display-font" href="{% url 'artwork_detail' artwork.id %}">
+                        VIEW ARTWORK <i class="fas fa-chevron-right"></i></a>
+                  </div>
+             
+                  {% if artwork.style %}
+                  <div class="mt-lg-4 display-font">
+                    <a class="tag-font mx-3" href="{% url 'hugo' %}?style={{ artwork.style.name }}">
+                        <i class="fas fa-tag" id="styleTag"></i> {{ artwork.style.friendly_name }} 
+                    </a>
+                    {% if artwork.is_downloadable %}
+                    <a class="tag-font mx-3" href="{{ artwork.image.url }}" download> 
+                        <i class="fas fa-download mx-1" id="styleTag"></i> Download
+                    </a>
+                    {% endif %}
+                   
+                    </div>
+                {% endif %}
+                            </div>
+                <div class="gradient-overlay"></div>
+                <div class="color-overlay"></div>
+              </div>
+            </a>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+<div class="btt-wrapper">
+    <!--start-back-to-top-button-->
+    <div class="me-sm-2 me-md-3 btt-button rounded-0">
+            <a class="btn btt-link d-flex h-100">
+                <i class="fas fa-chevron-up text-purple fa-2x text-end mx-auto my-auto"></i>
+            </a>    
+    </div>
+</div>
+<!--end-back-to-top-button-->
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+    <script type="text/javascript">
+        $('.btt-link').click(function(e) {
+            window.scrollTo(0,0)
+        })
+    </script>
+
+<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
+    integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"
+    async></script>
+{% endblock %}
