@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'shop/css/shop.css' %}">
+{% endblock %}
+
 {% block page_header %}
 <div class="header-container">
     <div class="row">
@@ -7,6 +12,7 @@
     </div>
 </div>
 {% endblock %}
+
 {% block content %}
 <div class="overlay"></div>
 <div class="container-fluid bg-light mt-3 pt-3 pb-2">
@@ -28,30 +34,25 @@
             {% endfor %}
 
         </div>
-        {% if has_artwork_for_import %}
-        <div class="col-12 text-end justify-content-end">
-            <a href="{% url 'import_artwork_to_store' %}" class="btn btn-primary">Import Artwork to Store</a>
-        </div>
-        {% endif %}
     </div>
     <div class="row d-flex g-4 justify-content-center justify-content-lg-between my-0 mx-auto px-3 px-lg-5 pb-3">
         <div class="col-auto d-flex justify-content-center justify-content-lg-start">
                     <div class="sort-select-wrapper justify-content-center w-auto body-font">
                         <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
                                 <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
-                                <option value="created_at_asc" {% if current_sorting == 'created_at_asc' %}selected{% endif %}>New Arrivals</option>
                                 <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
                                 <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
                                 <option value="title_asc" {% if current_sorting == 'title_asc' %}selected{% endif %}>Title (A-Z)</option>
                                 <option value="title_desc" {% if current_sorting == 'title_desc' %}selected{% endif %}>Title (Z-A)</option>
-                                <option value="label_asc" {% if current_sorting == 'label="1"' %}selected{% endif %}>With People</option>
-                                <option value="label_desc" {% if current_sorting == 'label="2"' %}selected{% endif %}>Without People</option>
-                                <option value="orientation_asc" {% if current_sorting == 'orientation="3"' %}selected{% endif %}>Vertical</option>
-                                <option value="orientation_desc" {% if current_sorting == 'orientation="4"' %}selected{% endif %}>Horizontal</option>
-                                <option value="orientation_desc" {% if current_sorting == 'orientation="5"' %}selected{% endif %}>Square</option>
+                    
                             </select>
                         </div>
         </div>
+        {% if has_artwork_for_import %}
+        <div class="col-auto justify-content-center justify-content-lg-center">
+            <a href="{% url 'import_artwork_to_store' %}" class="import-font">Import Art</a>
+        </div>
+        {% endif %}
         <div class="col-auto justify-content-lg-end display-font">
             <p class="text-muted text-center text-md-end">
                 {% if search_term or current_categories or current_sorting == 'None_None' %}
@@ -62,6 +63,7 @@
                 {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
             </p>
         </div>
+
     </div>
 
 <!--start shop-container-->

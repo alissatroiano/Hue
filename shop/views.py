@@ -4,7 +4,6 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from hugo.models import Artwork
 from django.contrib.auth.models import User
-from profiles.views import add_artwork_to_store
 
 from django.db.models import Q
 from django.db.models.functions import Lower
@@ -16,18 +15,15 @@ from django.conf import settings
 import mindsdb_sdk
 import pandas as pd
 from pandas import DataFrame
-
-
 from django.shortcuts import render
-
 mdb_server = mindsdb_sdk.connect(settings.MINDSDB_HOST, settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
 project = mdb_server.get_project('mindsdb')
 
 
 @login_required
 def import_artwork_to_store(request):
-    # Retrieve all artwork items
-    artwork_items = Artwork.objects.filter(for_sale=True)
+    # Retrieve all artwork items in the import queue
+    artwork_items = Artwork.objects.filter(user=request.user, for_sale=True, in_import_queue=True)
 
     for artwork in artwork_items:
         # Check if a product with the same title already exists
@@ -38,10 +34,14 @@ def import_artwork_to_store(request):
                 price=artwork.price,
                 image=artwork.image,
                 created_at=artwork.created_at,
-                user = artwork.user,
-                style = artwork.style,
-                artwork_description = artwork.artwork_description,)
+                user=artwork.user,
+                style=artwork.style,
+                artwork_description=artwork.artwork_description,
+            )
             product.save()
+
+    # Update has_artwork_for_import after importing
+    has_artwork_for_import = Artwork.objects.filter(user=request.user, for_sale=True, in_import_queue=True).exists()
 
     return redirect('shop')  # Redirect to the shop or another page
 
@@ -52,7 +52,7 @@ def shop_all(request):
     products = Product.objects.all()
     has_artwork_for_import = False
     if request.user.is_authenticated:
-            has_artwork_for_import = Artwork.objects.filter(user=request.user, for_sale=True).exists()
+            has_artwork_for_import = Artwork.objects.filter(user=request.user, for_sale=True, in_import_queue=True).exists()
     artwork_items = Artwork.objects.filter(for_sale=True)
     query = None
     categories = None
@@ -69,8 +69,9 @@ def shop_all(request):
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
             sort = sortkey
-            sortkey = 'lower_title'
-            products = products.annotate(lower_title=Lower('title'))
+            if sortkey == 'title':
+                sortkey = 'lower_title'
+                products = products.annotate(lower_title=Lower('title'))
             if sortkey == 'category':
                 sortkey = 'category__title'
             if sortkey == 'parent':
@@ -80,9 +81,6 @@ def shop_all(request):
                 direction = request.GET['direction']
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
-                else:
-                    sortkey = f'{sortkey}'
-            current_sorting = f'{sort}_{direction}'
             products = products.order_by(sortkey)
 
         if 'category' in request.GET:
@@ -117,6 +115,8 @@ def shop_all(request):
             queries = Q(title__icontains=query) | Q(label__icontains=query) | Q(orientation__icontains=query) | Q(
                 category__title__icontains=query) | Q(parent__title__icontains=query) | Q(medium__icontains=query)
             products = products.filter(queries)
+
+    current_sorting = f'{sort}_{direction}'
 
     context = {
         'products': products,

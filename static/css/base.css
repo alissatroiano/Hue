@@ -871,6 +871,17 @@ img#productdetails2 {
     height: 350px;
 }
 
+a.import-font {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgba(135, 128, 175, 0.995);
+}
+
+a.import-font:hover {
+    color: #6753cb;
+}
+
 #shop-card:hover {
     -webkit-filter: grayscale(0%);
     filter: grayscale(0%);

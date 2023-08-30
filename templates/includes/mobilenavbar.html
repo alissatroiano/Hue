@@ -45,6 +45,25 @@
         </a>
     </li>
     <!--./about-ends-here-->
+        <!--Hugo-->
+        <li class="list-item">
+            <a class="nav-link  d-block d-lg-none" href="{% url 'hugo' %}">
+                <div class="text-center">
+                <i class="fas fa-paint-brush fa-lg">
+                    </i>
+                    </div>
+                    <p class="my-0"> Explore</p>
+        </a>          
+        </li>
+        <li class="list-item">
+            <a class="nav-link display-font d-block d-lg-none" href="{% url 'add_hugo' %}">
+                <div class="text-center">
+            <i class="fas fa-wand-magic-sparkles fa-lg">
+                </i></div>
+                <p class="my-0"> Create</p>
+        </a>          
+        </li>
+    <!--./about-ends-here-->
         <!--Shop starts here-->
         <li class="list-item d-lg-none">
             <a class="nav-link"  href="{% url 'shop' %}">
@@ -61,11 +80,13 @@
     {% if request.path == '/shop/' %}
     <li class="list-item">
         <div class="col-12 col-lg-auto my-0 mx-auto w-auto">
-            <a class="nav-link btn 
+            <a class="nav-link 
              d-lg-none me-auto float-none" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"
                 data-bs-target="#mobile-search" aria-label="Toggle navigation" href="#">
                 <div class="text-center">
-                    <div><i class="bi d-block mx-auto text-center mb-1 fas fa-search fa-lg"></i></div>
+                    <div>
+                        <i class="fas fa-search fa-lg"></i>
+                    </div>
                     <p class="my-0">Search</p>
                 </div>
             </a>
@@ -106,24 +127,5 @@
     </li>
     {% endif %}
 
-        <!--Hugo-->
-        <li class="list-item d-lg-none">
-            <a class="nav-link display-font" href="{% url 'hugo' %}">
-            <i class="bi d-block mx-auto text-center mb-1 fas fa-paint-brush">
-            </i> Explore
-        </a>          
-        </li>
-        <li class="list-item d-lg-none" id="createCta">
-            <a class="nav-link display-font" href="{% url 'add_hugo' %}">
-            <i class="bi d-block mx-auto text-center mb-1 fas fa-wand-magic-sparkles">
-            </i> Create
-        </a>          
-        </li>
-        
-        <!-- <li class="list-item">
-            <div class="gen-art-btn">
-                <a class="link"  href="{% url 'add_hugo' %}" >create art</a>
-             </div>
-    </li>    -->
 </ul>
 <!--ul-ends-here-->
