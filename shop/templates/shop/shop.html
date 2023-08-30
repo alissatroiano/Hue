@@ -44,7 +44,6 @@
                                 <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
                                 <option value="title_asc" {% if current_sorting == 'title_asc' %}selected{% endif %}>Title (A-Z)</option>
                                 <option value="title_desc" {% if current_sorting == 'title_desc' %}selected{% endif %}>Title (Z-A)</option>
-                    
                             </select>
                         </div>
         </div>
@@ -55,12 +54,18 @@
         {% endif %}
         <div class="col-auto justify-content-lg-end display-font">
             <p class="text-muted text-center text-md-end">
-                {% if search_term or current_categories or current_sorting == 'None_None' %}
-                <span class="display-font"><a href="{% url 'shop' %}" class="display-font text-purple" style="text-decoration: none;">
-                    <i class="fas fa-chevron-left"></i>
-                   Shop All </a> | </span>
-                {% endif %}
+                {% if search_term or current_categories %}
+               
                 {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+                <span class="display-font">
+                    <a href="{% url 'shop' %}" class="display-font text-purple" style="text-decoration: none;">
+                        <i class="fas fa-chevron-left"></i>
+                    Shop All
+                    </a>
+                </span>
+                {% else %}
+                {{ products|length }} Products
+                {% endif %}
             </p>
         </div>
 
