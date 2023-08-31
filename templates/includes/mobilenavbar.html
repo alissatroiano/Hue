@@ -1,12 +1,11 @@
 <!--ul-starts-here-->
-<ul class="nav list-group list-group-horizontal text-center my-0 mx-auto py-1"">
+<ul class="nav list-group list-group-horizontal text-center my-0 mx-auto py-1">
         <!--account-options-start-here-->
         <li class=" list-item dropdown d-lg-none">
     <a class="nav-link btn d-lg-none me-auto float-none dropdown-toggle" href="" role="button" id="mobileAccountOptions"
         data-bs-toggle="dropdown" aria-expanded="false">
         <i class="bi d-block mx-auto text-center mb-1 fas fa-user">
         </i>
-        Profile
     </a>
     <ul class="dropdown-menu display-font" aria-labelledby="mobileAccountOptions">
         {% if request.user.is_authenticated %}
@@ -32,49 +31,29 @@
     </ul>
     </li>
     <!--./account-options-end-here-->
-    <!--About starts here-->
-    <li class="list-item dropdown">
-        <a href="{% url 'home' %}#about" class="nav-link btn d-lg-none me-auto float-none dropdown-toggle display-font"
-            role="button" id="aboutDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="bi d-block mx-auto mb-1 fas fa-question text-center">
-            </i> FAQ
-        </a>
-        <ul class="dropdown-menu display-font" aria-labelledby="aboutDropdown">
-            <li class="list-item">
-                <a href="{% url 'faq' %}#contentPolicy" class="dropdown-item" id="contentPolicyNavLink">Content
-                    Policy</a>
-            </li>
-            <li class="list-item">
-                <a href="{% url 'faq' %}#licenseAgreement" class="dropdown-item"
-                    id="commercializattionLink">Commercialization</a>
-            </li>
-        </ul>
-    </li>
-    <!--./about-ends-here-->
-    <!--Hugo-->
+    <!--AI Art Gallery-->
     <li class="list-item">
         <a class="nav-link  d-block d-lg-none" href="{% url 'hugo' %}" id="galleryNavLink">
             <div class="text-center">
                 <i class="fas fa-paint-brush fa-lg">
                 </i>
             </div>
-            <p class="my-0"> Explore</p>
+            <p class="my-0"> </p>
         </a>
     </li>
+    <!--./end-ai-art-gallery-->
     <li class="list-item">
         <a class="nav-link display-font d-block d-lg-none" href="{% url 'add_hugo' %}" id="createNavLink">
             <div class="text-center">
                 <i class="fas fa-wand-magic-sparkles fa-lg">
                 </i>
             </div>
-            <p class="my-0"> Create</p>
         </a>
     <li class="list-item d-lg-none">
         <a href="{% url 'home' %}#about" class="nav-link" id="aboutLink">
             <div class="text-center">
                 <i class="fas fa-info fa-lg"></i>
             </div>
-            <p class="my-0"> About</p>
 
         </a>
     </li>
@@ -87,7 +66,6 @@
                 <div>
                     <i class="fas fa-shopping-bag fa-lg"></i>
                 </div>
-                <p class="my-0">SHOP</p>
             </div>
         </a>
     </li>
@@ -103,7 +81,6 @@
                     <div>
                         <i class="fas fa-search fa-lg"></i>
                     </div>
-                    <p class="my-0">Search</p>
                 </div>
             </a>
             <div class="dropdown-menu w-100 bg-none border-0" aria-labelledby="dropdownMenuButton1">
@@ -128,10 +105,10 @@
 
     {% if grand_total > 0 %}
     <li class="list-item">
-        <a class="nav-link d-block d-lg-none" href="{% url 'view_cart' %}">
+        <a class="nav-link d-block d-lg-none" href="{% url 'view_cart' %}" id="cartTotal">
             <div class="text-center">
                 <div><i class="fas fa-shopping-cart fa-lg"></i></div>
-                <p class="my-0">
+                <p class="mt-1">
                     {% if grand_total %}
                     ${{ grand_total|floatformat:2 }}
                     {% else %}
