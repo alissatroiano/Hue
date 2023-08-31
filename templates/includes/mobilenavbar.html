@@ -1,86 +1,97 @@
 <!--ul-starts-here-->
-<ul class="nav list-group list-group-horizontal text-center my-0 mx-auto py-1">
+<ul class="nav list-group list-group-horizontal text-center my-0 mx-auto py-1"">
         <!--account-options-start-here-->
-        <li class="list-item dropdown d-lg-none">
-            <a class="nav-link btn d-lg-none me-auto float-none dropdown-toggle" href="" role="button" id="mobileAccountOptions"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi d-block mx-auto text-center mb-1 fas fa-user">
-                </i>
-                Profile
-            </a>
-            <ul class="dropdown-menu display-font" aria-labelledby="mobileAccountOptions">
-                {% if request.user.is_authenticated %}
-                <li class="dropdown-item display-font">
-                    <a href="{% url 'profile' %}" class="dropdown-item">Profile</a>
-                </li>
-                {% if request.user.is_superuser %}
-                <li class="dropdown-item display-font">
-                    <a href="{% url 'add_product' %}" class="dropdown-item">Shop Management</a>
-                </li>
-                {% endif %}
-                <li class="dropdown-item display-font">
-                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                </li>
-                {% else %}
-                <li>
-                    <a class="dropdown-item display-font" href="{% url 'account_signup' %}">Sign Up</a>
-                </li>
-                <li>
-                    <a class="dropdown-item display-font" href="{% url 'account_login' %}">Login</a>
-                </li>
-                {% endif %}
-            </ul>
-    
+        <li class=" list-item dropdown d-lg-none">
+    <a class="nav-link btn d-lg-none me-auto float-none dropdown-toggle" href="" role="button" id="mobileAccountOptions"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi d-block mx-auto text-center mb-1 fas fa-user">
+        </i>
+        Profile
+    </a>
+    <ul class="dropdown-menu display-font" aria-labelledby="mobileAccountOptions">
+        {% if request.user.is_authenticated %}
+        <li class="dropdown-item display-font">
+            <a href="{% url 'profile' %}" class="dropdown-item">Profile</a>
         </li>
-        <!--./account-options-end-here-->
+        {% if request.user.is_superuser %}
+        <li class="dropdown-item display-font">
+            <a href="{% url 'add_product' %}" class="dropdown-item">Shop Management</a>
+        </li>
+        {% endif %}
+        <li class="dropdown-item display-font">
+            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+        </li>
+        {% else %}
+        <li>
+            <a class="dropdown-item display-font" href="{% url 'account_signup' %}">Sign Up</a>
+        </li>
+        <li>
+            <a class="dropdown-item display-font" href="{% url 'account_login' %}">Login</a>
+        </li>
+        {% endif %}
+    </ul>
+    </li>
+    <!--./account-options-end-here-->
     <!--About starts here-->
     <li class="list-item dropdown">
-        <a href="{% url 'home' %}#about" class="nav-link btn d-lg-none me-auto float-none dropdown-toggle display-font" role="button"
-        id="aboutDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="bi d-block mx-auto mb-1 fas fa-info text-center">
-            </i> About
+        <a href="{% url 'home' %}#about" class="nav-link btn d-lg-none me-auto float-none dropdown-toggle display-font"
+            role="button" id="aboutDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi d-block mx-auto mb-1 fas fa-question text-center">
+            </i> FAQ
         </a>
         <ul class="dropdown-menu display-font" aria-labelledby="aboutDropdown">
             <li class="list-item">
-                <a href="{% url 'faq' %}#contentPolicy" class="dropdown-item">Content Policy</a>
+                <a href="{% url 'faq' %}#contentPolicy" class="dropdown-item" id="contentPolicyNavLink">Content
+                    Policy</a>
             </li>
             <li class="list-item">
-                <a href="{% url 'faq' %}#licenseAgreement" class="dropdown-item">Commercialization</a>
+                <a href="{% url 'faq' %}#licenseAgreement" class="dropdown-item"
+                    id="commercializattionLink">Commercialization</a>
             </li>
-            </ul>
+        </ul>
     </li>
     <!--./about-ends-here-->
-        <!--Hugo-->
-        <li class="list-item">
-            <a class="nav-link  d-block d-lg-none" href="{% url 'hugo' %}">
-                <div class="text-center">
+    <!--Hugo-->
+    <li class="list-item">
+        <a class="nav-link  d-block d-lg-none" href="{% url 'hugo' %}" id="galleryNavLink">
+            <div class="text-center">
                 <i class="fas fa-paint-brush fa-lg">
-                    </i>
-                    </div>
-                    <p class="my-0"> Explore</p>
-        </a>          
-        </li>
-        <li class="list-item">
-            <a class="nav-link display-font d-block d-lg-none" href="{% url 'add_hugo' %}">
-                <div class="text-center">
-            <i class="fas fa-wand-magic-sparkles fa-lg">
-                </i></div>
-                <p class="my-0"> Create</p>
-        </a>          
-        </li>
+                </i>
+            </div>
+            <p class="my-0"> Explore</p>
+        </a>
+    </li>
+    <li class="list-item">
+        <a class="nav-link display-font d-block d-lg-none" href="{% url 'add_hugo' %}" id="createNavLink">
+            <div class="text-center">
+                <i class="fas fa-wand-magic-sparkles fa-lg">
+                </i>
+            </div>
+            <p class="my-0"> Create</p>
+        </a>
+    <li class="list-item d-lg-none">
+        <a href="{% url 'home' %}#about" class="nav-link" id="aboutLink">
+            <div class="text-center">
+                <i class="fas fa-info fa-lg"></i>
+            </div>
+            <p class="my-0"> About</p>
+
+        </a>
+    </li>
+    </li>
     <!--./about-ends-here-->
-        <!--Shop starts here-->
-        <li class="list-item d-lg-none">
-            <a class="nav-link"  href="{% url 'shop' %}">
-                <div class="text-center">
-                    <div>
-                        <i class="fas fa-shopping-bag fa-lg"></i>
-                    </div>
-                    <p class="my-0">SHOP</p>
+    <!--Shop starts here-->
+    <li class="list-item d-lg-none">
+        <a class="nav-link" href="{% url 'shop' %}" id="shopNavLink">
+            <div class="text-center">
+                <div>
+                    <i class="fas fa-shopping-bag fa-lg"></i>
                 </div>
-            </a>
-        </li>
-        <!--./shop-ends-here-->
+                <p class="my-0">SHOP</p>
+            </div>
+        </a>
+    </li>
+    <!--./shop-ends-here-->
     <!--search-bar-starts-->
     {% if request.path == '/shop/' %}
     <li class="list-item">
@@ -113,7 +124,7 @@
         </div>
     </li>
     {% endif %}
-    <!--./search-bar-ends-->  
+    <!--./search-bar-ends-->
 
     {% if grand_total > 0 %}
     <li class="list-item">
@@ -131,6 +142,5 @@
         </a>
     </li>
     {% endif %}
-
 </ul>
 <!--ul-ends-here-->
