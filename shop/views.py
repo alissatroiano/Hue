@@ -49,7 +49,7 @@ def import_artwork_to_store(request):
 def shop_all(request):
     """ A view to show all products, including sorting and search queries """
 
-    products = Product.objects.all()
+    products = Product.objects.all().order_by('-created_at')
     has_artwork_for_import = False
     if request.user.is_authenticated:
             has_artwork_for_import = Artwork.objects.filter(user=request.user, for_sale=True, in_import_queue=True).exists()
