@@ -348,13 +348,34 @@ a#logo:hover {
 }
 
 #accountOptions,
-a.nav-link,
 div#bottom-nav {
     font-family: 'Oswald', sans-serif;
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: #fafafa;
+    text-decoration: none;
+}
+
+a#mobileAccountOptions, 
+a#aboutDropdown,
+a#contentPolicyNavLink,
+a#commercializattionLink,
+a#galleryNavLink,
+a#createNavLink,
+a#shopNavLink,
+a#aboutLink {
+    font-size: 10px;
+
+}
+
+
+a.nav-link {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fafafa;
+    font-size: 12px;
     text-decoration: none;
 }
 
