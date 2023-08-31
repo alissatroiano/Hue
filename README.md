@@ -132,6 +132,8 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 
 ### Research & Planning
 
+***Note: the research and planning portion of this README was creeated during the first version of this software. This application has been modified since and this section is being edited accordingly***
+
 #### User Stories
 
 User stories were created by the [developer](https://www.github.com/alissatroiano) during the planning phase of this project. As practiced in agile development, each user story coincides with a feature of the Hue application and will be accomplished in one sprint.
