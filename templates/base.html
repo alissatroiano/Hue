@@ -51,12 +51,18 @@
                             </i> Home
                         </a>
                     </li>
+                    <li class="list-item">
+                        <a class="nav-link display-font" href="{% url 'home' %}#about">
+                        <i class="bi d-block mx-auto text-center mb-1 fas fa-info">
+                        </i> About
+                    </a>
+                    </li>
                     <li class="list-item dropdown bg-none">
-                        <a href="{% url 'home' %}#about" class="dropdown-toggle nav-link display-font" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a href="#aboutDropdown" class="dropdown-toggle nav-link display-font" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="bi d-block mx-auto mb-1 fas fa-info text-center">
                             </i> FAQ
                         </a>
-                        <ul class="dropdown-menu display-font" aria-labelledby="aboutDropdown">
+                        <ul class="dropdown-menu display-font" aria-labelledby="aboutDropdown" id="aboutDropdown">
                             <li class="list-item">
                                 <a href="{% url 'faq' %}#contentPolicy" class="dropdown-item">Content Policy</a>
                             </li>
