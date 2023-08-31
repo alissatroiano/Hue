@@ -6,6 +6,8 @@ Hue's AI models were all specially trained to generate artwork in the likeness o
  
 Hue was built with HTML, CSS, Bootstrap 5, JavaScript, Python 3, and Django. Hue's checkout functionality is powered by the Stripe API. All AI image generation functionality.
 
+[Youtube Video](https://www.youtube.com/watch?v=cvy4uK9LyjM)
+
 ## Features
 
 To meet all of Hue's goals and needs, this application will be built with the following features:
