@@ -275,7 +275,7 @@ User stories were created by the [developer](https://www.github.com/alissatroian
 
 - I learned about different target markets by reading:
 
-    - [Marketing Artfully article "Customer Demographics - Age Demographics for Advertising"][https://marketingartfully.com/customer-demographics-age-demographics-for-advertising/]
+    - [Marketing Artfully article "Customer Demographics - Age Demographics for Advertising"](https://marketingartfully.com/customer-demographics-age-demographics-for-advertising/)
 
 - I referenced (Django's Documentation)[https://docs.djangoproject.com/en/3.2/] for the following topics:
 
