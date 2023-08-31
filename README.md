@@ -1,106 +1,49 @@
 # Hue
 
-This full-stack application was developed for Hue, an online art gallery and store where users can view and purchase artwork. The main goal of Hue's website is to display and sell their artwork to shoppers digitally. Hue is a fictional company that was created for the purpose of this project.
+This full-stack application was developed for Hue, an online art gallery and store where users can use AI to create, share, and sell awesome digital artwork and photography. Hue’s AI art  and image models are powered by the MindsDB Dall-E integration, which has been trained on 400 million labeled datasets. 
 
-As the Milestone 4 Project for [Code Institute's](https://codeinstitute.net) [Full Stack Software Development Diploma Program](https://codeinstitute.net/full-stack-software-development-diploma/), Hue was built with HTML, CSS, Bootstrap 5, JavaScript, Python 3, and Django.
-
-## UX
-
-### Summary
-
-Hue, a fictional art gallery & store, needs to move their business online and sell their work to customers digitally. The business needs software that gives them the ability to:
-
-- Add, edit and remove products from the shop
-
-- Receive payments upon purchases
-
-- Sell and send products to customers
-
-Hue's niche target market is comprised of male & female luxury art enthusiasts, ages 24 - 39, that want to preview and purchase art online. To meet the needs of these shoppers, Hue's website should allow them to:
-
-- View art products
-
-- Add selected products to a shopping cart
-
-- Purchase items (via online Stripe payment)
-
-- Sign up and become a member
-
-- Login to persist shopping cart between visits
-
-
-### Research & Planning
-
-#### Users
-
-During the research & planning phase of this milestone project, the developer completed the below flowchart activity, titled "Django Multiple User Types". This activity was conducted to determine how to properly build and implement the Django user model.
-
-![Django Multiple User Types](wireframes/djangomultipleusertypes.png)
-[djangomultipleusertypes](wireframes/djangomultipleusertypes.pdf)
-
-As can be seen in the image above, the activity led the developer to make the following conclusions:
-
-- Hue's user authentication model should define a one-to-one relationship, using the [``OneToOneField``](https://docs.djangoproject.com/en/3.1/topics/db/examples/one_to_one/).
-
-- Hue should be built for **two** different types of users:
-
-  1) The Site Owner
-    - Hue, the company, that wants to:
-        - Sell digital artwork.
-
-    2) The Shopper
-    - Digital art buyers that want to:
-        - Purchase digital artwork from Hue online.   
-
-#### User Stories
-
-User stories were created by the [developer](https://www.github.com/alissatroiano) during the planning phase of this project. As practiced in agile development, each user story coincides with a feature of the Hue application and will be accomplished in one sprint.
-
-#### The following user stories were created for the **shopper**:
-
-![Shopper](wireframes/userstories-shopper.png)
-
-![Site Owner](wireframes/siteownerstories.png)
-
-### Database
-
-#### Local Development
+Hue's AI models were all specially trained to generate artwork in the likeness of specific artists and genres. 
+ 
+Hue was built with HTML, CSS, Bootstrap 5, JavaScript, Python 3, and Django. Hue's checkout functionality is powered by the Stripe API. All AI image generation functionality.
 
 ## Features
 
 To meet all of Hue's goals and needs, this application will be built with the following features:
 
 ### Existing Features
-- Home - A
 
-- Gallery:
+- Home - A landing page that allows **all users** to view information and images related to the application, by having them visit the home page.
 
-**Shopper**
+    - About: Allows **all users** to view information and images related to the business, by having them visit the about page.
 
-- Allows *shoppers* to view, search, sort, and filter products, by having them visit the gallery and utilized the built-in tools.
+    - Features: Allows **all users** to view information and images related to the main features of this applicaton, by having them visit the features section.
 
-**Site Owner**
-- Gives *site owner* the opportunity to view the gallery page as a regular shopper/user would.
+- Sign Up - Allows **new users** to create an account, by having them fill out a form that uses ``POST`` to send data.
 
-- Sign Up - Allows **all users** to create an account, by having them fill out a form that uses ``POST`` to send data.
+- Login: Allows **exisiting users** to login to their account, by having them fill out a form that uses ``POST`` to send data.
 
-- Login: 
+- Explore: Allows **all users** to view AI generated artwork & imagery in the database, by having them visit the explore page.
 
-**Shoppers**
+- Add Artwork: Allows **registered users** to use Hue's specially trained mmodels to create custom artwork, by having them fill out the 'Add Artwork' form.
 
-- Provides an opportunity for **shoppers** to persist their cart between visits, by logging in.
+- Profile: Allows **registered users** to edit their account details, view order history, and manage their AI creations, by having them visit the profile page.
 
-**Site Owner**
-- Allows the *site owner* to access special product management tools hidden from other users, by filling out a secure form that sends data and logging in.
+- Edit Artwork: Allows **registered users** to edit their AI creations, by having them fill out the 'Edit Artwork' form.
 
-- About: Allows **all users** to view information and images related to the business, by having them visit the about page.
+- Delete Artwork: Allows **registered users** to delete their AI creations, by having them click the 'Delete Artwork' button.
 
-**Hugo**
-- Allows users to create custom artwork via MindsDB/OpenAI image generation models. 
+- Sell Artwork: Allows **registered users** to sell their AI creations, by having them fill out the 'Sell Artwork' form.
 
+- FAQ: Allows **all users** to view frequently asked questions pertaining to Dall-E's content policy and commercialization policy, by having them visit the FAQ page.
 ### Features Left to Implement
 
+- ChatGPT-4 Integration: this feature will replace the exisiting random prompt generator, currently powered by JavaScript, with a more robust and intelligent prompt generator powered by **MindsDB's** integration with **OpenAI's** **ChatGPT-4** model.
 
+    - The logic for ths feature will be implemented in the back-end, using Python, Django and the **MindsDB Python SDK**.
+
+- AI Artwork Marketplace: Will allow **registered users** to sell their AI creations to other users
+
+    - The existing Stripe logic will be extended for peer-to-peer transactions.
 ## Technologies Used
 
 - [Django](https://www.djangoproject.com/)
@@ -112,26 +55,91 @@ To meet all of Hue's goals and needs, this application will be built with the fo
  - [sqlite3](https://docs.python.org/3/library/sqlite3.html)
  - This application is using ***sqlite3*** for internal data storage during local development.
 
- - [Pillow]() 
+ - [Pillow](https://pillow.readthedocs.io/en/stable/) 
     - This project will use **the Python Imaging Library, Pillow** to add image processing capabilities to the Python interpreter.
 
 - [Virtual Environment Wrapper](https://virtualenvwrapper.readthedocs.io/en/latest/index.html)
     - This project makes use of virtualenvwrapper extensions for creating and deleting virtual environments and managing local development.
 
 - [Homebrew](https://brew.sh/)
+     - This project uses Homebrew to simplify software and package installations in MacOS.
 
-    - This project uses Homebrew to simplify software and package installations in MacOS.
+- [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+    - This project uses **Bootstrap 5** to simplify the structure of the website and make the website responsive easily.
 
-- [Bootstrap 5]
+- [Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/)
 
-- Django form plugins:
-    - [Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/)
-    - [Crispy-Bootstrap5](https://pypi.org/project/crispy-bootstrap5/) 
-        - This project uses crispy filters & tags to control the rendering behavior of Django forms in a consistent, visually appealing and *DRY* manner.
+- [Crispy-Bootstrap5](https://pypi.org/project/crispy-bootstrap5/) 
+- This project uses crispy filters & tags to control the rendering behavior of Django forms in a consistent, visually appealing and *DRY* manner.
+
+- [MindsDB](https://mindsdb.com/)
+    - This project uses MindsDB's Dall-E integration to power Hue's AI art and image models.
+
+- [MindsDB Python SDK](https://docs.mindsdb.com/quick-start/python-sdk/)
+    - This project uses MindsDB's Python SDK to power Hue's AI art and image models.
+
+- [OpenAI](https://openai.com/)
+    - This project uses OpenAI's Dall-E model to power Hue's AI art and image models.
+
+- [Dall-E](https://openai.com/blog/dall-e/)
+    - This project uses OpenAI's Dall-E model to power Hue's AI art and image models.
+
+- [Stripe](https://stripe.com/docs/api)
+    - This project uses Stripe's API to power Hue's checkout functionality.
+
+- [Heroku](https://www.heroku.com/)
+    - This project uses Heroku to deploy the application.
+
+- [AWS S3](https://aws.amazon.com/s3/)
+    - This project uses AWS S3 to store static and media files.
+
+- [Git](https://git-scm.com/)
+    - This project uses **Git** for version control, by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
+
+- [GitHub](https://github.com)
+    - This project uses **GitHub** to store and share all project code remotely.
+
+- [Balsamiq](https://balsamiq.com/)
+    - This project uses **Balsamiq** to create the wireframes during the design process.
+
+- [Google Fonts](https://fonts.google.com/)
+    - This project uses **Google fonts** to style the website fonts.
+
+- [Font Awesome](https://fontawesome.com/)
+    - This project uses **Font Awesome** for the social media icons.
+
+- [W3C Markup Validation Service](https://validator.w3.org/)
+    - This project uses **W3C Markup Validation Service** to validate HTML code.
+
+- [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
+    - This project uses **W3C CSS Validation Service** to validate CSS code.
+
+- [JSHint](https://jshint.com/)
+    - This project uses **JSHint** to validate JavaScript code.
+
+- [PEP8](http://pep8online.com/)
+    - This project uses **PEP8** to validate Python code.
+
+- [Am I Responsive?](http://ami.responsivedesign.is/)
+    - This project uses **Am I Responsive?** to test the responsiveness of the website across multiple devices.
+
+- [Autoprefixer CSS online](https://autoprefixer.github.io/)
+    - This project uses **Autoprefixer CSS online** to add vendor prefixes to CSS code.
 
 ## Testing
 
-## Deployment
+### Research & Planning
+
+#### User Stories
+
+User stories were created by the [developer](https://www.github.com/alissatroiano) during the planning phase of this project. As practiced in agile development, each user story coincides with a feature of the Hue application and will be accomplished in one sprint.
+
+#### The following user stories were created for the **shopper**:
+
+![Shopper](wireframes/userstories-shopper.png)
+
+![Site Owner](wireframes/siteownerstories.png)
+
 
 ## Credits
 
@@ -147,7 +155,11 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 
 - The images used for this project were copied from:
 
-    - [Pixabay](https://pixabay.com/illustrations/fractal-art-psychedelic-fantasy-2077883/)
+- [Pixabay](https://pixabay.com/illustrations/fractal-art-psychedelic-fantasy-2077883/)
+
+- [OpenAI](https://openai.com/blog/dall-e/)
+
+- [Dall-E](https://openai.com/blog/dall-e/)
 
 ## UX Design
 
@@ -196,13 +208,6 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 
 - I followed this video while setting up custom confirmation emails with Django & Google SMTP [Automating confirmation emails with Django](https://www.youtube.com/watch?v=1BaLWYUO1k4).
 
-## Version Control
-- [GitHowTo.com](https://githowto.com/getting_old_versions) for returning to the latest version in master branch after `git reset --hard <commitsha>.`
-
-- [Git's Documentation](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging) for basic branching & merging.
-
--[Stack Overflow](https://stackoverflow.com/questions/9529078/how-do-i-use-git-reset-hard-head-to-revert-to-a-previous-commit) for the following solution to my inquiry of how to properly `git reset --hard <commitsha>`.
-
 ## Utilities & tools
 - [Diffchecker](https://www.diffchecker.com/#).
 
@@ -232,16 +237,25 @@ To meet all of Hue's goals and needs, this application will be built with the fo
 
     - [Sublime Text](https://packagecontrol.io/docs)
 
+    - [MindsDB](https://docs.mindsdb.com/quick-start/python-sdk/) for installing the MindsDB Python SDK.
+
+    - [Django](https://docs.djangoproject.com/en/3.2/topics/install/) for installing Django.
+
+    - [Django Allauth](https://django-allauth.readthedocs.io/en/latest/installation.html) for installing Django Allauth.
+
+    - [Stripe](https://stripe.com/docs/development/quickstart) for installing Stripe.
+
+    - [ChatGPT](https://chat.openai.com/) for code snippets and installation instructions.
+
 ### Security
 
 - I copied the following settings(located in `settings.py`) from [Django's Documentation]()
 
     - [SECURE_SSL_REDIRECT](https://docs.djangoproject.com/en/3.2/ref/settings/#std:setting-SECURE_SSL_REDIRECT)
 
-
 ## Acknowledgements
 
-- I followed [Code Insitute's](https://learn.codeinstitute.net/) video lessons.
+- I followed [Code Insitute's](https://learn.codeinstitute.net/) video lessons for the first version of this software.
 
 - I learned about writing user stories for multiple end-users by reading the following articles:
 
@@ -270,3 +284,6 @@ To meet all of Hue's goals and needs, this application will be built with the fo
     - [Writing Custom Model Fields](https://docs.djangoproject.com/en/3.2/howto/custom-model-fields/)
 
     - [Creating Forms from Models](https://docs.djangoproject.com/en/3.2/topics/forms/modelforms/)
+
+I referenced this article from MindsDB's documentation when building my own specialized Dall-E models:
+    - [Tutorial: how to add AI image generation to your own app](https://mindsdb.com/blog/tutorial-how-to-add-ai-image-generation-to-your-own-app)
