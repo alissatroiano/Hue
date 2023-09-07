@@ -35,7 +35,7 @@ class ArtworkForm(forms.ModelForm):
 class EditArtworkForm(forms.ModelForm):
     class Meta:
         model = Artwork
-        fields = ['title', 'style', 'is_downloadable', 'is_public']
+        fields = ['title', 'is_downloadable', 'is_public']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
