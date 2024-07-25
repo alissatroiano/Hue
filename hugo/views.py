@@ -75,9 +75,9 @@ def add_hugo(request):
                     'pop-art': 'SELECT * FROM open_ai.retro WHERE text="{}";',
                     'digital-art': 'SELECT * FROM open_ai.digital_only WHERE text="{}";',
                     'fine-art': 'SELECT * FROM open_ai.fine_art WHERE text="{}";',
-                    'street-art': 'SELECT * FROM open_ai.urban_art WHERE text="{}";',
+                    'street-art': 'SELECT * FROM mindsdb.street_art WHERE text="{}";',
                     'abstract-art': 'SELECT * FROM open_ai.abstract WHERE text="{}";',
-                    'photography': 'SELECT * FROM open_ai.photography WHERE text="{}";'
+                    'photography': 'SELECT * FROM open_ai.digital_only WHERE text="{}";'
                 }
                 
                 query_template = style_queries.get(style.name)
