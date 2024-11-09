@@ -17,3 +17,5 @@ env_hue/
 venv/
 db.sqlite3
 github/
+venv
+venv/
