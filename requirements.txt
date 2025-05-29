@@ -27,6 +27,7 @@ exceptiongroup
 frozenlist
 greenlet
 gunicorn
+heroku==8.7.1
 idna
 iniconfig
 ipaddress
