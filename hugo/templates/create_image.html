@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'hugo/css/hugo.css' %}">
+{% endblock %}
+
+{% block page_header %}
+<div class="header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="content-container">
+    <div class="row">
+        <div class="col">
+            <h1>Create Artwork</h1>
+            <form method="POST" action="{% url 'create_image' %}" class="form mb-2" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Create</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div id="loadingMessage" class=" text-center align-items-center justify-content-center">
+    <div class="loading">
+        <div class="text-center">
+            <span class="icon" id="artSpinner">
+                <i class="fas fa-3x fa-spinner fa-spin"></i>
+            </span>
+            <br>
+            <br>
+            <span class="loading-text body-font">
+                Generating your AI masterpiece now...
+            </span>
+            <br>
+            <div class="m-5 px-5 copyright pt-5">
+                <span class="copyright-terms">Subject to the Content Policy and Terms, you own the images you create
+                    with <a target="_blank" class="link-font"
+                        href="https://openai.com/policies/terms-of-use">DALL·E</a>, including the right to reprint,
+                    sell, and merchandise – regardless of whether an image was generated through a free or paid
+                    credit.</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script src="{% static 'hugo/js/loading.js' %}"></script>
+{% endblock %}

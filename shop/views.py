@@ -12,12 +12,11 @@ from .models import Product, Category
 from .forms import ProductForm, EditProductForm
 # import mindsdb config from settings.py
 from django.conf import settings
-import mindsdb_sdk
 import pandas as pd
 from pandas import DataFrame
 from django.shortcuts import render
-mdb_server = mindsdb_sdk.connect(settings.MINDSDB_HOST, settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
-project = mdb_server.get_project('mindsdb')
+# mdb_server = mindsdb_sdk.connect(settings.MINDSDB_HOST, settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
+# project = mdb_server.get_project('mindsdb')
 
 
 @login_required

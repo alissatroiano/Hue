@@ -12,28 +12,22 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 import os
 import dj_database_url
+from dotenv import load_dotenv
 
-if os.path.exists("env.py"):
-    import env
-
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start  development settings - unsuitable for production
-# See https://docs.djangfdoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', '')
+SECRET_KEY = os.getenv("SECRET_KEY")
+print("SECRET_KEY:", SECRET_KEY)  # Debugging line to check if SECRET_KEY is loaded correctly
 
-# MINDSDB CREDENTIALS DEFINED HERE
-MINDSDB_EMAIL = os.environ.get('MINDSDB_EMAIL', '')
-MINDSDB_PASSWORD = os.environ.get('MINDSDB_PASSWORD', '')
-MINDSDB_HOST = os.environ.get('MINDSDB_HOST', '')
-OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY', '')
-MINDSDB_SERVER = os.environ.get('MDB_SERVER', '')
-MINDSDB_PROJECT = os.environ.get('MINDBS_PROJECT', '')
+DATABASE_URL = os.getenv("DATABASE_URL")
+print("DATABASE_URL:", DATABASE_URL)  # Debugging line to check if DATABASE_URL is loaded correctly
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = ['hue-alissa.herokuapp.com', 'localhost', '127.0.0.1']
@@ -52,25 +46,21 @@ INSTALLED_APPS = [
     'home',
     'shop',
     'cart',
-    'storages',
     'checkout',
     # 3rd party
     'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    "allauth.socialaccount.providers.facebook",
-    "allauth.socialaccount.providers.google",
     "crispy_forms",
-    'django_countries',
     "crispy_bootstrap5",
     "profiles",
-    "hugo"
+    "storages",
+    "hugo",
 ]
 
 CURRENCY = '$'  # Default currency is US Dollar
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    # "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -136,6 +126,7 @@ LOGOUT_REDIRECT_URL = '/accounts/login/'
 WSGI_APPLICATION = 'Hue.wsgi.application'
 
 # Database
+# Database
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
@@ -150,9 +141,6 @@ else:
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
-
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -183,20 +171,22 @@ USE_TZ = True
 TIME_ZONE = 'UTC'
 
 # MINDSDB CREDENTIALS DEFINED HERE
-MINDSDB_EMAIL = os.environ.get('MINDSDB_EMAIL', '')
-MINDSDB_PASSWORD = os.environ.get('MINDSDB_PASSWORD', '')
-MINDSDB_HOST = os.environ.get('MINDSDB_HOST', '')
-OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY', '')
-MINDSDB_SERVER = os.environ.get('MDB_SERVER', '')
-MINDSDB_PROJECT = os.environ.get('MINDBS_PROJECT', '')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-STATIC_URL = '/static/'
-# Extra places for collectstatic to find static files.
+STATIC_URL = "/static/"
+
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+# Media
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Promotions & Discounts
+PROMOTION_MINIMUM = 50
+PROMOTION_PERCENTAGE = .25
+
 # Media
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

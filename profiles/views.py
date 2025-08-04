@@ -7,13 +7,11 @@ from django.contrib import messages
 from checkout.models import Order, OrderItem
 # import mindsdb config from settings.py
 from django.conf import settings
-import mindsdb_sdk
 import openai
 import pandas as pd
 from pandas import DataFrame
 from hugo.models import Artwork
 from hugo.forms import EditArtworkForm, AddToStoreForm
-
 
 def profile(request):
     profile = get_object_or_404(Profile, user=request.user)

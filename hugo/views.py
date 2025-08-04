@@ -8,21 +8,19 @@ from .forms import ArtworkForm
 from .models import Artwork, Style
 from django.conf import settings
 from django.contrib import messages
-import mindsdb_sdk
 from django.core.files.temp import NamedTemporaryFile
 import requests
-import openai
 import pandas as pd
 from pandas import DataFrame
 import random
 import string
 from urllib.parse import quote
-
+import base64
+from openai import OpenAI
+client = OpenAI()
 import time
-email = os.environ["MINDSDB_EMAIL"]
-password = os.environ["MINDSDB_PASSWORD"]
-
-from cart.views import add_to_cart
+# import openAI for Dalle use
+request = "https://api.openai.com/v1/images/generations" 
 
 def hugo(request):
     artworks = Artwork.objects.all()
@@ -55,79 +53,19 @@ def artwork_detail(request, artwork_id):
 
     return render(request, 'artwork_detail.html', context)
 
+# send image requests to Open AI endpoint https://api.openai.com/v1/images/generations
 
 @login_required
-def add_hugo(request):
+def create_image(request):
     if request.method == 'POST':
         form = ArtworkForm(request.POST, request.FILES)
-        try:
-            if form.is_valid():
-                artwork = form.save(commit=False)
-                artwork.user = request.user
-                artwork.save()
-                
-                style = artwork.style 
-                text = artwork.artwork_description
-                encoded_text = quote(text)
-                
-                # Define a dictionary to map style names to query templates
-                style_queries = {
-                    'pop-art': 'SELECT * FROM open_ai.retro WHERE text="{}";',
-                    'digital-art': 'SELECT * FROM open_ai.digital_only WHERE text="{}";',
-                    'fine-art': 'SELECT * FROM open_ai.fine_art WHERE text="{}";',
-                    'street-art': 'SELECT * FROM mindsdb.street_art WHERE text="{}";',
-                    'abstract-art': 'SELECT * FROM open_ai.abstract WHERE text="{}";',
-                    'photography': 'SELECT * FROM open_ai.digital_only WHERE text="{}";'
-                }
-                
-                query_template = style_queries.get(style.name)
-                
-                if query_template is not None:
-                    query = query_template.format(encoded_text)  # Insert encoded_text into the query template
-                    mdb_server = mindsdb_sdk.connect('https://cloud.mindsdb.com', settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
-                    project = mdb_server.get_project('open_ai')
-                    query_result = project.query(query).fetch()
-                    
-                    ai_img = DataFrame.to_string(query_result)
-                    # Extract the image URL from ai_img using regular expressions
-                    url_pattern = r'(https?://\S+)'
-                    match = re.search(url_pattern, ai_img)
-                    if match:
-                        image_url = match.group(1)
-                    else:
-                        # Handle the case where no valid URL is found
-                        image_url = None
-                else:
-                    # Handle the case where the selected style is not recognized
-                    image_url = None
-                
-                if image_url:
-                    # Download the image from the URL
-                    response = requests.get(image_url)
-                    if response.status_code == 200:
-                        img_temp = NamedTemporaryFile(delete=True)
-                        img_temp.write(response.content)
-                        img_temp.flush()
-
-                        # Generate a random name for the image file
-                        timestamp = str(int(time.time()))  # Get the current timestamp
-                        random_str = ''.join(random.choices(string.ascii_lowercase, k=6))  # Generate a random string of length 6
-                        image_filename = f'image_{timestamp}_{random_str}.jpg'
-
-                        # Assign the downloaded image to the artwork model with the arandom name
-                        artwork.image_url = image_url
-                        artwork.image.save(image_filename, files.File(img_temp))
-                        artwork.save()  # Save the artwork model again to update the image field
-
-                return redirect(reverse('hugo'))
-        except Exception as e:
-            # Delete the artwork if an exception occurs
-            artwork.delete()
-            return render(request, 'runtime_error_template.html', {'error_message': str(e)})
+        if form.is_valid():
+            artwork = form.save(commit=False)
+            artwork.user = request.user
+            artwork.save()
+            messages.success(request, 'Artwork created successfully!')
+            return redirect('hugo')
     else:
         form = ArtworkForm()
 
-        template = 'add_hugo.html'
-        context = {'form': form}
-
-        return render(request, template, context)
+    return render(request, 'create_image.html', {'form': form})
