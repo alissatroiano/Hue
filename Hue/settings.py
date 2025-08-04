@@ -22,10 +22,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv("SECRET_KEY")
-print("SECRET_KEY:", SECRET_KEY)  # Debugging line to check if SECRET_KEY is loaded correctly
 
 DATABASE_URL = os.getenv("DATABASE_URL")
-print("DATABASE_URL:", DATABASE_URL)  # Debugging line to check if DATABASE_URL is loaded correctly
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
 DEBUG = 'DEVELOPMENT' in os.environ
