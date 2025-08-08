@@ -10,7 +10,6 @@ re_path = page_not_found_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
-    path(r'^accounts/', include('allauth.urls')),
     path('', include('home.urls')),
     path('page_not_found_view/', page_not_found_view, name='page_not_found_view'),
     path('shop/', include('shop.urls')),
