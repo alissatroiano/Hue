@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'checkout',
     # 3rd party
     'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     "crispy_forms",
     "crispy_bootstrap5",
     "profiles",
@@ -58,11 +60,11 @@ CURRENCY = '$'  # Default currency is US Dollar
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    # "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -120,10 +122,8 @@ LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/accounts/login/'
 
-
 WSGI_APPLICATION = 'Hue.wsgi.application'
 
-# Database
 # Database
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
