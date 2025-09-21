@@ -17,31 +17,56 @@ import string
 from urllib.parse import quote
 import base64
 from openai import OpenAI
-client = OpenAI()
 import time
-# import openAI for Dalle use
-request = "https://api.openai.com/v1/images/generations" 
+from django.core.files.base import ContentFile
+
+# Initialize OpenAI client with explicit API key
+api_key = os.getenv('OPENAI_API_KEY')
+if not api_key:
+    raise ValueError("OPENAI_API_KEY environment variable is not set")
+client = OpenAI(api_key=api_key)
+
+
+@login_required
+def create_image(request):
+    if request.method == 'POST':
+        form = ArtworkForm(request.POST)  # prompt, title etc.
+        if form.is_valid():
+            prompt = form.cleaned_data.get('prompt')
+            result = client.images.generate(
+                model="dall-e-3",
+                prompt=prompt,
+                size="1024x1024"
+            )
+
+            image_base64 = result.data[0].b64_json
+            image_bytes = base64.b64decode(image_base64)
+
+            artwork = form.save(commit=False)
+            artwork.user = request.user
+            artwork.image.save(
+                f"{prompt[:20].replace(' ', '_')}.png",
+                ContentFile(image_bytes),
+                save=False
+            )
+            artwork.save()
+
+            messages.success(request, 'Artwork created successfully!')
+            return redirect('hugo')
+    else:
+        form = ArtworkForm()
+
+    return render(request, 'create_image.html', {'form': form})
 
 def hugo(request):
-    artworks = Artwork.objects.all()
-    styles = None
-
-    # sort artwork by style if the user has selected that style
-    if request.GET:
-        if 'style' in request.GET:
-            styles = request.GET['style'].split(',')
-            artworks = artworks.filter(style__name__in=styles)
-            styles = Style.objects.filter(name__in=styles)
-    # display artwork from newest to oldest whe visiting the page
-    artworks = artworks.order_by('-created_at')
+    """ A view to show the AI art gallery """
+    artworks = Artwork.objects.filter(is_public=True, image__isnull=False).exclude(image='').order_by('-created_at')
+    
     context = {
         'artworks': artworks,
-        'current_styles': styles,
-        # 'sort_dir': sort_dir,
     }
-
+    
     return render(request, 'hugo.html', context)
-
 
 def artwork_detail(request, artwork_id):
     """ A view to render a page for individual artwork and artwork details """
@@ -55,8 +80,6 @@ def artwork_detail(request, artwork_id):
 
 # send image requests to Open AI endpoint https://api.openai.com/v1/images/generations
 
-@login_required
-def create_image(request):
     if request.method == 'POST':
         form = ArtworkForm(request.POST, request.FILES)
         if form.is_valid():

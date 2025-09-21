@@ -1,118 +1,125 @@
 <!--ul-starts-here-->
 <ul class="nav list-group list-group-horizontal text-center my-0 mx-auto py-1">
-        <!--account-options-start-here-->
-        <li class=" list-item dropdown d-lg-none">
-    <a class="nav-link btn d-lg-none me-auto float-none dropdown-toggle" href="" role="button" id="mobileAccountOptions"
-        data-bs-toggle="dropdown" aria-expanded="false">
-        <i class="bi d-block mx-auto text-center mb-1 fas fa-user">
-        </i>
+    <!--account-options-start-here-->
+    <li class=" list-item dropdown d-lg-none">
+        <a class="nav-link btn d-lg-none me-auto float-none dropdown-toggle" href="" role="button"
+            id="mobileAccountOptions" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi d-block mx-auto text-center mb-1 fas fa-user">
+            </i>
+        </a>
+        <ul class="dropdown-menu display-font" aria-labelledby="mobileAccountOptions">
+            {% if request.user.is_authenticated %}
+         <a href="{% url 'profile' %}" class="dropdown-item">Profile</a>
+    </li>
+
+    {% if request.user.is_superuser %}
+    <li class="dropdown-item display-font">
+        <a href="{% url 'add_product' %}" class="dropdown-item">Shop Management</a>
+    </li>
+    {% endif %}
+    <li class="dropdown-item display-font">
+        <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+    </li>
+    {% else %}
+    <li>
+        <a class="dropdown-item display-font" href="{% url 'account_signup' %}">Sign Up</a>
+    </li>
+    <li>
+        <a class="dropdown-item display-font" href="{% url 'account_login' %}">Login</a>
+    </li>
+    {% endif %}
+</ul>
+</li>
+<!--./account-options-end-here-->
+<!--AI Art Gallery-->
+<li class="list-item">
+    <a class="nav-link  d-block d-lg-none" href="{% url 'hugo' %}" id="galleryNavLink">
+        <div class="text-center">
+            <i class="fas fa-robot fa-lg">
+            </i>
+        </div>
+        <p class="my-0"> </p>
     </a>
-    <ul class="dropdown-menu display-font" aria-labelledby="mobileAccountOptions">
-        {% if request.user.is_authenticated %}
-        <li class="dropdown-item display-font">
-            <a href="{% url 'profile' %}" class="dropdown-item">Profile</a>
-        </li>
-        {% if request.user.is_superuser %}
-        <li class="dropdown-item display-font">
-            <a href="{% url 'add_product' %}" class="dropdown-item">Shop Management</a>
-        </li>
-        {% endif %}
-        <li class="dropdown-item display-font">
-            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-        </li>
-        {% else %}
-        <li>
-            <a class="dropdown-item display-font" href="{% url 'account_signup' %}">Sign Up</a>
-        </li>
-        <li>
-            <a class="dropdown-item display-font" href="{% url 'account_login' %}">Login</a>
-        </li>
-        {% endif %}
-    </ul>
-    </li>
-    <!--./account-options-end-here-->
-    <!--AI Art Gallery-->
-    <li class="list-item">
-        <a class="nav-link  d-block d-lg-none" href="{% url 'hugo' %}" id="galleryNavLink">
-            <div class="text-center">
-                <i class="fas fa-robot fa-lg">
-                </i>
-            </div>
-            <p class="my-0"> </p>
-        </a>
-    </li>
-    <!--./end-ai-art-gallery-->
-    <li class="list-item">
-
+</li>
     <li class="list-item d-lg-none">
-        <a href="{% url 'home' %}#about" class="nav-link" id="aboutLink">
-            <div class="text-center">
-                <i class="fas fa-info fa-lg"></i>
-            </div>
+                    <a href="{% url 'create_image' %}" class="nav-link">
+                                <div class="text-center">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                </a>
+            </li> 
+<!--./end-ai-art-gallery-->
+<li class="list-item">
 
-        </a>
-    </li>
-    </li>
-    <!--./about-ends-here-->
-    <!--Shop starts here-->
-    <li class="list-item d-lg-none">
-        <a class="nav-link" href="{% url 'shop' %}" id="shopNavLink">
-            <div class="text-center">
-                <div>
-                    <i class="fas fa-shopping-bag fa-lg"></i>
-                </div>
-            </div>
-        </a>
-    </li>
-    <!--./shop-ends-here-->
-    <!--search-bar-starts-->
-    {% if request.path == '/shop/' %}
-    <li class="list-item">
-        <div class="col-12 col-lg-auto my-0 mx-auto w-auto">
-            <a class="nav-link 
-             d-lg-none me-auto float-none" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"
-                data-bs-target="#mobile-search" aria-label="Toggle navigation" href="#">
-                <div class="text-center">
-                    <div>
-                        <i class="fas fa-search fa-lg"></i>
-                    </div>
-                </div>
-            </a>
-            <div class="dropdown-menu w-100 bg-none border-0" aria-labelledby="dropdownMenuButton1">
-                <form class="col-12 form-control-sm" method="GET" action="/shop/">
-                    <div class="input-group">
-                        <input class="form-control border border-dark rounded-0" type="text" name="q"
-                            placeholder="Search our site">
-                        <div class="input-group-text">
-                            <button class="form-control-sm" type="submit">
-                                <span class="icon">
-                                    <i class="fas fa-search"></i>
-                                </span>
-                            </button>
-                        </div>
-                    </div>
-                </form>
+<li class="list-item d-lg-none">
+    <a href="{% url 'home' %}#about" class="nav-link" id="aboutLink">
+        <div class="text-center">
+            <i class="fas fa-info fa-lg"></i>
+        </div>
+
+    </a>
+</li>
+</li>
+<!--./about-ends-here-->
+<!--Shop starts here-->
+<li class="list-item d-lg-none">
+    <a class="nav-link" href="{% url 'shop' %}" id="shopNavLink">
+        <div class="text-center">
+            <div>
+                <i class="fas fa-shopping-bag fa-lg"></i>
             </div>
         </div>
-    </li>
-    {% endif %}
-    <!--./search-bar-ends-->
-
-    {% if grand_total > 0 %}
-    <li class="list-item">
-        <a class="nav-link d-block d-lg-none" href="{% url 'view_cart' %}" id="cartTotal">
+    </a>
+</li>
+<!--./shop-ends-here-->
+<!--search-bar-starts-->
+{% if request.path == '/shop/' %}
+<li class="list-item">
+    <div class="col-12 col-lg-auto my-0 mx-auto w-auto">
+        <a class="nav-link 
+             d-lg-none me-auto float-none" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"
+            data-bs-target="#mobile-search" aria-label="Toggle navigation" href="#">
             <div class="text-center">
-                <div><i class="fas fa-shopping-cart fa-lg"></i></div>
-                <p class="mt-1">
-                    {% if grand_total %}
-                    ${{ grand_total|floatformat:2 }}
-                    {% else %}
-                    $0.00
-                    {% endif %}
-                </p>
+                <div>
+                    <i class="fas fa-search fa-lg"></i>
+                </div>
             </div>
         </a>
-    </li>
-    {% endif %}
+        <div class="dropdown-menu w-100 bg-none border-0" aria-labelledby="dropdownMenuButton1">
+            <form class="col-12 form-control-sm" method="GET" action="/shop/">
+                <div class="input-group">
+                    <input class="form-control border border-dark rounded-0" type="text" name="q"
+                        placeholder="Search our site">
+                    <div class="input-group-text">
+                        <button class="form-control-sm" type="submit">
+                            <span class="icon">
+                                <i class="fas fa-search"></i>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</li>
+{% endif %}
+<!--./search-bar-ends-->
+
+{% if grand_total > 0 %}
+<li class="list-item">
+    <a class="nav-link d-block d-lg-none" href="{% url 'view_cart' %}" id="cartTotal">
+        <div class="text-center">
+            <div><i class="fas fa-shopping-cart fa-lg"></i></div>
+            <p class="mt-1">
+                {% if grand_total %}
+                ${{ grand_total|floatformat:2 }}
+                {% else %}
+                $0.00
+                {% endif %}
+            </p>
+        </div>
+    </a>
+</li>
+{% endif %}
 </ul>
 <!--ul-ends-here-->
