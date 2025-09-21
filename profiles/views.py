@@ -119,7 +119,7 @@ def add_artwork_to_store(request, artwork_id):
 
 def artist_artworks(request, username):
     artist = get_object_or_404(User, username=username)
-    artworks = Artwork.objects.filter(user=artist)
+    artworks = Artwork.objects.filter(user=artist, image__isnull=False).exclude(image='')
     
     context = {
         'artist': artist,
