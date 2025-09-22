@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/***************************** Homepage */
+.hero-container,
+#welcome {
+    background: linear-gradient(rgba(21, 4, 63, 0.791), rgba(8, 2, 36, 0.54)), url('../../../../static/images/paint.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: left;
+    max-width: 100%;
+    min-height: 100vh;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+h2#subTitle {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    font-size: 1.35rem;
+    color: #9389b9;
+}
+
+h1#titleFont,
+a#createArt, 
+a#createArt1,
+a#shopBtn {
+    text-decoration: none;
+    background-image: linear-gradient( -225deg, rgba(79, 23, 209, 0.882)0%, #867def 29%, #4d2bc8 67%, #755cd2 100% );
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2s linear infinite;
+    display: inline-block;
+}
+
+
+
+a#createArt1:hover,
+a#createArt:hover,
+a#shopBtn:hover {
+    text-decoration: underline;
+    background-image: none;
+    background-color: #867def;
+}
+
+section#about {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.251), rgba(247, 247, 247, 0.459), rgba(247, 247, 247, 0.785)), url('../../../../static/images/color.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    max-width: 100%;
+    min-height: 80vh;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+span.mdb {
+    font-weight: 800;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+h1#titleFont {
+    letter-spacing: 5px;
+    font-size: 5rem;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+section#features {
+    background-color: #a39cee94;
+}
+
+@media only screen and (min-width: 780px) {
+    .hero-container,
+#welcome {
+    background-position: center;
+    
+}
+h1#titleFont {
+    letter-spacing: 3px;
+    font-size: 8rem;
+}
+
+}

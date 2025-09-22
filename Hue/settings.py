@@ -12,22 +12,19 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 import os
 import dj_database_url
+from dotenv import load_dotenv
 
-
-if os.path.exists("env.py"):
-    import env
-
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start  development settings - unsuitable for production
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', '')
-print(SECRET_KEY)
+SECRET_KEY = os.getenv("SECRET_KEY")
 
-OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY', '')
-print(OPENAI_API_KEY)
+DATABASE_URL = os.getenv("DATABASE_URL")
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
 
 DEBUG = 'DEVELOPMENT' in os.environ
 
@@ -140,8 +137,8 @@ else:
         }
 }
 
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
+# Password validation
+# https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -159,14 +156,25 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# Internationalization
+# https://docs.djangoproject.com/en/3.2/topics/i18n/
+
 LANGUAGE_CODE = 'en-us'
 
 USE_I18N = True
+
 USE_L10N = True
+# Time zone support is enabled
 USE_TZ = True
 TIME_ZONE = 'UTC'
 
+# MINDSDB CREDENTIALS DEFINED HERE
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/3.2/howto/static-files/
 STATIC_URL = "/static/"
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
@@ -197,7 +205,7 @@ else:
     DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL')
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
-if 'USE_AWS' == True in os.environ:
+if 'USE_AWS' in os.environ:
     # Cache Control
     AWS_S3_OBJECT_PARAMETERS = {
         'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
@@ -206,15 +214,14 @@ if 'USE_AWS' == True in os.environ:
     AWS_STORAGE_BUCKET_NAME = 'hue-alissa'
     AWS_S3_REGION_NAME = 'us-east-2'
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-    print(AWS_ACCESS_KEY_ID)
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
-    print(AWS_SECRET_ACCESS_KEY)
+
+    STATICFILES_LOCATION = 'static'
+    MEDIAFILES_LOCATION = 'media'  # cspell:disable-line
 
     STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-    STATICFILES_LOCATION = 'static'
     DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-    MEDIAFILES_LOCATION = 'media'
 
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
