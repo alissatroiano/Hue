@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'hugo/css/hugo.css' %}">
+{% endblock %}
+
+{% block page_header %}
+<div class="header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <label for="prompt">Enter your prompt:</label><br>
+    <input type="text" id="prompt" name="prompt" size="50"><br><br>
+    <input type="submit" value="Generate Image">
+</form>
+{% endblock %}

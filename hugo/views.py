@@ -51,15 +51,15 @@ def create_image(request):
                 # Create unique filename
                 timestamp = int(time.time())
                 random_suffix = ''.join(random.choices(string.ascii_lowercase, k=6))
-                filename = f"image_{timestamp}_{random_suffix}.png"
+                filename = f"image_{timestamp}_{random_suffix}.jpg"
                 
                 artwork = form.save(commit=False)
                 artwork.user = request.user
                 artwork.save()
                 artwork.image.save(filename, ContentFile(img_bytes), save=True)
-                artwork.image.save(filename, ContentFile(img_bytes), save=True)
                 print("Stored name:", artwork.image.name)
                 print("Stored URL:", artwork.image.url)
+                print("Style:", artwork.style)
 
             except Exception as e:
                 print(f"Error in image generation: {e}")
