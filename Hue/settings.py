@@ -15,22 +15,23 @@ import dj_database_url
 from dotenv import load_dotenv
 
 load_dotenv()
+
+if os.path.exists("env.py"):
+    import env
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start  development settings - unsuitable for production
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("SECRET_KEY")
-
+SECRET_KEY = os.environ.get('SECRET_KEY', '')
 DATABASE_URL = os.getenv("DATABASE_URL")
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY', '')
 
 DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = ['hue-alissa.herokuapp.com', 'localhost', '127.0.0.1']
-
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -137,8 +138,9 @@ else:
         }
 }
 
-# Password validation
-# https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -205,7 +207,7 @@ else:
     DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL')
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
-if 'USE_AWS' in os.environ:
+if os.environ.get('USE_AWS') == 'True':
     # Cache Control
     AWS_S3_OBJECT_PARAMETERS = {
         'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
