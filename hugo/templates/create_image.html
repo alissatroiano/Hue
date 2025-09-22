@@ -16,65 +16,66 @@
 {% block content %}
 <div class="container-fluid" id="createArtForm">
     <div class="row">
-<div class="col-12">
-			<span class="icon pt-3">
-				<i class="fas fa-wand-magic-sparkles fa-3x py-5 mt-5"></i>
-			</span>
-			<h2 class="display-font text-center my-3 my-md-4">Create AI Art</h2>
-			<p class="text-center body-font mx-5 mt-3">Hi, <strong>{{ user.profile|upper }}! </strong> Use this tool to generate unique artwork!</p>
-		</div>
+        <div class="col-12">
+            <span class="icon pt-3">
+                <i class="fas fa-wand-magic-sparkles fa-3x py-5 mt-5"></i>
+            </span>
+            <h2 class="display-font text-center my-3 my-md-4">Create AI Art</h2>
+            <p class="text-center body-font mx-5 mt-3">Hi, <strong>{{ user.profile|upper }}! </strong> Use this tool to
+                generate unique artwork!</p>
         </div>
-	<div class="row d-flex justify-content-center">
-            <form method="POST" action="{% url 'create_image' %}" class="form mb-2" enctype="multipart/form-data"
-                					onsubmit="return showLoading() && validateForm()">
-					{% csrf_token %}
-					{% for field in form %}
-					{% if field.name == 'artwork_description' %}
-					{{ field | as_crispy_field }}
-					<div class="text-start mt-3">
-						<a type="button" class="body-font random-prompt" onclick="generateRandomPrompt()">Surprise
-							Me!</a>
-					</div>
-					<div id="charCount" class="text-end mt-1">
-						<small>Character count: <span id="charCountValue">0</span>/400</small>
-					</div>
-					{% else %}
-					{{ field | as_crispy_field }}
-					{% endif %}
-					{% endfor %}
-					<div class="text-right">
-						<a class="btn btn-dark rounded-0" href="{% url 'hugo' %}">Cancel</a>
-						</button>
-						<button id="createArtBtn" class="btn btn-dark rounded-0" type="submit">Create Art</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <form method="POST" action="{% url 'create_image' %}" class="form mb-2" enctype="multipart/form-data"
+            onsubmit="return showLoading() && validateForm()">
+            {% csrf_token %}
+            {% for field in form %}
+            {% if field.name == 'artwork_description' %}
+            {{ field | as_crispy_field }}
+            <div class="text-start mt-3">
+                <a type="button" class="body-font random-prompt" onclick="generateRandomPrompt()">Surprise
+                    Me!</a>
+            </div>
+            <div id="charCount" class="text-end mt-1">
+                <small>Character count: <span id="charCountValue">0</span>/400</small>
+            </div>
+            {% else %}
+            {{ field | as_crispy_field }}
+            {% endif %}
+            {% endfor %}
+            <div class="text-right">
+                <a class="btn btn-dark rounded-0" href="{% url 'hugo' %}">Cancel</a>
+                </button>
+                <button id="createArtBtn" class="btn btn-dark rounded-0" type="submit">Create Art</button>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
 </div>
 
 
 <div id="loadingMessage" class=" text-center align-items-center justify-content-center">
-	<div class="loading">
-		<div class="text-center">
-			<span class="icon" id="artSpinner">
-				<i class="fas fa-3x fa-spinner fa-spin"></i>
-			</span>
-			<br>
-			<br>
-			<span class="loading-text body-font">
-				Generating your AI masterpiece now...
-			</span>
-			<br>
-			<div class="m-5 px-5 copyright pt-5">
-				<span class="copyright-terms">Subject to the Content Policy and Terms, you own the images you create
-					with <a target="_blank" class="link-font"
-						href="https://openai.com/policies/terms-of-use">DALL·E</a>, including the right to reprint,
-					sell, and merchandise – regardless of whether an image was generated through a free or paid
-					credit.</span>
-			</div>
-		</div>
-	</div>
+    <div class="loading">
+        <div class="text-center">
+            <span class="icon" id="artSpinner">
+                <i class="fas fa-3x fa-spinner fa-spin"></i>
+            </span>
+            <br>
+            <br>
+            <span class="loading-text body-font">
+                Generating your AI masterpiece now...
+            </span>
+            <br>
+            <div class="m-5 px-5 copyright pt-5">
+                <span class="copyright-terms">Subject to the Content Policy and Terms, you own the images you create
+                    with <a target="_blank" class="link-font"
+                        href="https://openai.com/policies/terms-of-use">DALL·E</a>, including the right to reprint,
+                    sell, and merchandise – regardless of whether an image was generated through a free or paid
+                    credit.</span>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
@@ -82,47 +83,47 @@
 {% block postloadjs %}
 {{ block.super }}
 <script>
-	function generateRandomPrompt() {
-		var prompts = [
-			"A surreal landscape with floating islands",
-			"The Hulk, wearing an apron and baking a cake. Retro, 1950's aesthetic",
-			"A futuristic cityscape at sunset",
-			"An enchanted forest with magical creatures",
-			"A steampunk-inspired flying machine",
-			"Abstract art with vibrant colors and geometric shapes",
-			"A serene beach scene with crashing waves",
-			"A whimsical depiction of a talking animal",
-			"Realistic painting of a dystopian industrial city with towering factories, pollution-filled air, and a gloomy sky",
-			"Digital illustration of a dimension breaking apart, using vivid colors and fractured elements",
-			"Cyberpunk digital art of a neon-lit city with a samurai figure, highlighting the contrast between traditional and futuristic",
-			"Darth Vader in a cityscape at night, with bright lights and tall buildings, monumental, japanese wood block style",
-			"Superman, playing an instrument and singing in a green meadow",
-			"Early morning photography of a landscape shrouded in mist, with diffused light and long shadows",
-			"Lifestyle photography of someone listening to vinyl records, using warm tones to evoke nostalgia",
-			"Landscape photography of snow-covered mountain peaks at sunrise, using natural light.",
-			"Interior photography of a cozy corner in a modern, clean office, using natural light",
-			"Documentary photography of vibrant street art, using color and composition to convey the artwork’s energy.",
-			"Daguerreotype still life of a student’s desk with laptop, in front of a window",
-			"Drone photography of a pack of wolves crossing the tundra, sunset shadows",
-			"High-fashion hooded figures in icy blue ballgowns, in a crypt, editorial fashion photography from Vogue magazine. (Some facial elements removed in post)",
-			"Fish-eye lens photograph of a futuristic neon cityscape",
-			"Man in Spiderman costume in NYC at night, harsh flash photography",
-			"A woman walking away from camera in NYC on bright sunny day, photo with Lomography Color Negative 100",
-			"Friends dancing with glowsticks at rave, long exposure photograph with slow shutter speed",
-			"3d render simple minimal toy art kaws styles of a cute cartoon fat shih tzu barking, modern minimalist, digital art",
-			"Woman with elf ears, wearing a dress half black half red. She has fairy like wings, and a mole above her lips. Digital art, minimalist, 3d render, fou",
-			"3d render simple minimal toy art kaws styles of a cute cartoon fat shih tzu barking, modern minimalist, digital art",
-			"Blueprint schematic of a futuristic car, 3d hologram, digital art, 3d render",
-			"Animated scene of a group of warriors making their last stand against a monster army, highlighting the dramatic contrast of light and dark, and the warriors’ expressions of determination"
-		];
+    function generateRandomPrompt() {
+        var prompts = [
+            "A surreal landscape with floating islands",
+            "The Hulk, wearing an apron and baking a cake. Retro, 1950's aesthetic",
+            "A futuristic cityscape at sunset",
+            "An enchanted forest with magical creatures",
+            "A steampunk-inspired flying machine",
+            "Abstract art with vibrant colors and geometric shapes",
+            "A serene beach scene with crashing waves",
+            "A whimsical depiction of a talking animal",
+            "Realistic painting of a dystopian industrial city with towering factories, pollution-filled air, and a gloomy sky",
+            "Digital illustration of a dimension breaking apart, using vivid colors and fractured elements",
+            "Cyberpunk digital art of a neon-lit city with a samurai figure, highlighting the contrast between traditional and futuristic",
+            "Darth Vader in a cityscape at night, with bright lights and tall buildings, monumental, japanese wood block style",
+            "Superman, playing an instrument and singing in a green meadow",
+            "Early morning photography of a landscape shrouded in mist, with diffused light and long shadows",
+            "Lifestyle photography of someone listening to vinyl records, using warm tones to evoke nostalgia",
+            "Landscape photography of snow-covered mountain peaks at sunrise, using natural light.",
+            "Interior photography of a cozy corner in a modern, clean office, using natural light",
+            "Documentary photography of vibrant street art, using color and composition to convey the artwork’s energy.",
+            "Daguerreotype still life of a student’s desk with laptop, in front of a window",
+            "Drone photography of a pack of wolves crossing the tundra, sunset shadows",
+            "High-fashion hooded figures in icy blue ballgowns, in a crypt, editorial fashion photography from Vogue magazine. (Some facial elements removed in post)",
+            "Fish-eye lens photograph of a futuristic neon cityscape",
+            "Man in Spiderman costume in NYC at night, harsh flash photography",
+            "A woman walking away from camera in NYC on bright sunny day, photo with Lomography Color Negative 100",
+            "Friends dancing with glowsticks at rave, long exposure photograph with slow shutter speed",
+            "3d render simple minimal toy art kaws styles of a cute cartoon fat shih tzu barking, modern minimalist, digital art",
+            "Woman with elf ears, wearing a dress half black half red. She has fairy like wings, and a mole above her lips. Digital art, minimalist, 3d render, fou",
+            "3d render simple minimal toy art kaws styles of a cute cartoon fat shih tzu barking, modern minimalist, digital art",
+            "Blueprint schematic of a futuristic car, 3d hologram, digital art, 3d render",
+            "Animated scene of a group of warriors making their last stand against a monster army, highlighting the dramatic contrast of light and dark, and the warriors’ expressions of determination"
+        ];
 
-		var randomPrompt = prompts[Math.floor(Math.random() * prompts.length)];
+        var randomPrompt = prompts[Math.floor(Math.random() * prompts.length)];
         document.getElementById('id_artwork_description').value = randomPrompt;
 
         updateCharCount(randomPrompt); // Update character count after setting the prompt
-	}
+    }
 
-	function validateForm() {
+    function validateForm() {
         var descriptionField = document.getElementById('id_artwork_description');
         var descriptionValue = descriptionField.value.toLowerCase();
 
