@@ -30,6 +30,7 @@ from django.core.files.base import ContentFile
 
 # Initialize OpenAI client with explicit API key
 client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+print(client)
 
 @login_required
 def create_image(request):
