@@ -19,7 +19,7 @@ class Artwork(models.Model):
     artwork_description = models.TextField(null=True, blank=True)
     title = models.CharField(max_length=254, unique=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
-    image = models.ImageField(null=True, blank=True, upload_to='media/')
+    image = models.ImageField(null=True, blank=True, )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     deleted_at = models.DateTimeField(auto_now=True)
