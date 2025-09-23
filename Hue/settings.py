@@ -211,18 +211,18 @@ else:
 # WhiteNoise for static files
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+USE_AWS = 'USE_AWS' in os.environ
+print(f"USE_AWS is set to {USE_AWS}")
 # AWS S3 for media files only
-if os.environ.get('USE_AWS'):
-    print("AWS S3 configuration enabled")
+if USE_AWS:
     AWS_STORAGE_BUCKET_NAME = 'hue-alissa'
     AWS_S3_REGION_NAME = 'us-east-2'
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
-    print(f"AWS Bucket: {AWS_STORAGE_BUCKET_NAME}")
-    print(f"AWS Access Key: {AWS_ACCESS_KEY_ID[:10]}..." if AWS_ACCESS_KEY_ID else "No AWS Access Key")
-
-    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+    AWS_S3_FILE_OVERWRITE = False
+    AWS_DEFAULT_ACL = 'public-read' # Or 'private' depending on your needs
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
     MEDIAFILES_LOCATION = '/media/'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 else:

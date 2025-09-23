@@ -56,17 +56,17 @@ def create_image(request):
                 }
                 
                 prompt = style_prompts.get(style.name, text) if style else text
-                
                 # Generate image with OpenAI
                 response = client.images.generate(
                     model="dall-e-3",
                     prompt=prompt,
                     size="1024x1024",
-                    response_format="b64_json"
+                    response_format="jpg_base64",
+                    n=1
                 )
                 
-                b64_image = response.data[0].b64_json
-                img_bytes = base64.b64decode(b64_image)
+                image = response.data[0].b64_json
+                img_bytes = base64.b64decode(image)
                 
                 # Generate filename
                 timestamp = str(int(time.time()))
