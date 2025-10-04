@@ -61,8 +61,7 @@ def create_image(request):
                     model="dall-e-3",
                     prompt=prompt,
                     size="1024x1024",
-                    response_format="jpg_base64",
-                    n=1
+                    response_format="b64_json"
                 )
                 
                 image = response.data[0].b64_json
@@ -74,8 +73,13 @@ def create_image(request):
                 image_filename = f'image_{timestamp}_{random_str}.jpg'
                 
                 # Save image
-                artwork.image.save(image_filename, ContentFile(img_bytes))
-                artwork.save()
+                try:
+                    artwork.image.save(image_filename, ContentFile(img_bytes))
+                    artwork.save()
+                    print(f"Image saved successfully: {artwork.image.url}")
+                except Exception as save_error:
+                    print(f"Error saving image: {save_error}")
+                    raise save_error
                 
                 return redirect(reverse('hugo'))
         except Exception as e:
