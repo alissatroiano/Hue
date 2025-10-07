@@ -12,23 +12,21 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 import os
 import dj_database_url
-from dotenv import load_dotenv
+from pathlib import Path
 
+from dotenv import load_dotenv
 load_dotenv()
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start  development settings - unsuitable for production
+DEBUG = 'DEVELOPMENT' in os.environ
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 DATABASE_URL = os.getenv("DATABASE_URL")
 OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY', '')
-
-DEBUG = 'DEVELOPMENT' in os.environ
-
 ALLOWED_HOSTS = ['hue-alissa.herokuapp.com', 'localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
@@ -37,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'django.contrib.sites',
     # Custom Apps
@@ -70,9 +69,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'Hue.urls'
-
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
-
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 TEMPLATES = [
@@ -137,10 +134,6 @@ else:
         }
 }
 
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
-
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -182,15 +175,12 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
-STORAGES = {
-    "default": {
-        "BACKEND": "django.core.files.storage.FileSystemStorage",
-        "LOCATION": MEDIA_ROOT,
-    },
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
+DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+R2_ENDPOINT = os.environ.get("R2_ENDPOINT")
+R2_STORAGE_BUCKET_NAME = os.environ.get("R2_STORAGE_BUCKET_NAME")
+CF_ACCESS_KEY= os.environ.get("CF_ACCESS_KEY")
+CF_SECRET_ACCESS_KEY= os.environ.get("CF_SECRET_ACCESS_KEY")
+print(CF_SECRET_ACCESS_KEY)
 
 # Promotions & Discounts
 PROMOTION_MINIMUM = 50
