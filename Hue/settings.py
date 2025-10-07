@@ -167,20 +167,20 @@ TIME_ZONE = 'UTC'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 STATIC_URL = "/static/"
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-# Media files (Local Only)
-MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+# # Media files (Local Only)
+# MEDIA_URL = "/media/"
+# MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+# Production Image Uploads
 
 DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-R2_ENDPOINT = os.environ.get("R2_ENDPOINT")
-R2_STORAGE_BUCKET_NAME = os.environ.get("R2_STORAGE_BUCKET_NAME")
+R2_ENDPOINT = 'https://cecb5b30d47498b6d31200a635d97400.r2.cloudflarestorage.com/hue'
+R2_STORAGE_BUCKET_NAME = 'hue'
 CF_ACCESS_KEY= os.environ.get("CF_ACCESS_KEY")
 CF_SECRET_ACCESS_KEY= os.environ.get("CF_SECRET_ACCESS_KEY")
-print(CF_SECRET_ACCESS_KEY)
 
 # Promotions & Discounts
 PROMOTION_MINIMUM = 50
