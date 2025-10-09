@@ -178,7 +178,7 @@ CLOUDFLARE_ACCOUNT_ID = os.environ.get('CLOUDFLARE_ACCOUNT_ID')
 CLOUDFLARE_API_TOKEN = os.environ.get('CLOUDFLARE_API_TOKEN')
 CLOUDFLARE_ACCOUNT_HASH = os.environ.get('CLOUDFLARE_ACCOUNT_HASH')
 
-# AWS S3 Configuration
+# AWS S3 Configuration for media files only
 if os.environ.get('USE_AWS') == 'True':
     print("AWS S3 configuration enabled")
     AWS_STORAGE_BUCKET_NAME = 'hue-alissa'
@@ -186,9 +186,9 @@ if os.environ.get('USE_AWS') == 'True':
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
-    print(AWS_S3_CUSTOM_DOMAIN)
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/'
+    
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
 else:
     print("Using local media storage")
     MEDIA_URL = '/media/'
