@@ -28,9 +28,7 @@ from openai import OpenAI
 import time
 from django.core.files.base import ContentFile
 
-# Initialize OpenAI client with explicit API key
-client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
-print(client)
+
 
 @login_required
 def create_image(request):
@@ -57,6 +55,7 @@ def create_image(request):
                 
                 prompt = style_prompts.get(style.name, text) if style else text
                 # Generate image with OpenAI
+                client = OpenAI(api_key=settings.OPENAI_API_KEY)
                 response = client.images.generate(
                     model="dall-e-3",
                     prompt=prompt,
@@ -113,17 +112,3 @@ def artwork_detail(request, artwork_id):
 
     return render(request, 'artwork_detail.html', context)
 
-# send image requests to Open AI endpoint https://api.openai.com/v1/images/generations
-
-    if request.method == 'POST':
-        form = ArtworkForm(request.POST, request.FILES)
-        if form.is_valid():
-            artwork = form.save(commit=False)
-            artwork.user = request.user
-            artwork.save()
-            messages.success(request, 'Artwork created successfully!')
-            return redirect('hugo')
-    else:
-        form = ArtworkForm()
-
-    return render(request, 'create_image.html', {'form': form})
