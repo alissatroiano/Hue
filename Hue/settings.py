@@ -167,20 +167,32 @@ TIME_ZONE = 'UTC'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 STATIC_URL = "/static/"
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# # Media files (Local Only)
-# MEDIA_URL = "/media/"
-# MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+# Media
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# Production Image Uploads
+CLOUDFLARE_ACCOUNT_ID = os.environ.get('CLOUDFLARE_ACCOUNT_ID')
+CLOUDFLARE_API_TOKEN = os.environ.get('CLOUDFLARE_API_TOKEN')
+CLOUDFLARE_ACCOUNT_HASH = os.environ.get('CLOUDFLARE_ACCOUNT_HASH')
 
-DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-R2_ENDPOINT = 'https://cecb5b30d47498b6d31200a635d97400.r2.cloudflarestorage.com/hue'
-R2_STORAGE_BUCKET_NAME = 'hue'
-CF_ACCESS_KEY= os.environ.get("CF_ACCESS_KEY")
-CF_SECRET_ACCESS_KEY= os.environ.get("CF_SECRET_ACCESS_KEY")
+# Cloudflare R2 Configuration
+if os.environ.get('USE_R2') == 'True':
+    print("Cloudflare R2 configuration enabled")
+    AWS_ACCESS_KEY_ID = os.environ.get('CF_ACCESS_KEY')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('CF_SECRET_ACCESS_KEY')
+    AWS_STORAGE_BUCKET_NAME = 'hue'
+    AWS_S3_ENDPOINT_URL = 'https://cecb5b30d47498b6d31200a635d97400.r2.cloudflarestorage.com/hue'    
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    MEDIA_URL = f'https://{AWS_S3_ENDPOINT_URL}/'
+else:
+    print("Using local media storage")
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = BASE_DIR / 'media'
 
 # Promotions & Discounts
 PROMOTION_MINIMUM = 50
