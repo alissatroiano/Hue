@@ -24,7 +24,7 @@ DEBUG = 'DEVELOPMENT' in os.environ
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
-DATABASE_URL = os.getenv("DATABASE_URL")
+DATABASE_URL = os.getenv("DATABASE_URL", "")
 OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY', '')
 ALLOWED_HOSTS = ['hue-alissa.herokuapp.com', 'localhost', '127.0.0.1']
 
@@ -178,6 +178,8 @@ else:
 
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
