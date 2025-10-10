@@ -73,9 +73,11 @@ def create_image(request):
                 
                 # Save image
                 try:
-                    artwork.image.save(image_filename, ContentFile(img_bytes))
-                    artwork.save()
+                    print(f"Attempting to save image: {image_filename}")
+                    print(f"Image size: {len(img_bytes)} bytes")
+                    artwork.image.save(image_filename, ContentFile(img_bytes), save=True)
                     print(f"Image saved successfully: {artwork.image.url}")
+                    print(f"Image name in database: {artwork.image.name}")
                 except Exception as save_error:
                     print(f"Error saving image: {save_error}")
                     raise save_error
