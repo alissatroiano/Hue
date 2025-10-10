@@ -12,13 +12,12 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 import os
 import dj_database_url
-from pathlib import Path
 
 from dotenv import load_dotenv
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start  development settings - unsuitable for production
 DEBUG = 'DEVELOPMENT' in os.environ
@@ -133,6 +132,10 @@ else:
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
 }
+    
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
