@@ -28,7 +28,28 @@ from openai import OpenAI
 import time
 from django.core.files.base import ContentFile
 
+from cart.views import add_to_cart
 
+def hugo(request):
+    """ A view to show the AI art gallery """
+    artworks = Artwork.objects.all()
+    styles = None
+
+     # sort artwork by style if the user has selected that style
+    if request.GET:
+        if 'style' in request.GET:
+            styles = request.GET['style'].split(',')
+            artworks = artworks.filter(style__name__in=styles)
+            styles = Style.objects.filter(name__in=styles)
+    # display artwork from newest to oldest whe visiting the page
+    artworks = artworks.order_by('-created_at')
+    context = {
+        'artworks': artworks,
+        'current_styles': styles,
+        # 'sort_dir': sort_dir,
+    }
+
+    return render(request, 'hugo.html', context)
 
 @login_required
 def create_image(request):
@@ -54,6 +75,7 @@ def create_image(request):
                 }
                 
                 prompt = style_prompts.get(style.name, text) if style else text
+                
                 # Generate image with OpenAI
                 client = OpenAI(api_key=settings.OPENAI_API_KEY)
                 response = client.images.generate(
@@ -72,15 +94,7 @@ def create_image(request):
                 image_filename = f'image_{timestamp}_{random_str}.jpg'
                 
                 # Save image
-                try:
-                    print(f"Attempting to save image: {image_filename}")
-                    print(f"Image size: {len(img_bytes)} bytes")
-                    artwork.image.save(image_filename, ContentFile(img_bytes), save=True)
-                    print(f"Image saved successfully: {artwork.image.url}")
-                    print(f"Image name in database: {artwork.image.name}")
-                except Exception as save_error:
-                    print(f"Error saving image: {save_error}")
-                    raise save_error
+                artwork.image.save(image_filename, ContentFile(img_bytes), save=True)
                 
                 return redirect(reverse('hugo'))
         except Exception as e:
@@ -94,15 +108,6 @@ def create_image(request):
     context = {'form': form}
     return render(request, template, context)
 
-def hugo(request):
-    """ A view to show the AI art gallery """
-    artworks = Artwork.objects.filter(is_public=True, image__isnull=False).exclude(image='').order_by('-created_at')
-    
-    context = {
-        'artworks': artworks,
-    }
-    
-    return render(request, 'hugo.html', context)
 
 def artwork_detail(request, artwork_id):
     """ A view to render a page for individual artwork and artwork details """

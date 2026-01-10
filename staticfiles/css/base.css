@@ -6,6 +6,15 @@ body {
     margin: 0px auto;
 }
 
+body.login .theme-toggle {
+    display: none;
+}
+
+a.skip-to-content-link,
+div#branding {
+    display: none;
+}
+
 /* *************************** Headers & Special Text */
 h1,
 h3,

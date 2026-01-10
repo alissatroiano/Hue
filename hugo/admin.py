@@ -1,7 +1,5 @@
 from django.contrib import admin
-from django.conf import settings
 from .models import Artwork, Style
-
 
 @admin.register(Style)
 class StyleAdmin(admin.ModelAdmin):
