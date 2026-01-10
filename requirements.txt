@@ -27,13 +27,10 @@ exceptiongroup
 frozenlist
 greenlet
 gunicorn
-heroku==8.7.1
 idna
 iniconfig
 ipaddress
 jmespath
-mindsdb-sdk
-mindsdb-sql
 multidict
 numpy
 oauthlib
@@ -63,4 +60,3 @@ tomli
 tqdm
 urllib3
 whitenoise
-mindsdb_sdk

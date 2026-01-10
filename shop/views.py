@@ -16,8 +16,16 @@ import mindsdb_sdk
 import pandas as pd
 from pandas import DataFrame
 from django.shortcuts import render
-mdb_server = mindsdb_sdk.connect(settings.MINDSDB_HOST, settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
-project = mdb_server.get_project('mindsdb')
+
+# Only connect to MindsDB if credentials are provided
+mdb_server = None
+project = None
+if settings.MINDSDB_HOST and settings.MINDSDB_EMAIL and settings.MINDSDB_PASSWORD:
+    try:
+        mdb_server = mindsdb_sdk.connect(settings.MINDSDB_HOST, settings.MINDSDB_EMAIL, settings.MINDSDB_PASSWORD)
+        project = mdb_server.get_project('mindsdb')
+    except Exception as e:
+        print(f"MindsDB connection failed: {e}")
 
 
 @login_required
